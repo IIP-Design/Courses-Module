@@ -1,6 +1,6 @@
 {
     "name": "iip-design/courses-module",
-    "type": "react-component",
+    "type": "react-application",
     "authors": [
         {
             "name": "Office of Design, U.S. Department of State",
@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-       "composer/installers": "~1.0"
+       "composer/installers": "~1.0",
+       "eloquent/composer-npm-bridge": "^3"
     }
 }
