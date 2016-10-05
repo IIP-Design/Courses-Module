@@ -1,5 +1,6 @@
 {
     "name": "iip-design/courses-module",
+    "type": "react-component",
     "authors": [
         {
             "name": "Office of Design, U.S. Department of State",
