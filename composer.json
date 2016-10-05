@@ -1,0 +1,12 @@
+{
+    "name": "iip-design/courses-module",
+    "authors": [
+        {
+            "name": "Office of Design, U.S. Department of State",
+            "email": "design@america.gov"
+        }
+    ],
+    "require": {
+       "composer/installers": "~1.0"
+    }
+}
