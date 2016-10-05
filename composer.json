@@ -9,6 +9,7 @@
     ],
     "require": {
        "composer/installers": "~1.0",
-       "eloquent/composer-npm-bridge": "^3"
+       "eloquent/composer-npm-bridge": "^3",
+       "oomphinc/composer-installers-extender": "^1.1"
     }
 }
