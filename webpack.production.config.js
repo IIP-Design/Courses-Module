@@ -44,5 +44,8 @@ module.exports = {
         warnings: false
       }
     })
-  ]
+  ],
+  postcss: function() {
+    return [ autoprefixer({ browsers: ['> 1%', 'last 3 IE versions'] }) ]
+  }
 };

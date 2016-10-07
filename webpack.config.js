@@ -1,6 +1,5 @@
-process.env.NODE_ENV = 'development';
-
 var path = require('path');
+var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 
 
@@ -37,5 +36,8 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       }
     })
-  ]
+  ],
+  postcss: function() {
+    return [ autoprefixer({ browsers: ['> 1%', 'last 3 IE versions'] }) ]
+  }
 };
