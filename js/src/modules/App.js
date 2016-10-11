@@ -1,12 +1,13 @@
-var React = require('react');
+const React = require('react');
 
 require('./App.scss');
+const data = require('../../../course.json');
 
-var App = React.createClass({
-  render: function() {
+const App = React.createClass({
+  render: function () {
     return (
       <div>
-        <h1>Hello World!</h1>
+        <h1>App</h1>
       </div>
     );
   }
