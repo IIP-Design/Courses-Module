@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack -d",
-    "webpack:watch": "webpack --watch",
-    "server": "browser-sync start --server --files './index.html' 'js/src/packed.js'",
-    "watch": "parallelshell 'npm run server' 'npm run webpack:watch'",
+    "watch": "webpack --watch",
     "prod": "webpack -p --config webpack.production.config.js"
   },
   "repository": {
@@ -27,9 +25,7 @@
   "devDependencies": {
     "autoprefixer": "^6.5.0",
     "babel-loader": "^6.2.5",
-    "browser-sync": "^2.17.0",
     "css-loader": "^0.25.0",
-    "parallelshell": "^2.0.0",
     "postcss-loader": "^0.13.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

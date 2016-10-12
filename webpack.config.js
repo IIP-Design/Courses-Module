@@ -22,11 +22,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader!postcss-loader'
+        loader: 'style-loader!css-loader!sass-loader!postcss-loader',
+        exclude: [path.join(__dirname, 'node_modules')]
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192'
+        loader: 'url-loader?limit=8192',
+        exclude: [path.join(__dirname, 'node_modules')]
       }
     ]
   },
