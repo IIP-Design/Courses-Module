@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 
 module.exports = {
@@ -37,7 +38,13 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('development')
       }
-    })
+    }),
+
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      proxy: 'http://10.0.15.25:8005/'
+    }, { reload: false })
   ],
   postcss: function() {
     return [ autoprefixer({ browsers: ['> 1%', 'last 3 IE versions'] }) ]
