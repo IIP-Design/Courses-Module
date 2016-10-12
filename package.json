@@ -6,7 +6,8 @@
   "scripts": {
     "webpack": "webpack -d",
     "watch": "webpack --watch",
-    "prod": "webpack -p --config webpack.production.config.js"
+    "prod": "webpack -p --config webpack.production.config.js",
+    "dev": "parallelshell 'webpack --watch' 'http-server'"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
     "babel-loader": "^6.2.5",
     "browser-sync-webpack-plugin": "^1.1.3",
     "css-loader": "^0.25.0",
+    "http-server": "^0.9.0",
+    "parallelshell": "^2.0.0",
     "postcss-loader": "^0.13.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
@@ -35,7 +38,6 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
-    "webpack-cleanup-plugin": "^0.4.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-cleanup-plugin": "^0.4.0"
   }
 }

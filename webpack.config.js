@@ -43,8 +43,8 @@ module.exports = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-      proxy: 'http://10.0.15.25:8005/'
-    }, { reload: false })
+      proxy: '127.0.0.1:8080'
+    }, { reload: true })
   ],
   postcss: function() {
     return [ autoprefixer({ browsers: ['> 1%', 'last 3 IE versions'] }) ]
