@@ -7,8 +7,9 @@ const MediaObject     = require('./MediaObject');
 const Course = React.createClass({
   getInstructors: function() {
     const instructors = [];
+    const course = this.props.params || {}
 
-    this.props.course.lessons.forEach(function(lesson) {
+    course.lessons.forEach(function(lesson) {
       lesson.instructors.forEach(function(instructor) {
         const found = JSON.stringify(instructors).indexOf(JSON.stringify(instructor)) > -1;
         if (found === false) {
@@ -21,14 +22,16 @@ const Course = React.createClass({
   },
 
   render: function() {
+    const course = this.props.params || {}
+
     return (
       <div>
         <section className="course-intro">
           // Description vs Excerpt and how to handle custom styles, like for instance the image floated right, instead of left?
-          <MediaObject tag={ 'h4' } src_url={ this.props.course.media.src_url } alt={ this.props.course.media.alt } width={ this.props.course.media.width } height={ this.props.course.media.height } title={ this.props.course.title } description={ this.props.course.excerpt }  />
+          <MediaObject tag={ 'h4' } src_url={ course.media.src_url } alt={ course.media.alt } width={ course.media.width } height={ course.media.height } title={ course.title } description={ course.excerpt }  />
         </section>
         <StepsList />
-        <LessonList lessons={ this.props.course.lessons } />
+        <LessonList lessons={ course.lessons } />
         <InstructorList instructors={ this.getInstructors() } />
       </div>
     );

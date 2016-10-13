@@ -1,8 +1,6 @@
 const React = require('react');
 const MediaObject = require('./MediaObject');
 
-console.log('COURSE LIST')
-
 const CourseList = React.createClass({
   render: function() {
     const data = this.props.route.data || {};
