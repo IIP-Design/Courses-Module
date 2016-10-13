@@ -6,6 +6,10 @@ const CourseLesson = require('./modules/CourseLesson');
 const CourseQuiz = require('./modules/CourseQuiz');
 const { Router, Route, hashHistory } = require('react-router');
 
+if (process.env.NODE_ENV === 'development') {
+  var data = require('./course-data');
+}
+
 const App = React.createClass({
 	render () {
 		return (
@@ -20,6 +24,6 @@ const App = React.createClass({
 });
 
 ReactDOM.render(
-	<App/>,
-	document.getElementById('course-container')
+  <App data={ data } />,
+  document.getElementById('course-container')
 );

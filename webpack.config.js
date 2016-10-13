@@ -1,8 +1,8 @@
-const path = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin');
+
+var path = require('path');
+var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -50,11 +50,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader!postcss-loader'
+        loader: 'style-loader!css-loader!sass-loader!postcss-loader',
+        exclude: [path.join(__dirname, 'node_modules')]
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192'
+        loader: 'url-loader?limit=8192',
+        exclude: [path.join(__dirname, 'node_modules')]
       },
       {
         test: /\.json$/,
@@ -68,17 +70,16 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       }
     }),
-     new BrowserSyncPlugin(
+    new BrowserSyncPlugin(
       {
         host: 'localhost',
         port: 3000,
-        proxy: 'http://localhost:3100/'
+        proxy: '127.0.0.1:8080'
       },
       {
-        reload: false
+        reload: false  // true
       }
-    ),
-    new BellOnBundlerErrorPlugin(),
+    )
   ],
   postcss: function() {
     return [ autoprefixer({ browsers: ['> 1%', 'last 3 IE versions'] }) ]

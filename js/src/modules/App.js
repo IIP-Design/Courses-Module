@@ -1,14 +1,11 @@
-const React = require('react');
-
-require('./App.scss');
-const data = require('../../../course.json');
+const React   		= require('react');
+const CourseList 	= require('./CourseList');
+ 										require('./App.scss');
 
 const App = React.createClass({
-  render: function () {
+  render: function() {
     return (
-      <div>
-        <h1>App</h1>
-      </div>
+      <CourseList data={ this.props.data } />
     );
   }
 });
