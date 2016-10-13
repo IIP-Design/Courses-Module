@@ -5,7 +5,7 @@ const InstructorList = React.createClass({
   render: function() {
     const instructors = this.props.instructors.map(function(instructor) {
       return (
-        <MediaObject key={ instructor.id } tag={ 'h4' } src_url={ instructor.media.src_url } alt={ instructor.media.alt } width={ instructor.media.width } height={ instructor.media.height } title={ instructor.title } description={ instructor.description } />
+        <MediaObject key={ instructor.id } tag={ 'h4' } { ...instructor } />
       );
     });
     return (
