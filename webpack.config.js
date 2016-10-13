@@ -1,4 +1,3 @@
-
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
@@ -32,13 +31,6 @@ module.exports = {
     'react/lib/ReactContext': true,
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.js?$/,
-        loader: 'semistandard',
-        exclude: /node_modules/
-      }
-    ],
     loaders: [
       {
         test: /\.js$/,

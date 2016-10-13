@@ -6,7 +6,7 @@ const MediaObject = React.createClass({
 
     return (
         <div className="media-object">
-          <img className="media-object-image" src={ this.props.src_url } alt={ this.props.alt } width={ this.props.width } height={ this.props.height }/>
+          <img className="media-object-image" src={ this.props.media.src_url } alt={ this.props.media.alt } width={ this.props.media.width } height={ this.props.media.height }/>
           <header>
             <CustomTag className="media-object-title">{ this.props.title }</CustomTag>
           </header>

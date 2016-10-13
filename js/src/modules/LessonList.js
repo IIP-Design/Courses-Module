@@ -6,7 +6,7 @@ const LessonList = React.createClass({
     const lessons = this.props.lessons.map(function(lesson) {
       return (
         <li key={ lesson.id }>
-          <MediaObject tag={ 'h4' } src_url={ lesson.media.src_url } alt={ lesson.media.alt } width={ lesson.media.width } height={ lesson.media.height } title={ lesson.title } description={ lesson.excerpt } />
+          <MediaObject tag={ 'h4' } { ...lesson } />
         </li>
       );
     });
