@@ -1,8 +1,8 @@
 const React           = require('react');
-const StepsList       = require('./StepsList');
 const LessonList      = require('./LessonList');
 const InstructorList  = require('./InstructorList');
-const MediaObject     = require('./MediaObject');
+const MediaObject     = require('./components/MediaObject');
+const StepsList       = require('./components/StepsList');
 
 const Course = React.createClass({
   propType: function() {
@@ -16,7 +16,7 @@ const Course = React.createClass({
     return { data: course };
   },
 
-  // Temporary method until strat ajax requests
+  // Temporary method until start ajax requests
   getCourse: function(courses) {
     const props = this.props;
     var found;
