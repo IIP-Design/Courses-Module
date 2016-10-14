@@ -1,8 +1,8 @@
 const React = require('react');
-const CourseList 	= require('./CourseList');
+const CourseList = require('./CourseList');
 const Course = require('./Course');
 const Lesson = require('./Lesson');
-const Quiz = require('./CourseQuiz');
+const Quiz = require('./Quiz');
 const Certificate = require('./Certificate');
 const Instructor = require('./Instructor');
 const { Router, Route, hashHistory } = require('react-router');

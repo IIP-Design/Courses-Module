@@ -1076,7 +1076,7 @@
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n\nvar React = __webpack_require__(1);\nvar CourseList = __webpack_require__(173);\nvar Course = __webpack_require__(239);\nvar Lesson = __webpack_require__(244);\nvar Quiz = __webpack_require__(245);\nvar Certificate = __webpack_require__(246);\nvar Instructor = __webpack_require__(247);\n\nvar _require = __webpack_require__(175);\n\nvar Router = _require.Router;\nvar Route = _require.Route;\nvar hashHistory = _require.hashHistory;\n\n\nvar App = React.createClass({\n  displayName: 'App',\n  render: function render() {\n    return React.createElement(\n      Router,\n      { history: hashHistory },\n      React.createElement(Route, { path: '/', component: CourseList }),\n      React.createElement(Route, { path: '/courses', component: CourseList }),\n      React.createElement(Route, { path: '/courses/:id', component: Course }),\n      React.createElement(Route, { path: '/courses/:id/lessons/:id', component: Lesson }),\n      React.createElement(Route, { path: '/courses/:id/quiz', component: Quiz }),\n      React.createElement(Route, { path: '/courses/:id/certificate', component: Certificate }),\n      React.createElement(Route, { path: '/instructors/:id', component: Instructor })\n    );\n  }\n});\n\nmodule.exports = App;\n\n/*****************\n ** WEBPACK FOOTER\n ** ./js/src/modules/App.js\n ** module id = 172\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./js/src/modules/App.js?");
+	eval("'use strict';\n\nvar React = __webpack_require__(1);\nvar CourseList = __webpack_require__(173);\nvar Course = __webpack_require__(239);\nvar Lesson = __webpack_require__(244);\nvar Quiz = __webpack_require__(248);\nvar Certificate = __webpack_require__(246);\nvar Instructor = __webpack_require__(247);\n\nvar _require = __webpack_require__(175);\n\nvar Router = _require.Router;\nvar Route = _require.Route;\nvar hashHistory = _require.hashHistory;\n\n\nvar App = React.createClass({\n  displayName: 'App',\n  render: function render() {\n    return React.createElement(\n      Router,\n      { history: hashHistory },\n      React.createElement(Route, { path: '/', component: CourseList }),\n      React.createElement(Route, { path: '/courses', component: CourseList }),\n      React.createElement(Route, { path: '/courses/:id', component: Course }),\n      React.createElement(Route, { path: '/courses/:id/lessons/:id', component: Lesson }),\n      React.createElement(Route, { path: '/courses/:id/quiz', component: Quiz }),\n      React.createElement(Route, { path: '/courses/:id/certificate', component: Certificate }),\n      React.createElement(Route, { path: '/instructors/:id', component: Instructor })\n    );\n  }\n});\n\nmodule.exports = App;\n\n/*****************\n ** WEBPACK FOOTER\n ** ./js/src/modules/App.js\n ** module id = 172\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./js/src/modules/App.js?");
 
 /***/ },
 /* 173 */
@@ -1511,12 +1511,7 @@
 	eval("'use strict';\n\nvar React = __webpack_require__(1);\n\nvar _require = __webpack_require__(175);\n\nvar Link = _require.Link;\nvar object = React.PropTypes.object;\n\n\nvar Lesson = React.createClass({\n  displayName: 'Lesson',\n\n  propTypes: {\n    lesson: object\n  },\n\n  getInitialState: function getInitialState() {\n    var data = __webpack_require__(238);\n    var lesson = this.getLesson(data);\n\n    return { data: lesson };\n  },\n\n  // Temporary method until start ajax requests\n  getLesson: function getLesson(courses) {\n    var props = this.props;\n    var found;\n\n    courses.forEach(function (course) {\n      course.lessons.forEach(function (lesson) {\n        if (Number(lesson.id) === Number(props.params.id[1])) {\n          found = lesson;\n        }\n      });\n    });\n\n    return found;\n  },\n\n  render: function render() {\n    return React.createElement(\n      'div',\n      null,\n      React.createElement(\n        'h1',\n        null,\n        this.state.data.title\n      ),\n      React.createElement(\n        Link,\n        { to: '/courses/' + this.props.params.id[0] + '/quiz' },\n        'Go to quiz'\n      )\n    );\n  }\n});\n\nmodule.exports = Lesson;\n\n/*****************\n ** WEBPACK FOOTER\n ** ./js/src/modules/Lesson.js\n ** module id = 244\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./js/src/modules/Lesson.js?");
 
 /***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	eval("'use strict';\n\nvar React = __webpack_require__(1);\n\nvar Quiz = React.createClass({\n  displayName: 'Quiz',\n\n  render: function render() {\n    return React.createElement(\n      'div',\n      null,\n      React.createElement(\n        'h1',\n        null,\n        'Quiz'\n      )\n    );\n  }\n});\n\nmodule.exports = Quiz;\n\n/*****************\n ** WEBPACK FOOTER\n ** ./js/src/modules/CourseQuiz.js\n ** module id = 245\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./js/src/modules/CourseQuiz.js?");
-
-/***/ },
+/* 245 */,
 /* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1527,6 +1522,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	eval("'use strict';\n\nvar React = __webpack_require__(1);\n\nvar Instructor = React.createClass({\n  displayName: 'Instructor',\n\n  propTypes: {\n    instructor: React.PropTypes.object\n  },\n\n  // Temp function until ajax requests\n  getInitialState: function getInitialState() {\n    var data = __webpack_require__(238);\n    var instructor = this.getInstructor(data);\n\n    return { data: instructor };\n  },\n\n  getInstructor: function getInstructor(courses) {\n    var props = this.props;\n    var found;\n\n    courses.forEach(function (course) {\n      course.lessons.forEach(function (lesson) {\n        lesson.instructors.forEach(function (instructor) {\n          if (Number(instructor.id) === Number(props.params.id)) {\n            found = instructor;\n          }\n        });\n      });\n    });\n\n    return found;\n  },\n\n  render: function render() {\n    return React.createElement(\n      'h2',\n      null,\n      'Instructor: ',\n      this.state.data.title\n    );\n  }\n});\n\nmodule.exports = Instructor;\n\n/*****************\n ** WEBPACK FOOTER\n ** ./js/src/modules/Instructor.js\n ** module id = 247\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./js/src/modules/Instructor.js?");
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	eval("'use strict';\n\nvar React = __webpack_require__(1);\n\nvar Quiz = React.createClass({\n  displayName: 'Quiz',\n\n  render: function render() {\n    return React.createElement(\n      'div',\n      null,\n      React.createElement(\n        'h1',\n        null,\n        'Quiz'\n      )\n    );\n  }\n});\n\nmodule.exports = Quiz;\n\n/*****************\n ** WEBPACK FOOTER\n ** ./js/src/modules/Quiz.js\n ** module id = 248\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./js/src/modules/Quiz.js?");
 
 /***/ }
 /******/ ]);
