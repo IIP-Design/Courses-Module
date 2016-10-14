@@ -5,14 +5,38 @@ const InstructorList  = require('./InstructorList');
 const MediaObject     = require('./MediaObject');
 
 const Course = React.createClass({
+  propType: function() {
+    params: React.PropTypes.object
+  },
+
+  getInitialState: function() {
+    const data = require('../course-data');
+    const course = this.getCourse(data);
+
+    return { data: course };
+  },
+
+  // Temporary method until strat ajax requests
+  getCourse: function(courses) {
+    const props = this.props;
+    var found;
+
+    courses.forEach(function(course) {
+      if (Number(course.id) === Number(props.params.id)) {
+        found = course;
+      }
+    });
+
+    return found;
+  },
+
   getInstructors: function() {
     const instructors = [];
-    const course = this.props.params || {}
 
-    course.lessons.forEach(function(lesson) {
+    this.state.data.lessons.forEach(function(lesson) {
       lesson.instructors.forEach(function(instructor) {
         const found = JSON.stringify(instructors).indexOf(JSON.stringify(instructor)) > -1;
-        if (found === false) {
+        if (!found) {
           instructors.push(instructor);
         }
       });
@@ -22,16 +46,16 @@ const Course = React.createClass({
   },
 
   render: function() {
-    const course = this.props.params || {}
+    const courseId = this.state.data.id;
+    const lessons = this.state.data.lessons;
 
     return (
       <div>
-        <section className="course-intro">
-          // Description vs Excerpt and how to handle custom styles, like for instance the image floated right, instead of left?
-          <MediaObject tag={ 'h4' } src_url={ course.media.src_url } alt={ course.media.alt } width={ course.media.width } height={ course.media.height } title={ course.title } description={ course.excerpt }  />
+        <section className='course-intro'>
+          <MediaObject tag={ 'h4' } reversed={ true }  { ...this.state.data } />
         </section>
         <StepsList />
-        <LessonList lessons={ course.lessons } />
+        <LessonList lessons={ lessons }  courseId={ courseId } />
         <InstructorList instructors={ this.getInstructors() } />
       </div>
     );
