@@ -7,14 +7,15 @@ const LessonList = React.createClass({
   },
 
   render: function() {
-    const props = this.props;
-    const lessons = props.course.lessons.map(function(lesson) {
+    const courseId = this.props.courseId;
+    const lessons = this.props.lessons.map(function(lesson) {
       return (
         <li key={ lesson.id }>
-          <MediaObject tag={ 'h4' } link={ '/courses/' + props.course.id + '/lessons/' + lesson.id } { ...lesson } />
+          <MediaObject tag={ 'h4' } link={ '/courses/' + courseId + '/lessons/' + lesson.id } { ...lesson } />
         </li>
       );
     });
+
     return (
       <section className="lessons-list__ordered">
         <header>

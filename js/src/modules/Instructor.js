@@ -5,11 +5,34 @@ const Instructor = React.createClass({
     instructor: React.PropTypes.object
   },
 
-  render: function() {
-    const instructor = this.props.params || {};
+  // Temp function until ajax requests
+  getInitialState: function() {
+    const data = require('../course-data');
+    const instructor = this.getInstructor(data);
 
+    return { data: instructor };
+  },
+
+  getInstructor: function(courses) {
+    const props = this.props;
+    var found;
+
+    courses.forEach(function(course) {
+      course.lessons.forEach(function(lesson) {
+        lesson.instructors.forEach(function(instructor) {
+          if (Number(instructor.id) === Number(props.params.id)) {
+            found = instructor;
+          }
+        });
+      });
+    });
+
+    return found;
+  },
+
+  render: function() {
     return (
-      <h2>Instructor: { instructor.title }</h2>
+      <h2>Instructor: { this.state.data.title }</h2>
     );
   }
 });
