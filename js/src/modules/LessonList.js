@@ -2,11 +2,16 @@ const React = require('react');
 const MediaObject = require('./MediaObject');
 
 const LessonList = React.createClass({
+  propTypes: {
+    course: React.PropTypes.object
+  },
+
   render: function() {
-    const lessons = this.props.lessons.map(function(lesson) {
+    const props = this.props;
+    const lessons = props.course.lessons.map(function(lesson) {
       return (
         <li key={ lesson.id }>
-          <MediaObject tag={ 'h4' } { ...lesson } />
+          <MediaObject tag={ 'h4' } link={ '/courses/' + props.course.id + '/lessons/' + lesson.id } { ...lesson } />
         </li>
       );
     });

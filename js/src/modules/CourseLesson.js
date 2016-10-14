@@ -2,15 +2,21 @@ const React = require('react');
 const { Link } = require('react-router');
 const { object } = React.PropTypes;
 
-const CourseLesson = (props) => (
-  <div>
-    <h1>Course Lesson 1</h1>
-     <Link to={`/courses/${props.params.id}/course-quiz`}>Go to quiz</Link>
-  </div>
-);
+const CourseLesson = React.createClass({
+  propTypes: {
+    lesson: object
+  },
 
-CourseLesson.propTypes = {
-  params: object
-};
+  render: function() {
+    const lesson = this.props.params || {};
+
+    return (
+      <div>
+        <h1>{ lesson.title }</h1>
+         <Link to={`/courses/${this.props.params.id}/course-quiz`}>Go to quiz</Link>
+       </div>
+    );
+  }
+});
 
 module.exports = CourseLesson;

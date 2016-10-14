@@ -6,7 +6,7 @@ const CourseList = React.createClass({
     const data = this.props.route.data || {};
     const courses = data.map(function(course) {
       return (
-        <MediaObject key={ course.id } tag={ 'h4' } { ...course } />
+        <MediaObject key={ course.id } tag={ 'h4' } link={ '/courses/' + course.id } { ...course } />
       );
     });
     return (

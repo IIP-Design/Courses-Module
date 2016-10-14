@@ -5,6 +5,10 @@ const InstructorList  = require('./InstructorList');
 const MediaObject     = require('./MediaObject');
 
 const Course = React.createClass({
+  propTypes: {
+    course: React.PropTypes.object
+  },
+
   getInstructors: function() {
     const instructors = [];
     const course = this.props.params || {}
@@ -12,7 +16,7 @@ const Course = React.createClass({
     course.lessons.forEach(function(lesson) {
       lesson.instructors.forEach(function(instructor) {
         const found = JSON.stringify(instructors).indexOf(JSON.stringify(instructor)) > -1;
-        if (found === false) {
+        if (!found) {
           instructors.push(instructor);
         }
       });
@@ -26,12 +30,11 @@ const Course = React.createClass({
 
     return (
       <div>
-        <section className="course-intro">
-          // Description vs Excerpt and how to handle custom styles, like for instance the image floated right, instead of left?
-          <MediaObject tag={ 'h4' } src_url={ course.media.src_url } alt={ course.media.alt } width={ course.media.width } height={ course.media.height } title={ course.title } description={ course.excerpt }  />
+        <section className='course-intro'>
+          <MediaObject tag={ 'h4' } reversed={ true }  { ...course } />
         </section>
         <StepsList />
-        <LessonList lessons={ course.lessons } />
+        <LessonList course={ course } />
         <InstructorList instructors={ this.getInstructors() } />
       </div>
     );
