@@ -2,7 +2,7 @@
   "name": "courses-module",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "webpack": "webpack -d",
     "watch": "webpack --watch",

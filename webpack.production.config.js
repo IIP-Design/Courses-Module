@@ -6,10 +6,10 @@ var cleanup = require('webpack-cleanup-plugin');
 
 module.exports = {
   devtool: 'source-map',
-  entry: path.join(__dirname, "js/src", "index.js"),
+  entry: path.join(__dirname, "app/src", "index.js"),
   output: {
-    path: path.join(__dirname, "js/dist"),
-    publicPath: path.join(__dirname, "js/dist"),
+    path: path.join(__dirname, "app/dist"),
+    publicPath: path.join(__dirname, "app/dist"),
     filename: 'packed.[hash].js'
   },
   module: {

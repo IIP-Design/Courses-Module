@@ -4,12 +4,12 @@ var autoprefixer = require('autoprefixer');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'cheap-eval-source-map',
   context: __dirname,
-  entry: "./js/src",
+  entry: "./app/src",
   output: {
-    path: path.join(__dirname, "js/src"),
-    publicPath: '/js/src',
+    path: path.join(__dirname, "app/src"),
+    publicPath: '/app/src',
     filename: 'packed.js'
   },
   resolve: {

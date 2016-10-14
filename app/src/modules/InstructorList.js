@@ -1,5 +1,5 @@
 const React       = require('react');
-const MediaObject = require('./MediaObject');
+const MediaObject = require('./components/MediaObject');
 
 const InstructorList = React.createClass({
   propTypes: {
