@@ -2,7 +2,7 @@ const React = require('react');
 const { Link } = require('react-router');
 const { object } = React.PropTypes;
 
-const CourseLesson = React.createClass({
+const Lesson = React.createClass({
   propTypes: {
     lesson: object
   },
@@ -34,10 +34,10 @@ const CourseLesson = React.createClass({
     return (
       <div>
         <h1>{ this.state.data.title }</h1>
-         <Link to={`/courses/${this.props.params.id}/course-quiz`}>Go to quiz</Link>
+         <Link to={`/courses/${this.props.params.id[0]}/quiz`}>Go to quiz</Link>
        </div>
     );
   }
 });
 
-module.exports = CourseLesson;
+module.exports = Lesson;

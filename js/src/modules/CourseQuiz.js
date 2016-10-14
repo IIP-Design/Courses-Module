@@ -1,9 +1,13 @@
 const React = require('react');
 
-const CourseQuiz = (props) => (
-  <div>
-    <h1>Course Quiz</h1>
-  </div>
-);
+const Quiz = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <h1>Quiz</h1>
+      </div>
+    );
+  }
+});
 
-module.exports = CourseQuiz;
+module.exports = Quiz;
