@@ -25,7 +25,9 @@
   "homepage": "https://github.com/IIP-Design/Courses-Module#readme",
   "dependencies": {
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-tabs": "^0.8.0",
+    "react-youtube": "^7.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",

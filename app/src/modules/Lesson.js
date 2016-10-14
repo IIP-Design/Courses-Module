@@ -33,7 +33,7 @@ const Lesson = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>{ this.state.data.title }</h1>
+        <h2>{ this.state.data.title }</h2>
          <Link to={`/courses/${this.props.params.id[0]}/quiz`}>Go to quiz</Link>
        </div>
     );
