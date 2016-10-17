@@ -16,7 +16,17 @@ var data = [
       "alt": "alt text",
       "caption": "Caption",
       "transcript": "",
-      "responsive_image": {}
+      "srcset": [ { image_width: '800w',
+            file_name: 'https://placekitten.com/800/533',
+                media_query: '(min-width: 800px)',
+                    box_width: '800px' },
+        { image_width: '480w',
+              file_name: 'https://placekitten.com/480/320',
+                  media_query: '(min-width: 480px)',
+                      box_width: '480px' },
+        { image_width: '320w',
+              file_name: 'https://placekitten.com/300/200',
+                  box_width: '320px' } ]
     },
     "lessons": [
       {
@@ -36,7 +46,17 @@ var data = [
           "alt": "alt text",
           "caption": "Caption",
           "transcript": "",
-          "responsive_image": {}
+          "srcset": [ { image_width: '800w',
+                file_name: 'https://placekitten.com/800/533',
+                    media_query: '(min-width: 800px)',
+                        box_width: '800px' },
+            { image_width: '480w',
+                  file_name: 'https://placekitten.com/480/320',
+                      media_query: '(min-width: 480px)',
+                          box_width: '480px' },
+            { image_width: '320w',
+                  file_name: 'https://placekitten.com/300/200',
+                      box_width: '320px' } ]
         },
         "transcript": "<p>A very long block of raw html that causes a lot of problems</p>", // This is a real problem
         "resoures": [
@@ -80,7 +100,17 @@ var data = [
               "alt": "alt texts",
               "caption": "captions",
               "transcript": "",
-              "responsive_image": {}
+              "srcset": [ { image_width: '800w',
+                    file_name: 'https://placekitten.com/800/533',
+                        media_query: '(min-width: 800px)',
+                            box_width: '800px' },
+                { image_width: '480w',
+                      file_name: 'https://placekitten.com/480/320',
+                          media_query: '(min-width: 480px)',
+                              box_width: '480px' },
+                { image_width: '320w',
+                      file_name: 'https://placekitten.com/300/200',
+                          box_width: '320px' } ]
             }
           }
         ],
@@ -126,7 +156,17 @@ var data = [
           "alt": "alt text",
           "caption": "Caption",
           "transcript": "",
-          "responsive_image": {}
+          "srcset": [ { image_width: '800w',
+                file_name: 'https://placekitten.com/800/533',
+                    media_query: '(min-width: 800px)',
+                        box_width: '800px' },
+            { image_width: '480w',
+                  file_name: 'https://placekitten.com/480/320',
+                      media_query: '(min-width: 480px)',
+                          box_width: '480px' },
+            { image_width: '320w',
+                  file_name: 'https://placekitten.com/300/200',
+                      box_width: '320px' } ]
         },
         "transcript": "<p>A very long block of raw html that causes a lot of problems</p>", // This is a real problem
         "resoures": [
@@ -170,7 +210,17 @@ var data = [
               "alt": "alt texts",
               "caption": "captions",
               "transcript": "",
-              "responsive_image": {}
+              "srcset": [ { image_width: '800w',
+                    file_name: 'https://placekitten.com/800/533',
+                        media_query: '(min-width: 800px)',
+                            box_width: '800px' },
+                { image_width: '480w',
+                      file_name: 'https://placekitten.com/480/320',
+                          media_query: '(min-width: 480px)',
+                              box_width: '480px' },
+                { image_width: '320w',
+                      file_name: 'https://placekitten.com/300/200',
+                          box_width: '320px' } ]
             }
           }
         ],
@@ -218,7 +268,17 @@ var data = [
       "alt": "alt text",
       "caption": "Caption",
       "transcript": "",
-      "responsive_image": {}
+      "srcset": [ { image_width: '800w',
+            file_name: 'https://placekitten.com/800/533',
+                media_query: '(min-width: 800px)',
+                    box_width: '800px' },
+        { image_width: '480w',
+              file_name: 'https://placekitten.com/480/320',
+                  media_query: '(min-width: 480px)',
+                      box_width: '480px' },
+        { image_width: '320w',
+              file_name: 'https://placekitten.com/300/200',
+                  box_width: '320px' } ]
     },
     "lessons": [
       {
@@ -238,7 +298,17 @@ var data = [
           "alt": "alt text",
           "caption": "Caption",
           "transcript": "",
-          "responsive_image": {}
+          "srcset": [ { image_width: '800w',
+                file_name: 'https://placekitten.com/800/533',
+                    media_query: '(min-width: 800px)',
+                        box_width: '800px' },
+            { image_width: '480w',
+                  file_name: 'https://placekitten.com/480/320',
+                      media_query: '(min-width: 480px)',
+                          box_width: '480px' },
+            { image_width: '320w',
+                  file_name: 'https://placekitten.com/300/200',
+                      box_width: '320px' } ]
         },
         "transcript": "<p>A very long block of raw html that causes a lot of problems</p>", // This is a real problem
         "resoures": [
@@ -282,7 +352,17 @@ var data = [
               "alt": "alt texts",
               "caption": "captions",
               "transcript": "",
-              "responsive_image": {}
+              "srcset": [ { image_width: '800w',
+                    file_name: 'https://placekitten.com/800/533',
+                        media_query: '(min-width: 800px)',
+                            box_width: '800px' },
+                { image_width: '480w',
+                      file_name: 'https://placekitten.com/480/320',
+                          media_query: '(min-width: 480px)',
+                              box_width: '480px' },
+                { image_width: '320w',
+                      file_name: 'https://placekitten.com/300/200',
+                          box_width: '320px' } ]
             }
           }
         ],
@@ -328,7 +408,17 @@ var data = [
           "alt": "alt text",
           "caption": "Caption",
           "transcript": "",
-          "responsive_image": {}
+          "srcset": [ { image_width: '800w',
+                file_name: 'https://placekitten.com/800/533',
+                    media_query: '(min-width: 800px)',
+                        box_width: '800px' },
+            { image_width: '480w',
+                  file_name: 'https://placekitten.com/480/320',
+                      media_query: '(min-width: 480px)',
+                          box_width: '480px' },
+            { image_width: '320w',
+                  file_name: 'https://placekitten.com/300/200',
+                      box_width: '320px' } ]
         },
         "transcript": "<p>A very long block of raw html that causes a lot of problems</p>", // This is a real problem
         "resoures": [ // This section needs some serious thought
@@ -372,7 +462,17 @@ var data = [
               "alt": "alt texts",
               "caption": "captions",
               "transcript": "",
-              "responsive_image": {}
+              "srcset": [ { image_width: '800w',
+                    file_name: 'https://placekitten.com/800/533',
+                        media_query: '(min-width: 800px)',
+                            box_width: '800px' },
+                { image_width: '480w',
+                      file_name: 'https://placekitten.com/480/320',
+                          media_query: '(min-width: 480px)',
+                              box_width: '480px' },
+                { image_width: '320w',
+                      file_name: 'https://placekitten.com/300/200',
+                          box_width: '320px' } ]
             }
           },
           {
@@ -392,7 +492,17 @@ var data = [
               "alt": "alt texts",
               "caption": "captions",
               "transcript": "",
-              "responsive_image": {}
+              "srcset": [ { image_width: '800w',
+                    file_name: 'https://placekitten.com/800/533',
+                        media_query: '(min-width: 800px)',
+                            box_width: '800px' },
+                { image_width: '480w',
+                      file_name: 'https://placekitten.com/480/320',
+                          media_query: '(min-width: 480px)',
+                              box_width: '480px' },
+                { image_width: '320w',
+                      file_name: 'https://placekitten.com/300/200',
+                          box_width: '320px' } ]
             }
           }
         ],
