@@ -28,7 +28,7 @@ var data = [
               file_name: 'https://placekitten.com/300/200',
                   box_width: '320px' } ]
     },
-    "lessons": [
+    "lessons": [ // These are just unordered arrays. How do we determine which the order of the lessons?
       {
         "id": 48,
         "title": "Lesson 1: Attracting and Motivating Volunteers",
@@ -59,7 +59,7 @@ var data = [
                       box_width: '320px' } ]
         },
         "transcript": "<p>A very long block of raw html that causes a lot of problems</p>", // This is a real problem
-        "resoures": [
+        "resources": [
           {
             "id": 22, // Does not come with an ID currently
             "title": "Discussion Guide",
@@ -169,7 +169,7 @@ var data = [
                       box_width: '320px' } ]
         },
         "transcript": "<p>A very long block of raw html that causes a lot of problems</p>", // This is a real problem
-        "resoures": [
+        "resources": [
           {
             "id": 22, // Does not come with an id currently
             "title": "Discussion Guide",
@@ -311,7 +311,7 @@ var data = [
                       box_width: '320px' } ]
         },
         "transcript": "<p>A very long block of raw html that causes a lot of problems</p>", // This is a real problem
-        "resoures": [
+        "resources": [
           {
             "id": 22, // Does not come with an ID currently
             "title": "Discussion Guide",
@@ -396,7 +396,7 @@ var data = [
         "title": "Grassroots Organizing For Civic Engagement",
         "description": "<p>Veteran campaign consultant Buffy Wicks provides an overview of how to lead and enable citizens to create change in their communities, offering guidelines and best practices for developing and running a grassroots campaign.</p>", // raw html
         "excerpt": "Veteran campaign consultant Buffy Wicks provides an overview of how to lead and enable citizens to create change in their communities, offering guidelines and best practices for developing and running a grassroots campaign.", // not raw html
-        "media": {
+        "media": { // where is the lesson youtube video info stored?
           "id": 49,
           "src_url": "http://courses.edit.america.dev/wp-content/uploads/sites/2/2016/10/kitten1000x500.jpeg",
           "file_url": "",
@@ -421,7 +421,7 @@ var data = [
                       box_width: '320px' } ]
         },
         "transcript": "<p>A very long block of raw html that causes a lot of problems</p>", // This is a real problem
-        "resoures": [ // This section needs some serious thought
+        "resources": [ // This section needs some serious thought
           {
             "id": 22, // Does not come with an id currently, unless it is an uploaded file
             "title": "Discussion Guide",
