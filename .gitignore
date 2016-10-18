@@ -4,3 +4,4 @@ vendor
 node_modules
 .nyc_output/
 coverage/
+app/src/packed.js
