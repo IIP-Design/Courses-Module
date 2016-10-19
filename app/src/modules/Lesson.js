@@ -4,6 +4,7 @@ const { object } = React.PropTypes;
 const YouTube = require('react-youtube').default;
 const { Tab, Tabs, TabList, TabPanel } = require('react-tabs');
 const { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } = require('./components/Collapse.js');
+const Breadcrumbs = require('react-breadcrumbs');
 
 const Lesson = React.createClass({
   propTypes: {
@@ -25,7 +26,7 @@ const Lesson = React.createClass({
     const props = this.props;
     const course = this.getThisCourse(courses);
     const lesson = course.lessons.filter(function(lesson) {
-      return (Number(lesson.id) === Number(props.params.id[1]));
+      return (Number(lesson.id) === Number(props.params.lessonId));
     });
 
     return lesson[0];
@@ -35,7 +36,7 @@ const Lesson = React.createClass({
   getThisCourse: function(courses) {
     const props = this.props;
     const course = courses.filter(function(course) {
-      return (Number(course.id) === Number(props.params.id[0]));
+      return (Number(course.id) === Number(props.params.courseId));
     });
 
     return course[0];
@@ -76,6 +77,7 @@ const Lesson = React.createClass({
     return (
       <div>
         <h2>{ this.state.data.title }</h2>
+        <Breadcrumbs routes={ this.props.routes } params={ this.props.params } />
         <YouTube videoId={ this.state.video } />
         <Tabs>
           <TabList>
@@ -97,7 +99,7 @@ const Lesson = React.createClass({
         <Collapse>
           { glossary }
         </Collapse>
-        <Link to={`/courses/${this.props.params.id[0]}/quiz`}>Go to quiz</Link>
+        <Link to={`/courses/${this.props.params.courseId}/quiz`}>Go to quiz</Link>
        </div>
     );
   }
