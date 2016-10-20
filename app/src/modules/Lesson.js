@@ -1,22 +1,17 @@
 const React = require('react');
+const YouTube = require('react-youtube').default;
+const Breadcrumbs = require('react-breadcrumbs');
+const Glossary = require('./components/Glossary');
+const LessonTabs = require('./components/LessonTabs');
+const Button = require('./components/Button');
 const { Link } = require('react-router');
 const { object } = React.PropTypes;
-const YouTube = require('react-youtube').default;
-const { Tab, Tabs, TabList, TabPanel } = require('react-tabs');
-const { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } = require('./components/Collapse.js');
-const Breadcrumbs = require('react-breadcrumbs');
 
 const Lesson = React.createClass({
-  propTypes: {
-    lesson: object
-  },
-
-
   getInitialState: function() {
     const data = require('../course');
     const lesson = this.getLesson(data);
 
-    // Shallow clone the routes from props to mutate
     return {
       data: lesson,
       routes: JSON.parse(JSON.stringify(this.props.routes))
@@ -58,7 +53,6 @@ const Lesson = React.createClass({
 
 
   // Get the course and lesson names for the breadcrumbs and set it in state
-  // since we're discouraged from mutating props
   setRoutesNames: function() {
     this.state.routes.forEach(function(route) {
       if (route.path === ':courseId') {
@@ -72,60 +66,87 @@ const Lesson = React.createClass({
   },
 
 
-  rawDescription: function() {
-    return {  __html: this.state.data.description };
+  getLessonPosition: function() {
+    const id = this.state.data.id;
+    const lessons = this.state.data.parent.lessons;
+    const index = lessons.indexOf(id);
+    const length = lessons.length;
+
+    if (index === (lessons.length-1)) {
+      return {
+        position: 'last',
+        index: index,
+        length: length
+      }
+    }
+
+    if (index === 0) {
+      return {
+        position: 'first',
+        index: index,
+        length: length
+      }
+    }
+
+    return { index: index, length: length };
   },
 
 
-  rawTranscript: function() {
-    return { __html: this.state.data.transcript };
+  goTo: function(prevNext) {
+    const lesson = this.getLessonPosition();
+    const link = '/courses/' + this.state.data.parent.id + '/lessons/';
+
+    if (prevNext === 'next') {
+      return link + (this.state.data.parent.lessons[lesson.index+1]);
+    }
+
+    if (prevNext === 'previous') {
+      return link + (this.state.data.parent.lessons[lesson.index-1]);
+    }
+
+    return TypeError('Invalid parameter. Should be either "next or "previous".');
+  },
+
+
+  buttonNav: function() {
+    const lesson = this.getLessonPosition();
+
+    if (lesson.position === 'last') {
+      return (
+        <Button value={ 'Previous Lesson' } link={ this.goTo('previous') }/>
+      );
+    }
+
+    if (lesson.position === 'first') {
+      return (
+        <Button value={ 'Next Lesson' } link={ this.goTo('next') } />
+      );
+    }
+
+    if (lesson.position !== 'first' && lesson.position !== 'last') {
+      return (
+        <div>
+          <Button value={ 'Next Lesson' } link={ this.goTo('next') } />
+          <Button value={ 'Previous Lesson' } link={ this.goTo('previous') } />
+        </div>
+      );
+    }
   },
 
 
   // @todo YouTube component needs a responsive wrapper
   render: function() {
-    const resources = this.state.data.resources.map(function(resource) {
-      return (
-        <li key={ resource.id }><a href={ resource.url } >{ resource.title }</a></li>
-      );
-    });
-
-    const glossary = this.state.data.glossary.map(function(term) {
-      return (
-        <CollapseItem key={ term.id }>
-          <CollapseTrigger tag={ 'p' }>{ term.title }</CollapseTrigger>
-          <CollapsePanel>{ term.description }</CollapsePanel>
-        </CollapseItem>
-      );
-    });
-
-    // @todo: Use collapse for tabs and glossary
-    // @todo: Conditionally load components depending on data presence
     return (
       <div>
         <h2>{ this.state.data.title }</h2>
         <Breadcrumbs routes={ this.state.routes } params={ this.props.params } />
         <YouTube videoId={ this.state.data.media.video.video_id } />
-        <Tabs>
-          <TabList>
-            <Tab>Overview</Tab>
-            <Tab>Transcript</Tab>
-            <Tab>Lesson Resources</Tab>
-          </TabList>
-          <TabPanel>
-            <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
-          </TabPanel>
-          <TabPanel>
-            <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
-          </TabPanel>
-          <TabPanel>
-            { resources }
-          </TabPanel>
-        </Tabs>
-        <h3>Glossary of Terms</h3>
-        <Collapse>
-          { glossary }
-        </Collapse>
+        { this.buttonNav() }
+        <LessonTabs
+          description={ this.state.data.description }
+          transcript={ this.state.data.media.transcript_text }
+          resources={ this.state.data.resources }/>
+        <Glossary data={ this.state.data.glossary } />
         <Link to={ `/courses/${ this.props.params.courseId }/quiz` }>Go to quiz</Link>
        </div>
     );
