@@ -4,6 +4,7 @@ const { object } = React.PropTypes;
 const YouTube = require('react-youtube').default;
 const { Tab, Tabs, TabList, TabPanel } = require('react-tabs');
 const { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } = require('./components/Collapse.js');
+const Breadcrumbs = require('react-breadcrumbs');
 
 const Lesson = React.createClass({
   propTypes: {
@@ -12,33 +13,62 @@ const Lesson = React.createClass({
 
 
   getInitialState: function() {
-    const data = require('../course-data');
+    const data = require('../course');
     const lesson = this.getLesson(data);
 
-    // The video id should be in the json
-    return { data: lesson, video: 'gDgME_uIWtA' };
+    // Shallow clone the routes from props to mutate
+    return {
+      data: lesson,
+      routes: JSON.parse(JSON.stringify(this.props.routes))
+    };
+  },
+
+
+  // Set the routes' names when the component mounts
+  componentDidMount: function() {
+    this.setState({ route: this.setRoutesNames() })
   },
 
 
   // Temporary method until start ajax requests
   getLesson: function(courses) {
-    const props = this.props;
     const course = this.getThisCourse(courses);
     const lesson = course.lessons.filter(function(lesson) {
-      return (Number(lesson.id) === Number(props.params.id[1]));
-    });
+      return (Number(lesson.id) === Number(this.props.params.lessonId));
+    }, this);
+
+    // Give the lesson some context about the parent course
+    lesson[0].parent = {
+      id: course.id,
+      title: course.title,
+      lessons: course.lessons.map(function(lesson) { return lesson.id })
+    }
 
     return lesson[0];
   },
 
 
   getThisCourse: function(courses) {
-    const props = this.props;
     const course = courses.filter(function(course) {
-      return (Number(course.id) === Number(props.params.id[0]));
-    });
+      return (Number(course.id) === Number(this.props.params.courseId));
+    }, this);
 
     return course[0];
+  },
+
+
+  // Get the course and lesson names for the breadcrumbs and set it in state
+  // since we're discouraged from mutating props
+  setRoutesNames: function() {
+    this.state.routes.forEach(function(route) {
+      if (route.path === ':courseId') {
+        route.name = this.state.data.parent.title;
+      }
+
+      if (route.path === 'lessons/:lessonId') {
+        route.name = this.state.data.title;
+      }
+    }, this);
   },
 
 
@@ -54,9 +84,6 @@ const Lesson = React.createClass({
 
   // @todo YouTube component needs a responsive wrapper
   render: function() {
-    const accordionClassNames = { content: 'accordion-content', panel: 'accordion-panel', title: 'accordion-title' };
-    const tabsClassNames = { content: 'tabs-content', panel: 'tabs-panel', title: 'tabs-title' };
-
     const resources = this.state.data.resources.map(function(resource) {
       return (
         <li key={ resource.id }><a href={ resource.url } >{ resource.title }</a></li>
@@ -73,10 +100,12 @@ const Lesson = React.createClass({
     });
 
     // @todo: Use collapse for tabs and glossary
+    // @todo: Conditionally load components depending on data presence
     return (
       <div>
         <h2>{ this.state.data.title }</h2>
-        <YouTube videoId={ this.state.video } />
+        <Breadcrumbs routes={ this.state.routes } params={ this.props.params } />
+        <YouTube videoId={ this.state.data.media.video.video_id } />
         <Tabs>
           <TabList>
             <Tab>Overview</Tab>
@@ -97,7 +126,7 @@ const Lesson = React.createClass({
         <Collapse>
           { glossary }
         </Collapse>
-        <Link to={`/courses/${this.props.params.id[0]}/quiz`}>Go to quiz</Link>
+        <Link to={ `/courses/${ this.props.params.courseId }/quiz` }>Go to quiz</Link>
        </div>
     );
   }

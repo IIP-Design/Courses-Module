@@ -22,7 +22,7 @@ const Course = React.createClass({
     var found;
 
     courses.forEach(function(course) {
-      if (Number(course.id) === Number(props.params.id)) {
+      if (Number(course.id) === Number(props.params.courseId)) {
         found = course;
       }
     });
