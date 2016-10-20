@@ -1,4 +1,4 @@
-const courses = [
+var data = [
   {
     "id": 51,
     "title": "What to do with grassroots once you have them",
@@ -30,7 +30,7 @@ const courses = [
         }
       ]
     },
-    "categories": []
+    "categories": [],
     "lessons": [
       {
         "id": 48,
@@ -335,8 +335,8 @@ const courses = [
               incorrect2: "<p>Almost, but that's not it.</p> ",
               correct: "<p>That's it!</p> "
             }
-          },
-        ],
+          }
+        ]
       }
     ]
   },
@@ -377,7 +377,7 @@ const courses = [
         "title": "Title",
         "description": "<p>This is a description of a category</p>",
       }
-    ]
+    ],
     "lessons": [
       {
         "id": 48,
@@ -528,8 +528,8 @@ const courses = [
               incorrect2: "<p>Almost, but that's not it.</p> ",
               correct: "<p>That's it!</p> "
             }
-          },
-        ],
+          }
+        ]
       },
       {
         "id": 33,
@@ -700,9 +700,11 @@ const courses = [
               incorrect2: "<p>Almost, but that's not it.</p> ",
               correct: "<p>That's it!</p> "
             }
-          },
-        ],
+          }
+        ]
       }
     ]
   }
 ]
+
+module.exports = data;

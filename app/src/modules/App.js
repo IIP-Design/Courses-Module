@@ -12,15 +12,14 @@ const App = React.createClass({
     return (
       <Router history={ hashHistory }>
         <Route path='/' component={ CourseList } />
-        <Route path='courses'>
+        <Route path='courses' staticName={ true } name='Courses'>
           <IndexRoute component={ CourseList } />
-          <Route path=':courseId'>
+          <Route path=':courseId' staticName={ true }>
             <IndexRoute component={ Course } />
-            <Route path='lessons/:lessonId' component={ Lesson } />
+            <Route path='lessons/:lessonId' staticName={ true } component={ Lesson } />
+            <Route path='quiz' component={ Quiz } />
           </Route>
         </Route>
-        <Route path='/courses/:id/quiz' component={ Quiz } />
-        <Route path='/courses/:id/certificate' component={ Certificate } />
         <Route path='/instructors/:id' component={ Instructor } />
       </Router>
     );
