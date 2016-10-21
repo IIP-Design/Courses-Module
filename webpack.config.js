@@ -59,10 +59,6 @@ module.exports = {
         test: /\.(png|jpg)$/,
         loader: 'url-loader?limit=8192',
         exclude: [path.join(__dirname, 'node_modules')]
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
       }
     ]
   },
