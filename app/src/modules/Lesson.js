@@ -8,8 +8,11 @@ const { Link } = require('react-router');
 const { object } = React.PropTypes;
 
 const Lesson = React.createClass({
+  // @todo: Add propTypes
+
   getInitialState: function() {
-    const data = require('../course');
+    console.log(this.props);
+    const data = require('../courses.js');
     const lesson = this.getLesson(data);
 
     return {
@@ -29,12 +32,13 @@ const Lesson = React.createClass({
   getLesson: function(courses) {
     const course = this.getThisCourse(courses);
     const lesson = course.lessons.filter(function(lesson) {
-      return (Number(lesson.id) === Number(this.props.params.lessonId));
+      return (Number(lesson.slug) === Number(this.props.params.lessonSlug));
     }, this);
 
     // Give the lesson some context about the parent course
     lesson[0].parent = {
       id: course.id,
+      slug: course.slug,
       title: course.title,
       lessons: course.lessons.map(function(lesson) { return lesson.id })
     }
@@ -43,6 +47,7 @@ const Lesson = React.createClass({
   },
 
 
+  // This isn't working because the courseId is no longer being sent in the url
   getThisCourse: function(courses) {
     const course = courses.filter(function(course) {
       return (Number(course.id) === Number(this.props.params.courseId));
@@ -59,7 +64,7 @@ const Lesson = React.createClass({
         route.name = this.state.data.parent.title;
       }
 
-      if (route.path === 'lessons/:lessonId') {
+      if (route.path === ':lessonSlug') {
         route.name = this.state.data.title;
       }
     }, this);

@@ -1,26 +1,29 @@
 const React = require('react');
-const CourseList = require('./CourseList');
+const MainLayout = require('./MainLayout');
+const LessonLayout = require('./LessonLayout');
 const Course = require('./Course');
 const Lesson = require('./Lesson');
 const Quiz = require('./Quiz');
-const Certificate = require('./Certificate');
 const Instructor = require('./Instructor');
 const { Router, Route, IndexRoute, hashHistory } = require('react-router');
+
+// We pass the courseId from the "data-" attribute on the
+// root html element > App > Course component on the '/' Route
 
 const App = React.createClass({
   render: function() {
     return (
       <Router history={ hashHistory }>
-        <Route path='/' component={ CourseList } />
-        <Route path='courses' staticName={ true } name='Courses'>
-          <IndexRoute component={ CourseList } />
-          <Route path=':courseId' staticName={ true }>
-            <IndexRoute component={ Course } />
-            <Route path='lessons/:lessonId' staticName={ true } component={ Lesson } />
+        <Route component={ MainLayout }>
+          <Route path='/'>
+            <IndexRoute staticName={ true } component={ Course } courseId={ this.props.courseId } />
+            <Route component={ LessonLayout }>
+              <Route path=':lessonSlug' staticName={ true } component={ Lesson } />
+            </Route>
             <Route path='quiz' component={ Quiz } />
+            <Route path='/instructors/:slug' component={ Instructor } />
           </Route>
         </Route>
-        <Route path='/instructors/:id' component={ Instructor } />
       </Router>
     );
   }

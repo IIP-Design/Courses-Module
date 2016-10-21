@@ -3,15 +3,24 @@ const { Link } = require('react-router');
 const Image = require('./Image');
 
 const MediaObject = React.createClass({
+  propTypes: {
+    tag: React.PropTypes.string.isRequired,
+    reversed: React.PropTypes.bool,
+    link: React.PropTypes.string,
+    image: React.PropTypes.object,
+    title: React.PropTypes.string,
+    description: React.PropTypes.string
+  },
+
+
   render: function() {
     const CustomTag = `${this.props.tag}`;
     const reversed = (this.props.reversed === undefined) ? false : true;
 
-    // Description vs Excerpt and how to handle custom styles, like for instance the image floated right, instead of left?
     return (
         <div className={ reversed ? 'media-object reversed' : 'media-object' }>
           <Link to={ this.props.link }>
-            <Image { ...this.props.media } />
+            <Image media_queries={ this.props.media_queries } { ...this.props.image } />
           </Link>
           <header>
             <Link to={ this.props.link }>

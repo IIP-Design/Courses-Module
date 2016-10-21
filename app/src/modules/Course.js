@@ -9,30 +9,31 @@ const Course = React.createClass({
     params: React.PropTypes.object
   },
 
+
+  // Temporary for loading data from a file
   getInitialState: function() {
-    const data = require('../course-data');
+    const data = require('../courses.js');
     const course = this.getCourse(data);
 
     return { data: course };
   },
 
-  // Temporary method until start ajax requests
+
+  // Temporary for loading data from a file
   getCourse: function(courses) {
-    const props = this.props;
-    var found;
+    const course = courses.filter(function(course) {
+      // @see: We're getting the courseId from the route passed through props
+      return (Number(course.id) === Number(this.props.route.courseId));
+    }, this);
 
-    courses.forEach(function(course) {
-      if (Number(course.id) === Number(props.params.courseId)) {
-        found = course;
-      }
-    });
-
-    return found;
+    return course[0];
   },
+
 
   getInstructors: function() {
     const instructors = [];
 
+    // Loop through the lessons, push instructor to instructors Array if not already there
     this.state.data.lessons.forEach(function(lesson) {
       lesson.instructors.forEach(function(instructor) {
         const found = JSON.stringify(instructors).indexOf(JSON.stringify(instructor)) > -1;
@@ -44,6 +45,7 @@ const Course = React.createClass({
 
     return instructors;
   },
+
 
   render: function() {
     const courseId = this.state.data.id;

@@ -2,18 +2,21 @@ const React = require('react');
 const MediaObject = require('./components/MediaObject');
 const Button = require('./components/Button');
 const Duration = require('./components/Duration');
+const { sprintf } = require('sprintf-js');
 
 const LessonList = React.createClass({
   propTypes: {
-    course: React.PropTypes.object
+    courseId: React.PropTypes.number,
+    lessons: React.PropTypes.array
   },
+
 
   render: function() {
     const courseId = this.props.courseId;
     const lessons = this.props.lessons.map(function(lesson) {
-      const link  = '/courses/' + courseId + '/lessons/' + lesson.id;
+      const link  = sprintf('%s', lesson.slug );
 
-      // Not sure how to get this programmatically yet
+      // @todo: Get this programmatically
       const duration = '25min';
 
       return (
