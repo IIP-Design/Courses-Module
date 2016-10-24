@@ -39,7 +39,7 @@ const Lesson = React.createClass({
       id: course.id,
       slug: course.slug,
       title: course.title,
-      lessons: course.lessons.map(function(lesson) { return lesson.id })
+      lessons: course.lessons
     }
 
     return lesson[0];
@@ -74,8 +74,14 @@ const Lesson = React.createClass({
   getLessonPosition: function() {
     const id = this.state.data.id;
     const lessons = this.state.data.parent.lessons;
-    const index = lessons.indexOf(id);
+    let index = undefined;
     const length = lessons.length;
+
+    lessons.forEach(function(lesson) {
+      if (lesson.id === id) {
+        index = lessons.indexOf(lesson)
+      }
+    });
 
     if (index === (lessons.length-1)) {
       return {
@@ -98,15 +104,16 @@ const Lesson = React.createClass({
 
 
   goTo: function(prevNext) {
-    const lesson = this.getLessonPosition();
-    const link = '/courses/' + this.state.data.parent.id + '/lessons/';
+    const lessonPosition = this.getLessonPosition();
 
     if (prevNext === 'next') {
-      return link + (this.state.data.parent.lessons[lesson.index+1]);
+      const lesson = this.state.data.parent.lessons[lessonPosition.index+1];
+      return (lesson.slug);
     }
 
     if (prevNext === 'previous') {
-      return link + (this.state.data.parent.lessons[lesson.index-1]);
+      const lesson = this.state.data.parent.lessons[lessonPosition.index-1];
+      return (lesson.slug);
     }
 
     return TypeError('Invalid parameter. Should be either "next or "previous".');
