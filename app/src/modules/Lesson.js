@@ -60,7 +60,7 @@ const Lesson = React.createClass({
   // Get the course and lesson names for the breadcrumbs and set it in state
   setRoutesNames: function() {
     this.state.routes.forEach(function(route) {
-      if (route.path === ':courseId') {
+      if (route.path === '/') {
         route.name = this.state.data.parent.title;
       }
 
@@ -152,7 +152,7 @@ const Lesson = React.createClass({
           transcript={ this.state.data.media.transcript_text }
           resources={ this.state.data.resources }/>
         <Glossary data={ this.state.data.glossary } />
-        <Link to={ `/courses/${ this.props.params.courseId }/quiz` }>Go to quiz</Link>
+        <Link to={ 'quiz' }>Go to quiz</Link>
        </div>
     );
   }

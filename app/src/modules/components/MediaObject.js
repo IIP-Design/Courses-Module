@@ -13,6 +13,11 @@ const MediaObject = React.createClass({
   },
 
 
+  setDescription: function() {
+    return { __html: this.props.description };
+  },
+
+
   render: function() {
     const CustomTag = `${this.props.tag}`;
     const reversed = (this.props.reversed === undefined) ? false : true;
@@ -27,7 +32,7 @@ const MediaObject = React.createClass({
               <CustomTag className='media-object-title'>{ this.props.title }</CustomTag>
             </Link>
           </header>
-          <p className='media-object-description'>{ this.props.description }</p>
+          <p className='media-object-description' dangerouslySetInnerHTML={ this.setDescription() }></p>
         </div>
     );
   }
