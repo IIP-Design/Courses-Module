@@ -4,34 +4,39 @@ const Breadcrumbs = require('react-breadcrumbs');
 const Glossary = require('./components/Glossary');
 const LessonTabs = require('./components/LessonTabs');
 const Button = require('./components/Button');
-const { Link } = require('react-router');
-const { object } = React.PropTypes;
+const { Link, withRouter } = require('react-router');
 
-const Lesson = React.createClass({
+// We wrap it in 'withRouter' so we can push updates to the url to the address bar
+const Lesson = withRouter(React.createClass({
   // @todo: Add propTypes
 
-  getInitialState: function() {
-    const data = require('../courses.js');
-    const lesson = this.getLesson(data);
+  courses: require('../courses.js'),
 
+  getInitialState: function() {
     return {
-      data: lesson,
+      data: this.getLesson(this.props.params.lessonSlug),
       routes: JSON.parse(JSON.stringify(this.props.routes))
     };
   },
 
 
-  // Set the routes' names when the component mounts
-  componentDidMount: function() {
-    this.setState({ route: this.setRoutesNames() })
+  // Set the correct RoutNames for the React Router Breadcrumbs component before the module loads
+  componentWillMount: function() {
+    this.setRoutesNames();
+  },
+
+
+  // Set the correct RoutNames for the React Router Breadcrumbs component before the module updates
+  componentWillUpdate: function() {
+    this.setRoutesNames();
   },
 
 
   // Temporary method until start ajax requests
-  getLesson: function(courses) {
-    const course = this.getThisCourse(courses);
+  getLesson: function(lessonSlug) {
+    const course = this.getThisCourse();
     const lesson = course.lessons.filter(function(lesson) {
-      return (lesson.slug === this.props.params.lessonSlug);
+      return (lesson.slug === lessonSlug);
     }, this);
 
     // Give the lesson some context about the parent course
@@ -47,9 +52,9 @@ const Lesson = React.createClass({
 
 
   // Temporarily get courseId from localStorage
-  getThisCourse: function(courses) {
+  getThisCourse: function() {
     const courseId = localStorage.getItem('courseId');
-    const course = courses.filter(function(course) {
+    const course = this.courses.filter(function(course) {
       return (Number(course.id) === Number(courseId));
     }, this);
 
@@ -71,11 +76,12 @@ const Lesson = React.createClass({
   },
 
 
+  // Get some useful positional information about the lesson
   getLessonPosition: function() {
     const id = this.state.data.id;
     const lessons = this.state.data.parent.lessons;
-    let index = undefined;
     const length = lessons.length;
+    let index = undefined;
 
     lessons.forEach(function(lesson) {
       if (lesson.id === id) {
@@ -103,46 +109,56 @@ const Lesson = React.createClass({
   },
 
 
-  goTo: function(prevNext) {
+  // Get the slug for the next lesson
+  next: function() {
     const lessonPosition = this.getLessonPosition();
+    const lesson = this.state.data.parent.lessons[lessonPosition.index+1];
 
-    if (prevNext === 'next') {
-      const lesson = this.state.data.parent.lessons[lessonPosition.index+1];
-      return (lesson.slug);
-    }
-
-    if (prevNext === 'previous') {
-      const lesson = this.state.data.parent.lessons[lessonPosition.index-1];
-      return (lesson.slug);
-    }
-
-    return TypeError('Invalid parameter. Should be either "next or "previous".');
+    return (
+      <a className='button' onClick={ () => this.handleClick(lesson.slug) }>Next Lesson</a>
+    );
   },
 
 
+  // Get the slug for the previous lesson
+  previous: function() {
+    const lessonPosition = this.getLessonPosition();
+    const lesson = this.state.data.parent.lessons[lessonPosition.index-1];
+
+    return (
+      <a className='button' onClick={ () => this.handleClick(lesson.slug) }>Previous Lesson</a>
+    );
+  },
+
+
+  // Assign the correct next/previous/both buttons
   buttonNav: function() {
     const lesson = this.getLessonPosition();
 
     if (lesson.position === 'last') {
-      return (
-        <Button value={ 'Previous Lesson' } link={ this.goTo('previous') }/>
-      );
+      return this.previous();
     }
 
     if (lesson.position === 'first') {
-      return (
-        <Button value={ 'Next Lesson' } link={ this.goTo('next') } />
-      );
+      return this.next();
     }
 
     if (lesson.position !== 'first' && lesson.position !== 'last') {
       return (
-        <div>
-          <Button value={ 'Next Lesson' } link={ this.goTo('next') } />
-          <Button value={ 'Previous Lesson' } link={ this.goTo('previous') } />
-        </div>
+        this.previous(),
+        this.next()
       );
     }
+  },
+
+
+  // Handle the click event on the button to update state
+  handleClick: function(slug) {
+    const lesson = this.getLesson(slug);
+    this.setState({
+      data: lesson
+    });
+    this.props.router.push(slug);
   },
 
 
@@ -163,6 +179,6 @@ const Lesson = React.createClass({
        </div>
     );
   }
-});
+}));
 
 module.exports = Lesson;
