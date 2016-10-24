@@ -6,13 +6,11 @@ const { sprintf } = require('sprintf-js');
 
 const LessonList = React.createClass({
   propTypes: {
-    courseId: React.PropTypes.number,
     lessons: React.PropTypes.array
   },
 
 
   render: function() {
-    const courseId = this.props.courseId;
     const lessons = this.props.lessons.map(function(lesson) {
       const link  = sprintf('%s', lesson.slug );
 

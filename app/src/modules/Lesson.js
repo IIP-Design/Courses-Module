@@ -11,7 +11,6 @@ const Lesson = React.createClass({
   // @todo: Add propTypes
 
   getInitialState: function() {
-    console.log(this.props);
     const data = require('../courses.js');
     const lesson = this.getLesson(data);
 
@@ -32,7 +31,7 @@ const Lesson = React.createClass({
   getLesson: function(courses) {
     const course = this.getThisCourse(courses);
     const lesson = course.lessons.filter(function(lesson) {
-      return (Number(lesson.slug) === Number(this.props.params.lessonSlug));
+      return (lesson.slug === this.props.params.lessonSlug);
     }, this);
 
     // Give the lesson some context about the parent course
@@ -47,10 +46,11 @@ const Lesson = React.createClass({
   },
 
 
-  // This isn't working because the courseId is no longer being sent in the url
+  // Temporarily get courseId from localStorage
   getThisCourse: function(courses) {
+    const courseId = localStorage.getItem('courseId');
     const course = courses.filter(function(course) {
-      return (Number(course.id) === Number(this.props.params.courseId));
+      return (Number(course.id) === Number(courseId));
     }, this);
 
     return course[0];

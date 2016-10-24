@@ -19,11 +19,10 @@ const Course = React.createClass({
   },
 
 
-  // Temporary for loading data from a file
+  // Temporary for loading courseId from localStorage
   getCourse: function(courses) {
     const course = courses.filter(function(course) {
-      // @see: We're getting the courseId from the route passed through props
-      return (Number(course.id) === Number(this.props.route.courseId));
+      return (Number(course.id) === Number(localStorage.getItem('courseId')));
     }, this);
 
     return course[0];
@@ -57,7 +56,7 @@ const Course = React.createClass({
           <MediaObject tag={ 'h4' } reversed={ true }  { ...this.state.data } />
         </section>
         <StepsList />
-        <LessonList lessons={ lessons }  courseId={ courseId } />
+        <LessonList lessons={ lessons } />
         <InstructorList instructors={ this.getInstructors() } />
       </div>
     );

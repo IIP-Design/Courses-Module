@@ -7,7 +7,7 @@ const Instructor = React.createClass({
 
   // Temp function until ajax requests
   getInitialState: function() {
-    const data = require('../course-data');
+    const data = require('../courses');
     const instructor = this.getInstructor(data);
 
     return { data: instructor };
