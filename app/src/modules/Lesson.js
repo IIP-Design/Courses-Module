@@ -115,7 +115,9 @@ const Lesson = withRouter(React.createClass({
     const lesson = this.state.data.parent.lessons[lessonPosition.index+1];
 
     return (
-      <a className='button' onClick={ () => this.handleClick(lesson.slug) }>Next Lesson</a>
+      <div>
+        <a className='button' onClick={ () => this.handleClick(lesson.slug) }>Next Lesson</a>
+      </div>
     );
   },
 
@@ -126,7 +128,9 @@ const Lesson = withRouter(React.createClass({
     const lesson = this.state.data.parent.lessons[lessonPosition.index-1];
 
     return (
-      <a className='button' onClick={ () => this.handleClick(lesson.slug) }>Previous Lesson</a>
+      <div>
+        <a className='button' onClick={ () => this.handleClick(lesson.slug) }>Previous Lesson</a>
+      </div>
     );
   },
 
@@ -152,6 +156,32 @@ const Lesson = withRouter(React.createClass({
   },
 
 
+  lessonPagination: function() {
+    const position = this.getLessonPosition();
+
+    // Create an array the length of position.length
+    const nodes = Array.apply(null, { length: position.length }).map(Number.call, Number)
+
+    // If the current node index matches position.index, put an 'active' class on it
+    const pagination = nodes.map(function(node) {
+      if ((nodes.indexOf(node)) === (position.index)) {
+
+        // We +1 here because the index starts at 0
+        return (
+          <li className='active' key={ nodes.indexOf(node)}>{ nodes.indexOf(node) + 1 }</li>
+        );
+      }
+
+      // We +1 here because the index starts at 0
+      return (
+        <li key={ nodes.indexOf(node) }>{ (nodes.indexOf(node)) + 1 }</li>
+      );
+    });
+
+    return pagination;
+  },
+
+
   // Handle the click event on the button to update state
   handleClick: function(slug) {
     const lesson = this.getLesson(slug);
@@ -170,6 +200,9 @@ const Lesson = withRouter(React.createClass({
         <Breadcrumbs routes={ this.state.routes } params={ this.props.params } />
         <YouTube videoId={ this.state.data.media.video.video_id } />
         { this.buttonNav() }
+        <ul className='lesson-pagination'>
+          { this.lessonPagination() }
+        </ul>
         <LessonTabs
           description={ this.state.data.description }
           transcript={ this.state.data.media.transcript_text }
