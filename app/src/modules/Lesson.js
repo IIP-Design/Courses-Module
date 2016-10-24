@@ -140,7 +140,12 @@ const Lesson = withRouter(React.createClass({
     const lesson = this.getLessonPosition();
 
     if (lesson.position === 'last') {
-      return this.previous();
+      return (
+        <div>
+          { this.previous() }
+          <Link to={ 'quiz' }>Go to quiz</Link>
+        </div>
+      );
     }
 
     if (lesson.position === 'first') {
@@ -208,7 +213,6 @@ const Lesson = withRouter(React.createClass({
           transcript={ this.state.data.media.transcript_text }
           resources={ this.state.data.resources }/>
         <Glossary data={ this.state.data.glossary } />
-        <Link to={ 'quiz' }>Go to quiz</Link>
        </div>
     );
   }
