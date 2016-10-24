@@ -198,6 +198,8 @@ const Lesson = withRouter(React.createClass({
 
 
   // @todo YouTube component needs a responsive wrapper
+  // @todo Pull buttonNav out into its own component
+  // @todo Pull lessonPagination out into its own component
   render: function() {
     return (
       <div>
