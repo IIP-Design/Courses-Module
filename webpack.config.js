@@ -4,7 +4,6 @@ var autoprefixer = require('autoprefixer');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-  devtool: 'cheap-eval-source-map',
   context: __dirname,
   entry: "./app/src",
   output: {
@@ -71,7 +70,12 @@ module.exports = {
       {
         reload: false  // true
       }
-    )
+    ),
+    new webpack.SourceMapDevToolPlugin({
+      filename: 'packed.js.map',
+      module: false,
+      columns: false
+    })
   ],
   postcss: function() {
     return [ autoprefixer({ browsers: ['> 1%', 'last 3 IE versions'] }) ]

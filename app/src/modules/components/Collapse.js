@@ -38,12 +38,16 @@ const CollapseItem = React.createClass({
 
 const CollapsePanel = React.createClass({
   propTypes: {
-    children: React.PropTypes.string
+    description: React.PropTypes.string.isRequired
+  },
+
+  rawDescription: function() {
+    return { __html: this.props.description }
   },
 
   render: function() {
     return(
-      <div role='tabpanel'>{ this.props.children}</div>
+      <div role='tabpanel' dangerouslySetInnerHTML={ this.rawDescription() }></div>
     );
   }
 });

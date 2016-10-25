@@ -5,3 +5,4 @@ node_modules
 .nyc_output/
 coverage/
 app/src/packed.js
+app/src/packed.js.map
