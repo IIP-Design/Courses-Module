@@ -6,11 +6,6 @@ const StepsList       = require('./components/StepsList');
 const _               = require('lodash');
 
 const Course = React.createClass({
-  propType: function() {
-    params: React.PropTypes.object
-  },
-
-
   // Temporary for loading data from a file
   getInitialState: function() {
     const data = require('../courses.js');

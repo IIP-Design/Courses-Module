@@ -8,7 +8,11 @@ const { Link, withRouter } = require('react-router');
 
 // We wrap it in 'withRouter' so we can push updates to the url to the address bar
 const Lesson = withRouter(React.createClass({
-  // @todo: Add propTypes
+  propTypes: {
+    params: React.PropTypes.object,
+    routes: React.PropTypes.array,
+    router: React.PropTypes.object
+  },
 
   courses: require('../courses.js'),
 
@@ -214,7 +218,7 @@ const Lesson = withRouter(React.createClass({
           description={ this.state.data.description }
           transcript={ this.state.data.media.transcript_text }
           resources={ this.state.data.resources }/>
-        <Glossary data={ this.state.data.glossary } />
+        <Glossary terms={ this.state.data.glossary } />
        </div>
     );
   }

@@ -3,22 +3,22 @@ const { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } = require('./Co
 
 const Glossary = React.createClass({
   propTypes: {
-    data: React.PropTypes.array
+    terms: React.PropTypes.array
   },
 
   render: function() {
-    if (this.props.data.length === 0) {
+    if (this.props.terms.length === 0) {
       return (<div/>);
     }
 
-    const glossary = this.props.data.map(function(term) {
+    const glossary = this.props.terms.map(function(term) {
       return (
         <CollapseItem key={ term.id }>
           <CollapseTrigger tag={ 'p' }>{ term.title }</CollapseTrigger>
-          <CollapsePanel>{ term.description }</CollapsePanel>
+          <CollapsePanel description={ term.description } />
         </CollapseItem>
       );
-    });
+    }, this);
 
     return (
       <div>
@@ -29,6 +29,6 @@ const Glossary = React.createClass({
       </div>
     );
   }
-});
+}, this);
 
 module.exports = Glossary;
