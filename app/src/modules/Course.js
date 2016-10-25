@@ -3,6 +3,7 @@ const LessonList      = require('./LessonList');
 const InstructorList  = require('./InstructorList');
 const MediaObject     = require('./components/MediaObject');
 const StepsList       = require('./components/StepsList');
+const _               = require('lodash');
 
 const Course = React.createClass({
   propType: function() {
@@ -35,19 +36,15 @@ const Course = React.createClass({
     // Loop through the lessons, push instructor to instructors Array if not already there
     this.state.data.lessons.forEach(function(lesson) {
       lesson.instructors.forEach(function(instructor) {
-        const found = JSON.stringify(instructors).indexOf(JSON.stringify(instructor)) > -1;
-        if (!found) {
           instructors.push(instructor);
-        }
       });
     });
 
-    return instructors;
+    return _.uniqBy(instructors, 'id');
   },
 
 
   render: function() {
-    const courseId = this.state.data.id;
     const lessons = this.state.data.lessons;
 
     return (

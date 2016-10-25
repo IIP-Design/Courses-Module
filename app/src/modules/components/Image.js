@@ -1,5 +1,6 @@
 const React = require('react');
 const { sprintf } = require('sprintf-js');
+const _ = require('lodash');
 
 
 const Image = React.createClass({
@@ -13,12 +14,14 @@ const Image = React.createClass({
   },
 
 
+  // @todo: This will definitely need some major work once we know the srcsets, etc
   // Generage the srcset attribute from the widths and srcs provided
   generateSrcset: function(props) {
+    const srcset = (_.sortBy(props.srcset, 'width')).reverse();
     let error = false;
-    let srcset = '';
+    let newSrcSet = '';
 
-    props.srcset.forEach(function(image) {
+    srcset.forEach(function(image) {
       if (image.src === undefined) {
         error = new Error('Required field "src" is undefined');
         return;
@@ -29,23 +32,24 @@ const Image = React.createClass({
         return;
       }
 
-      srcset += sprintf('%s %dw, ', image.src, image.width);
+      newSrcSet += sprintf('%s %dw, ', image.src, image.width);
     });
 
     if (error !== false) {
       return error;
     }
 
-    return srcset;
+    return newSrcSet;
   },
 
 
   // Generate the sizes attribute from the widths and media queries
   generateSizes: function(props) {
+    const srcset = _.sortBy(props.srcset, 'width');
     let error = false;
     let sizes = '';
 
-    props.srcset.reverse().forEach(function(image, index) {
+    srcset.forEach(function(image, index) {
       if (image.src === undefined) {
         error = new Error('Required field "width" is undefined');
       }

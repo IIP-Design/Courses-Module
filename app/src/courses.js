@@ -127,6 +127,34 @@ var data = [
                 }
               ]
             }
+          },
+          {
+            "id": 27,
+            "slug": "yasmine-eldroubi",
+            "title": "Yasmine El-Droubi",
+            "description": "<p>You bet I'm agitated! I may be surrounded by insanity, but I am not insane. You're going to be an interesting companion, Mr. Data. I can't. As much as I care about you, my first duty is to the ship. I'm afraid I still don't understand, sir. Fear is the true enemy, the only enemy. Your shields were failing, sir.</p>",
+            "salutation": "Mrs.",
+            "image": {
+              "id": 4,
+              "src": "https://placekitten.com/500/500",
+              "width": 500,
+              "height": 500,
+              "title": "kitten500x500",
+              "alt": "alt texts",
+              "caption": "captions",
+              "srcset": [
+                {
+                  "width": 300,
+                  "height": 300,
+                  "src": "https://placekitten.com/300/300",
+                },
+                {
+                  "width": 200,
+                  "height": 200,
+                  "src": "https://placekitten.com/300/300",
+                }
+              ]
+            }
           }
         ],
         "quiz": [
@@ -261,10 +289,38 @@ var data = [
             "id": 45,
             "slug": "lina-kleekamp",
             "title": "Lina Kleekamp",
-            "description": "<p>Born in 2011, Lina is our youngest instructor.</p>",
+            "description": "<p>Lina is our youngest instructor. She was born in 2011.</p>",
             "salutation": "Miss",
             "image": {
               "id": 3,
+              "src": "https://placekitten.com/500/500",
+              "width": 500,
+              "height": 500,
+              "title": "kitten500x500",
+              "alt": "alt texts",
+              "caption": "captions",
+              "srcset": [
+                {
+                  "width": 300,
+                  "height": 300,
+                  "src": "https://placekitten.com/300/300",
+                },
+                {
+                  "width": 200,
+                  "height": 200,
+                  "src": "https://placekitten.com/300/300",
+                }
+              ]
+            }
+          },
+          {
+            "id": 34,
+            "slug": "nathan-kleekamp",
+            "title": "Nathan Kleekamp",
+            "description": "<p>You bet I'm agitated! I may be surrounded by insanity, but I am not insane. You're going to be an interesting companion, Mr. Data. I can't. As much as I care about you, my first duty is to the ship. I'm afraid I still don't understand, sir. Fear is the true enemy, the only enemy. Your shields were failing, sir.</p>",
+            "salutation": "Mr.",
+            "image": {
+              "id": 2,
               "src": "https://placekitten.com/500/500",
               "width": 500,
               "height": 500,

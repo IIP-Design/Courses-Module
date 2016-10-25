@@ -1,34 +1,49 @@
 const React = require('react');
+const _ = require('lodash');
 
 const Instructor = React.createClass({
   propTypes: {
-    instructor: React.PropTypes.object
+    params: React.PropTypes.object
   },
+
+
+  courses: require('../courses'),
+
 
   // Temp function until ajax requests
   getInitialState: function() {
-    const data = require('../courses');
-    const instructor = this.getInstructor(data);
-
+    const instructor = this.getInstructor();
     return { data: instructor };
   },
 
-  getInstructor: function(courses) {
-    const props = this.props;
-    var found;
 
-    courses.forEach(function(course) {
-      course.lessons.forEach(function(lesson) {
-        lesson.instructors.forEach(function(instructor) {
-          if (Number(instructor.id) === Number(props.params.id)) {
-            found = instructor;
-          }
-        });
-      });
-    });
+  getInstructor: function() {
+    const course = this.getThisCourse();
+    let instructors = [];
 
-    return found;
+    course.lessons.forEach(function(lesson) {
+      lesson.instructors.forEach(function(instructor) {
+        if (instructor.slug === this.props.params.slug) {
+          instructors.push(instructor);
+        }
+      }, this);
+    }, this);
+
+    instructors = _.uniqBy(instructors, 'id');
+
+    return instructors[0];
   },
+
+
+  getThisCourse: function() {
+    const courseId = localStorage.getItem('courseId');
+    const course = this.courses.filter(function(course) {
+      return (Number(course.id) === Number(courseId));
+    }, this);
+
+    return course[0];
+  },
+
 
   render: function() {
     return (
