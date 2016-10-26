@@ -1,0 +1,38 @@
+.steps-list {
+  background-color: #e5e8e9;
+  list-style-type: none;
+  margin: 0;
+  padding: 1em;
+}
+
+.step-title {
+  font-weight: bold;
+}
+
+.step-description {
+  margin-left: 0.5em;
+}
+
+.steps-list .step {
+  background: no-repeat 0 50%;
+  background-size: 1.25em 1.25em;
+  line-height: 1.25em;
+  padding-left: 2em;
+  margin-bottom: 1.75em;
+}
+
+.steps-list .step:last-child {
+  margin-bottom: 0;
+}
+
+.steps-list .steps-list__first {
+  background-image: url('../../images/arrow.png');
+}
+
+.steps-list .steps-list__second {
+  background-image: url('../../images/check.png');
+}
+
+.steps-list .steps-list__third {
+  background-image: url('../../images/medal.png');
+}
