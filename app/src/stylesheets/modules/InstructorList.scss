@@ -3,3 +3,18 @@
 .instructors-list .media-object {
   border: $border;
 }
+
+.instructors-list .media-object {
+  @include bp($tablet) {
+    clear: none;
+    float: left;
+    margin: 0 1% 0 0;
+    width: 32%;
+  }
+}
+
+.instructors-list .media-object:last-child {
+  @include bp($tablet) {
+    margin: 0;
+  }
+}

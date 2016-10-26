@@ -21,6 +21,10 @@
   margin-bottom: 1.75em;
 }
 
+.steps-list .step::before {
+  content: '';
+}
+
 .steps-list .step:last-child {
   margin-bottom: 0;
 }

@@ -41,23 +41,13 @@ var data = [
         "excerpt": "<p>A strong body of volunteers can make the difference between success and failure. Learn how to recruit and retain volunteers who are committed to your organization’s mission.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/770/393",
-          "width": 770,
-          "height": 393,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
-            {
-              "width": 770,
-              "height": 393,
-              "src": "https://placekitten.com/770/393",
-            },
-            {
-              "width": 380,
-              "height": 196,
-              "src": "https://placekitten.com/380/196",
-            },
             {
               "width": 323,
               "height": 165,
@@ -202,23 +192,13 @@ var data = [
         "excerpt": "<p>This lesson demonstrates how to inspire citizens to take positive actions on their collective behalf and maintain their involvement for the long term.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/770/393",
-          "width": 770,
-          "height": 393,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
-            {
-              "width": 770,
-              "height": 393,
-              "src": "https://placekitten.com/770/393",
-            },
-            {
-              "width": 380,
-              "height": 196,
-              "src": "https://placekitten.com/380/196",
-            },
             {
               "width": 323,
               "height": 165,
@@ -408,23 +388,13 @@ var data = [
         "excerpt": "<p>A strong body of volunteers can make the difference between success and failure. Learn how to recruit and retain volunteers who are committed to your organization’s mission.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/770/393",
-          "width": 770,
-          "height": 393,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
-            {
-              "width": 770,
-              "height": 393,
-              "src": "https://placekitten.com/770/393",
-            },
-            {
-              "width": 380,
-              "height": 196,
-              "src": "https://placekitten.com/380/196",
-            },
             {
               "width": 323,
               "height": 165,
@@ -552,23 +522,13 @@ var data = [
         "excerpt": "<p>This lesson provides step-by-step recommendations for building a realistic and achievable movement for change by implementing grassroots campaigns, identifying tasks and delegating responsibility.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/770/393",
-          "width": 770,
-          "height": 393,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
-            {
-              "width": 770,
-              "height": 393,
-              "src": "https://placekitten.com/770/393",
-            },
-            {
-              "width": 380,
-              "height": 196,
-              "src": "https://placekitten.com/380/196",
-            },
             {
               "width": 323,
               "height": 165,
@@ -693,23 +653,13 @@ var data = [
         "excerpt": "<p>This lesson demonstrates how to inspire citizens to take positive actions on their collective behalf and maintain their involvement for the long term.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/770/393",
-          "width": 770,
-          "height": 393,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
-            {
-              "width": 770,
-              "height": 393,
-              "src": "https://placekitten.com/770/393",
-            },
-            {
-              "width": 380,
-              "height": 196,
-              "src": "https://placekitten.com/380/196",
-            },
             {
               "width": 323,
               "height": 165,

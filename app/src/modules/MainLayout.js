@@ -6,7 +6,6 @@ const MainLayout = React.createClass({
   render: function() {
     return (
       <div>
-        <p>MainLayout</p>
         { this.props.children }
       </div>
     );
