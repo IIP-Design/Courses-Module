@@ -24,6 +24,10 @@ h1, h3 {
   @include bp($tablet) {
     position: relative;
   }
+
+  @include bp($laptop) {
+    height: em(325);
+  }
 }
 
 .course-intro-image {
@@ -45,6 +49,20 @@ h1, h3 {
   }
 }
 
+.course-intro-image::before {
+  @include bp($tablet) {
+    background: linear-gradient(0deg, transparent 0, #fff 70%, transparent 100%);
+    background: -moz-linear-gradient(0deg, transparent 0, #fff 70%, transparent 100%);
+    background: -webkit-linear-gradient(0deg, transparent 0, #fff 70%, transparent 100%);
+    background: -ms-linear-gradient(0deg, transparent 0, #fff 70%, transparent 100%);
+    top: 0;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 50%;
+  }
+}
+
 .course-intro-gradient {
   background: linear-gradient(0deg, #fff, transparent 100%, transparent);
   bottom: 0;
@@ -54,11 +72,12 @@ h1, h3 {
   width: 100%;
 
   @include bp($tablet) {
-    background: linear-gradient(0deg, #fff -33%, #0079af 52%, transparent 117%);
-    background: -moz-linear-gradient(0deg, #fff -33%, #0079af 52%, transparent 117%);
-    background: -webkit-linear-gradient(0deg, #fff -33%, #0079af 52%, transparent 117%);
-    background: -ms-linear-gradient( 0deg, #fff -33%, #0079af 52%, transparent 117%);
+    background: linear-gradient(0deg,#fff 0%, rgb(0,121,175) 70%, rgb(70,143,176) 100%);
+    background: -moz-linear-gradient(0deg,#fff 0%, rgb(0,121,175) 70%, rgb(70,143,176) 100%);
+    background: -webkit-linear-gradient(0deg,#fff 0%, rgb(0,121,175) 70%, rgb(70,143,176) 100%);
+    background: -ms-linear-gradient(0deg,#fff 0%, rgb(0,121,175) 70%, rgb(70,143,176) 100%);
     height: 100%;
+    opacity: .4;
   }
 }
 
@@ -71,6 +90,10 @@ h1, h3 {
     padding: 1em;
     position: relative;
     width: 50%;
+  }
+
+  @include bp($laptop) {
+    padding: 2em;
   }
 }
 
