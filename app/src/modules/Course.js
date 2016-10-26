@@ -58,7 +58,7 @@ const Course = React.createClass({
               <div className='course-intro-gradient'></div>
             </div>
             <div className='course-intro-text'>
-              <h4>{ this.state.data.title }</h4>
+              <h1>{ this.state.data.title }</h1>
               <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
             </div>
           </div>
