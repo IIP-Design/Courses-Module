@@ -65,3 +65,19 @@ $width: 50;
     display: block;
   }
 }
+
+.lessons-list__ordered .media-object {
+  @include bp($tablet) {
+    display: inline-block;
+    width: 80%;
+  }
+}
+
+.lessons-list__ordered .button-wrapper {
+  @include bp($tablet) {
+    display: inline-block;
+    float: right;
+    padding: 3em 0 0 1em;
+    width: 20%
+  }
+}

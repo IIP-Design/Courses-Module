@@ -1,8 +1,19 @@
+@import '../abstracts/all';
+
 .steps-list {
   background-color: #e5e8e9;
   list-style-type: none;
   margin: 0;
   padding: 1em;
+
+  @include bp($tablet) {
+    background: linear-gradient(0deg, #fff -33%, #0079af 52%, transparent 117%);
+    background: -moz-linear-gradient(0deg, #fff -33%, #0079af 52%, transparent 117%);
+    background: -webkit-linear-gradient(0deg, #fff -33%, #0079af 52%, transparent 117%);
+    background: -ms-linear-gradient( 0deg, #fff -33%, #0079af 52%, transparent 117%);
+    opacity: .9;
+    overflow: hidden;
+  }
 }
 
 .step-title {
@@ -11,6 +22,11 @@
 
 .step-description {
   margin-left: 0.5em;
+
+  @include bp($tablet) {
+    display: block;
+    margin: 0;
+  }
 }
 
 .steps-list .step {
@@ -19,6 +35,12 @@
   line-height: 1.25em;
   padding-left: 2em;
   margin-bottom: 1.75em;
+
+  @include bp($tablet) {
+    float: left;
+    margin: 0;
+    width: 33%;
+  }
 }
 
 .steps-list .step::before {

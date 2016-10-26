@@ -21,7 +21,7 @@ const LessonList = React.createClass({
       return (
         <li className='lessons-list-item' key={ lesson.id }>
           <MediaObject tag={ 'h4' } link={ link } { ...lesson } />
-          <Button value={ 'Take Lesson' } link={ link } />
+          <Button className='button-wrapper' value={ 'Take Lesson' } link={ link } />
         </li>
       );
     });
