@@ -11,12 +11,17 @@ $width: 50;
   position: relative;
 }
 
+// Reset the counter. See '.lessons-list-item .media-object::before'
+// below, where we set the lesson number instead of on '.lessons-list-item'
 .lessons-list__ordered {
   counter-reset: li;
   margin: 0;
   padding: 0 0 0 em($width);
 }
 
+/*
+ * The line connecting the lesson numbers
+ *
 .lessons-list__ordered::before {
   border-left: $border;
   content: '';
@@ -24,7 +29,7 @@ $width: 50;
   left: em($width - $halfRadius);
   position: absolute;
   top: em(150);
-}
+} */
 
 .lessons-list-item {
   list-style: none;
@@ -32,6 +37,7 @@ $width: 50;
   position: relative;
 }
 
+// The circles around the lesson numbers
 .lessons-list-item::before {
   background-color: #fff;
   background-color: rgba(255, 255, 255, 1);
@@ -49,6 +55,9 @@ $width: 50;
   margin: 0;
 }
 
+
+// We removed the counter on the li and put it here instead
+// so we have greater control of placement
 .lessons-list-item .media-object::before {
   content: counter(li);
   counter-increment: li;
@@ -83,7 +92,6 @@ $width: 50;
 }
 
 .lessons-list_ordered .media-object-description {
-
   @include bp($tablet) {
     width: 45%;
   }
