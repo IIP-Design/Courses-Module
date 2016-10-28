@@ -8,7 +8,7 @@ const Step = (props) => {
     );
 };
 
-Step.propTypes: {
+Step.propTypes = {
     className: React.PropTypes.string,
     title: React.PropTypes.string,
     children: React.PropTypes.string

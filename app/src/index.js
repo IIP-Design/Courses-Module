@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const { Provider } = require('react-redux');
 const store = require('./store');
-const router = require('./router');
+const routes = require('./routes');
 
 const root = document.getElementById('course-container');
 
@@ -17,6 +17,6 @@ const root = document.getElementById('course-container');
 // the Router. We pass it a reference to the store so we can use react-redux's
 // connect() method for Component Containers.
 ReactDOM.render (
-  <Provider store={ store }>{ router }</Provider>,
+  <Provider store={ store }>{ routes }</Provider>,
   root
 );
