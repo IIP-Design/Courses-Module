@@ -1,65 +1,62 @@
 const React           = require('react');
+const { connect }     = require('react-redux');
+const api             = require('../api');
 const LessonList      = require('./LessonList');
 const InstructorList  = require('./InstructorList');
-const MediaObject     = require('./components/MediaObject');
 const StepsList       = require('./components/StepsList');
+const Image           = require('./components/Image');
+
+require('../stylesheets/modules/Course.scss');
+
+const { object } = React.PropTypes;
 
 const Course = React.createClass({
   propType: function() {
-    params: React.PropTypes.object
+    params: object
   },
 
-  getInitialState: function() {
-    const data = require('../course-data');
-    const course = this.getCourse(data);
-
-    return { data: course };
+  componentDidMount: function() {
+    api.getCourse(this.props.route.courseId);
   },
 
-  // Temporary method until start ajax requests
-  getCourse: function(courses) {
-    const props = this.props;
-    var found;
-
-    courses.forEach(function(course) {
-      if (Number(course.id) === Number(props.params.id)) {
-        found = course;
-      }
-    });
-
-    return found;
-  },
-
-  getInstructors: function() {
-    const instructors = [];
-
-    this.state.data.lessons.forEach(function(lesson) {
-      lesson.instructors.forEach(function(instructor) {
-        const found = JSON.stringify(instructors).indexOf(JSON.stringify(instructor)) > -1;
-        if (!found) {
-          instructors.push(instructor);
-        }
-      });
-    });
-
-    return instructors;
+  rawDescription: function() {
+    return { __html: this.props.course.description };
   },
 
   render: function() {
-    const courseId = this.state.data.id;
-    const lessons = this.state.data.lessons;
+    let props = this.props;
 
     return (
       <div>
+        <div className={props.isFetching ? 'show' : 'hide'}>Loading...</div>
         <section className='course-intro'>
-          <MediaObject tag={ 'h4' } reversed={ true }  { ...this.state.data } />
+          <div className='course-intro-feature'>
+            <div className='course-intro-image'>
+              <Image { ...props.course.image } />
+              <div className='course-intro-gradient'></div>
+            </div>
+            <div className='course-intro-text'>
+              <h1>{ props.course.title  }</h1>
+              <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
+            </div>
+          </div>
         </section>
         <StepsList />
-        <LessonList lessons={ lessons }  courseId={ courseId } />
-        <InstructorList instructors={ this.getInstructors() } />
+        <LessonList lessons={ props.lessons } />
+        <InstructorList instructors={ props.instructors } />
       </div>
     );
   }
 });
 
-module.exports = Course;
+const mapStateToProps = (store) => {
+  let data = store.course;
+  return {
+    course: data.detail,
+    lessons: data.lessons,
+    instructors: data.instructors,
+    isFetching: data.isFetching
+  };
+}; 
+
+module.exports = connect(mapStateToProps)(Course);

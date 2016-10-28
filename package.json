@@ -23,11 +23,15 @@
   "homepage": "https://github.com/IIP-Design/Courses-Module#readme",
   "dependencies": {
     "axios": "^0.15.2",
+    "lodash": "^4.16.4",
+    "normalizr": "^2.2.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "sprintf-js": "^1.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",
@@ -56,6 +60,7 @@
     "parallelshell": "^2.0.0",
     "postcss-loader": "^0.13.0",
     "react-addons-test-utils": "^15.3.2",
+    "redux-logger": "^2.7.0",
     "sass-loader": "^4.0.2",
     "sinon": "^1.17.6",
     "style-loader": "^0.13.1",

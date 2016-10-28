@@ -1,9 +1,10 @@
 const React = require('react')
 
+require('../../stylesheets/modules/MainLayout.scss');
+
 const MainLayout = (props) => {
     return (
       <div className="app">
-        <div className="breadcrumb">Breadcrumb</div>
         <main>
           {props.children}
         </main>

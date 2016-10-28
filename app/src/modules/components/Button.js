@@ -1,11 +1,10 @@
 const React = require('react');
 const { Link } = require('react-router');
 
-const { string, number, func } = React.PropTypes;
+const { string } = React.PropTypes;
 
 const Button = React.createClass({
   propTypes: {
-    id: number,
     value: string.isRequired,
     link: string,
     buttonType: string
