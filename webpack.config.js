@@ -19,6 +19,9 @@ module.exports = {
     port: 8080,
     historyApiFallback: true,
   },
+  eslint: {
+    configFile: './.eslintrc'
+  },
   stats: {
     colors: true,
     reasons: true,
@@ -30,6 +33,13 @@ module.exports = {
     'react/lib/ReactContext': true,
   },
   module: {
+     // preLoaders: [
+    //   {
+    //     test: /\.js$/,
+    //     exclude: [/node_modules/, /js\/src\/course?/],  // don't lint the course data file
+    //     loader: 'eslint-loader'
+    //   }
+    // ],
     loaders: [
       {
         test: /\.js$/,
@@ -48,10 +58,6 @@ module.exports = {
         test: /\.(png|jpg)$/,
         loader: 'url-loader?limit=8192&name=[path][name].[ext]?[hash]',
         exclude: [path.join(__dirname, 'node_modules')]
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
       }
     ]
   },
