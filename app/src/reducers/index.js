@@ -1,13 +1,13 @@
 const { combineReducers } = require('redux');
 
 // Reducers
-const coursesReducer = require('./coursesReducer');
-const quizReducer = require('./quizReducer');
+const courseReducer = require('./courseReducer');
+const lessonReducer = require('./lessonReducer');
 
 // Combine Reducers
 var reducers = combineReducers({
-    courses: coursesReducer,
-    quiz: quizReducer
+    course: courseReducer,
+    lesson: lessonReducer
 });
 
 module.exports = reducers;
