@@ -1,5 +1,6 @@
 const React = require('react');
 const Question = require('./Question');
+const forEach = require('lodash');
 const { array } = React.PropTypes;
 
 const QuestionList = React.createClass({
@@ -24,9 +25,11 @@ const QuestionList = React.createClass({
 			listStyle: 'none',
 			margin: 30
 		};
-
+  
 		return (
-			<ol style={ listStyle } className='quiz-questions'>{ this.props.questions.map(this.renderQuestion) }</ol>
+			<ol style={ listStyle } className='quiz-questions'>
+        { this.props.questions.map(this.renderQuestion) }
+      </ol>
 		);
 	}
 });

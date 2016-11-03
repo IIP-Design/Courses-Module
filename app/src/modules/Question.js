@@ -1,4 +1,6 @@
 const React = require('react');
+const { connect, dispatch } = require('react-redux');
+const { answerQuestion } = require('../actions/actions');
 const ChoiceList = require('./ChoiceList');
 
 const { string, number, array } = React.PropTypes;
@@ -10,18 +12,23 @@ const Question = React.createClass({
     qid: number
   },
 
-  createMarkup()  { 
+  rawHTML()  { 
   	return { __html: this.props.text }; 
+  },
+
+  handleChange (e) {
+    this.props.dispatch(answerQuestion(e.target.id));
   },
  
   render() {
 		return (
     	<li>
-    		<div dangerouslySetInnerHTML={ this.createMarkup() }></div>
-		  	<ChoiceList qid={ this.props.qid } choices={ this.props.choices } />
+    		<div dangerouslySetInnerHTML={ this.rawHTML() }></div>
+		  	<ChoiceList qid={ this.props.qid } choices={ this.props.choices } onChange={ this.handleChange } />
 			</li>
 		);
 	}
 });
 
-module.exports = Question;
+
+module.exports = connect()(Question);

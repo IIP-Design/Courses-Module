@@ -6,10 +6,10 @@ const { string, number, array } = React.PropTypes;
 
 const Image = React.createClass({
   propTypes: {
-    src: string.isRequired,
-    alt: string.isRequired,
-    width: number.isRequired,
-    height: number.isRequired,
+    src: string, //.isRequired,
+    alt: string, //.isRequired,
+    width: number, //.isRequired,
+    height: number, //.isRequired,
     srcset: array,
     media_queries: array
   },

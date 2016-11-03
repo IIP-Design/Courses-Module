@@ -1,17 +1,23 @@
 const React = require('react');
+const api = require('../api');
 const MediaObject = require('./components/MediaObject');
-const Button = require('./components/Button');
+//const Button = require('./components/Button');
+const { Link } = require('react-router');
 const { sprintf } = require('sprintf-js');
 const { array } = React.PropTypes;
 
 const { dispatch } = require('../store');
-const { setLesson } = require('../actions/actions');
+const { getLesson } = require('../actions/actions');
 
 require('../stylesheets/modules/LessonList.scss');
 
 const LessonList = React.createClass({
   propTypes: {
     lessons: array
+  },
+
+  handleClick: function(e) {
+    api.getLesson(e.target.id);
   },
 
   render: function() {
@@ -24,7 +30,7 @@ const LessonList = React.createClass({
       return (
         <li className='lessons-list-item' key={ lesson.id }>
           <MediaObject  tag={ 'h4' } link={ `lesson/${link}` } { ...lesson } />
-          <Button className='button-wrapper' value={ 'Take Lesson' } link={ `lesson/${link}` } id={ lesson.id }  />
+          <Link to={ `lesson/${link}` } onClick={ this.handleClick } id={ link }>Take Lesson</Link>
         </li>
       );
     });
@@ -43,3 +49,6 @@ const LessonList = React.createClass({
 });
 
 module.exports = LessonList;
+
+// <Button className='button-wrapper' value={ 'Take Lesson' } link={ `lesson/${link}` } onClick={ this.handleClick }  />
+

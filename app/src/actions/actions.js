@@ -1,12 +1,22 @@
 const axios = require('axios');
 const types = require('../actions/types');
 
-// utility method
+// Utility method to get data from id
 function getData(data) {
   var keys = Object.keys(data);
   var result = keys.map((key) => {
     return data[key];
   })
+  
+  return result;
+}
+
+function formatQuiz(data) {
+  var values = Object.values(data);
+  var result = values.map((value) => {
+    return value;
+  })
+  console.dir(result)
   return result;
 }
 
@@ -31,6 +41,20 @@ export function fetchError(error) {
   };
 }
 
+// populate redux store upon successful fetch
+export function fetchCourseComplete(data) {
+  let course = data.entities.course[data.result];  // get course by id
+  return {
+    type: types.FETCH_COURSE_COMPLETE,
+    payload: {
+      isFetching: false,
+      detail: course,
+      lessons: getData(data.entities.lessons),
+      instructors: getData(data.entities.instructors)
+    }
+  };
+}
+
 // set current lesson
 export function setLesson(lesson) {
  return {
@@ -45,18 +69,26 @@ export function setLesson(lesson) {
   };
 }
 
-// populate redux store upon successful fetch
-export function fetchCourseComplete(data) {
-  let course = data.entities.course[data.result];  // get course by id
-  
-  return {
-    type: types.FETCH_COURSE_COMPLETE,
+// set quiz
+export function setQuiz(quiz) {
+ return {
+    type: types.SET_QUIZ,
     payload: {
-      isFetching: false,
-      detail: course,
-      lessons: getData(data.entities.lessons),
-      instructors: getData(data.entities.instructors),
-      quiz: getData(data.entities.quiz)
+      questions: formatQuiz(quiz)
     }
   };
 }
+
+// add user answer to userAnswers
+export function answerQuestion(questionId) {
+  const re = /^(q\d+)c(\d+)/;
+  const match = questionId.match(re); 
+  return {
+    type: types.ANSWER_QUESTION,
+    payload:  { 
+      question: match[1], 
+      answer: match[2] }
+  };
+}
+
+    

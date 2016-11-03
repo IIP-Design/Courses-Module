@@ -1,15 +1,16 @@
 const React = require('react');
 const FormSelect = require('./components/FormSelect');
-const { number, array } = React.PropTypes;
+const { number, array, func } = React.PropTypes;
 
 const ChoiceList = React.createClass({
 
 	propTypes: {
     choices: array,
-    qid: number
+    qid: number,
+    onChange: func
   },
 
-	createMarkup()  { 
+	rawHTML()  { 
   	return { __html: this.props.text }; 
   },
 
@@ -25,7 +26,8 @@ const ChoiceList = React.createClass({
 		    	  id={ `q${ questionId }${ choiceKey }` } 
 		    	  type={'radio'}
 		    		name={ `q${ questionId }` }   
-		    		label={ choice.text } 
+		    		label={ choice.text }
+		    		onChange={ this.props.onChange } 
 		    	/>
 	  	</li>
 	   )

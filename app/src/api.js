@@ -1,6 +1,7 @@
 const axios = require('axios'); 
 const store = require('./store');
-const { fetchRequest, fetchCourseComplete, fetchError, setLesson } = require('./actions/actions');
+const { fetchRequest, fetchCourseComplete, fetchError, setLesson, setQuiz } = require('./actions/actions');
+const { hashHistory } = require('react-router'); 
 const { Schema, arrayOf, normalize } = require('normalizr');
 const find  = require('lodash');
 
@@ -17,7 +18,21 @@ lessonSchema.define({
 
 courseSchema.define({
   lessons: arrayOf(lessonSchema)
+ });
+
+
+// Listen for hash changes and trigger rerender on lesson pages
+// A change to the hash will not update redux store
+// This is not the best way to handle the back and next browser buttons
+hashHistory.listen((e) => {
+	const path = e.pathname;
+  const re = /^\/lesson\/(.+)/;
+	const match = path.match(re);
+  if(match) {
+  	getLesson(match[1]);  // index 1 has the slug capturing group
+  } 
 });
+
 
 /**
  * Get lesson from redux store by using its slug to find in lessons array
@@ -31,13 +46,13 @@ export function getLesson(slug) {
 
 /**
  * Fetches course data by id and dispatches an event to update redux store
- * @todo  Cache results
- * Create a shared api call (remove getCourses method) and pass it an endpoint
+ * @todo Cache results
+ * @todo Create a shared api call (remove getCourses method) and pass it an endpoint
  */
 export function getCourse(id) {
 	const dispatch = store.dispatch;
 
-	dispatch( fetchRequest() );
+	dispatch(fetchRequest());
 
 	let endpoint = `app/src/data/course-data-${id}.json`;
   
@@ -45,10 +60,14 @@ export function getCourse(id) {
   return axios.get(endpoint) 
 	  .then(response => {
 	  	const normalized = normalize(response.data, courseSchema);
+	  	const quiz = normalized.entities.quiz;
 	    dispatch( fetchCourseComplete(normalized));
+	    if(quiz) {
+	    	 dispatch(setQuiz(quiz));
+	    }
 	  })
 	  .catch((err) => {
-	  	 dispatch(fetchError(err));  // may need to change this as  errors are swallowed
+	  	dispatch(fetchError(err));  // may need to change this as errors are swallowed
 	  });
 }
 

@@ -13,17 +13,18 @@ const Instructor = require('./modules/Instructor');
 const Quiz = require('./modules/Quiz');
 // const Certificate = require('./modules/Certificate');
 
-
+// Had to add 'lesson' to the path as path='quiz'  
+// resolves to path=':lessonSlug' as well
 module.exports = (
   <Router history={ hashHistory }>
     <Route component={ MainLayout }>
       <Route path='/'>
-        <IndexRoute staticName={ true } component={ Course } courseId='51' />
+        <IndexRoute  component={ Course } courseId='51' />
         <Route path='lesson' component={ LessonLayout }>
-          <Route path=':lessonSlug' staticName={ true } component={ Lesson } />
+          <Route path=':lessonSlug' component={ Lesson } />
         </Route>
-        <Route path='quiz' component={ Quiz } />
         <Route path='/instructors/:slug' component={ Instructor } />
+        <Route path='quiz' component={ Quiz } />
       </Route>
     </Route>
   </Router>

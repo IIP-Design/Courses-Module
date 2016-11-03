@@ -8,7 +8,8 @@ const FormSelect = (props) => {
 						id={ props.id }
 						value={ props.id }   
 						name={ props.name } 
-						type={ props.type } />
+						type={ props.type } 
+						onChange={ props.onChange } />
 					{ props.label }
 				</label>
     );
@@ -18,7 +19,8 @@ FormSelect.propTypes = {
 	id: string,  
 	name: string,
 	label: string,
-	type: string
+	type: string,
+	onChange: func
 }
 
 module.exports = FormSelect;

@@ -1,17 +1,15 @@
 const React = require('react');
 const { connect } = require('react-redux');
-const api = require('../api');
 const YouTube = require('react-youtube').default;
+const api = require('../api');
 const Breadcrumbs = require('./components/Breadcrumbs');
 const Glossary = require('./components/Glossary');
 const LessonTabs = require('./components/LessonTabs');
-const Button = require('./components/Button');
 const { Link } = require('react-router');
 const findIndex = require('lodash');
 
 const { array, object, string, number } = React.PropTypes;
 
-// We wrap it in 'withRouter' so we can push updates to the url to the address bar
 const Lesson = React.createClass({
   propTypes: {
     params: object,
@@ -25,16 +23,23 @@ const Lesson = React.createClass({
     glossary: array
   },
 
-  // Set the correct RouteNames for the React Router Breadcrumbs component before the module loads
-  componentWillMount: function() {
-    api.getLesson(this.props.params.lessonSlug);
+  // Fetch lesson based on component id
+  handleClick: function(e) {
+    api.getLesson(e.target.id);
   },
 
-  // Set the correct RouteNames for the React Router Breadcrumbs component before the module updates
-  componentWillUpdate: function() {
-    api.getLesson(this.props.params.lessonSlug);  
+  // Fetch lesson nav link
+  getLink: function(index, label) {
+    const lessons = this.props.lessons;
+    const lessonIndex = this.props.lessonIndex;
+    const goToIndex = lessonIndex + index;
+    const slug = lessons[goToIndex].slug;
+
+    return (
+      <Link to={ `lesson/${slug}` } id={ slug } onClick={ this.handleClick }>{ label }</Link>
+    );
   },
-  
+
   // Assign the correct next/previous/both buttons
   buttonNav: function() {
     const numLessons = this.props.lessons.length - 1;
@@ -44,7 +49,7 @@ const Lesson = React.createClass({
     if (lessonIndex === numLessons) {
       return (
         <div>
-          <Link to={ `lesson/${lessons[lessonIndex - 1].slug}` }>Previous Lesson</Link>
+          { this.getLink(-1, 'Previous Lesson') }
           <Link to={ 'quiz' }>Go to quiz</Link>
         </div>
       );
@@ -53,7 +58,7 @@ const Lesson = React.createClass({
     if (lessonIndex === 0) {
       return (
         <div>
-          <Link to={ `lesson/${lessons[lessonIndex + 1].slug}` }>Next Lesson</Link>
+           { this.getLink(1, 'Next Lesson') }
         </div>
       );
     }
@@ -61,15 +66,14 @@ const Lesson = React.createClass({
     if (lessonIndex !== 0 && lessonIndex !== numLessons) {
       return (
         <div>
-          <Link to={ `lesson/${lessons[lessonIndex - 1].slug}` }>Previous Lesson</Link>
-          <Link to={ `lesson/${lessons[lessonIndex + 1].slug}` }>Next Lesson</Link>
+          { this.getLink(-1, 'Previous Lesson') }
+          { this.getLink(1, 'Next Lesson') }
         </div>
       );
     }
   },
 
-
-  lessonPagination: function( lesson, index) {
+  lessonPagination: function(lesson, index) {
     const cls = ( index === this.props.lessonIndex ) ? 'active' : '';
     return ( 
         <li className={cls} key={ index }>{ index + 1 }</li>
@@ -87,7 +91,7 @@ const Lesson = React.createClass({
       <div>
         <h2>{ props.lesson.title }</h2>
         <Breadcrumbs courseTitle={ props.courseTitle} name={ props.lesson.title  }  />
-        <YouTube videoId={ props.media.video.video_id } />
+        <YouTube videoId={ props.video.video_id  } />
         { this.buttonNav() }
         <ul className='lesson-pagination'>
           { this.props.lessons.map(this.lessonPagination) }
@@ -109,13 +113,17 @@ const mapStateToProps = (store) => {
   const index = _.findIndex(course.lessons, (o) => { 
     return o.id == lesson.detail.id; 
   });
-  
+
+  const media = (lesson.media) ? lesson.media : {};
+  const video = (lesson.media && lesson.media.video) ? lesson.media.video : {};
+
   return {
     courseTitle: course.detail.title,
     lessons: course.lessons,
     lesson: lesson.detail,
     lessonIndex: index,
-    media: lesson.media,
+    media: media,
+    video:video,
     image: lesson.image,
     resources: lesson.resources,
     glossary: lesson.glossary
