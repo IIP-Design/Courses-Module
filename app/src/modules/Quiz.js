@@ -1,6 +1,6 @@
 const React = require('react');
 const { connect } = require('react-redux');
-const { Link } = require('react-router');
+const { Link, hashHistory } = require('react-router');
 const FormSelect = require('./components/FormSelect');
 const QuestionList = require('./QuestionList');
 const { array, object, bool } = React.PropTypes;
@@ -20,7 +20,7 @@ const Quiz = React.createClass({
   },
 
   checkAnswers () {
-    
+     hashHistory.push('/certificate');
   },
 	
 	render () {
@@ -38,7 +38,7 @@ const Quiz = React.createClass({
             label='I certify that I have taken all the lessons related to this quiz before obtaining the certificate.' 
           />
         <QuestionList questions={ this.props.questions } />
-        <input type="button" disabled={ this.props.allAnswered ? false: true } value="Check Answers" onClick={ this.checkAnswers } />
+        <input type="button" disabled={ this.props.allAnswered ? false: true }  value="Check Answers" onClick={ this.checkAnswers } />
       </div>
 		);
 	}

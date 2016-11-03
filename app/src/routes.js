@@ -11,7 +11,7 @@ const Course = require('./modules/Course');
 const Lesson = require('./modules/Lesson');
 const Instructor = require('./modules/Instructor');
 const Quiz = require('./modules/Quiz');
-// const Certificate = require('./modules/Certificate');
+const CertificateForm = require('./modules/CertificateForm');
 
 // Had to add 'lesson' to the path as path='quiz'  
 // resolves to path=':lessonSlug' as well
@@ -25,6 +25,7 @@ module.exports = (
         </Route>
         <Route path='/instructors/:slug' component={ Instructor } />
         <Route path='quiz' component={ Quiz } />
+         <Route path='certificate' component={ CertificateForm } />
       </Route>
     </Route>
   </Router>
