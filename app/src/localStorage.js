@@ -1,6 +1,6 @@
 export const loadState = () => {
 	try {
-		const serializedState = localStorage.getItem('state');
+		const serializedState = localStorage.getItem('state');  // change name of state to something less common
 			if (serializedState === null ) {
 				return undefined;
 			}

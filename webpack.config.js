@@ -33,13 +33,6 @@ module.exports = {
     'react/lib/ReactContext': true,
   },
   module: {
-     // preLoaders: [
-    //   {
-    //     test: /\.js$/,
-    //     exclude: [/node_modules/, /js\/src\/course?/],  // don't lint the course data file
-    //     loader: 'eslint-loader'
-    //   }
-    // ],
     loaders: [
       {
         test: /\.js$/,
