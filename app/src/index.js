@@ -6,13 +6,6 @@ const routes = require('./routes');
 
 const root = document.getElementById('course-container');
 
-// Temporary until Redux in place
-// const courseId = localStorage.getItem('courseId');
-
-// if (courseId === null || courseId !== root.dataset.courseId) {
-//   localStorage.setItem('courseId', root.dataset.courseId);
-// }
-
 // Provider is a top-level component that wraps our entire application, including
 // the Router. We pass it a reference to the store so we can use react-redux's
 // connect() method for Component Containers.
