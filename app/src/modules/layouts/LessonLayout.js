@@ -1,9 +1,10 @@
-const React = require('react')
+const React = require('react');
+
+require('../../stylesheets/modules/LessonLayout.scss');
 
 const LessonLayout = (props) => {
    return (
       <div>
-        <p>LessonLayout</p>
         { props.children }
       </div>
     );
