@@ -19,7 +19,7 @@ module.exports = (
   <Router history={ hashHistory }>
     <Route component={ MainLayout }>
       <Route path='/'>
-        <IndexRoute  component={ Course } courseId='51' />
+        <IndexRoute  component={ Course }  />
         <Route path='lesson' component={ LessonLayout }>
           <Route path=':lessonSlug' component={ Lesson } />
         </Route>

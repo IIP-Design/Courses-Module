@@ -16,7 +16,6 @@ function formatQuiz(data) {
   var result = values.map((value) => {
     return value;
   })
-  console.dir(result)
   return result;
 }
 

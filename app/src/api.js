@@ -4,6 +4,9 @@ const { fetchRequest, fetchCourseComplete, fetchError, setLesson, setQuiz } = re
 const { hashHistory } = require('react-router'); 
 const { Schema, arrayOf, normalize } = require('normalizr');
 const find  = require('lodash');
+const shortid = require('shortid');
+
+const ENDPOINT = 'https://courses.origin.america.gov/wp-json/america/v1/courses/';
 
 // normalization schemas 
 const courseSchema 			 			= new Schema('course');
@@ -11,15 +14,18 @@ const lessonSchema     	 			= new Schema('lessons');
 const quizSchema   			 			= new Schema('quiz');
 const instructorSchema 	 			= new Schema('instructors');
 
+const generateID = () => {
+	return shortid.generate();
+}
+
 lessonSchema.define({
   instructors: arrayOf(instructorSchema),
-  quiz: arrayOf(quizSchema)
+  quiz: arrayOf(quizSchema)  // idAttribute
 });
 
 courseSchema.define({
   lessons: arrayOf(lessonSchema)
  });
-
 
 // Listen for hash changes and trigger rerender on lesson pages
 // A change to the hash will not update redux store
@@ -32,7 +38,6 @@ hashHistory.listen((e) => {
   	getLesson(match[1]);  // index 1 has the slug capturing group
   } 
 });
-
 
 /**
  * Get lesson from redux store by using its slug to find in lessons array
@@ -53,15 +58,15 @@ export function getCourse(id) {
 	const dispatch = store.dispatch;
 
 	dispatch(fetchRequest());
-
-	let endpoint = `app/src/data/course-data-${id}.json`;
+	let endpoint = ENDPOINT + id;
   
   // axios automatically formats to json
   return axios.get(endpoint) 
 	  .then(response => {
-	  	const normalized = normalize(response.data, courseSchema);
+	  	const normalized = normalize(response.data.courses, courseSchema);
 	  	const quiz = normalized.entities.quiz;
-	    dispatch( fetchCourseComplete(normalized));
+	   	dispatch( fetchCourseComplete(normalized));
+	    
 	    if(quiz) {
 	    	 dispatch(setQuiz(quiz));
 	    }

@@ -16,7 +16,10 @@ const Course = React.createClass({
   },
 
   componentDidMount: function() {
-    api.getCourse(this.props.route.courseId);
+    var container = document.getElementById('course-container');
+    var id = container.dataset.courseId;
+    // if id then else err
+    api.getCourse(id);
   },
 
   rawDescription: function() {

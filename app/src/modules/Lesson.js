@@ -125,7 +125,7 @@ const mapStateToProps = (store) => {
     media: media,
     video:video,
     image: lesson.image,
-    resources: lesson.resources,
+    resources: lesson.resources || [],  // resources coming in as boolean instead of empty array - this is temp
     glossary: lesson.glossary
   };
 }; 
