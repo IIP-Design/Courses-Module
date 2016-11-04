@@ -15,6 +15,7 @@ const lessonSchema     	 			= new Schema('lessons');
 const quizSchema   			 			= new Schema('quiz');
 const instructorSchema 	 			= new Schema('instructors');
 
+// Generates unique ids
 const generateID = () => {
 	return shortid.generate();
 }
@@ -36,7 +37,7 @@ hashHistory.listen((e) => {
   const re = /^\/lesson\/(.+)/;
 	const match = path.match(re);
   if(match) {
-  	getLesson(match[1]);  // index 1 has the slug capturing group
+  	getLesson(match[1]);  // index 1 has the slug in the first capturing group $1
   } 
 });
 
