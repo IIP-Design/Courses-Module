@@ -7,7 +7,7 @@ const find  = require('lodash');
 const shortid = require('shortid');
 
 // @todo get host, port, domain etc programaticaally
-const ENDPOINT = 'https://courses.origin.america.gov/wp-json/america/v1/courses/';
+const ENDPOINT = 'https://courses.america.gov/wp-json/america/v1/courses/';
 
 // normalization schemas 
 const courseSchema 			 			= new Schema('course');
