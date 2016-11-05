@@ -9,13 +9,13 @@ const initialState = {
 
 const courseReducer = (state = initialState, action) =>  {
   switch(action.type) {
-    case types.FETCH_COURSE_COMPLETE: 
+    case types.FETCH_COURSE_COMPLETE:
      return Object.assign({}, state, action.payload);
 
     case types.FETCH_REQUEST:
       return Object.assign({}, state, action.payload);
   }
- 
+
   return state;
 }
 

@@ -46,7 +46,7 @@ const Course = React.createClass({
         </section>
         <StepsList />
         <LessonList lessons={ props.lessons } />
-        <InstructorList instructors={ props.instructors } />
+        <InstructorList instructors={ props.instructors } /> // this is a resrt
       </div>
     );
   }
@@ -60,6 +60,6 @@ const mapStateToProps = (store) => {
     instructors: data.instructors,
     isFetching: data.isFetching
   };
-}; 
+};
 
 module.exports = connect(mapStateToProps)(Course);
