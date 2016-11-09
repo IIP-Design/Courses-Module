@@ -44,7 +44,7 @@ h1, h3 {
 .course-intro-image img {
   @include bp($tablet) {
     float: right;
-    max-width: none;
+    max-width: none !important;
   }
 }
 
