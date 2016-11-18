@@ -23,6 +23,10 @@ const Lesson = React.createClass({
     glossary: array
   },
 
+  componentDidMount: function() {
+    window.scroll(0,0);
+  },
+
   // Fetch lesson based on component id
   handleClick: function(e) {
     api.getLesson(e.target.id);

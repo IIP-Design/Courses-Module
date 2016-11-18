@@ -13,8 +13,9 @@ const InstructorList = React.createClass({
     const length = this.props.instructors.length;
     const instructors = this.props.instructors.map(function(instructor) {
       const link = `/instructors/${ instructor.slug }`
+
       return (
-        <div className={ (length < 3) ? 'media-object half' : 'media-object one-third' }>
+        <div className={ (length < 3) ? 'media-object half' : 'media-object one-third' } key={ instructor.id }>
           <Link to={ link }>
             <img src={ instructor.image.src } alt={ instructor.image.alt } />
           </Link>
