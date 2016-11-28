@@ -1,4 +1,5 @@
-import * as types from '../actions/types';
+import * as types from './actionTypes';
+
 
 const initialState = {
   detail: {},
@@ -7,6 +8,7 @@ const initialState = {
   resources: [],
   glossary: []
 };
+
 
 const lessonReducer = (state = initialState, action) =>  {
   switch(action.type) {
@@ -18,3 +20,4 @@ const lessonReducer = (state = initialState, action) =>  {
 }
 
 module.exports = lessonReducer;
+

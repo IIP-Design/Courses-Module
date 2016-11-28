@@ -33,7 +33,7 @@ const ChoiceList = React.createClass({
   generateArrFromObjectKeys(obj) {
   	const choices = [];
 
-		_.forEach( obj, function(value, key) {
+    _.forEach(obj, (value, key) =>  {
 			if( value ) {
 				 choices.push(value);
 				}

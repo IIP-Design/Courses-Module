@@ -10,9 +10,9 @@ const InstructorList = React.createClass({
     instructors: React.PropTypes.array
   },
 
-  render: function() {
+  render() {
     const length = this.props.instructors.length;
-    const instructors = this.props.instructors.map(function(instructor) {
+    const instructors = this.props.instructors.map((instructor) => {
       const link = `/instructors/${ instructor.slug }`
 
       return (

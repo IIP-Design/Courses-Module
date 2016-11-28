@@ -107,7 +107,7 @@ const Quiz = React.createClass({
 
     const query = Object.keys(params).map(k => esc(k) + '=' + esc(params[k])).join('&');
 
-    return (function(url) {
+    return ((url) => {
       (!a) ? a = document.createElement('a') : a;
       a.href = `${ url }?${ query }`;
       return a.href;

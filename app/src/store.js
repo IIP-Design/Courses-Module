@@ -1,20 +1,35 @@
-const { createStore, applyMiddleware, compose } = require('redux');
-const createLogger = require('redux-logger');
-const thunk = require('redux-thunk').default;
-const reducers =  require('./reducers');
-const { loadState, saveState } = require('./sessionStorage');
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
+
+import { loadState, saveState } from './sessionStorage';
+import courseReducer from './Course/reducer';
+import lessonReducer from './Lesson/reducer';
+import quizReducer from './Quiz/reducer';
+
 
 // including thunk middleware in the event we want to return functions for async purposes
 const middleware = [thunk];
+
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger())
 }
 
+
 // Get redux store from sessionStorage
 const persistedState = loadState();
 
+
+// Combine Reducers
+const reducers = combineReducers({
+  course: courseReducer,
+  lesson: lessonReducer,
+  quiz: quizReducer
+});
+
+
 // @todo: only include devToolsExtension/logger if environment is DEV
-const store = createStore (
+const store = createStore(
   reducers,
   persistedState,
   compose(
@@ -22,15 +37,17 @@ const store = createStore (
   )
 );
 
-// Listen for state changes and update state in localStorage
-store.subscribe (() => {
+
+// Listen for state changes and update state in sessionStorage
+store.subscribe(() => {
 	saveState(store.getState());
 });
+
 
 module.exports = store;
 
 
-/* remove redux dev tools temporariyl
+/* remove redux dev tools temporarily
 typeof window === 'object' && typeof window.devToolsExtension !== 'undefined'
 ? window.devToolsExtension()
 : f => f

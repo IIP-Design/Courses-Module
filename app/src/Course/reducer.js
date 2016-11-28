@@ -1,17 +1,18 @@
-import * as types from '../actions/types';
+import * as types from './actionTypes';
+
 
 const initialState = {
   detail: {},
   lessons: [],
-  instructors: [],      // all compiled and displayed at the course level
+  instructors: [], // all compiled and displayed at the course level
   isFetching: false,
 };
+
 
 const courseReducer = (state = initialState, action) =>  {
   switch(action.type) {
     case types.FETCH_COURSE_COMPLETE:
-     return Object.assign({}, state, action.payload);
-
+      return Object.assign({}, state, action.payload);
     case types.FETCH_REQUEST:
       return Object.assign({}, state, action.payload);
   }
@@ -19,4 +20,6 @@ const courseReducer = (state = initialState, action) =>  {
   return state;
 }
 
+
 module.exports = courseReducer;
+

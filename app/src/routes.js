@@ -1,20 +1,16 @@
-const React = require('react');
-const { Router, Route, IndexRoute, hashHistory } = require('react-router'); 
+import React from 'react';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-// Layouts
-const MainLayout = require('./modules/layouts/MainLayout');
-const LessonLayout = require('./modules/layouts/LessonLayout');
+import MainLayout from './modules/layouts/MainLayout';
+import LessonLayout from './modules/layouts/LessonLayout';
 
-// Pages
-//const CourseList = require('./modules/CourseList');
-const Course = require('./modules/Course');
-const Lesson = require('./modules/Lesson');
-const Instructor = require('./modules/Instructor');
-const Quiz = require('./modules/Quiz');
-const CertificateForm = require('./modules/CertificateForm');
+import Course from './modules/Course';
+import Lesson from './modules/Lesson';
+import Instructor from './modules/Instructor';
+import Quiz from './modules/Quiz';
+import CertificateForm from './modules/CertificateForm';
 
-// Had to add 'lesson' to the path as path='quiz'  
-// resolves to path=':lessonSlug' as well
+
 module.exports = (
   <Router history={ hashHistory }>
     <Route component={ MainLayout }>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import api from '../api';
+import * as api from '../api';
 import LessonList from './LessonList';
 import InstructorList from './InstructorList';
 import StepsList from './components/StepsList';
@@ -11,7 +11,7 @@ const { object } = React.PropTypes;
 
 
 const Course = React.createClass({
-  propType: function() {
+  propType: {
     params: object
   },
 
