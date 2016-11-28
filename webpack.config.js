@@ -7,8 +7,8 @@ module.exports = {
   context: __dirname,
   entry: ['babel-polyfill', './app/src'],
   output: {
-    path: path.join(__dirname, "app/src"),
-    publicPath: '/app/src',
+    path: path.join(__dirname, "app/src/build"),
+    publicPath: '/app/src/build',
     filename: 'packed.js'
   },
   resolve: {
