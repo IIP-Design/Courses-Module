@@ -1,8 +1,7 @@
 const React = require('react');
 const Step  = require('./Step');
 
-require('../../stylesheets/components/StepsList.scss');
-
+require('../../App/components/stylesheets/StepsList.scss');
 
 const StepsList = (props) => {
     return (

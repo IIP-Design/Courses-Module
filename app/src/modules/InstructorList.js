@@ -3,7 +3,7 @@ const { Link }    = require('react-router');
 const MediaObject = require('./components/MediaObject');
 const shortid = require('shortid');
 
-require('../stylesheets/modules/InstructorList.scss');
+require('../Course/components/stylesheets//InstructorList.scss');
 
 const InstructorList = React.createClass({
   propTypes: {

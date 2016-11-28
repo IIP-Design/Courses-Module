@@ -5,7 +5,7 @@ const LessonList      = require('./LessonList');
 const InstructorList  = require('./InstructorList');
 const StepsList       = require('./components/StepsList');
 
-require('../stylesheets/modules/Course.scss');
+require('../Course/components/stylesheets/Course.scss');
 
 const { object } = React.PropTypes;
 

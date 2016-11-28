@@ -9,7 +9,7 @@ const { array } = React.PropTypes;
 const { dispatch } = require('../store');
 const { getLesson } = require('../actions/actions');
 
-require('../stylesheets/modules/LessonList.scss');
+require('../Course/components/stylesheets/LessonList.scss');
 
 const LessonList = React.createClass({
   propTypes: {

@@ -60,7 +60,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       }
     }),
-    new BrowserSyncPlugin(
+    /*new BrowserSyncPlugin(
       {
         host: 'localhost',
         port: 3000,
@@ -69,7 +69,7 @@ module.exports = {
       {
         reload: false  // true
       }
-    ),
+      ),*/
     new webpack.SourceMapDevToolPlugin({
       filename: 'packed.js.map',
       module: false,

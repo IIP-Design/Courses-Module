@@ -1,4 +1,4 @@
-@import '../abstracts/all';
+@import '../../stylesheets/all';
 
 .steps-list {
   background-color: #e5e8e9;
@@ -53,13 +53,13 @@
 }
 
 .steps-list .steps-list__first {
-  background-image: url('../../images/arrow.png');
+  background-image: url('../images/arrow.png');
 }
 
 .steps-list .steps-list__second {
-  background-image: url('../../images/check.png');
+  background-image: url('../images/check.png');
 }
 
 .steps-list .steps-list__third {
-  background-image: url('../../images/medal.png');
+  background-image: url('../images/medal.png');
 }

@@ -3,7 +3,7 @@ const { Link } = require('react-router');
 
 const { string, bool, object } = React.PropTypes;
 
-require('../../stylesheets/components/MediaObject.scss');
+require('../../App/components/stylesheets/MediaObject.scss');
 
 const MediaObject = React.createClass({
   propTypes: {

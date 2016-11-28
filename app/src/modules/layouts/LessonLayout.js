@@ -1,6 +1,6 @@
 const React = require('react');
 
-require('../../stylesheets/modules/LessonLayout.scss');
+require('../../App/components/stylesheets/LessonLayout.scss');
 
 const LessonLayout = (props) => {
    return (

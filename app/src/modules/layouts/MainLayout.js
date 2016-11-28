@@ -1,6 +1,6 @@
 const React = require('react')
 
-require('../../stylesheets/modules/MainLayout.scss');
+require('../../App/components/stylesheets/MainLayout.scss');
 
 const MainLayout = (props) => {
     return (

@@ -7,7 +7,7 @@ const { array, object, bool } = React.PropTypes;
 const { keys } = require('lodash');
 const { Notification } = require('react-notification');
 
-require('../stylesheets/modules/Quiz.scss');
+require('../Quiz/components/stylesheets/Quiz.scss');
 
 const Quiz = React.createClass({
   propTypes: {
