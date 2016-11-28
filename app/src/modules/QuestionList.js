@@ -1,8 +1,9 @@
-const React = require('react');
-const Question = require('./Question');
-const forEach = require('lodash');
+import React from 'react';
+import Question from './Question';
+import { forEach } from 'lodash';
+import shortid from 'shortid';
+
 const { array, func } = React.PropTypes;
-const shortid = require('shortid');
 
 const QuestionList = React.createClass({
 	propTypes: {
@@ -10,16 +11,22 @@ const QuestionList = React.createClass({
     handleChange: func
   },
 
-  shouldComponentUpdate: function(nextProps) {
+
+  shouldComponentUpdate(nextProps) {
   	return false;
   },
 
-  handleChange (e) {
+
+  handleChange(e) {
   	this.props.handleChange(e.target.id);
   },
 
-  renderQuestion (question, i) {
-    // Note: Sending qid as Question cannot access key.  We need the qid to construct common group name for each choice
+
+  /*
+   * Note: Sending qid as Question cannot access key.  We need the qid to construct common group name for each choice
+   */
+
+  renderQuestion(question, i) {
     return (
     	<Question
     		key={ shortid.generate() }
@@ -31,6 +38,7 @@ const QuestionList = React.createClass({
     )
   },
 
+
 	render() {
 		return (
 			<ol id="questionList" className='quiz-questions'>
@@ -39,5 +47,6 @@ const QuestionList = React.createClass({
 		);
 	}
 });
+
 
 module.exports = QuestionList;

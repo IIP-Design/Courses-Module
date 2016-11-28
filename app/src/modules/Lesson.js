@@ -1,14 +1,15 @@
-const React = require('react');
-const { connect } = require('react-redux');
-const YouTube = require('react-youtube').default;
-const api = require('../api');
-const Breadcrumbs = require('./components/Breadcrumbs');
-const Glossary = require('./components/Glossary');
-const LessonTabs = require('./components/LessonTabs');
-const { Link } = require('react-router');
-const findIndex = require('lodash');
+import React from 'react';
+import { connect } from 'react-redux';
+import YouTube from 'react-youtube';
+import api from '../api';
+import Breadcrumbs from './components/Breadcrumbs';
+import Glossary from './components/Glossary';
+import LessonTabs from './components/LessonTabs';
+import { Link } from 'react-router';
+import { findIndex } from 'lodash';
 
 const { array, object, string, number } = React.PropTypes;
+
 
 const Lesson = React.createClass({
   propTypes: {
@@ -23,17 +24,20 @@ const Lesson = React.createClass({
     glossary: array
   },
 
-  componentDidMount: function() {
+
+  componentDidMount() {
+    // Scroll to the top of the window to prevent the page from "loading" in the middle
     window.scroll(0,0);
   },
 
+
   // Fetch lesson based on component id
-  handleClick: function(e) {
+  handleClick(e) {
     api.getLesson(e.target.id);
   },
 
   // Fetch lesson nav link
-  getLink: function(index, label) {
+  getLink(index, label) {
     const lessons = this.props.lessons;
     const lessonIndex = this.props.lessonIndex;
     const goToIndex = lessonIndex + index;
@@ -46,11 +50,10 @@ const Lesson = React.createClass({
 
 
   // Assign the correct next/previous/both buttons
-  buttonNav: function() {
+  buttonNav() {
     const numLessons = this.props.lessons.length - 1;
     const lessons = this.props.lessons;
     const lessonIndex = this.props.lessonIndex;
-
 
     if (lessonIndex === numLessons) {
       return (
@@ -79,30 +82,28 @@ const Lesson = React.createClass({
     }
   },
 
-  lessonPagination: function(lesson, index) {
+
+  lessonPagination(lesson, index) {
     const cls = ( index === this.props.lessonIndex ) ? 'active' : '';
     const slug = lesson.slug;
     const label = index + 1;
 
     return (
       <li className={cls} key={ index }>
-        <Link to={ `lesson/${slug}` } id={ slug } onClick={ this.handleClick }>{ label }</Link>
+        <Link to={ `lesson/${ slug }` } id={ slug } onClick={ this.handleClick }>{ label }</Link>
       </li>
     );
   },
 
 
-  // @todo YouTube component needs a responsive wrapper
-  // @todo Pull buttonNav out into its own component
-  // @todo Pull lessonPagination out into its own component
-  render: function() {
+  render() {
     const props = this.props;
 
     return (
       <div className='lesson'>
         <div className="two-thirds first">
           <h1 className='lesson-title'>{ props.lesson.title }</h1>
-          <Breadcrumbs courseTitle={ props.courseTitle} name={ props.lesson.title  }  />
+          <Breadcrumbs courseTitle={ props.courseTitle } name={ props.lesson.title  }  />
           <div className='lesson-video'>
             <YouTube videoId={ props.video.video_id  } />
           </div>
@@ -126,6 +127,7 @@ const Lesson = React.createClass({
   }
 });
 
+
 const mapStateToProps = (store) => {
   const lesson = store.lesson;
   const course = store.course;
@@ -148,5 +150,6 @@ const mapStateToProps = (store) => {
     glossary: lesson.glossary
   };
 };
+
 
 module.exports = connect(mapStateToProps)(Lesson);

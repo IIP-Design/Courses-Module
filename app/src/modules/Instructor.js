@@ -1,6 +1,6 @@
-const React = require('react');
-const { connect } = require('react-redux');
-const _ = require('lodash');
+import React from 'react'
+import { connect } from 'react-redux';
+import { find } from 'lodash';
 
 const mapStateToProps = (state, { params: { slug } }) => {
   const instructor = _.find(state.course.instructors, (instructor) => {
@@ -10,20 +10,25 @@ const mapStateToProps = (state, { params: { slug } }) => {
   return { slug, instructor }
 };
 
+
 const Instructor = React.createClass({
   propTypes: {
     params: React.PropTypes.object
   },
 
-  componentDidMount: function() {
+
+  componentDidMount() {
+    // Scroll to the top of the window to prevent the page from "loading" in the middle
     window.scroll(0,0);
   },
 
-  rawDescription: function() {
+
+  rawDescription() {
     return { __html: this.props.instructor.description };
   },
 
-  render: function() {
+
+  render() {
     const props = this.props;
 
     return (
@@ -35,5 +40,6 @@ const Instructor = React.createClass({
     );
   }
 });
+
 
 module.exports = connect(mapStateToProps)(Instructor);

@@ -1,32 +1,39 @@
-const React           = require('react');
-const { connect }     = require('react-redux');
-const api             = require('../api');
-const LessonList      = require('./LessonList');
-const InstructorList  = require('./InstructorList');
-const StepsList       = require('./components/StepsList');
+import React from 'react';
+import { connect } from 'react-redux';
+import api from '../api';
+import LessonList from './LessonList';
+import InstructorList from './InstructorList';
+import StepsList from './components/StepsList';
 
 require('../Course/components/stylesheets/Course.scss');
 
 const { object } = React.PropTypes;
+
 
 const Course = React.createClass({
   propType: function() {
     params: object
   },
 
-  componentDidMount: function() {
+
+  componentDidMount() {
+    // Scroll to the top of the window to prevent the page from "loading" in the middle
     window.scroll(0,0);
+
     const container = document.getElementById('course-container');
     const id = container.getAttribute('data-course-id');
+
     // if id then else err
     api.getCourse(id);
   },
 
-  rawDescription: function() {
+
+  rawDescription() {
     return { __html: this.props.course.description };
   },
 
-  render: function() {
+
+  render() {
     let props = this.props;
     let src = '';
     let alt = '';
@@ -56,6 +63,7 @@ const Course = React.createClass({
   }
 });
 
+
 const mapStateToProps = (store) => {
   let data = store.course;
   return {
@@ -65,5 +73,6 @@ const mapStateToProps = (store) => {
     isFetching: data.isFetching
   };
 };
+
 
 module.exports = connect(mapStateToProps)(Course);
