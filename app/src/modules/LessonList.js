@@ -1,7 +1,6 @@
 const React = require('react');
 const api = require('../api');
 const MediaObject = require('./components/MediaObject');
-//const Button = require('./components/Button');
 const { Link } = require('react-router');
 const { sprintf } = require('sprintf-js');
 const { array } = React.PropTypes;
@@ -49,6 +48,4 @@ const LessonList = React.createClass({
 });
 
 module.exports = LessonList;
-
-// <Button className='button-wrapper' value={ 'Take Lesson' } link={ `lesson/${link}` } onClick={ this.handleClick }  />
 
