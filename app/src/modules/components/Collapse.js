@@ -1,20 +1,25 @@
-const React = require('react');
-const Accordion = require('aria-accordion');
+import React from 'react';
+import Accordion from 'aria-accordion';
+
+const { string, array } = React.PropTypes;
+
+const CollapseItem = (props) => (<li className={ `collapse-item ${ props.className }` }>{ props.children }</li>);
+
 
 const Collapse = React.createClass({
   propTypes: {
-    className: React.PropTypes.string,
-    children: React.PropTypes.array
+    className: string,
+    children: array
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     const selectors = { body: '.collapse', trigger: '.trigger' };
     const options = { collapseOthers: true };
 
     new Accordion.Accordion(selectors, options);
   },
 
-  render: function() {
+  render() {
     return (
       <ul className={ `collapse ${ this.props.className }` } role='tablist'>{ this.props.children }</ul>
     );
@@ -22,30 +27,16 @@ const Collapse = React.createClass({
 });
 
 
-const CollapseItem = React.createClass({
-  propTypes: {
-    className: React.PropTypes.string,
-    children: React.PropTypes.array
-  },
-
-  render: function() {
-    return (
-      <li className={ `collapse-item ${ this.props.className }` }>{ this.props.children }</li>
-    );
-  }
-});
-
-
 const CollapsePanel = React.createClass({
   propTypes: {
-    description: React.PropTypes.string.isRequired
+    description: string.isRequired
   },
 
-  rawDescription: function() {
+  rawDescription() {
     return { __html: this.props.description }
   },
 
-  render: function() {
+  render() {
     return(
       <div role='tabpanel' dangerouslySetInnerHTML={ this.rawDescription() }></div>
     );
@@ -53,21 +44,26 @@ const CollapsePanel = React.createClass({
 });
 
 
-const CollapseTrigger = React.createClass({
-  propTypes: {
-    className: React.PropTypes.string,
-    children: React.PropTypes.string,
-    tag: React.PropTypes.string.isRequired
-  },
+const CollapseTrigger = (props) => {
+  const CustomTag = `${ props.tag }`;
 
-  render: function() {
-    const CustomTag = `${this.props.tag}`;
+  return (
+    <CustomTag className={ `trigger ${ props.className }` } role='tab'>{ props.children }</CustomTag>
+  );
+};
 
-    return (
-      <CustomTag className={ `trigger ${ this.props.className }` } role='tab'>{ this.props.children }</CustomTag>
-    );
-  }
-});
+
+CollapseItem.propTypes = {
+  className: string,
+  children: array
+};
+
+
+CollapseTrigger.propTypes = {
+  className: string,
+  children: string,
+  tag: string.isRequired
+};
 
 
 module.exports = {
@@ -76,3 +72,4 @@ module.exports = {
   CollapsePanel: CollapsePanel,
   CollapseTrigger: CollapseTrigger
 }
+

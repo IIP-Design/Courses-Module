@@ -1,5 +1,5 @@
-const React = require('react');
-const { Link } = require('react-router');
+import React from 'react';
+import { Link } from 'react-router';
 
 const { string, bool, object } = React.PropTypes;
 
@@ -15,12 +15,12 @@ const MediaObject = React.createClass({
     description: string
   },
 
-  setDescription: function() {
+  setDescription() {
     return { __html: this.props.description };
   },
 
-  render: function() {
-    const CustomTag = `${this.props.tag}`;
+  render() {
+    const CustomTag = `${ this.props.tag }`;
     const reversed = (this.props.reversed === undefined) ? false : true;
 
     return (

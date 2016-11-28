@@ -1,6 +1,6 @@
-const React = require('react');
+import React from 'react';
 
-require('./Step.scss');
+const { string } = React.PropTypes;
 
 const Step = (props) => {
     return (
@@ -9,9 +9,9 @@ const Step = (props) => {
 };
 
 Step.propTypes = {
-    className: React.PropTypes.string,
-    title: React.PropTypes.string,
-    children: React.PropTypes.string
+    className: string,
+    title: string,
+    children: string
 }
 
 module.exports = Step;

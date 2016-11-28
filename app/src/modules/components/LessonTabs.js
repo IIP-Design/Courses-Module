@@ -1,39 +1,39 @@
-const React = require('react');
-const { Tab, Tabs, TabList, TabPanel } = require('react-tabs');
-const shortid = require('shortid');
+import React from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import shortid from 'shortid';
+
+const { string, array } = React.PropTypes;
 
 const LessonTabs = React.createClass({
   propTypes: {
-    description: React.PropTypes.string.isRequired,
-    transcript: React.PropTypes.string.isRequired,
-    resource: React.PropTypes.array
+    description: string.isRequired,
+    transcript: string.isRequired,
+    resource: array
   },
 
 
-  rawDescription: function() {
+  rawDescription() {
     return {  __html: this.props.description };
   },
 
 
-  rawTranscript: function() {
+  rawTranscript() {
     return { __html: this.props.transcript };
   },
 
 
-  isEmpty: function(array) {
+  isEmpty(array) {
     return (array.length === 0) ? true : false;
   },
 
 
-  render: function() {
-    const resources = this.props.resources.map(function(resource) {
+  render() {
+    const resources = this.props.resources.map((resource) => {
       return (
         <li key={ shortid.generate() }><a href={ resource.src } >{ resource.title }</a></li>
       );
     });
 
-
-    // @todo: Use collapse for tabs
     return (
       <Tabs>
         <TabList>
