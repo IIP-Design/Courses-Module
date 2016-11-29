@@ -1,6 +1,6 @@
 import React from 'react';
+import { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } from '../../App/components/Collapse.js';
 
-const { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } = require('./Collapse.js');
 const { array } = React.PropTypes;
 
 const Glossary = (props) => {

@@ -1,7 +1,8 @@
 import React from 'react';
-import Question from './Question';
 import { forEach } from 'lodash';
 import shortid from 'shortid';
+
+import Question from './Question';
 
 const { array, func } = React.PropTypes;
 

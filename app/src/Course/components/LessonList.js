@@ -1,12 +1,13 @@
 import React from 'react';
-import api from '../api'
-import MediaObject from './components/MediaObject';
 import { Link } from 'react-router';
 import { sprintf } from 'sprintf-js';
-import { dispatch } from '../store';
-import { getLesson } from '../actions/actions';
 
-require('../Course/components/stylesheets/LessonList.scss');
+import api from '../../api'
+import MediaObject from '../../App/components/MediaObject';
+import { dispatch } from '../../store';
+import { getLesson } from '../actions'
+
+require('./stylesheets/LessonList.scss');
 
 const { array } = React.PropTypes;
 

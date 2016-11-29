@@ -1,9 +1,9 @@
-const React       = require('react');
-const { Link }    = require('react-router');
-const MediaObject = require('./components/MediaObject');
-const shortid = require('shortid');
+import React from 'react';
+import { Link } from 'react-router';
+import shortid from 'shortid';
+import MediaObject from '../../App/components/MediaObject';
 
-require('../Course/components/stylesheets//InstructorList.scss');
+require('./stylesheets/InstructorList.scss');
 
 const InstructorList = React.createClass({
   propTypes: {
@@ -41,3 +41,4 @@ const InstructorList = React.createClass({
 });
 
 module.exports = InstructorList;
+

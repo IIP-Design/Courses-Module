@@ -1,14 +1,13 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import MainLayout from './modules/layouts/MainLayout';
-import LessonLayout from './modules/layouts/LessonLayout';
+import MainLayout from './App/components/MainLayout';
+import LessonLayout from './App/components/LessonLayout';
 
-import Course from './modules/Course';
-import Lesson from './modules/Lesson';
-import Instructor from './modules/Instructor';
-import Quiz from './modules/Quiz';
-import CertificateForm from './modules/CertificateForm';
+import Course from './Course/components/Course';
+import Lesson from './Lesson/components/Lesson';
+import Instructor from './Instructor/components/Instructor';
+import Quiz from './Quiz/components/Quiz';
 
 
 module.exports = (
@@ -21,7 +20,6 @@ module.exports = (
         </Route>
         <Route path='/instructors/:slug' component={ Instructor } />
         <Route path='quiz' component={ Quiz } />
-         <Route path='certificate' component={ CertificateForm } />
       </Route>
     </Route>
   </Router>

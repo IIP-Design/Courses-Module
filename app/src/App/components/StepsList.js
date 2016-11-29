@@ -1,7 +1,7 @@
 import React from 'react';
 import Step from './Step';
 
-require('../../App/components/stylesheets/StepsList.scss');
+require('./stylesheets/StepsList.scss');
 
 const StepsList = (props) => (
   <section>

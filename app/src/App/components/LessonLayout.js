@@ -2,7 +2,7 @@ import React from 'react';
 
 const { object } = React.PropTypes;
 
-require('../../App/components/stylesheets/LessonLayout.scss');
+require('./stylesheets/LessonLayout.scss');
 
 const LessonLayout = (props) => {
   return (
@@ -17,3 +17,4 @@ LessonLayout.propTypes = {
 }
 
 module.exports = LessonLayout;
+

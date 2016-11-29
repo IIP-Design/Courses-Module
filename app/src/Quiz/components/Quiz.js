@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { Link, hashHistory } from 'react-router';
 import { keys } from 'lodash';
 import { Notification } from 'react-notification';
-import FormSelect from './components/FormSelect';
+
+import FormSelect from '../../App/components/FormSelect';
 import QuestionList from './QuestionList';
 
-require('../Quiz/components/stylesheets/Quiz.scss');
+require('./stylesheets/Quiz.scss');
 
 const { array, object, bool } = React.PropTypes;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('../../App/components/stylesheets/MainLayout.scss');
+require('./stylesheets/MainLayout.scss');
 
 const { object } = React.PropTypes;
 
@@ -28,3 +28,4 @@ MainLayout.propTypes = {
 
 
 module.exports = MainLayout;
+

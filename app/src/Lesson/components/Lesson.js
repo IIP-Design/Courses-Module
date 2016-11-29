@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube';
-import api from '../api';
-import Breadcrumbs from './components/Breadcrumbs';
-import Glossary from './components/Glossary';
-import LessonTabs from './components/LessonTabs';
 import { Link } from 'react-router';
 import { findIndex } from 'lodash';
+
+import api from '../../api';
+import Breadcrumbs from '../../App/components/Breadcrumbs';
+import Glossary from './Glossary';
+import LessonTabs from './LessonTabs';
 
 const { array, object, string, number } = React.PropTypes;
 
@@ -98,6 +99,8 @@ const Lesson = React.createClass({
 
   render() {
     const props = this.props;
+
+    console.log('PROPS', props);
 
     return (
       <div className='lesson'>

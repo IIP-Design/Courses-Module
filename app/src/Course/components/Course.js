@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as api from '../api';
+
+import * as api from '../../api';
 import LessonList from './LessonList';
 import InstructorList from './InstructorList';
-import StepsList from './components/StepsList';
+import StepsList from '../../App/components/StepsList';
 
-require('../Course/components/stylesheets/Course.scss');
+require('./stylesheets/Course.scss');
 
 const { object } = React.PropTypes;
 
