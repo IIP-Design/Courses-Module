@@ -29,3 +29,36 @@ export function fetchError(error) {
   };
 }
 
+export function requestData(data=undefined, error=undefined) {
+  if (data === undefined && error === undefined) {
+    return {
+      type: types.REQUEST_DATA,
+      payload: {
+        isFetching: true
+      }
+    };
+  }
+
+  if (error) {
+    return {
+      type: types.REQUEST_DATA,
+      payload: {
+        isFetching: false,
+        data: new Error()
+      },
+      status: 'error'
+    };
+  }
+
+  if (data) {
+    return {
+      type: types.REQUEST_DATA,
+      payload: {
+        isFetching: false,
+        data
+      },
+      status: 'success'
+    };
+  }
+}
+

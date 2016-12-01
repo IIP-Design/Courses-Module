@@ -1,19 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import { find } from 'lodash';
 
-const mapStateToProps = (state, { params: { slug } }) => {
-  const instructor = _.find(state.course.instructors, (instructor) => {
-    return slug === instructor.slug;
-  });
-
-  return { slug, instructor }
-};
-
+const { object } = React.PropTypes;
 
 const Instructor = React.createClass({
   propTypes: {
-    params: React.PropTypes.object
+    instructor: object
   },
 
 
@@ -42,4 +33,4 @@ const Instructor = React.createClass({
 });
 
 
-module.exports = connect(mapStateToProps)(Instructor);
+export default Instructor;

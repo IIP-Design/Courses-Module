@@ -2,22 +2,17 @@ import React from 'react';
 import { Link } from 'react-router';
 import { sprintf } from 'sprintf-js';
 
-import api from '../../api'
 import MediaObject from '../../App/components/MediaObject';
-import { dispatch } from '../../store';
-import { getLesson } from '../actions'
 
 require('./stylesheets/LessonList.scss');
 
+
 const { array } = React.PropTypes;
+
 
 const LessonList = React.createClass({
   propTypes: {
     lessons: array
-  },
-
-  handleClick(e) {
-    api.getLesson(e.target.id);
   },
 
   render() {
@@ -27,7 +22,7 @@ const LessonList = React.createClass({
       return (
         <li className='lessons-list-item' key={ lesson.id }>
           <MediaObject  tag={ 'h3' } link={ `lesson/${ link }` } { ...lesson } />
-          <Link to={ `lesson/${ link }` } onClick={ this.handleClick } id={ link }>Take Lesson</Link>
+          <Link to={ `lesson/${ link }` } id={ link }>Take Lesson</Link>
         </li>
       );
     });

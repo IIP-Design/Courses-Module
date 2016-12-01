@@ -3,9 +3,7 @@ import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import { loadState, saveState } from './sessionStorage';
-import courseReducer from './Course/reducer';
-import lessonReducer from './Lesson/reducer';
-import quizReducer from './Quiz/reducer';
+import { appReducer } from './App/reducers';
 
 
 // including thunk middleware in the event we want to return functions for async purposes
@@ -22,9 +20,7 @@ const persistedState = loadState();
 
 // Combine Reducers
 const reducers = combineReducers({
-  course: courseReducer,
-  lesson: lessonReducer,
-  quiz: quizReducer
+  app: appReducer
 });
 
 

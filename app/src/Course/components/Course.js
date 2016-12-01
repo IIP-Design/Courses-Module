@@ -1,31 +1,25 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { uniqBy } from 'lodash';
 
-import * as api from '../../api';
 import LessonList from './LessonList';
 import InstructorList from './InstructorList';
 import StepsList from '../../App/components/StepsList';
 
 require('./stylesheets/Course.scss');
 
+
 const { object } = React.PropTypes;
 
 
 const Course = React.createClass({
-  propType: {
-    params: object
+  propTypes: {
+    course: object
   },
 
 
   componentDidMount() {
     // Scroll to the top of the window to prevent the page from "loading" in the middle
     window.scroll(0,0);
-
-    const container = document.getElementById('course-container');
-    const id = container.getAttribute('data-course-id');
-
-    // if id then else err
-    api.getCourse(id);
   },
 
 
@@ -35,7 +29,12 @@ const Course = React.createClass({
 
 
   render() {
-    let props = this.props;
+    const props = this.props;
+
+    // Return a flat array of uniq Instructors by id
+    const instructors = _.uniqBy([].concat.apply([], props.course.lessons.map(lesson => lesson.instructors)), instructor => instructor.id);
+    const lessons = props.course.lessons;
+
     let src = '';
     let alt = '';
 
@@ -57,23 +56,13 @@ const Course = React.createClass({
           </div>
         </section>
         <StepsList />
-        <LessonList lessons={ props.lessons } />
-        <InstructorList instructors={ props.instructors } />
+        <LessonList lessons={ lessons } />
+        <InstructorList instructors={ instructors } />
       </div>
     );
   }
 });
 
 
-const mapStateToProps = (store) => {
-  let data = store.course;
-  return {
-    course: data.detail,
-    lessons: data.lessons,
-    instructors: data.instructors,
-    isFetching: data.isFetching
-  };
-};
+module.exports = Course;
 
-
-module.exports = connect(mapStateToProps)(Course);

@@ -7,7 +7,7 @@ import shortid from 'shortid';
 import store from './store';
 import { fetchRequest, fetchError } from './App/actions';
 import { fetchCourseComplete } from './Course/actions';
-import { setLesson } from './Lesson/actions';
+//import { setLesson } from './Lesson/actions';
 import { setQuiz } from './Quiz/actions';
 
 
@@ -43,7 +43,7 @@ courseSchema.define({
  * This is not the best way to handle the back and next browser buttons
  */
 
-hashHistory.listen((e) => {
+/*hashHistory.listen((e) => {
 	const path = e.pathname;
   const re = /^\/lesson\/(.+)/;
 	const match = path.match(re);
@@ -51,7 +51,7 @@ hashHistory.listen((e) => {
   if(match) {
   	getLesson(match[1]); // index 1 has the slug in the first capturing group $1
   }
-});
+  });*/
 
 
 const generateQuestions = (lessons ) => {
@@ -72,12 +72,12 @@ const generateQuestions = (lessons ) => {
  * Dispatch event to update redux store
  */
 
-export function getLesson(slug) {
+/*export function getLesson(slug) {
 	 const lessons = store.getState().course.lessons;
    const lesson = _.find(lessons, (lesson) => lesson.slug === slug);
 
    store.dispatch(setLesson(lesson));
-}
+   }*/
 
 
 /*
