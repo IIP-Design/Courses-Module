@@ -2,24 +2,20 @@ import React from 'react';
 import { forEach } from 'lodash';
 import shortid from 'shortid';
 
-import Question from './Question';
+import Question from '../components/Question';
 
-const { array, func } = React.PropTypes;
+
+const { array } = React.PropTypes;
+
 
 const QuestionList = React.createClass({
 	propTypes: {
     questions: array,
-    handleChange: func
   },
 
 
   shouldComponentUpdate(nextProps) {
   	return false;
-  },
-
-
-  handleChange(e) {
-  	this.props.handleChange(e.target.id);
   },
 
 
@@ -34,7 +30,6 @@ const QuestionList = React.createClass({
     		qid={ i }
     		text={ question.text }
     		choices={ question.choices }
-    		handleChange={ this.handleChange }
     	/>
     )
   },

@@ -7,7 +7,7 @@ import LessonLayout from './App/components/LessonLayout';
 import CourseContainer from './Course/containers/CourseContainer';
 import LessonContainer from './Lesson/containers/LessonContainer';
 import InstructorContainer from './Instructor/containers/InstructorContainer';
-import Quiz from './Quiz/components/Quiz';
+import QuizContainer from './Quiz/containers/QuizContainer';
 
 
 module.exports = (
@@ -19,7 +19,7 @@ module.exports = (
           <Route path=':lessonSlug' component={ LessonContainer } />
         </Route>
         <Route path='/instructors/:slug' component={ InstructorContainer } />
-        <Route path='quiz' component={ Quiz } />
+        <Route path='quiz' component={ QuizContainer } />
       </Route>
     </Route>
   </Router>

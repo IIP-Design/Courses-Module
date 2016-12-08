@@ -1,9 +1,7 @@
 import React from 'react';
-import { connect, dispatch } from 'react-redux';
-import { answerQuestion } from '../actions';
-import ChoiceList from './ChoiceList';
+import ChoiceList from '../components/ChoiceList';
 
-const { string, number, bool, array, func } = React.PropTypes;
+const { string, number, bool, array } = React.PropTypes;
 
 
 const Question = React.createClass({
@@ -11,8 +9,7 @@ const Question = React.createClass({
     text: string,
     choices: array,
     qid: number,
-    correct: bool,
-    handleChange: func
+    correct: bool
   },
 
 
@@ -21,20 +18,16 @@ const Question = React.createClass({
   },
 
 
-  handleChange(e) {
-  	this.props.handleChange(e);
-  },
-
-
   render() {
 		return (
     	<li className='quiz-question'>
     		<div id={ `q${ this.props.qid }` } className='quiz-question-text' dangerouslySetInnerHTML={ this.rawHTML() }></div>
-		  	<ChoiceList className='quiz-choices' qid={ this.props.qid } choices={ this.props.choices } handleChange={ this.handleChange } />
+		  	<ChoiceList className='quiz-choices' qid={ this.props.qid } choices={ this.props.choices }/>
 			</li>
 		);
 	}
 });
 
 
-module.exports = connect()(Question);
+export default Question;
+

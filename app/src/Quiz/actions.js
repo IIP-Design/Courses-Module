@@ -1,43 +1,47 @@
+import React from 'react';
 import * as types from './actionTypes';
 
-
-function formatQuiz(data) {
-  const result = data.map((value) => {
-    return value;
-  })
-
-  return result;
-}
-
-
 /*
- * Set quiz
+ * Action format
+ *
+ * {
+ *   type: 'STRING',
+ *   payload: {},
+ *   status: 'success' || 'error'
+ * }
+ *
  */
 
-export function setQuiz(quiz) {
-  return {
-    type: types.SET_QUIZ,
-    payload: {
-      questions: formatQuiz(quiz)
-    }
-  };
-}
-
-
-/*
- * Add user answer to userAnswers
- */
-
-export function answerQuestion(questionId) {
+export function setUserAnswer(questionId=undefined, error=undefined) {
   const re = /^(q\d+)c(\d+)/;
   const match = questionId.match(re);
 
-  return {
-    type: types.ANSWER_QUESTION,
-    payload:  {
-      question: match[1],
-      answer: match[2]
-    }
-  };
+  if (error) {
+    return {
+      type: types.SET_USER_ANSWER,
+      payload: new Error(),
+      status: 'error'
+    };
+  }
+
+  if (questionId) {
+    return {
+      type: types.SET_USER_ANSWER,
+      payload: {
+        userAnswers: [{
+          id: questionId,
+          question: match[1],
+          answer: match[2]
+        }]
+      },
+      status: 'success'
+    };
+  }
 }
 
+
+export function incrementNumAttempts() {
+  return {
+    type: types.INCREMENT_NUM_ATTEMPTS
+  }
+}

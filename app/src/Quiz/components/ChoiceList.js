@@ -1,32 +1,22 @@
 import React from 'react';
 import { forEach } from 'lodash';
 
-const { number, array, func } = React.PropTypes;
+import RadioChoice from '../containers/RadioChoiceContainer';
+
+
+const { number, array, string } = React.PropTypes;
+
 
 const ChoiceList = React.createClass({
 	propTypes: {
     choices: array,
     qid: number,
-    handleChange: func
+    className: string
   },
 
 
-  getInitialState() {
-    return { selectedOption: '' };
-  },
-
-
-	rawHTML()  {
+	rawHTML() {
   	return { __html: this.props.text };
-  },
-
-
-  handleChange(e) {
-  	this.setState({
-    	selectedOption: e.target.id
-  	});
-
-		this.props.handleChange(e);
   },
 
 
@@ -44,27 +34,21 @@ const ChoiceList = React.createClass({
 
 
 	renderChoice(choice, i) {
-  	 // Each item in an array needs a unigue key, using iterator to create
-  	 // Remove iterator if api includes an id for each choice
-  	const questionId = this.props.qid;
-  	const choiceKey = `c${ i }`;
-  	const id = `q${ questionId }${ choiceKey }`;
+  	const htmlId = `q${ this.props.qid }c${ i }`;
 
 	 	return (
-	  	<li key={ choiceKey }>
-		    <label htmlFor={ `q${ questionId }${ choiceKey }` }>
-					<input id={ `q${ questionId }${ choiceKey }` } name={ `q${ questionId }` } type={ 'radio' } checked={ this.state.selectedOption === id  } onChange={ this.handleChange }/>
-					{ choice }
-				</label>
-	  	</li>
+      <RadioChoice key={ htmlId } htmlId={ htmlId } qid={ this.props.qid } choice={ choice } />
 	   );
   },
 
 
+  /*
+   * Was expecting an array of objects per the spec
+   * https://github.com/IIP-Design/america-node-api/blob/gh-pages/course.js
+   */
+
 	render() {
-		// was expecting an array of objects per the spec https://github.com/IIP-Design/america-node-api/blob/gh-pages/course.js
-		// Instead got an array with 1 object and choices for props, not ideal. This is a workaround
-		const choices = this.generateArrFromObjectKeys(this.props.choices[0])
+		const choices = this.generateArrFromObjectKeys(this.props.choices[0]);
 
 		return (
 			<ul>{ choices.map(this.renderChoice) }</ul>
@@ -73,5 +57,5 @@ const ChoiceList = React.createClass({
 });
 
 
-module.exports = ChoiceList;
+export default ChoiceList;
 

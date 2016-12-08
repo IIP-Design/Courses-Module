@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 
 import { loadState, saveState } from './sessionStorage';
 import { appReducer } from './App/reducers';
+import { quizReducer } from './Quiz/reducers';
 
 
 // including thunk middleware in the event we want to return functions for async purposes
@@ -20,7 +21,8 @@ const persistedState = loadState();
 
 // Combine Reducers
 const reducers = combineReducers({
-  app: appReducer
+  app: appReducer,
+  quiz: quizReducer
 });
 
 
