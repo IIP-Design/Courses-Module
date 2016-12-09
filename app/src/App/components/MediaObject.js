@@ -39,4 +39,5 @@ const MediaObject = React.createClass({
   }
 });
 
-module.exports = MediaObject;
+export default MediaObject;
+

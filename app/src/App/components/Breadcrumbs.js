@@ -18,4 +18,4 @@ Breadcrumbs.propTypes = {
 		name: string
 }
 
-module.exports = Breadcrumbs;
+export default Breadcrumbs;

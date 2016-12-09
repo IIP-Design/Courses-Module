@@ -45,4 +45,5 @@ const QuestionList = React.createClass({
 });
 
 
-module.exports = QuestionList;
+export default QuestionList;
+

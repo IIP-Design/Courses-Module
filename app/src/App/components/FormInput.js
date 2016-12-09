@@ -18,4 +18,5 @@ FormInput.propTypes = {
 	type: string
 }
 
-module.exports = FormInput;
+export default FormInput;
+

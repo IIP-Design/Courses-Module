@@ -27,5 +27,5 @@ MainLayout.propTypes = {
 };
 
 
-module.exports = MainLayout;
+export default MainLayout;
 

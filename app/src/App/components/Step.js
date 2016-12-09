@@ -12,4 +12,5 @@ Step.propTypes = {
     children: string
 }
 
-module.exports = Step;
+export default Step;
+

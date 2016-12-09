@@ -1,9 +1,10 @@
 import React from 'react';
 import { uniqBy } from 'lodash';
+import { StepsList } from 'App';
 
 import LessonList from './LessonList';
 import InstructorList from './InstructorList';
-import StepsList from '../../App/components/StepsList';
+
 
 require('./stylesheets/Course.scss');
 
@@ -64,5 +65,5 @@ const Course = React.createClass({
 });
 
 
-module.exports = Course;
+export default Course;
 
