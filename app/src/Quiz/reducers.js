@@ -4,8 +4,7 @@ import * as types from './actionTypes';
 
 const initialState = {
   userAnswers: [],
-  numAttempts: 0,
-  isNotificationActive: false
+  numAttempts: 0
 };
 
 
@@ -116,6 +115,14 @@ export const quizReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         userAnswers: updateUserAnswers(state, action.payload),
       });
+
+    case types.INCREMENT_NUM_ATTEMPTS:
+      return Object.assign({}, state, {
+        numAttempts: state.numAttempts + 1
+      });
+
+    case types.RESET_QUIZ:
+      return Object.assign({}, state, action.payload);
   }
 
   return state;

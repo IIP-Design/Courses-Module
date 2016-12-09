@@ -1,7 +1,7 @@
 import React from 'react';
 
 import QuizLessons from './QuizLessons';
-import QuizForm from './QuizForm';
+import QuizForm from '../containers/QuizFormContainer';
 
 require('./stylesheets/Quiz.scss');
 
