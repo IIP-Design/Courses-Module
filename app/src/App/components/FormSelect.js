@@ -31,4 +31,4 @@ const FormSelect = React.createClass({
 	}
 });
 
-module.exports = FormSelect;
+export default FormSelect;

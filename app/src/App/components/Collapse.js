@@ -66,10 +66,5 @@ CollapseTrigger.propTypes = {
 };
 
 
-module.exports = {
-  Collapse: Collapse,
-  CollapseItem: CollapseItem,
-  CollapsePanel: CollapsePanel,
-  CollapseTrigger: CollapseTrigger
-}
+export { CollapseItem, Collapse, CollapsePanel, CollapseTrigger };
 

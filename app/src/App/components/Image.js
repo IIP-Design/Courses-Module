@@ -99,5 +99,5 @@ const Image = React.createClass({
 
 Image.defaultProps = { media_queries: [ '25em', '48em', '64em', '75em' ] }
 
-module.exports = Image;
+export default Image;
 

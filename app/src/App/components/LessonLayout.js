@@ -16,5 +16,5 @@ LessonLayout.propTypes = {
   children: object
 }
 
-module.exports = LessonLayout;
+export default LessonLayout;
 

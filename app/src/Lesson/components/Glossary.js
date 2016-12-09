@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } from '../../App/components/Collapse.js';
+import { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } from 'App';
 
 const { array } = React.PropTypes;
 
@@ -30,4 +30,5 @@ Glossary.propTypes = {
 }
 
 
-module.exports = Glossary;
+export default Glossary;
+

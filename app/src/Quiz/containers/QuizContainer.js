@@ -7,13 +7,7 @@ import Quiz from '../components/Quiz';
 const { array, string } = React.PropTypes;
 
 
-const QuizContainer = React.createClass({
-  render() {
-    return (
-      <Quiz { ...this.props }/>
-    );
-  }
-});
+const QuizContainer = (props) => <Quiz { ...props }/>;
 
 
 QuizContainer.propTypes = {
@@ -34,9 +28,6 @@ const mapStateToProps = ({ app }) => {
     questions
   };
 };
-
-
-const mapDispatchToProps = (dispatch) => {};
 
 
 export default connect(mapStateToProps)(QuizContainer);

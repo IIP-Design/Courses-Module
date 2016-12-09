@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { sprintf } from 'sprintf-js';
-
-import MediaObject from '../../App/components/MediaObject';
+import { MediaObject } from 'App';
 
 require('./stylesheets/LessonList.scss');
 
@@ -40,5 +39,5 @@ const LessonList = React.createClass({
   }
 });
 
-module.exports = LessonList;
+export default LessonList;
 

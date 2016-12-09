@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import shortid from 'shortid';
-import MediaObject from '../../App/components/MediaObject';
+import { MediaObject } from 'App'
 
 require('./stylesheets/InstructorList.scss');
 
@@ -40,5 +40,5 @@ const InstructorList = React.createClass({
   }
 });
 
-module.exports = InstructorList;
+export default InstructorList;
 

@@ -53,4 +53,5 @@ const LessonTabs = React.createClass({
   }
 });
 
-module.exports = LessonTabs;
+export default LessonTabs;
+

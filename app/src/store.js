@@ -3,8 +3,8 @@ import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import { loadState, saveState } from './sessionStorage';
-import { appReducer } from './App/reducers';
-import { quizReducer } from './Quiz/reducers';
+import { appReducer } from './App';
+import { quizReducer } from './Quiz';
 
 
 // including thunk middleware in the event we want to return functions for async purposes
@@ -42,11 +42,12 @@ store.subscribe(() => {
 });
 
 
-module.exports = store;
-
-
 /* remove redux dev tools temporarily
 typeof window === 'object' && typeof window.devToolsExtension !== 'undefined'
 ? window.devToolsExtension()
 : f => f
 */
+
+
+export default store;
+

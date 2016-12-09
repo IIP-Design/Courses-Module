@@ -13,5 +13,5 @@ const StepsList = (props) => (
   </section>
 );
 
-module.exports = StepsList;
+export default StepsList;
 

@@ -1,13 +1,11 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import MainContainer from './App/containers/MainContainer';
-import LessonLayout from './App/components/LessonLayout';
-
-import CourseContainer from './Course/containers/CourseContainer';
-import LessonContainer from './Lesson/containers/LessonContainer';
-import InstructorContainer from './Instructor/containers/InstructorContainer';
-import QuizContainer from './Quiz/containers/QuizContainer';
+import { MainContainer, LessonLayout } from './App';
+import { CourseContainer } from './Course';
+import { LessonContainer } from './Lesson';
+import { InstructorContainer } from './Instructor';
+import { QuizContainer } from './Quiz';
 
 
 module.exports = (

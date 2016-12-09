@@ -27,4 +27,5 @@ FormDropDown.propTypes = {
 	items: array
 }
 
-module.exports = FormDropDown;
+export default FormDropDown;
+

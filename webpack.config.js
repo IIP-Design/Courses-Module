@@ -12,7 +12,10 @@ module.exports = {
     filename: 'packed.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['', '.js', '.jsx', '.json'],
+    root: [
+      path.resolve('./app/src')
+    ]
   },
   devServer: {
     inline: true,
