@@ -19,10 +19,12 @@ import * as types from './actionTypes';
 /*
  * Set the user answer in the redux store
  *
- * @param questionId (string) - The question id
- * @param error (Object) - An error object
+ * @param {string} questionId - The question id
+ * @param {Object} error - An error object
  *
- * @return payload (Object) - The action object sent to the quiz reducer
+ * @return {Object} payload - The action object sent to the quiz reducer
+ *
+ * @since 2.0.0
  */
 
 export function setUserAnswer(questionId=undefined, error=undefined) {
@@ -58,7 +60,9 @@ export function setUserAnswer(questionId=undefined, error=undefined) {
 /*
  * An action to increment the number of attempts the user has taken the quiz
  *
- * @return (Object) - The action object sent to the quiz reducer
+ * @return {Object} - The action object sent to the quiz reducer
+ *
+ * @since 2.0.0
  */
 
 export function incrementNumAttempts() {
@@ -73,7 +77,9 @@ export function incrementNumAttempts() {
 /*
  * An action to reset the user's answers and number number of attempts at submitting the quiz
  *
- * @return (Object) - The action object sent to the quiz reducer
+ * @return {Object} - The action object sent to the quiz reducer
+ *
+ * @since 2.0.0
  */
 
 export function resetQuiz() {

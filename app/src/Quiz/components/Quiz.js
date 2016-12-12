@@ -9,6 +9,12 @@ require('./stylesheets/Quiz.scss');
 const { array, string } = React.PropTypes;
 
 
+/*
+ * The Quiz component.
+ *
+ * @since 1.0.0
+ */
+
 const Quiz = React.createClass({
   propTypes: {
     courseName: string,

@@ -10,6 +10,12 @@ import LessonPagination from './LessonPagination';
 const { object, array, string } = React.PropTypes;
 
 
+/*
+ * The Lesson component.
+ *
+ * @since 1.0.0
+ */
+
 const Lesson = React.createClass({
   propTypes: {
     courseTitle: string,

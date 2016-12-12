@@ -1,12 +1,22 @@
 import React from 'react';
 import shortid from 'shortid';
 
+
 const { string, array } = React.PropTypes;
+
+
+/*
+ * Generates a select menu from an array options passed via props.
+ *
+ * @param {Object} props - The React props object
+ *
+ * @since 1.0.0
+ */
 
 const FormDropDown = (props) => {
   const generateDropDown = () => {
-    return props.items.map((item) => {
-      return  <option key={ shortid.generate() }>{ item }</option>
+    return props.options.map((option) => {
+      return  <option key={ shortid.generate() }>{ option }</option>
     });
   }
 
@@ -20,12 +30,14 @@ const FormDropDown = (props) => {
   );
 };
 
+
 FormDropDown.propTypes = {
 	id: string,
 	name: string,
 	label: string,
-	items: array
+	options: array
 }
+
 
 export default FormDropDown;
 

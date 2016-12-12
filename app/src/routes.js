@@ -8,6 +8,14 @@ import { InstructorContainer } from './Instructor';
 import { QuizContainer } from './Quiz';
 
 
+/*
+ * Export the router
+ *
+ * @todo Consider removing the LessonLayout component
+ *
+ * @since 1.0.0
+ */
+
 module.exports = (
   <Router history={ hashHistory }>
     <Route component={ MainContainer }>

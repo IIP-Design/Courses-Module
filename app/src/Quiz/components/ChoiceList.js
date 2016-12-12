@@ -7,6 +7,12 @@ import RadioChoice from '../containers/RadioChoiceContainer';
 const { number, array, string } = React.PropTypes;
 
 
+/*
+ * The ChoiceList component.
+ *
+ * @since 1.0.0
+ */
+
 const ChoiceList = React.createClass({
 	propTypes: {
     choices: array,

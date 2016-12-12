@@ -4,6 +4,12 @@ import { Link } from 'react-router';
 const { array } = React.PropTypes;
 
 
+/*
+ * The QuizLesson component.
+ *
+ * @since 2.0.0
+ */
+
 const QuizLessons = (props) => {
   const quizLessons = props.lessons.map(lesson => (
     <li key={ lesson.slug }>

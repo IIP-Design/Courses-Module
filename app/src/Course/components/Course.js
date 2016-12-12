@@ -12,6 +12,12 @@ require('./stylesheets/Course.scss');
 const { object } = React.PropTypes;
 
 
+/*
+ * The course component
+ *
+ * @since 1.0.0
+ */
+
 const Course = React.createClass({
   propTypes: {
     course: object
@@ -32,15 +38,17 @@ const Course = React.createClass({
   render() {
     const props = this.props;
 
-    // Return a flat array of uniq Instructors by id
+    // Return a flat array of unique Instructors by id
     const instructors = _.uniqBy([].concat.apply([], props.course.lessons.map(lesson => lesson.instructors)), instructor => instructor.id);
     const lessons = props.course.lessons;
 
-    let src = '';
-    let alt = '';
+    let src;
+    let alt;
 
-    props.course.image ? src = props.course.image.src : src = undefined;
-    props.course.image ? alt = props.course.image.alt : alt = undefined;
+    if ('image' in props.course) {
+      src = props.course.image.src;
+      alt = props.course.image.alt
+    }
 
     return (
       <div>

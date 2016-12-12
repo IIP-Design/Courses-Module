@@ -13,6 +13,8 @@ const { array, func, number, string } = React.PropTypes;
  * The QuizForm component
  *
  * @todo: Need to display question type based on question type
+ *
+ * @since 2.0.0
  */
 
 const QuizForm = React.createClass({

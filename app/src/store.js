@@ -7,7 +7,12 @@ import { appReducer } from './App';
 import { quizReducer } from './Quiz';
 
 
-// including thunk middleware in the event we want to return functions for async purposes
+/*
+ * Including thunk middleware in the event we want to return functions for async purposes
+ *
+ * @since 1.0.0
+ */
+
 const middleware = [thunk];
 
 if (process.env.NODE_ENV !== 'production') {
@@ -15,18 +20,41 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 
-// Get redux store from sessionStorage
+
+
+/*
+ * Get Redux store from sessionStorage
+ *
+ * @since 1.0.0
+ */
+
 const persistedState = loadState();
 
 
-// Combine Reducers
+
+
+/*
+ * Combine Redux reducers
+ *
+ * @since 1.0.0
+ */
+
 const reducers = combineReducers({
   app: appReducer,
   quiz: quizReducer
 });
 
 
-// @todo: only include devToolsExtension/logger if environment is DEV
+
+
+/*
+ * Create the Redux store
+ *
+ * @todo: only include devToolsExtension/logger if environment is DEV
+ *
+ * @since 1.0.0
+ */
+
 const store = createStore(
   reducers,
   persistedState,

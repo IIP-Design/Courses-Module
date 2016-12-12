@@ -3,8 +3,27 @@ import Accordion from 'aria-accordion';
 
 const { string, array } = React.PropTypes;
 
+
+
+
+/*
+ * The wrapping component for an individual collapsable component. Wraps CollapseTrigger and CollapsePanel.
+ *
+ * @param {Object} props - The React props object
+ *
+ * @since 1.0.0
+ */
+
 const CollapseItem = (props) => (<li className={ `collapse-item ${ props.className }` }>{ props.children }</li>);
 
+
+
+
+/*
+ * The 508-compliant Collapse component. Wraps each CollapseItem.
+ *
+ * @since 1.0.0
+ */
 
 const Collapse = React.createClass({
   propTypes: {
@@ -27,6 +46,14 @@ const Collapse = React.createClass({
 });
 
 
+
+
+/*
+ * The collapsable content area that is show/hidden
+ *
+ * @since 1.0.0
+ */
+
 const CollapsePanel = React.createClass({
   propTypes: {
     description: string.isRequired
@@ -43,6 +70,16 @@ const CollapsePanel = React.createClass({
   }
 });
 
+
+
+
+/*
+ * The trigger that collapses each CollapsePanel
+ *
+ * @params {Object} props - The React props object
+ *
+ * @since 1.0.0
+ */
 
 const CollapseTrigger = (props) => {
   const CustomTag = `${ props.tag }`;

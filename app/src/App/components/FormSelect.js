@@ -2,6 +2,13 @@ import React from 'react';
 
 const { string, func } = React.PropTypes;
 
+
+/*
+ * A generic form input component
+ *
+ * @since 1.0.0
+ */
+
 const FormSelect = React.createClass({
 	propTypes: {
 	  id: string,
@@ -11,13 +18,16 @@ const FormSelect = React.createClass({
 		onChange: func
   },
 
-  shouldComponentUpdate(nextProps, nextState) {
-  	return false;
-  },
 
   shouldComponentUpdate(nextProps, nextState) {
   	return false;
   },
+
+
+  shouldComponentUpdate(nextProps, nextState) {
+  	return false;
+  },
+
 
 	render() {
 		const props = this.props;
@@ -32,3 +42,4 @@ const FormSelect = React.createClass({
 });
 
 export default FormSelect;
+

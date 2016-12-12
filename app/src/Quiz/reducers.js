@@ -13,11 +13,11 @@ const initialState = {
 /*
  * Get the indexOf an object in an array of objects
  *
- * @param arr (Array) - The array of objects
- * @param key (String) - The key of the field you want to check
- * @param id - The value you want to match against
+ * @param {Array} arr - The array of objects
+ * @param {String} key - The key of the field you want to check
+ * @param {String} id - The value you want to match against
  *
- * @return (Number) - Return the index of the object
+ * @return {Number} - Return the index of the object
  */
 
 const indexOfObjectInArray = (arr, key, id) => {
@@ -30,10 +30,10 @@ const indexOfObjectInArray = (arr, key, id) => {
 /*
  * Slice before an index, slice after index, concat the slices. All return new arrays.
  *
- * @param arr (Array) - The original array you want to remove an item from
- * @param index (Number) - The index of the item you want to remove
+ * @param {Array} arr - The original array you want to remove an item from
+ * @param {Number} index - The index of the item you want to remove
  *
- * @return (Array) - A new array with the desired item removed
+ * @return {Array} - A new array with the desired item removed
  */
 
 const pureSplice = (arr, index) => {
@@ -46,10 +46,10 @@ const pureSplice = (arr, index) => {
 /*
  * Remove an item from an array safely and purely
  *
- * @param arr (Array) - The array
- * @param index (Number|Function) - The index of the item or a callback that returns the index
+ * @param {Array} arr - The array
+ * @param {Number|Function} index - The index of the item or a callback that returns the index
  *
- * @return (Array) - An array with the item removed or the original array if the item wasn't found
+ * @return {Array} - An array with the item removed or the original array if the item wasn't found
  */
 
 const removeItem = (arr, index) => {
@@ -73,10 +73,10 @@ const removeItem = (arr, index) => {
 /*
  * Safely update (or set) the userAnswers array in state
  *
- * @param state (Object) - Current state of the application
- * @param payload (Object) - New state of the application
+ * @param state {Object} - Current state of the application
+ * @param payload {Object} - New state of the application
  *
- * @return (Array) - A pure, updated array of userAnswers
+ * @return {Array} - A pure, updated array of userAnswers
  */
 
 const updateUserAnswers = (state, payload) => {
@@ -103,10 +103,10 @@ const updateUserAnswers = (state, payload) => {
 /*
  * The main reducer for Quiz
  *
- * @param state (Object) - The current state
- * @param action (Object) - The action triggered
+ * @param state {Object} - The current state
+ * @param action {Object} - The action triggered
  *
- * @return (Object) - The new state of the application
+ * @return {Object} - The new state of the application
  */
 
 export const quizReducer = (state = initialState, action) => {

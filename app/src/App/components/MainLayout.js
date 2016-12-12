@@ -6,8 +6,13 @@ const { object } = React.PropTypes;
 
 
 /*
- * @todo: This spinner doesn't work
+ * The component that provides much of the global styles.
  *
+ * @todo: This spinner does not work
+ *
+ * @param {Object} props - The React props object
+ *
+ * @since 1.0.0
  */
 
 const MainLayout = (props) => (

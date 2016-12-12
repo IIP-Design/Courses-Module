@@ -8,6 +8,12 @@ import Question from '../components/Question';
 const { array } = React.PropTypes;
 
 
+/*
+ * The QuestionList component.
+ *
+ * @since 1.0.0
+ */
+
 const QuestionList = React.createClass({
 	propTypes: {
     questions: array,

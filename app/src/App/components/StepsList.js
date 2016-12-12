@@ -3,6 +3,15 @@ import Step from './Step';
 
 require('./stylesheets/StepsList.scss');
 
+
+/*
+ * The list of Steps combined into one component
+ *
+ * @param {Object} props - The React props object
+ *
+ * @since 1.0.0
+ */
+
 const StepsList = (props) => (
   <section>
     <ul className="steps-list">
@@ -12,6 +21,7 @@ const StepsList = (props) => (
     </ul>
   </section>
 );
+
 
 export default StepsList;
 

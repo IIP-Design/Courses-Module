@@ -4,6 +4,13 @@ import shortid from 'shortid';
 
 const { string, array } = React.PropTypes;
 
+
+/*
+ * The LessonTabs component.
+ *
+ * @since 1.0.0
+ */
+
 const LessonTabs = React.createClass({
   propTypes: {
     description: string.isRequired,

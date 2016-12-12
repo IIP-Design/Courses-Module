@@ -1,3 +1,14 @@
+/*
+ * Check if the key 'state' exists in sessionStorage
+ *
+ * @todo Something more unique that 'state'
+ *
+ * @return {Object} - If 'state' exists, parse it and return the object
+ * @return {undefined} - If 'state' does not exist, return undefined
+ *
+ * @since 1.0.0
+ */
+
 export const loadState = () => {
 	try {
 		const serializedState = sessionStorage.getItem('state');  // change name of state to something less common
@@ -12,6 +23,16 @@ export const loadState = () => {
 	}
 }
 
+
+
+
+/*
+ * Save state to sessionStorage
+ *
+ * @todo Something more unique that 'state'
+ *
+ * @since 1.0.0
+ */
 
 export const saveState = state => {
 	try {

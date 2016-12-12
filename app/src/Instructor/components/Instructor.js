@@ -2,6 +2,13 @@ import React from 'react'
 
 const { object } = React.PropTypes;
 
+
+/*
+ * The Instructor component.
+ *
+ * @since 1.0.0
+ */
+
 const Instructor = React.createClass({
   propTypes: {
     instructor: object
@@ -34,3 +41,4 @@ const Instructor = React.createClass({
 
 
 export default Instructor;
+

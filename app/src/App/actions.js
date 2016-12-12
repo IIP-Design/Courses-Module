@@ -2,35 +2,16 @@ import * as types from './actionTypes';
 
 
 /*
- * Let app know data being fetched
+ * A function for managing what information is sent to the Redux reducer
+ *
+ * @param {Object} [data] - Data from the ajax request to the api
+ * @param {Object} [error] - An error, perhaps from the ajax request to the api
+ *
+ * @return {Object} state - A new state object passed to the Reduxs reducer
  */
 
-export function fetchRequest() {
-  return {
-    type: types.FETCH_REQUEST,
-    payload: {
-      isFetching: true
-    }
-  };
-}
-
-
-/*
- * let app know data error occurred during fetch
- */
-
-export function fetchError(error) {
-  return {
-    type: types.FETCH_ERROR,
-    payload: {
-      error: error,
-      isFetching: false
-    }
-  };
-}
-
-export function requestData(data=undefined, error=undefined) {
-  if (data === undefined && error === undefined) {
+export function requestData(data, error) {
+  if (!data && !error) {
     return {
       type: types.REQUEST_DATA,
       payload: {

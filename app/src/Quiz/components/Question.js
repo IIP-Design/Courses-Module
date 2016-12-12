@@ -4,6 +4,12 @@ import ChoiceList from '../components/ChoiceList';
 const { string, number, bool, array } = React.PropTypes;
 
 
+/*
+ * The Question component.
+ *
+ * @since 1.0.0
+ */
+
 const Question = React.createClass({
 	propTypes: {
     text: string,

@@ -9,10 +9,17 @@ require('./stylesheets/LessonList.scss');
 const { array } = React.PropTypes;
 
 
+/*
+ * The LessonList component
+ *
+ * @since 1.0.0
+ */
+
 const LessonList = React.createClass({
   propTypes: {
     lessons: array
   },
+
 
   render() {
     const lessons = this.props.lessons.map((lesson) => {

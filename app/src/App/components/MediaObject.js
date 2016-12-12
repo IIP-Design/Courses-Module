@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+require('./stylesheets/MediaObject.scss');
+
 const { string, bool, object } = React.PropTypes;
 
-require('./stylesheets/MediaObject.scss');
+
+/*
+ * A simple media object component
+ *
+ * @see http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ *
+ * @since 1.0.0
+ */
 
 const MediaObject = React.createClass({
   propTypes: {
@@ -15,9 +24,11 @@ const MediaObject = React.createClass({
     description: string
   },
 
+
   setDescription() {
     return { __html: this.props.description };
   },
+
 
   render() {
     const CustomTag = `${ this.props.tag }`;
@@ -38,6 +49,7 @@ const MediaObject = React.createClass({
     );
   }
 });
+
 
 export default MediaObject;
 

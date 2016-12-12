@@ -4,6 +4,14 @@ import React from 'react';
 const { array, func, number, string } = React.PropTypes;
 
 
+/*
+ * The RadioChoice component
+ *
+ * @param {Object} props - The React props object
+ *
+ * @since 2.0.0
+ */
+
 const RadioChoice = (props) => {
   return (
     <li>

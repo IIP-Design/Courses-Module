@@ -7,21 +7,33 @@ import Instructor from '../components/Instructor';
 const { object } = React.PropTypes;
 
 
-const InstructorContainer = React.createClass({
-  propTypes: {
-    params: object
-  },
+/*
+ * The Instructor container component responsible for interactin with the Redux store and passing
+ * state to the Instrutor component
+ *
+ * @since 2.0.0
+ */
+
+const InstructorContainer = (props) => <Instructor instructor={ props.instructor }/>;
 
 
-  render() {
-    const props = this.props;
+InstructorContainer.propTypes = {
+  params: object
+};
 
-    return (
-      <Instructor instructor={ props.instructor }/>
-    );
-  }
-});
 
+
+
+/*
+ * Standard Redux mapStateToProps function.
+ *
+ * @param {Object} state.app - The app object in the Redux store
+ * @param {String} props.params.slug - The url slug from the router
+ *
+ * @return {Object} InstructorContainerPropsObject - Data from state mapped to the Instructor component's props
+ *
+ * @since 2.0.0
+ */
 
 const mapStateToProps = ({ app }, { params: { slug } }) => {
   // Don't like that this code is basically repeated from Course/components/Course.js line 35
@@ -31,6 +43,14 @@ const mapStateToProps = ({ app }, { params: { slug } }) => {
     return slug === instructor.slug;
   });
 
+
+  /*
+   * @typedef {Object} InstructorContainerPropsObject
+   * @property {Object} instructor - The correct instructor object from state
+   *
+   * @since 2.0.0
+   */
+
   return {
     instructor
   };
@@ -38,3 +58,4 @@ const mapStateToProps = ({ app }, { params: { slug } }) => {
 
 
 export default connect(mapStateToProps)(InstructorContainer);
+

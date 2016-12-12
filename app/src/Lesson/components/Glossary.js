@@ -3,9 +3,18 @@ import { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } from 'App';
 
 const { array } = React.PropTypes;
 
+
+/*
+ * The Glossary of Terms component.
+ *
+ * @param {Object} props - The React props object.
+ *
+ * @since 1.0.0
+ */
+
 const Glossary = (props) => {
   if (props.terms.length === 0) {
-    return (<div/>);
+    return null;
   }
 
   const glossary = props.terms.map((term) => {
@@ -24,6 +33,7 @@ const Glossary = (props) => {
     </div>
   );
 }
+
 
 Glossary.propTypes = {
   terms: array
