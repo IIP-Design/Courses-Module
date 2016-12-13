@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const { array, func, number, string } = React.PropTypes;
+const { array, func, number, object, string } = React.PropTypes;
 
 
 /*
@@ -15,9 +15,9 @@ const { array, func, number, string } = React.PropTypes;
 const RadioChoice = (props) => {
   return (
     <li>
-      <label htmlFor={ props.htmlId }>
-        <input id={ props.htmlId } name={ `q${ props.qid }` } type={ 'radio' } checked={ props.checked } onChange={ props.handleChange }/>
-        { props.choice }
+      <label htmlFor={ props.choiceId }>
+        <input id={ props.choiceId } name={ props.questionId } type={ 'radio' } checked={ props.checked } onChange={ props.handleChange }/>
+        { props.choice.text }
       </label>
     </li>
   );
@@ -26,10 +26,10 @@ const RadioChoice = (props) => {
 
 RadioChoice.propTypes = {
   checked: string,
-  choice: string,
+  choice: object,
   handleChange: func,
-  htmlId: string,
-  qid: number,
+  choiceId: string,
+  questionId: string,
   userAnswers: array
 };
 

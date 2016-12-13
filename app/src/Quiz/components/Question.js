@@ -14,7 +14,7 @@ const Question = React.createClass({
 	propTypes: {
     text: string,
     choices: array,
-    qid: number,
+    questionId: string,
     correct: bool
   },
 
@@ -25,10 +25,12 @@ const Question = React.createClass({
 
 
   render() {
+    const props = this.props;
+
 		return (
     	<li className='quiz-question'>
-    		<div id={ `q${ this.props.qid }` } className='quiz-question-text' dangerouslySetInnerHTML={ this.rawHTML() }></div>
-		  	<ChoiceList className='quiz-choices' qid={ this.props.qid } choices={ this.props.choices }/>
+    		<div id={ props.questionId } className='quiz-question-text' dangerouslySetInnerHTML={ this.rawHTML() }></div>
+		  	<ChoiceList className='quiz-choices' questionId={ props.questionId } choices={ props.choices }/>
 			</li>
 		);
 	}

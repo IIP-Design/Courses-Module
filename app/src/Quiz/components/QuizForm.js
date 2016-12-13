@@ -31,6 +31,8 @@ const QuizForm = React.createClass({
 
   /*
    * Set the initial state of the component
+   *
+   * @since 1.0.0
    */
 
   getInitialState() {
@@ -43,6 +45,8 @@ const QuizForm = React.createClass({
 
   /*
    * Set whether the notification is active in state
+   *
+   * @since 1.0.0
    */
 
   toggleNotification() {
@@ -52,6 +56,8 @@ const QuizForm = React.createClass({
 
   /*
    * Check if each question has answer
+   *
+   * @since 1.0.0
    */
 
   isAllAnswered() {
@@ -61,6 +67,11 @@ const QuizForm = React.createClass({
 
   /*
    * Add an 'incorrect' and 'correct' class to an element
+   *
+   * @param {String} id - The html element's id
+   * @param {String} cls - The html class to add to the element
+   *
+   * @since 1.0.0
    */
 
   showCorrectIndicator(id, cls) {
@@ -75,9 +86,12 @@ const QuizForm = React.createClass({
   /*
    * Generate a link
    *
-   * @param url (String) - A relative url from the root element's exit-page data attribute
+   * @param {String} url - A relative url from the root element's exit-page data attribute
+   * @param {Object} [params] - Option url parameters
    *
-   * @return url (String) - An absolute url to redirect after the quiz completes successfully
+   * @return {String} url - An absolute url to redirect after the quiz completes successfully
+   *
+   * @since 1.0.0
    */
 
   generateLink(url, params={}) {
@@ -104,7 +118,9 @@ const QuizForm = React.createClass({
    *
    * @see https://github.com/IIP-Design/wp-simple-nonce
    *
-   * @return (String) - The absolute url
+   * @return {String} - The absolute url
+   *
+   * @since 1.0.0
    */
 
   generateExitLink() {
@@ -125,6 +141,8 @@ const QuizForm = React.createClass({
 
   /*
    * Redirect the user to the exit page
+   *
+   * @since 1.0.0
    */
 
   goToCertificateScreen() {
@@ -134,42 +152,76 @@ const QuizForm = React.createClass({
 
 
   /*
-   * Check that all the userAnswers are correct
+   * Filter correct question choices
    *
-   * @todo The isAllCorrect method is currently not working because it is expecting the
-   * this.props.userAnswers array to be in the same order as the questions array, which
-   * isn't always the case when user change their answers because of the pureSlice function
-   * in the Quiz reducers file
+   * @param {Object} choice - A choice from a question.choices array
+   *
+   * @return {Object} choice - Return a choice that matches the condition
+   *
+   * @since 2.0.0
    */
 
-	isAllCorrect() {
-		const questions = this.props.questions;
-		let correct = true;
-		let index = 0;
+  isCorrectFilter(choice) {
+    return choice.correct === true
+  },
 
-		questions.map((question) => {
-			const userAnswer = this.props.userAnswers[index];
-			const correctAnswer = question.correctAnswers[0];
-			const id = 'q' + index;
 
-			if (correctAnswer !== userAnswer) {
-				this.showCorrectIndicator(id, 'incorrect');
-				correct = false;
-			} else {
-				this.showCorrectIndicator(id, 'correct');
-			}
+  /*
+   * Get an array of correct answers
+   *
+   * @param {Array} questions - An array of questions
+   *
+   * @return {Array} correctAnswers - An array of correct answers
+   *
+   * @since 2.0.0
+   */
 
-			index++;
-		});
+  getCorrectAnswers(questions) {
+    // Get a flat array of all the questions' choices
+    const choices = [].concat.apply([], questions.map(question => question.choices));
 
-  	return correct;
+    // Return only the filtered choices
+    return choices.filter(this.isCorrectFilter);
+  },
+
+
+  /*
+   * Compare the correct answers with the user's answers
+   *
+   * @return {Array} results - An array of correct answers
+   *
+   * @since 2.0.0
+   */
+
+  scoreQuiz() {
+    const questions = this.props.questions;
+    const userAnswers = this.props.userAnswers;
+    const correctAnswers = this.getCorrectAnswers(questions);
+    const results = [];
+
+    userAnswers.forEach(answer => {
+
+      // Set it to incorrect initally
+      this.showCorrectIndicator(answer.questionId, 'incorrect');
+
+      correctAnswers.forEach(correct => {
+
+        // If the answer and correct answer match, mark it correct and push it to the results array
+        if (correct.id === answer.choiceId) {
+          this.showCorrectIndicator(answer.questionId, 'correct');
+          results.push(answer);
+        }
+      });
+    });
+
+    return results;
   },
 
 
   /*
    * Respond to the form's onSubmit event
    *
-   * @param e (Object) - The event object
+   * @param {Object} event - The event object
    */
 
   handleSubmit(e) {
@@ -178,22 +230,28 @@ const QuizForm = React.createClass({
     // This should always be one less than the number of actual max attempts because it starts at zero
     const maxAttempts = 4;
 
+    const corrects = this.scoreQuiz();
+
 		// All questions not answerecd, show notification
 		if(!this.isAllAnswered()) {
 		  this.setState({ message: 'Please answer all the questions' });
-			this.toggleNotification ();
+			this.toggleNotification();
 		}
 
 		// All questions answered correctly, send to cert screen
-		else if (this.isAllCorrect())  {
+		else if (corrects.length === this.props.questions.length)  {
       this.goToCertificateScreen();
 		}
 
-		// User got some wrong, if max attempt, redirect to first lesson, else notify
+		// User got some wrong
 		else {
+
+      // If max attempts reached, redirect to first lesson
       if( this.props.numAttempts === maxAttempts ) {
         this.props.resetQuiz();
 				hashHistory.push(`/lesson/${this.props.lessons[0].slug}`);
+
+      // Else notify user of mistakes
 			} else {
         this.props.incrementNumAttempts();
 			  this.setState({

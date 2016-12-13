@@ -11,6 +11,8 @@ const { array } = React.PropTypes;
 /*
  * The QuestionList component.
  *
+ * @todo Do we want to pass the choices, questionId all the way down from this component?
+ *
  * @since 1.0.0
  */
 
@@ -26,25 +28,29 @@ const QuestionList = React.createClass({
 
 
   /*
-   * Note: Sending qid as Question cannot access key.  We need the qid to construct common group name for each choice
+   * Note: Sending questionId as Question cannot access key.  We need the questionId to construct common group name for each choice
    */
 
-  renderQuestion(question, i) {
+  renderQuestion(question) {
+    const choices = question.choices;
+
     return (
     	<Question
     		key={ shortid.generate() }
-    		qid={ i }
+    		questionId={ question.id }
     		text={ question.text }
-    		choices={ question.choices }
+    		choices={ choices }
     	/>
     )
   },
 
 
 	render() {
+    const props = this.props;
+
 		return (
 			<ol id="questionList" className='quiz-questions'>
-        { this.props.questions.map(this.renderQuestion) }
+        { props.questions.map(this.renderQuestion) }
       </ol>
 		);
 	}

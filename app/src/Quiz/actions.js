@@ -27,10 +27,7 @@ import * as types from './actionTypes';
  * @since 2.0.0
  */
 
-export function setUserAnswer(questionId=undefined, error=undefined) {
-  const re = /^(q\d+)c(\d+)/;
-  const match = questionId.match(re);
-
+export function setUserAnswer(questionId, choiceId, error) {
   if (error) {
     return {
       type: types.SET_USER_ANSWER,
@@ -39,14 +36,13 @@ export function setUserAnswer(questionId=undefined, error=undefined) {
     };
   }
 
-  if (questionId) {
+  if (questionId && choiceId) {
     return {
       type: types.SET_USER_ANSWER,
       payload: {
         userAnswers: [{
-          id: questionId,
-          question: match[1],
-          answer: match[2]
+          choiceId,
+          questionId
         }]
       },
       status: 'success'

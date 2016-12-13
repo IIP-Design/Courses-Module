@@ -16,7 +16,7 @@ const { number, array, string } = React.PropTypes;
 const ChoiceList = React.createClass({
 	propTypes: {
     choices: array,
-    qid: number,
+    questionId: string,
     className: string
   },
 
@@ -39,22 +39,18 @@ const ChoiceList = React.createClass({
   },
 
 
-	renderChoice(choice, i) {
-  	const htmlId = `q${ this.props.qid }c${ i }`;
+	renderChoice(choice) {
+    const id = choice.id;
 
 	 	return (
-      <RadioChoice key={ htmlId } htmlId={ htmlId } qid={ this.props.qid } choice={ choice } />
+      <RadioChoice key={ id } choiceId={ id } questionId={ this.props.questionId } choice={ choice } />
 	   );
   },
 
 
-  /*
-   * Was expecting an array of objects per the spec
-   * https://github.com/IIP-Design/america-node-api/blob/gh-pages/course.js
-   */
-
 	render() {
-		const choices = this.generateArrFromObjectKeys(this.props.choices[0]);
+    const props = this.props;
+		const choices = props.choices
 
 		return (
 			<ul>{ choices.map(this.renderChoice) }</ul>

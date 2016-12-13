@@ -5,7 +5,7 @@ import { setUserAnswer } from '../actions';
 import RadioChoice from '../components/RadioChoice';
 
 
-const { array, func, number, string } = React.PropTypes;
+const { array, func, number, object, string } = React.PropTypes;
 
 
 /*
@@ -18,23 +18,39 @@ const RadioChoiceContainer = React.createClass({
   propTypes: {
     handleChange: func,
     userAnswers: array,
-    choice: string,
-    qid: number,
-    htmlId: string
+    choice: object,
+    questionId: string,
+    choiceId: string
   },
 
+
+  /*
+   * Filter the answer from state that matches props.choiceId
+   *
+   * @param {Array} answers - The answers from state
+   *
+   * @return {Object} answer - The filtered answer from state
+   *
+   * @since 2.0.0
+   */
 
   getAnswer(answers) {
-    return answers.filter((answer) => answer.id === this.props.htmlId)[0];
+    return answers.filter((answer) => answer.choiceId === this.props.choiceId)[0];
   },
 
+
+  /*
+   * Programmatically set 'checked' attribute on the radio button
+   *
+   * @since 2.0.0
+   */
 
   render() {
     const props = this.props;
-    const checked = this.getAnswer(props.userAnswers) || {};
+    const answer = this.getAnswer(props.userAnswers) || {};
 
     return (
-      <RadioChoice checked={ (('id' in checked)) ? checked.id : '' } { ...props } />
+      <RadioChoice checked={ (('choiceId' in answer)) ? answer.choiceId : '' } { ...props } />
     );
   }
 });
@@ -85,7 +101,10 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     handleChange: e => {
-      dispatch(setUserAnswer(e.target.id));
+      const choiceId = e.target.id;
+      const questionId = document.getElementById(choiceId).name;
+
+      dispatch(setUserAnswer(questionId, choiceId));
     }
   };
 };

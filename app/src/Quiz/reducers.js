@@ -85,9 +85,9 @@ const updateUserAnswers = (state, payload) => {
 
   let slicedUserAnswers;
 
-  // Check if question is already in state. If so, get a new array without it.
+  // Check if questionId is already in state. If so, get a new array without it.
   if (userAnswersFromState.length > 0) {
-    slicedUserAnswers = removeItem(userAnswersFromState, () => indexOfObjectInArray(userAnswersFromState, 'question', newAnswer.question));
+    slicedUserAnswers = removeItem(userAnswersFromState, () => indexOfObjectInArray(userAnswersFromState, 'questionId', newAnswer.questionId));
   }
 
   if (slicedUserAnswers) {
