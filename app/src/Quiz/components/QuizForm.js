@@ -230,8 +230,6 @@ const QuizForm = React.createClass({
     // This should always be one less than the number of actual max attempts because it starts at zero
     const maxAttempts = 4;
 
-    const corrects = this.scoreQuiz();
-
 		// All questions not answerecd, show notification
 		if(!this.isAllAnswered()) {
 		  this.setState({ message: 'Please answer all the questions' });
@@ -239,7 +237,7 @@ const QuizForm = React.createClass({
 		}
 
 		// All questions answered correctly, send to cert screen
-		else if (corrects.length === this.props.questions.length)  {
+		else if (this.scoreQuiz().length === this.props.questions.length)  {
       this.goToCertificateScreen();
 		}
 
