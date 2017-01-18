@@ -2,6 +2,8 @@ import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import shortid from 'shortid';
 
+require('./stylesheets/LessonTabs.scss');
+
 const { string, array } = React.PropTypes;
 
 
@@ -15,6 +17,7 @@ const LessonTabs = React.createClass({
   propTypes: {
     description: string.isRequired,
     transcript: string.isRequired,
+    transcriptFile: string.isRequired,
     resource: array
   },
 
@@ -56,7 +59,10 @@ const LessonTabs = React.createClass({
           <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
         </TabPanel>
         <TabPanel>
-          <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
+          <div>
+            <p><a href={ this.props.transcriptFile } target="_blank" className="print">Print the transcript</a></p>
+            <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
+          </div>
         </TabPanel>
         { this.props.resources === false ? null : <TabPanel><ul>{ resources }</ul></TabPanel> }
       </Tabs>
