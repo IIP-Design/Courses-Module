@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import shortid from 'shortid';
 
 require('./stylesheets/Media.scss');
+require('./stylesheets/LessonTabs.scss');
 
 const { string, array, object } = React.PropTypes;
 
@@ -17,6 +18,7 @@ const LessonTabs = React.createClass({
   propTypes: {
     description: string.isRequired,
     transcript: string.isRequired,
+    transcriptFile: string.isRequired,
     resource: array,
     audio: object
   },
@@ -66,7 +68,10 @@ const LessonTabs = React.createClass({
           <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
         </TabPanel>
         <TabPanel>
-          <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
+          <div>
+            <p><a href={ this.props.transcriptFile } target="_blank" className="print">Print the transcript</a></p>
+            <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
+          </div>
         </TabPanel>
         { this.props.resources === false ? null : <TabPanel><ul>{ resources }</ul></TabPanel> }
         { this.hasProp( this.props.audio, 'src') ?  <TabPanel><audio controls src={ this.props.audio.src } className="course-audio-player"></audio></TabPanel> : null }
