@@ -29,7 +29,7 @@ const Glossary = (props) => {
   });
 
   return (
-    <div>
+    <div className='glossary'>
       <h3 className='glossary-title'>Glossary of Terms</h3>
       <Collapse className='glossary-content'>
         { glossary }
