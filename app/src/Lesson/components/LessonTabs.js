@@ -2,7 +2,9 @@ import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import shortid from 'shortid';
 
-const { string, array } = React.PropTypes;
+require('./stylesheets/Media.scss');
+
+const { string, array, object } = React.PropTypes;
 
 
 /*
@@ -15,7 +17,8 @@ const LessonTabs = React.createClass({
   propTypes: {
     description: string.isRequired,
     transcript: string.isRequired,
-    resource: array
+    resource: array,
+    audio: object
   },
 
 
@@ -33,6 +36,12 @@ const LessonTabs = React.createClass({
     return (array.length === 0) ? true : false;
   },
 
+  hasProp (obj, prop) {
+    if( Object.prototype.hasOwnProperty.call(obj, prop) && obj[prop].length > 0 ) {
+      return true;
+    }
+    return false;
+  },
 
   render() {
     let resources;
@@ -51,6 +60,7 @@ const LessonTabs = React.createClass({
           <Tab>Overview</Tab>
           <Tab>Transcript</Tab>
           { this.props.resources === false ? null : <Tab>Lesson Resources</Tab> }
+          { this.hasProp( this.props.audio, 'src') ?  <Tab>Audio</Tab> : null }
         </TabList>
         <TabPanel>
           <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
@@ -59,6 +69,7 @@ const LessonTabs = React.createClass({
           <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
         </TabPanel>
         { this.props.resources === false ? null : <TabPanel><ul>{ resources }</ul></TabPanel> }
+        { this.hasProp( this.props.audio, 'src') ?  <TabPanel><audio controls src={ this.props.audio.src } className="course-audio-player"></audio></TabPanel> : null }
       </Tabs>
     );
   }
