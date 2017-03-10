@@ -1,0 +1,11 @@
+{
+    "name": "iip-design/courses-module",
+    "description": "\"Frontend view code of the course module\"",
+    "authors": [
+        {
+            "name": "Office of Design, U.S. Department of State",
+            "email": "reganta@america.gov"
+        }
+    ],
+    "minimum-stability": "stable"
+}
