@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "app/src/build"),
     publicPath: '/app/src/build',
-    filename: 'packed.js'
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
@@ -74,7 +74,7 @@ module.exports = {
       }
       ),*/
     new webpack.SourceMapDevToolPlugin({
-      filename: 'packed.js.map',
+      filename: 'bundle.js.map',
       module: false,
       columns: false
     })
