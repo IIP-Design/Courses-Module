@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "app/dist"),
     publicPath: path.join(__dirname, "app/dist"),
-    filename: 'packed.[hash].js'
+    filename: 'bundle.[hash].js'
   },
   resolve: {
     root: [
