@@ -115,6 +115,7 @@ h1, h3 {
   color: white;
 
   @include bp($tablet) {
-    width: 30%;
+    width: 200px;
   }
+ 
 }
