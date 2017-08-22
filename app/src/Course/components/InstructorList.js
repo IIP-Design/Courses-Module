@@ -20,6 +20,9 @@ const InstructorList = React.createClass({
 
   render() {
     const length = this.props.instructors.length;
+    const instr = this.props.language.instructors;
+    const instrTitle = ( length > 1) ? instr : instr.splice(0, -1);
+  
     const instructors = this.props.instructors.map((instructor) => {
       const link = `/instructors/${ instructor.slug }`
 
@@ -42,7 +45,7 @@ const InstructorList = React.createClass({
     return (
       <section className="instructors-list">
         <header>
-          <h3>{ (length > 1) ? 'Instructors' : 'Instructor' }</h3>
+          <h3>{ instrTitle }</h3>
         </header>
         { instructors }
       </section>

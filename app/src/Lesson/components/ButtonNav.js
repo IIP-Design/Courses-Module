@@ -42,11 +42,12 @@ const ButtonNav = (props) => {
   const numLessons = props.lessons.length - 1;
   const lessons = props.lessons;
   const lessonIndex = props.lessonIndex;
+  const language = props.language;
 
   if (lessons.length === 1) {
     return (
       <div className='lesson-buttonnav'>
-        <Link to={ 'quiz' }>Go to Quiz</Link>
+        <Link to={ 'quiz' }>{ language.quizGo }</Link>
       </div>
     );
   }
@@ -55,8 +56,8 @@ const ButtonNav = (props) => {
   if (lessonIndex === numLessons) {
     return (
       <div className='lesson-buttonnav'>
-        { getLink(lessons, lessonIndex, -1, 'Previous Lesson') }
-        <Link to={ 'quiz' }>Go to Quiz</Link>
+        { getLink(lessons, lessonIndex, -1, language.prevLesson) }
+        <Link to={ 'quiz' }>{ language.quizGo }</Link>
       </div>
     );
   }
@@ -65,7 +66,7 @@ const ButtonNav = (props) => {
   if (lessonIndex === 0) {
     return (
       <div className='lesson-buttonnav'>
-         { getLink(lessons, lessonIndex, 1, 'Next Lesson') }
+         { getLink(lessons, lessonIndex, 1, language.nextLesson) }
       </div>
     );
   }
@@ -74,8 +75,8 @@ const ButtonNav = (props) => {
   if (lessonIndex !== 0 && lessonIndex !== numLessons) {
     return (
       <div className='lesson-buttonnav'>
-        { getLink(lessons, lessonIndex, -1, 'Previous Lesson') }
-        { getLink(lessons, lessonIndex, 1, 'Next Lesson') }
+        { getLink(lessons, lessonIndex, -1, language.prevLesson) }
+        { getLink(lessons, lessonIndex, 1, language.nextLesson) }
       </div>
     );
   }

@@ -15,7 +15,7 @@ const { object } = React.PropTypes;
  * @since 2.0.0
  */
 
-const CourseContainer = (props) => <Course course={ props.course }/>;
+const CourseContainer = (props) => <Course course={ props.course } language={ props.language }/>;
 
 
 CourseContainer.propTypes = {
@@ -35,10 +35,9 @@ CourseContainer.propTypes = {
  * @since 2.0.0
  */
 
-const mapStateToProps = ({ app }) => {
+const mapStateToProps = ({ app, language }) => {
   const course = app.data;
-
-
+  
   /*
    * @typedef {Object} CourseContainerPropsObject
    * @property {Object} course - The course data from state
@@ -48,6 +47,7 @@ const mapStateToProps = ({ app }) => {
 
   return {
     course,
+    language
   };
 };
 

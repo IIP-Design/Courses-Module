@@ -37,7 +37,7 @@ QuizContainer.propTypes = {
  * @since 2.0.0
  */
 
-const mapStateToProps = ({ app }) => {
+const mapStateToProps = ({ app, language }) => {
   const course = app.data;
   const lessons = app.data.lessons;
   const questions = [].concat.apply([], lessons.map(lesson => lesson.quiz));
@@ -53,7 +53,8 @@ const mapStateToProps = ({ app }) => {
   return {
     courseName: course.title,
     lessons,
-    questions
+    questions,
+    language
   };
 };
 

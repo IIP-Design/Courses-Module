@@ -20,7 +20,8 @@ const Lesson = React.createClass({
   propTypes: {
     courseTitle: string,
     lessons: array,
-    lesson: object
+    lesson: object,
+    language: object
   },
 
 
@@ -45,10 +46,16 @@ const Lesson = React.createClass({
             <YouTube videoId={ video.video_id  } />
           </div>
           <div className='lesson-nav'>
-            <ButtonNav lessons={ props.lessons } lessonIndex={ props.lessonIndex }/>
+            <ButtonNav lessons={ props.lessons } lessonIndex={ props.lessonIndex } language={ props.language } />
             <LessonPagination lessons={ props.lessons } lessonIndex={ props.lessonIndex } />
           </div>
-          <LessonTabs description={ props.lesson.description } transcript={ media.transcript_text } transcriptFile={ media.transcript_file_url } resources={ props.lesson.resources } audio={ audio }
+          <LessonTabs 
+            description={ props.lesson.description } 
+            transcript={ media.transcript_text } 
+            transcriptFile={ media.transcript_file_url } 
+            resources={ props.lesson.resources } 
+            audio={ audio }
+            language={ props.language }
           />
         </div>
         <div className="one-third">

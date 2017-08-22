@@ -6,7 +6,7 @@ import { Notification } from 'react-notification';
 import QuestionList from './QuestionList';
 
 
-const { array, func, number, string } = React.PropTypes;
+const { array, func, number, string, object } = React.PropTypes;
 
 
 /*
@@ -25,7 +25,8 @@ const QuizForm = React.createClass({
     lessons: array,
     questions: array,
     incrementNumAttempts: func,
-    resetQuiz: func
+    resetQuiz: func,
+    language: object
   },
 
   /*
@@ -294,20 +295,20 @@ const QuizForm = React.createClass({
     return (
       <div>
         <form id='formQuiz' onSubmit={ this.handleSubmit }>
-          <div className='quiz-agrmt'>Certificate Agreement <span className='quiz-required'>*</span></div>
+          <div className='quiz-agrmt'>{ props.language.quizAgree } <span className='quiz-required'>*</span></div>
           <label htmlFor='certify'>
             <input id='certify' type={'checkbox'} name='certify'/>
-            I certify that I have taken all the lessons related to this quiz before obtaining the certificate.
+            { props.language.quizCert }
           </label>
           <QuestionList questions={ this.props.questions }/>
-          <input type="submit" value="Submit and Get Certificate" />
-          <span className={ this.state.incorrectClassname }>{ this.state.numIncorrect } of your answers are incorrect.  Please try again.</span>
+          <input type="submit" value={ props.language.quizBtn } />
+          <span className={ this.state.incorrectClassname }>{ this.state.numIncorrect } { props.language.quizWrong } </span>
         </form>
-        <div className={ this.state.attemptsClassname }>Attempts remaining: { this.maxAttempts - this.props.numAttempts } </div>
+        <div className={ this.state.attemptsClassname }>{ props.language.quizAttemptsRemain }: { this.maxAttempts - this.props.numAttempts } </div>
         <Notification
           isActive={ this.state.isNotificationActive }
-          message='Please answer all the questions' 
-          action='Dismiss'
+          message={ props.language.quizAnswer }
+          action={ props.language.quizDismiss }
           onDismiss={ this.toggleNotification }
           dismissAfter = { 3500 }
           onClick={() =>  this.setState({ isNotificationActive: false })}

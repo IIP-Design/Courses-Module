@@ -61,15 +61,15 @@ const Course = React.createClass({
               <div className='course-intro-gradient'></div>
             </div>
             <div className='course-intro-text'>
-              <h1>{ props.course.title  }</h1>
+              <h1>{ props.course.title }</h1>
               <p dangerouslySetInnerHTML={ this.rawDescription() }></p>
-              <Link to={ `lesson/${ link }` } id={ link }><div className='course-take-course'>Take the Course</div></Link>
+              <Link to={ `lesson/${ link }` } id={ link }><div className='course-take-course'>{ props.language.courseTake }</div></Link>
             </div>
           </div>
         </section>
-        <StepsList />
-        <LessonList lessons={ lessons } />
-        <InstructorList instructors={ instructors } />
+        <StepsList language={ props.language } />
+        <LessonList lessons={ lessons } language={ props.language } />
+        <InstructorList instructors={ instructors } language={ props.language } />
       </div>
     );
   }

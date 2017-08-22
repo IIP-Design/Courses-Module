@@ -6,7 +6,7 @@ import QuizForm from '../containers/QuizFormContainer';
 require('./stylesheets/Quiz.scss');
 
 
-const { array, string } = React.PropTypes;
+const { array, string, object } = React.PropTypes;
 
 
 /*
@@ -19,7 +19,8 @@ const Quiz = React.createClass({
   propTypes: {
     courseName: string,
     lessons: array,
-    questions: array
+    questions: array,
+    language: object
   },
 
 
@@ -35,9 +36,9 @@ const Quiz = React.createClass({
 		return (
 			<div>
         <QuizLessons lessons={ props.lessons }/>
-        <h3 className='quiz-instructions'>Answer all questions correctly to get a certificate.</h3>
-        <p className='quiz-msg'>Five failed attempts to correctly answer all of the questions will return you to the first lesson.</p> 
-        <QuizForm questions={ props.questions } courseName={ props.courseName }/>
+        <h3 className='quiz-instructions'>{ props.language.quizQuestions }</h3>
+        <p className='quiz-msg'>{ props.language.quizAttempts }</p> 
+        <QuizForm questions={ props.questions } courseName={ props.courseName } language={ props.language } />
       </div>
 		);
 	}

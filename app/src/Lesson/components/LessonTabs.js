@@ -20,7 +20,8 @@ const LessonTabs = React.createClass({
     transcript: string.isRequired,
     transcriptFile: string.isRequired,
     resource: array,
-    audio: object
+    audio: object,
+    language: object
   },
 
 
@@ -73,17 +74,17 @@ const LessonTabs = React.createClass({
     return (
       <Tabs>
         <TabList>
-          <Tab>Overview</Tab>
-          <Tab>Transcript</Tab>
-          { this.props.resources === false ? null : <Tab>Lesson Resources</Tab> }
-          { this.hasProp( this.props.audio, 'src') ?  <Tab>Audio</Tab> : null }
+          <Tab>{ this.props.language.overview }</Tab>
+          <Tab>{ this.props.language.transcript }</Tab>
+          { this.props.resources === false ? null : <Tab>{ this.props.language.resources }</Tab> }
+          { this.hasProp( this.props.audio, 'src') ?  <Tab>{ this.props.language.audio }</Tab> : null }
         </TabList>
         <TabPanel>
           <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
         </TabPanel>
         <TabPanel>
           <div>
-            <p><a href={ this.props.transcriptFile } target="_blank" className="print">Print the transcript</a></p>
+            <p><a href={ this.props.transcriptFile } target="_blank" className="print">{ this.props.language.print }</a></p>
             <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
           </div>
         </TabPanel>

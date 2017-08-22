@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import store from '../../store';
 import * as actions from '../actions';
+import { setLanguage } from '../../Language/actions';
 import MainLayout from '../components/MainLayout';
-
 
 /*
  * The container component that is responsible for interacting with the Redux store
@@ -14,6 +14,7 @@ import MainLayout from '../components/MainLayout';
  */
 
 const MainContainer = React.createClass({
+
 
   /*
    * When the MainContainer component mounts, it grabs the course id, performs an ajax request, and passes the response off to redux
@@ -34,9 +35,10 @@ const MainContainer = React.createClass({
     const root = document.getElementById('course-container');
     const endpoint = `${ url }/courses/${ root.dataset.courseId }`;
 
+    store.dispatch(setLanguage(root.dataset.language)); 
     store.dispatch(actions.requestData());
 
-    axios.get(endpoint)
+    axios.get( endpoint )
       .then(response => store.dispatch(actions.requestData(response.data.courses)))
       .catch(error => store.dispatch(actions.requestData(undefined, error=error)));
   },
@@ -53,7 +55,7 @@ const MainContainer = React.createClass({
     const props = this.props;
 
     return (
-      <MainLayout children={ props.children } isFetching={ props.isFetching }/>
+      <MainLayout children={ props.children } isFetching={ props.isFetching } language={ props.language } />
     );
   }
 });
@@ -71,7 +73,7 @@ const MainContainer = React.createClass({
  * @since 2.0.0
  */
 
-const mapStateToProps = ({ app }) => {
+const mapStateToProps = ({ app, language }) => {
   const course = app.data;
   const isFetching = app.isFetching;
 
@@ -84,7 +86,8 @@ const mapStateToProps = ({ app }) => {
 
   return {
     isFetching,
-    course
+    course,
+    language
   };
 };
 

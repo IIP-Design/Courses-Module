@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import { loadState, saveState } from './sessionStorage';
 import { appReducer } from './App';
 import { quizReducer } from './Quiz';
+import { langReducer } from './Language';
 
 
 /*
@@ -41,7 +42,8 @@ const persistedState = loadState();
 
 const reducers = combineReducers({
   app: appReducer,
-  quiz: quizReducer
+  quiz: quizReducer,
+  language: langReducer
 });
 
 /*
