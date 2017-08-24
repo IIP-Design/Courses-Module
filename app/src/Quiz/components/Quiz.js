@@ -35,7 +35,7 @@ const Quiz = React.createClass({
 
 		return (
 			<div>
-        <QuizLessons lessons={ props.lessons }/>
+        <QuizLessons lessons={ props.lessons } language={ props.language }/>
         <h3 className='quiz-instructions'>{ props.language.quizQuestions }</h3>
         <p className='quiz-msg'>{ props.language.quizAttempts }</p> 
         <QuizForm questions={ props.questions } courseName={ props.courseName } language={ props.language } />

@@ -21,7 +21,7 @@ const QuizLessons = (props) => {
 
   return (
     <div>
-      <h3 className='quiz-lessons'>Lessons included on this quiz:</h3>
+      <h3 className='quiz-lessons'>{ props.language.quizLessons }:</h3>
       <ul className='quiz-lessons-list'>
         { quizLessons }
       </ul>

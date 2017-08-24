@@ -36,6 +36,13 @@ const Lesson = React.createClass({
     const media = (props.lesson.media) ? props.lesson.media : {};
     const video = (props.lesson.media && props.lesson.media.video) ? props.lesson.media.video : {};
     const audio = (props.lesson.media && props.lesson.media.audio) ? props.lesson.media.audio : {};
+    let turnCaptionOn = ( props.language.locale === 'en' ) ? 0 : 1;
+    const mediaOpts = {
+      playerVars: {
+        hl: props.language.locale,
+        cc_load_policy: ( props.language.locale === 'en' ) ? 0 : 1
+      }
+    };
 
     return (
       <div className='lesson'>
@@ -43,7 +50,7 @@ const Lesson = React.createClass({
           <h1 className='lesson-title'>{ props.lesson.title }</h1>
           <Breadcrumbs courseTitle={ props.courseTitle } name={ props.lesson.title  }  />
           <div className='lesson-video'>
-            <YouTube videoId={ video.video_id  } />
+            <YouTube videoId={ video.video_id  } opts={ mediaOpts } />
           </div>
           <div className='lesson-nav'>
             <ButtonNav lessons={ props.lessons } lessonIndex={ props.lessonIndex } language={ props.language } />

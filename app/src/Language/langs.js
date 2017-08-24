@@ -1,5 +1,7 @@
 const data = {
   "en": {
+    "locale": "en",
+    "language": "english",
     "course" : "Course in Spanish",
     "courseSelect": "Select courses are available in Spanish.",
     "courseTake": "Take the Course",
@@ -35,6 +37,8 @@ const data = {
     "quizPassed": "Congratulations, you passed!"
   },
   "es": {
+    "locale": "es",
+    "language": "spanish",
     "course" : "Curso en español",
     "courseSelect": "Varios cursos están disponibles en español.",
     "courseTake": "Toma el curso",
