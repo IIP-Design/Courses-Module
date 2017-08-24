@@ -4,7 +4,6 @@ require('./stylesheets/MainLayout.scss');
 
 const { object } = React.PropTypes;
 
-
 /*
  * The component that provides much of the global styles.
  *
@@ -17,7 +16,22 @@ const { object } = React.PropTypes;
 
 const MainLayout = (props) => (
   <div className="app">
-    <div className={ props.isFetching ? 'show spinner' : 'hide' }><img src="//s3.amazonaws.com/staticcourses.america.gov/uploads/sites/2/2016/11/ripple.gif" /></div>
+    <div className={ props.isFetching ? 'show' : 'hide' }>
+      <div className="preloader">
+        <div className="pl-msg">
+          <div className="pl-msg_txt">Just a moment, loading...</div>
+        </div>
+        <div className="pl-header"></div>
+        <div className="pl-course-image"></div>
+        <div className="pl-course-content">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div className="pl-course-button"></div>
+        </div>
+      </div>
+    </div>
     <div className={ props.isFetching ? 'hide' : 'show' }>
       <main>
         { props.children }
@@ -33,4 +47,3 @@ MainLayout.propTypes = {
 
 
 export default MainLayout;
-
