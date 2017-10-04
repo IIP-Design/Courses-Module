@@ -4,6 +4,7 @@ import { hashHistory } from 'react-router';
 import { Notification } from 'react-notification';
 
 import QuestionList from './QuestionList';
+import { clearState } from '../../sessionStorage.js';
 
 
 const { array, func, number, string, object } = React.PropTypes;
@@ -72,9 +73,9 @@ const QuizForm = React.createClass({
    */
 
   updateStatusNotification() {
-    this.setState({ 
+    this.setState({
       attemptsClassname: 'quiz-show quiz-attempts',
-      incorrectClassname: 'quiz-show quiz-incorrect' 
+      incorrectClassname: 'quiz-show quiz-incorrect'
     });
   },
 
@@ -235,7 +236,7 @@ const QuizForm = React.createClass({
         if (correct.id === answer.choiceId) {
           this.showCorrectIndicator(answer.questionId, 'correct');
           results.push(answer);
-        } 
+        }
       });
     });
 
@@ -263,6 +264,7 @@ const QuizForm = React.createClass({
 		// All questions answered correctly, send to cert screen
 		else if (this.scoreQuiz().length === this.props.questions.length)  {
       this.goToCertificateScreen();
+      clearState();
 		}
 
 		// User got some wrong
@@ -320,4 +322,3 @@ const QuizForm = React.createClass({
 
 
 export default QuizForm;
-

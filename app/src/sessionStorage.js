@@ -41,3 +41,17 @@ export const saveState = state => {
 	} catch (err) {}
 }
 
+
+
+/*
+ * Clear sessionStorage state
+ *
+ * @todo Clear the state so that users can take multiple quizzes
+ *
+ */
+
+export const clearState = state => {
+	try {
+		sessionStorage.clear()
+	} catch (err) {}
+}
