@@ -48,6 +48,7 @@ export const saveState = state => {
  *
  * @todo Clear the state so that users can take multiple quizzes
  *
+ * @since 2.0.1
  */
 
 export const clearState = state => {
