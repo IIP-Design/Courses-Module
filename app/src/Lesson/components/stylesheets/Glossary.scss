@@ -4,6 +4,23 @@
   line-height: 2em;
   margin: 0 0 0 1.5em;
   position: relative;
+  padding: 8px 12px;
+}
+
+.glossary h3 {
+  color: #fff;
+}
+
+.glossary ul {
+  background: #fff;
+  margin: 0;
+}
+
+.glossary ul li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  margin: 0;
 }
 
 .glossary-content li {
@@ -17,4 +34,19 @@
 
 .glossary-text {
   padding-left: 1em;
+}
+
+.lesson .glossary {
+  border: 1px solid #4191bf;
+  background: #4191bf;
+  margin: 1em 0 0 0;
+}
+
+.glossary .collapse {
+  height: inherit;
+  overflow: auto;
+}
+
+.glossary .glossary-trigger {
+  margin: 0;
 }

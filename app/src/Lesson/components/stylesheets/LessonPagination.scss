@@ -20,11 +20,17 @@
 }
 
 .lesson .lesson-pagination a {
-  background-color: #333;
+  background-color: rgb(16, 85, 126);
   border-radius: 1em;
   color: #fff;
   padding: em(8) em(12);
+  font-family: monospace;
   text-decoration: none;
+}
+
+.lesson .lesson-pagination li a {
+  border: none;
+  outline: none;
 }
 
 .lesson .lesson-pagination li::before {
@@ -34,7 +40,7 @@
   left: -3em;
   width: 3em;
   height: .2em;
-  background: #333;
+  background: rgb(16, 85, 126);
   z-index: -1;
 }
 
@@ -43,9 +49,9 @@
 }
 
 .lesson .lesson-pagination .active ~ li a {
-  background: #aaa;
+  background: rgb(141, 189, 217);
 }
 
 .lesson .lesson-pagination .active ~ li::before {
-  background: #aaa;
+  background: rgb(141, 189, 217);
 }

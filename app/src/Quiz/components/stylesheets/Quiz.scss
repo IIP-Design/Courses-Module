@@ -70,7 +70,7 @@
 
 .quiz-lessons-list {
 	padding-left:  1em;
-	
+
 	li {
 		list-style: none;
 	}
@@ -96,6 +96,8 @@
 
 #formQuiz input[type="submit"] {
 	width: 15em;
+	background-color: #c40837;
+	color: #fff;
 }
 
 #formQuiz input[type="submit"]:disabled {
@@ -116,4 +118,3 @@
 	margin-left: .3em;
 	font-size: 1.3em
 }
-
