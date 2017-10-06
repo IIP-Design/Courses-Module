@@ -23,7 +23,7 @@ $width: 50;
 //The line connecting the lesson numbers
 .lessons-list__ordered::before {
   content: '';
-  left: em($width - $halfRadius);
+  left: 2em;
   position: absolute;
   height: 60%;
   top: em(120);
@@ -48,9 +48,9 @@ $width: 50;
   border-radius: 50%;
   content: '';
   height: em($radius);
-  left: - em($radius);
+  left: -2.3em;
   position: absolute;
-  top: $top;
+  top: 35%;
   width: em($radius);
 }
 
