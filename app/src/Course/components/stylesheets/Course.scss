@@ -88,10 +88,10 @@ h1, h3 {
   min-height: em(325);
 
   @include bp($tablet) {
-    background: linear-gradient(0deg,#fff 0%, #cde5f0 70%, transparent 100%);
-    background: -moz-linear-gradient(0deg,#fff 0%, #cde5f0 70%, transparent 100%);
-    background: -webkit-linear-gradient(0deg,#fff,#cde5f0 70%,transparent);
-    background: -ms-linear-gradient(0deg,#fff 0%, #cde5f0 70%, transparent 100%);
+    background: linear-gradient(90deg,#fff 0%, #cde5f0 70%, transparent 100%);
+    background: -moz-linear-gradient(90deg,#fff 0%, #cde5f0 70%, transparent 100%);
+    background: -webkit-linear-gradient(90deg,#fff,#cde5f0 70%,transparent);
+    background: -ms-linear-gradient(90deg,#fff 0%, #cde5f0 70%, transparent 100%);
     bottom: 0;
     padding: 1em;
     position: relative;
@@ -117,5 +117,5 @@ h1, h3 {
   @include bp($tablet) {
     width: 200px;
   }
- 
+
 }
