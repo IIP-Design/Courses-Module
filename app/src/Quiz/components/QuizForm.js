@@ -272,7 +272,7 @@ const QuizForm = React.createClass({
 		// User got some wrong
 		else {
 
-      // If max attempts reached, redirect to first lesson
+      // If max attempts reached, show the modal
       if( this.props.numAttempts === (this.maxAttempts -1) ) {
         this.toggleModal();
         return;
@@ -295,10 +295,9 @@ const QuizForm = React.createClass({
   },
 
   /*
-   * Render the component
+   * Reset quiz and redirect to first lesson
    *
-   * @todo: Activate submit button if num answers is the same as num questions
-   * @todo: Ensures all questions have been answered
+   * @since 2.0.0
    */
   closeModal() {
     this.props.resetQuiz();
