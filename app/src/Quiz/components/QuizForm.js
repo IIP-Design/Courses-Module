@@ -275,7 +275,6 @@ const QuizForm = React.createClass({
       // If max attempts reached, show the modal
       if( this.props.numAttempts === (this.maxAttempts -1) ) {
         this.toggleModal();
-        return;
       // Else notify user of mistakes
 			} else {
         this.updateStatusNotification();
@@ -287,7 +286,7 @@ const QuizForm = React.createClass({
   /*
    * Set whether the modal is open in state
    *
-   * @since 2.0.0
+   * @since 2.0.3
    */
 
   toggleModal() {
@@ -297,7 +296,7 @@ const QuizForm = React.createClass({
   /*
    * Reset quiz and redirect to first lesson
    *
-   * @since 2.0.0
+   * @since 2.0.3
    */
   closeModal() {
     this.props.resetQuiz();
