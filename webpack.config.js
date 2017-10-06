@@ -19,7 +19,7 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    port: 8080,
+    port: 4080,
     historyApiFallback: true,
   },
   eslint: {

@@ -4,6 +4,7 @@ import { hashHistory } from 'react-router';
 import { Notification } from 'react-notification';
 
 import QuestionList from './QuestionList';
+import Modal from './Modal';
 import { clearState } from '../../sessionStorage.js';
 
 
@@ -50,7 +51,8 @@ const QuizForm = React.createClass({
       isNotificationActive: false,
       numIncorrect: 0,
       attemptsClassname: 'quiz-hide quiz-attempts',
-      incorrectClassname: 'quiz-hide quiz-incorrect'
+      incorrectClassname: 'quiz-hide quiz-incorrect',
+      isModalOpen: false
     };
   },
 
@@ -272,9 +274,8 @@ const QuizForm = React.createClass({
 
       // If max attempts reached, redirect to first lesson
       if( this.props.numAttempts === (this.maxAttempts -1) ) {
-        this.props.resetQuiz();
-				hashHistory.push(`/lesson/${this.props.lessons[0].slug}`);
-
+        this.toggleModal();
+        return;
       // Else notify user of mistakes
 			} else {
         this.updateStatusNotification();
@@ -283,6 +284,15 @@ const QuizForm = React.createClass({
 		}
   },
 
+  /*
+   * Set whether the modal is open in state
+   *
+   * @since 2.0.0
+   */
+
+  toggleModal() {
+    this.setState({ isModalOpen: !this.state.isModalOpen });
+  },
 
   /*
    * Render the component
@@ -290,6 +300,10 @@ const QuizForm = React.createClass({
    * @todo: Activate submit button if num answers is the same as num questions
    * @todo: Ensures all questions have been answered
    */
+  closeModal() {
+    this.props.resetQuiz();
+    hashHistory.push(`/lesson/${this.props.lessons[0].slug}`);
+  },
 
   render() {
     const props = this.props;
@@ -306,15 +320,18 @@ const QuizForm = React.createClass({
           <input type="submit" value={ props.language.quizBtn } />
           <span className={ this.state.incorrectClassname }>{ this.state.numIncorrect } { props.language.quizWrong } </span>
         </form>
-        <div className={ this.state.attemptsClassname }>{ props.language.quizAttemptsRemain }: { this.maxAttempts - this.props.numAttempts } </div>
+        <div className={ this.state.attemptsClassname }>{ props.language.quizAttemptsRemain }: { this.maxAttempts - this.props.numAttempts } - { props.language.quizAttempts }</div>
         <Notification
           isActive={ this.state.isNotificationActive }
           message={ props.language.quizAnswer }
           action={ props.language.quizDismiss }
           onDismiss={ this.toggleNotification }
           dismissAfter = { 3500 }
-          onClick={() =>  this.setState({ isNotificationActive: false })}
-        />
+          onClick={() =>  this.setState({ isNotificationActive: false })}/>
+        <Modal show={this.state.isModalOpen}
+          onClose={this.closeModal}>
+          No more attempts allowed
+        </Modal>
       </div>
     );
   }
