@@ -34,7 +34,9 @@ const data = {
     "quizDismiss": "DISMISS",
     "quizWrong": "of your answers are incorrect. Please try again.",
     "quizAttemptsRemain": "Attempts remaining",
-    "quizPassed": "Congratulations, you passed!"
+    "quizPassed": "Congratulations, you passed!",
+    "noMoreAttempts": "No more attempts allowed",
+    "continueLesson": "Continue to Lesson 1"
   },
   "es": {
     "locale": "es",

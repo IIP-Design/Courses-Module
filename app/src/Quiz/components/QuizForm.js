@@ -328,8 +328,9 @@ const QuizForm = React.createClass({
           dismissAfter = { 3500 }
           onClick={() =>  this.setState({ isNotificationActive: false })}/>
         <Modal show={this.state.isModalOpen}
-          onClose={this.closeModal}>
-          No more attempts allowed
+          onClose={this.closeModal}
+          language={props.language}>
+          { props.language.noMoreAttempts }
         </Modal>
       </div>
     );

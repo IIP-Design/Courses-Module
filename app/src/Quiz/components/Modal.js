@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const { func, bool, node } = React.PropTypes;
+const { func, bool, node, object } = React.PropTypes;
 
 class Modal extends React.Component {
   render() {
@@ -50,7 +51,7 @@ class Modal extends React.Component {
 
           <div>
             <button onClick={this.props.onClose} style={closeStyle}>
-              Continue to Lesson 1
+              { this.props.language.continueLesson }
             </button>
           </div>
         </div>
@@ -62,7 +63,8 @@ class Modal extends React.Component {
 Modal.propTypes = {
   onClose: func,
   show: bool,
-  children: node
+  children: node,
+  language: object
 };
 
 export default Modal;
