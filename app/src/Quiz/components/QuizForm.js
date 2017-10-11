@@ -163,6 +163,9 @@ const QuizForm = React.createClass({
       }
     }
 
+
+    clearState();
+
     return this.generateLink(url, params);
   },
 
@@ -266,7 +269,6 @@ const QuizForm = React.createClass({
 		// All questions answered correctly, send to cert screen
 		else if (this.scoreQuiz().length === this.props.questions.length)  {
       this.goToCertificateScreen();
-      clearState();
 		}
 
 		// User got some wrong
