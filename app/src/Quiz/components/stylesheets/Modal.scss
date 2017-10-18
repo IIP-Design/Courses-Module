@@ -16,7 +16,7 @@
   max-width: 500px;
   min-height: 200px;
   margin: 0 auto;
-  padding: 80px 20px 0;
+  padding: 80px 20px;
   text-align: center;
   font-size: 2em;
 }
@@ -30,4 +30,5 @@
   border: none;
   color: white;
   cursor: pointer;
+  width: auto;
 }

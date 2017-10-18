@@ -73,7 +73,9 @@ const data = {
     "quizDismiss": "DESCARTAR",
     "quizWrong": "de tus respuestas está incorrecta. Por favor intenta de nuevo.",
     "quizAttemptsRemain": "Intentos restantes",
-    "quizPassed": "¡Felicidades, superaste la prueba!"
+    "quizPassed": "¡Felicidades, superaste la prueba!",
+    "noMoreAttempts": "No se permiten más intentos",
+    "continueLesson": "Continuar en la primera lección"
   }
 }
 
