@@ -30,7 +30,7 @@ const Glossary = (props) => {
 
   return (
     <div className='glossary'>
-      <h3 className='glossary-title'>Glossary of Terms</h3>
+      <h3 className='glossary-title'>{ props.language.glossary }</h3>
       <Collapse className='glossary-content'>
         { glossary }
       </Collapse>

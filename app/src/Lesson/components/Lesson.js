@@ -56,17 +56,17 @@ const Lesson = React.createClass({
             <ButtonNav lessons={ props.lessons } lessonIndex={ props.lessonIndex } language={ props.language } />
             <LessonPagination lessons={ props.lessons } lessonIndex={ props.lessonIndex } />
           </div>
-          <LessonTabs 
-            description={ props.lesson.description } 
-            transcript={ media.transcript_text } 
-            transcriptFile={ media.transcript_file_url } 
-            resources={ props.lesson.resources } 
+          <LessonTabs
+            description={ props.lesson.description }
+            transcript={ media.transcript_text }
+            transcriptFile={ media.transcript_file_url }
+            resources={ props.lesson.resources }
             audio={ audio }
             language={ props.language }
           />
         </div>
         <div className="one-third">
-          <Glossary terms={ props.lesson.glossary } />
+          <Glossary terms={ props.lesson.glossary } language={ props.language } />
         </div>
       </div>
     );
@@ -75,4 +75,3 @@ const Lesson = React.createClass({
 
 
 export default Lesson;
-
