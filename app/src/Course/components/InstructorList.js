@@ -19,16 +19,17 @@ const InstructorList = React.createClass({
 
 
   render() {
-    const length = this.props.instructors.length;
-    const instr = this.props.language.instructors;
-    const instrTitle = ( length > 1) ? instr : instr.splice(0, -1);
-  
+    const numInstructors = this.props.instructors.length;   
+    const instr = this.props.language.instructors;  // get language label
+
+    // remove the "s" at end if only 1 instructor
+    const instrTitle = (numInstructors > 1 ) ? instr : instr.slice(0, -1);
     const instructors = this.props.instructors.map((instructor) => {
-      const link = `/instructors/${ instructor.slug }`
+    const link = `/instructors/${ instructor.slug }`
 
       // If there are few than 3 instructors, let them take up one-half the container's width. Otherwise, one-third.
       return (
-        <div key={ instructor.id } className={ (length < 3) ? 'media-object half' : 'media-object one-third' }>
+        <div key={ instructor.id } className={ (numInstructors < 3) ? 'media-object half' : 'media-object one-third' }>
           <Link to={ link }>
             <img src={ instructor.image.src } alt={ instructor.image.alt } />
           </Link>
