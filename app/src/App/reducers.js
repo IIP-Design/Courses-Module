@@ -13,8 +13,8 @@ const initialState = {
 
 
 const dispatchOnReadyEvent = () => {
-  var event = new CustomEvent('onReadyFeed' );
-  console.log('LOG: dispatch event - onReadyCourse');
+  var event = new CustomEvent('onReadyModule', {bubbles: true,  cancelable: true});
+  console.log('LOG: dispatch event - onReadyModule');
   dispatchEvent(event);  
 };
 
