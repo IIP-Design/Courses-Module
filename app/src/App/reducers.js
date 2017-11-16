@@ -12,7 +12,11 @@ const initialState = {
 };
 
 
-
+const dispatchOnReadyEvent = () => {
+  var event = new CustomEvent('onReadyFeed' );
+  console.log('LOG: dispatch event - onReadyCourse');
+  dispatchEvent(event);  
+};
 
 /*
  * The App's redux reducer
@@ -27,6 +31,9 @@ const initialState = {
 
 export const appReducer = (state = initialState, action) => {
   if (action.type === types.REQUEST_DATA && action.status) {
+    if (action.status === 'success' ) {
+      dispatchOnReadyEvent();
+    }
     return Object.assign({}, state, action.payload);
   }
 
