@@ -31,16 +31,29 @@ const Collapse = React.createClass({
     children: array
   },
 
+  componentDidUpdate() {
+    this.initializeAccordian();
+  },
+
   componentDidMount() {
+    this.initializeAccordian();
+  },
+
+  initializeAccordian() {
+    if( this.accordion ) {
+      this.accordion.destroy();
+    }
     const selectors = { body: '.collapse', trigger: '.trigger' };
     const options = { collapseOthers: true };
 
-    new Accordion.Accordion(selectors, options);
+    this.accordion = new Accordion.Accordion(selectors, options);
   },
 
   render() {
     return (
-      <ul className={ `collapse ${ this.props.className }` } role='tablist'>{ this.props.children }</ul>
+      <ul className={`collapse ${this.props.className}`} role="tablist">
+        {this.props.children}
+      </ul>
     );
   }
 });
