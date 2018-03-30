@@ -130,7 +130,7 @@ const QuizForm = React.createClass({
 
     // Generate the query string
     if (params) {
-      query = Object.keys(params).map(k => esc(k) + '=' + esc(params[k])).join('&');
+      query = Object.keys(params).map(k => `${esc(k)} = ${esc(params[k])}`).join('&');
     }
 
     // Build the url and return it
