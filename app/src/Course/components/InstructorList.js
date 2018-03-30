@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import shortid from 'shortid';
-import { MediaObject } from 'App'
+import MediaObject from 'App/components/MediaObject';
 
 require('./stylesheets/InstructorList.scss');
 

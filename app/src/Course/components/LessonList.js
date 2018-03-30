@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { sprintf } from 'sprintf-js';
-import { MediaObject } from 'App';
+import MediaObject from 'App/components/MediaObject';
 
 require('./stylesheets/LessonList.scss');
 

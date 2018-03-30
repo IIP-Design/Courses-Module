@@ -1,6 +1,6 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import { Breadcrumbs } from 'App';
+import Breadcrumbs from 'App/components/Breadcrumbs';
 
 import Glossary from './Glossary';
 import LessonTabs from './LessonTabs';

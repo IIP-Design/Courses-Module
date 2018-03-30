@@ -1,6 +1,6 @@
 import React from 'react';
 import { uniqBy } from 'lodash';
-import { StepsList } from 'App';
+import StepsList from 'App/components/StepsList';
 import { Link } from 'react-router';
 
 import LessonList from './LessonList';
