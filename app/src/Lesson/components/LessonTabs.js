@@ -36,14 +36,11 @@ const LessonTabs = React.createClass({
 
 
   isEmpty(array) {
-    return (array.length === 0) ? true : false;
+    return array.length === 0;
   },
 
   hasProp (obj, prop) {
-    if( Object.prototype.hasOwnProperty.call(obj, prop) && obj[prop].length > 0 ) {
-      return true;
-    }
-    return false;
+    return Object.prototype.hasOwnProperty.call(obj, prop) && obj[prop].length > 0;
   },
 
   getResource(resource) {
