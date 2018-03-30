@@ -1,29 +1,27 @@
 var path = require('path');
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   context: __dirname,
   entry: ['babel-polyfill', './app/src'],
   output: {
-    path: path.join(__dirname, "app/src/build"),
+    path: path.join(__dirname, 'app/src/build'),
     publicPath: '/app/src/build',
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
-    root: [
-      path.resolve('./app/src')
-    ]
+    alias: {
+      App: path.resolve(__dirname, 'app/src/App')
+    },
+    extensions: ['.js', '.jsx', '.json']
   },
   devServer: {
     inline: true,
     port: 4080,
     historyApiFallback: true,
-  },
-  eslint: {
-    configFile: './.eslintrc'
+    compress: true,
+    hotOnly: true
   },
   stats: {
     colors: true,
@@ -33,53 +31,57 @@ module.exports = {
   externals: {
     'cheerio': 'window',
     'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true,
+    'react/lib/ReactContext': true
   },
   module: {
-    loaders: [
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        use: [
+          {
+            loader: 'eslint-loader',
+            options: {
+              cache: true,
+              configFile: path.join(__dirname, '.eslintrc')
+            }
+          }
+        ],
+        exclude: [path.join(__dirname, 'node_modules')]
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        },
         exclude: [path.join(__dirname, 'node_modules')]
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader!postcss-loader',
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'postcss-loader',
+          'sass-loader'
+        ],
         exclude: [path.join(__dirname, 'node_modules')]
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192&name=[path][name].[ext]?[hash]',
+        use: 'url-loader?limit=8192&name=[path][name].[ext]?[hash]',
         exclude: [path.join(__dirname, 'node_modules')]
       }
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
-    }),
-    /*new BrowserSyncPlugin(
-      {
-        host: 'localhost',
-        port: 3000,
-        proxy: '127.0.0.1:8080'
-      },
-      {
-        reload: false  // true
-      }
-      ),*/
     new webpack.SourceMapDevToolPlugin({
       filename: 'bundle.js.map',
       module: false,
       columns: false
-    })
-  ],
-  postcss: function() {
-    return [ autoprefixer({ browsers: ['> 1%', 'last 3 IE versions'] }) ]
-  }
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };

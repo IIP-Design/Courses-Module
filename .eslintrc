@@ -1,5 +1,6 @@
 {
-  parser: "babel-eslint",
+	"root": true,
+  "parser": "babel-eslint",
   "extends": ["airbnb", "plugin:react/recommended"],
   "plugins": [
     "react"
@@ -12,8 +13,8 @@
   	 "no-tabs": 0,
   	 "indent": 0,
   	 "space-before-function-paren": [2, { "anonymous": "always", "named": "always" }],
-  	 jsx-quotes: ["error", "prefer-single"],
-  	 comma-dangle: ["error", "never"]
+  	 "jsx-quotes": ["error", "prefer-single"],
+  	 "comma-dangle": ["error", "never"]
   }
 }
   
