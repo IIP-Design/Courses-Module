@@ -13,15 +13,15 @@ const { number, array, string } = React.PropTypes;
  */
 
 const ChoiceList = React.createClass({
-	propTypes: {
+  propTypes: {
     choices: array,
     questionId: string,
     className: string
   },
 
 
-	rawHTML() {
-  	return { __html: this.props.text };
+  rawHTML() {
+    return { __html: this.props.text };
   },
 
   renderChoice(choice) {

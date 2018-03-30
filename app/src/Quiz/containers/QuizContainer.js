@@ -16,7 +16,7 @@ const { array, string } = React.PropTypes;
  * @since 2.0.0
  */
 
-const QuizContainer = (props) => <Quiz { ...props }/>;
+const QuizContainer = (props) => <Quiz { ...props } />;
 
 
 QuizContainer.propTypes = {

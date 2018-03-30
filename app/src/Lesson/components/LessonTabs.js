@@ -58,7 +58,13 @@ const LessonTabs = React.createClass({
       }
 
       return (
-        <li key={ shortid.generate() }><a className='resource-link' href={ href } target='_blank'>{ resource.title }</a><span className='resource-fileinfo'> { fileinfo }</span></li>
+        <li key={ shortid.generate() }>
+          <a
+            className='resource-link'
+            href={ href }
+            target='_blank'>{ resource.title }</a>
+            <span className='resource-fileinfo'> { fileinfo }</span>
+          </li>
       )
   },
 
