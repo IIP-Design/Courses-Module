@@ -1,6 +1,6 @@
 const React = require('react');
 const { sprintf } = require('sprintf-js');
-const { sortBy } = require('lodash');   // only pull needed functions instead of complete library
+import { sortBy } from 'App/helpers';
 
 const { string, number, array } = React.PropTypes;
 
@@ -17,7 +17,7 @@ const Image = React.createClass({
   // @todo: This will definitely need some major work once we know the srcsets, etc
   // Generage the srcset attribute from the widths and srcs provided
   generateSrcset: function(props) {
-    const srcset = (_.sortBy(props.srcset, 'width')).reverse();
+    const srcset = props.srcset.sort(sortBy('width', 'desc'));
     let error = false;
     let newSrcSet = '';
 
@@ -45,7 +45,7 @@ const Image = React.createClass({
 
   // Generate the sizes attribute from the widths and media queries
   generateSizes: function(props) {
-    const srcset = _.sortBy(props.srcset, 'width');
+    const srcset = props.srcset.sort(sortBy('width'));
     let error = false;
     let sizes = '';
 

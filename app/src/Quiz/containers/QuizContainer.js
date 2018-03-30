@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { flattenArray } from 'App/helpers';
 
 import Quiz from '../components/Quiz';
 
@@ -40,7 +41,7 @@ QuizContainer.propTypes = {
 const mapStateToProps = ({ app, language }) => {
   const course = app.data;
   const lessons = app.data.lessons;
-  const questions = [].concat.apply([], lessons.map(lesson => lesson.quiz));
+  const questions = flattenArray(lessons, 'quiz');
 
 
   /*

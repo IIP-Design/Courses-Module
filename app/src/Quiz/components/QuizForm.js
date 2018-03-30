@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 import { Notification } from 'react-notification';
+import { flattenArray } from 'App/helpers';
 
 import QuestionList from './QuestionList';
 import Modal from './Modal';
@@ -209,7 +210,7 @@ const QuizForm = React.createClass({
 
   getCorrectAnswers(questions) {
     // Get a flat array of all the questions' choices
-    const choices = [].concat.apply([], questions.map(question => question.choices));
+    const choices = flattenArray(questions, 'choices');
 
     // Return only the filtered choices
     return choices.filter(this.isCorrectFilter);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { forEach } from 'lodash';
 import shortid from 'shortid';
 
 import Question from '../components/Question';

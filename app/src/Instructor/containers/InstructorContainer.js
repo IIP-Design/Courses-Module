@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { uniqBy, find } from 'lodash';
+import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
 import Instructor from '../components/Instructor';
 
@@ -37,9 +37,11 @@ InstructorContainer.propTypes = {
 
 const mapStateToProps = ({ app }, { params: { slug } }) => {
   // Don't like that this code is basically repeated from Course/components/Course.js line 35
-  const instructors = _.uniqBy([].concat.apply([], app.data.lessons.map(lesson => lesson.instructors)), instructor => instructor.id);
+  const instructors = flattenArray(app.data.lessons, 'instructors')
+      .sort(sortBy('id', 'desc'))
+      .reduce(uniqBy, []);
 
-  const instructor = _.find(instructors, (instructor) => {
+  const instructor = instructors.find( instructor => {
     return slug === instructor.slug;
   });
 

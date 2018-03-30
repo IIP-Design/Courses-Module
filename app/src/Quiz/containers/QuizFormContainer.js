@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { flattenArray } from 'App/helpers';
 
 import { incrementNumAttempts, resetQuiz } from '../actions';
 import QuizForm from '../components/QuizForm';
@@ -46,7 +47,7 @@ const mapStateToProps = ({ quiz, app }) => {
   const numAttempts = quiz.numAttempts;
   const courseName = app.data.title;
   const lessons = app.data.lessons;
-  const questions = [].concat.apply([], lessons.map(lesson => lesson.quiz));
+  const questions = flattenArray(lessons, 'quiz');
 
   /*
    * @typedef {Object} QuizFormContainerStatePropsObject

@@ -1,5 +1,4 @@
 import React from 'react';
-import { forEach } from 'lodash';
 
 import RadioChoice from '../containers/RadioChoiceContainer';
 
@@ -24,20 +23,6 @@ const ChoiceList = React.createClass({
 	rawHTML() {
   	return { __html: this.props.text };
   },
-
-
-  generateArrFromObjectKeys(obj) {
-  	const choices = [];
-
-    _.forEach(obj, (value, key) =>  {
-			if( value ) {
-				 choices.push(value);
-				}
-		});
-
-		return choices;
-  },
-
 
 	renderChoice(choice) {
     const id = choice.id;

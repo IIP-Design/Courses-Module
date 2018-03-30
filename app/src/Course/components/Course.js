@@ -1,7 +1,7 @@
 import React from 'react';
-import { uniqBy } from 'lodash';
 import StepsList from 'App/components/StepsList';
 import { Link } from 'react-router';
+import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
 import LessonList from './LessonList';
 import InstructorList from './InstructorList';
@@ -40,9 +40,11 @@ const Course = React.createClass({
     const props = this.props;
 
     // Return a flat array of unique Instructors by id
-    const instructors = _.uniqBy([].concat.apply([], props.course.lessons.map(lesson => lesson.instructors)), instructor => instructor.id);
     const lessons = props.course.lessons;
     const link = lessons[0].slug;
+    const instructors = flattenArray(lessons, 'instructors')
+      .sort(sortBy('id', 'desc'))
+      .reduce(uniqBy, []);
 
     let src;
     let alt;
