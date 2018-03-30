@@ -31,14 +31,20 @@ const Quiz = React.createClass({
 
 
 	render() {
-    const props = this.props;
+    const { lessons,
+            language,
+            questions,
+            courseName } = this.props;
 
 		return (
 			<div>
-        <QuizLessons lessons={ props.lessons } language={ props.language }/>
-        <h3 className='quiz-instructions'>{ props.language.quizQuestions }</h3>
-        <p className='quiz-msg'>{ props.language.quizAttempts }</p> 
-        <QuizForm questions={ props.questions } courseName={ props.courseName } language={ props.language } />
+        <QuizLessons lessons={ lessons } language={ language }/>
+        <h3 className='quiz-instructions'>{ language.quizQuestions }</h3>
+        <p className='quiz-msg'>{ language.quizAttempts }</p> 
+        <QuizForm
+          questions={ questions }
+          courseName={ courseName }
+          language={ language } />
       </div>
 		);
 	}

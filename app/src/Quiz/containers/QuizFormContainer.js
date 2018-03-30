@@ -43,10 +43,9 @@ QuizFormContainer.propTypes = {
  */
 
 const mapStateToProps = ({ quiz, app }) => {
-  const userAnswers = quiz.userAnswers;
-  const numAttempts = quiz.numAttempts;
-  const courseName = app.data.title;
-  const lessons = app.data.lessons;
+  const { userAnswers, numAttempts } = quiz;
+  const { title, lessons } = app.data;
+  const courseName = title;
   const questions = flattenArray(lessons, 'quiz');
 
   /*

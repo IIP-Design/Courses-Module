@@ -39,10 +39,8 @@ const getLink = (lessons, lessonIndex, index, label) => {
  */
 
 const ButtonNav = (props) => {
-  const numLessons = props.lessons.length - 1;
-  const lessons = props.lessons;
-  const lessonIndex = props.lessonIndex;
-  const language = props.language;
+  const { lessons, lessonIndex, language } = props;
+  const numLessons = lessons.length - 1;
 
   if (lessons.length === 1) {
     return (

@@ -45,17 +45,22 @@ const MainContainer = React.createClass({
 
 
   render() {
+    const { course,
+            children,
+            isFetching,
+            language } = this.props;
+
     // On first render, if courses isn't on props, return null to avoid
     // undefined prop messages throughout the call stack
-
-    if (typeof this.props.course === 'undefined' || 'id' in this.props.course === false) {
+    if (typeof course === 'undefined' || 'id' in course === false) {
       return null;
     }
 
-    const props = this.props;
-
     return (
-      <MainLayout children={ props.children } isFetching={ props.isFetching } language={ props.language } />
+      <MainLayout
+        children={ children }
+        isFetching={ isFetching }
+        language={ language } />
     );
   }
 });

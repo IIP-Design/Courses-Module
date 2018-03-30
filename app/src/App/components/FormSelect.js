@@ -29,14 +29,23 @@ const FormSelect = React.createClass({
   },
 
 
-	render() {
-		const props = this.props;
+  render() {
+    const { id,
+            name,
+            type,
+            onChange,
+            label } = this.props;
 
-		return (
-      <label htmlFor={ props.id }>
-			  <input id={ props.id } value={ props.id } name={ props.name } type={ props.type } onChange={ props.onChange }/>
-			  { props.label }
-			</label>
+    return (
+      <label htmlFor={ id }>
+        <input
+          id={ id }
+          value={ id }
+          name={ name }
+          type={ type }
+          onChange={ onChange }/>
+        { label }
+      </label>
     );
 	}
 });

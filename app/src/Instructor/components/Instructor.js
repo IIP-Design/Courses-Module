@@ -29,13 +29,13 @@ const Instructor = React.createClass({
 
 
   render() {
-    const props = this.props;
+    const { title, salutation, image } = this.props.instructor;
 
     return (
       <div className='instructor two-thirds first'>
-        <h1 className='instructor-title'>{ props.instructor.title }</h1>
-        <h3 className='instructor-subtitle'>{ props.instructor.salutation }</h3>
-        <img className='instructor-image' src={ props.instructor.image.src } alt={ props.instructor.image.alt } />
+        <h1 className='instructor-title'>{ title }</h1>
+        <h3 className='instructor-subtitle'>{ salutation }</h3>
+        <img className='instructor-image' src={ image.src } alt={ image.alt } />
         <div className='instructor-description' dangerouslySetInnerHTML={ this.rawDescription() }></div>
       </div>
     );

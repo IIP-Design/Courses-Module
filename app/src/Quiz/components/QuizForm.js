@@ -226,8 +226,7 @@ const QuizForm = React.createClass({
    */
 
   scoreQuiz() {
-    const questions = this.props.questions;
-    const userAnswers = this.props.userAnswers;
+    const { questions, userAnswers } = this.props;
     const correctAnswers = this.getCorrectAnswers(questions);
     const results = [];
 
@@ -307,32 +306,54 @@ const QuizForm = React.createClass({
   },
 
   render() {
-    const props = this.props;
+    const { language,
+            questions,
+            numAttempts } = this.props;
+            
+    const { quizAgree,
+            quizCert,
+            quizBtn,
+            quizWrong,
+            quizAttemptsRemain,
+            quizAttempts,
+            quizAnswer,
+            quizDismiss,
+            noMoreAttempts } = language;
+
+    const { incorrectClassname,
+            numIncorrect,
+            attemptsClassname,
+            isNotificationActive,
+            isModalOpen } = this.state;
 
     return (
       <div>
         <form id='formQuiz' onSubmit={ this.handleSubmit }>
-          <div className='quiz-agrmt'>{ props.language.quizAgree } <span className='quiz-required'>*</span></div>
+          <div className='quiz-agrmt'>{ quizAgree } <span className='quiz-required'>*</span></div>
           <label htmlFor='certify'>
-            <input id='certify' type={'checkbox'} name='certify'/>
-            { props.language.quizCert }
+            <input
+              id='certify'
+              type={'checkbox'}
+              name='certify' />
+            { quizCert }
           </label>
-          <QuestionList questions={ this.props.questions }/>
-          <input type="submit" value={ props.language.quizBtn } />
-          <span className={ this.state.incorrectClassname }>{ this.state.numIncorrect } { props.language.quizWrong } </span>
+          <QuestionList questions={ questions }/>
+          <input type="submit" value={ quizBtn } />
+          <span className={ incorrectClassname }>{ numIncorrect } { quizWrong } </span>
         </form>
-        <div className={ this.state.attemptsClassname }>{ props.language.quizAttemptsRemain }: { this.maxAttempts - this.props.numAttempts } - { props.language.quizAttempts }</div>
+        <div className={ attemptsClassname }>{ quizAttemptsRemain }: { this.maxAttempts - numAttempts } - { quizAttempts }</div>
         <Notification
-          isActive={ this.state.isNotificationActive }
-          message={ props.language.quizAnswer }
-          action={ props.language.quizDismiss }
+          isActive={ isNotificationActive }
+          message={ quizAnswer }
+          action={ quizDismiss }
           onDismiss={ this.toggleNotification }
           dismissAfter = { 3500 }
-          onClick={() =>  this.setState({ isNotificationActive: false })}/>
-        <Modal show={this.state.isModalOpen}
-          onClose={this.closeModal}
-          language={props.language}>
-          { props.language.noMoreAttempts }
+          onClick={() => this.setState({ isNotificationActive: false })}/>
+        <Modal
+          show={ isModalOpen }
+          onClose={ this.closeModal }
+          language={ language }>
+          { noMoreAttempts }
         </Modal>
       </div>
     );

@@ -64,6 +64,7 @@ const LessonTabs = React.createClass({
 
   render() {
     let resources, href, fileinfo;
+    const { language, audio, transcriptFile } = this.props;
 
     if (this.props.resources !== false) {
       resources = this.props.resources.map((resource) => {
@@ -74,22 +75,27 @@ const LessonTabs = React.createClass({
     return (
       <Tabs>
         <TabList>
-          <Tab>{ this.props.language.overview }</Tab>
-          <Tab>{ this.props.language.transcript }</Tab>
-          { this.props.resources === false ? null : <Tab>{ this.props.language.resources }</Tab> }
-          { this.hasProp( this.props.audio, 'src') ?  <Tab>{ this.props.language.audio }</Tab> : null }
+          <Tab>{ language.overview }</Tab>
+          <Tab>{ language.transcript }</Tab>
+          { this.props.resources === false ? null : <Tab>{ language.resources }</Tab> }
+          { this.hasProp( audio, 'src') ?  <Tab>{ language.audio }</Tab> : null }
         </TabList>
         <TabPanel>
           <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
         </TabPanel>
         <TabPanel>
           <div>
-            <p><a href={ this.props.transcriptFile } target="_blank" className="print">{ this.props.language.print }</a></p>
+            <p>
+              <a
+                href={ transcriptFile }
+                target="_blank"
+                className="print">{ language.print }</a>
+            </p>
             <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
           </div>
         </TabPanel>
         { this.props.resources === false ? null : <TabPanel><ul>{ resources }</ul></TabPanel> }
-        { this.hasProp( this.props.audio, 'src') ?  <TabPanel><audio controls src={ this.props.audio.src } className="course-audio-player"></audio></TabPanel> : null }
+        { this.hasProp( audio, 'src') ?  <TabPanel><audio controls src={ audio.src } className="course-audio-player"></audio></TabPanel> : null }
       </Tabs>
     );
   }

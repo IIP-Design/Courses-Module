@@ -12,15 +12,23 @@ require('./stylesheets/StepsList.scss');
  * @since 1.0.0
  */
 
-const StepsList = (props) => (
-  <section>
-    <ul className="steps-list">
-      <Step className="step" title={ props.language.stepTakeTitle }>{ props.language.stepTake }</Step>
-      <Step className="step" title={ props.language.stepQuizTitle }>{ props.language.stepQuiz }</Step>
-      <Step className="step" title={ props.language.stepCertTitle }>{ props.language.stepCert }</Step>
-    </ul>
-  </section>
-);
+const StepsList = (props) => {
+  const { stepTake,
+          stepTakeTitle,
+          stepQuiz,
+          stepQuizTitle,
+          stepCert,
+          stepCertTitle } = props.language;
 
+  return (
+    <section>
+      <ul className="steps-list">
+        <Step className="step" title={ stepTakeTitle }>{ stepTake }</Step>
+        <Step className="step" title={ stepQuizTitle }>{ stepQuiz }</Step>
+        <Step className="step" title={ stepCertTitle }>{ stepCert }</Step>
+      </ul>
+    </section>
+  );
+};
 
 export default StepsList;

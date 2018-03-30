@@ -25,18 +25,21 @@ const InstructorList = React.createClass({
     // remove the "s" at end if only 1 instructor
     const instrTitle = (numInstructors > 1 ) ? instr : instr.slice(0, -1);
     const instructors = this.props.instructors.map((instructor) => {
-    const link = `/instructors/${ instructor.slug }`
+      const { id, slug, image, title, salutation } = instructor;
+      let link = `/instructors/${ slug }`;
 
       // If there are few than 3 instructors, let them take up one-half the container's width. Otherwise, one-third.
       return (
-        <div key={ instructor.id } className={ (numInstructors < 3) ? 'media-object half' : 'media-object one-third' }>
+        <div
+          key={ id }
+          className={ (numInstructors < 3) ? 'media-object half' : 'media-object one-third' }>
           <Link to={ link }>
-            <img src={ instructor.image.src } alt={ instructor.image.alt } />
+            <img src={ image.src } alt={ image.alt } />
           </Link>
           <header>
             <Link to={ link }>
-              <h4 className='media-object-title'>{ instructor.title }</h4>
-              <h5 className='media-object-subtitle'>{ instructor.salutation }</h5>
+              <h4 className='media-object-title'>{ title }</h4>
+              <h5 className='media-object-subtitle'>{ salutation }</h5>
             </Link>
           </header>
         </div>

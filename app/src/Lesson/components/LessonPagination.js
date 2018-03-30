@@ -42,7 +42,8 @@ const getLinks = (lesson, index, lessonIndex) => {
  */
 
 const LessonPagination = (props) => {
-  const links = props.lessons.map((lesson, index) => getLinks(lesson, index, props.lessonIndex));
+  const { lessons, lessonIndex } = props;
+  const links = lessons.map((lesson, index) => getLinks(lesson, index, lessonIndex));
 
   return (
     <ul className='lesson-pagination'>

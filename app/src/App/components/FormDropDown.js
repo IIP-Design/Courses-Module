@@ -14,16 +14,25 @@ const { string, array } = React.PropTypes;
  */
 
 const FormDropDown = (props) => {
+  const { options,
+          id,
+          label,
+          name,
+          type } = props;
+
   const generateDropDown = () => {
-    return props.options.map((option) => {
+    return options.map((option) => {
       return  <option key={ shortid.generate() }>{ option }</option>
     });
   }
 
   return (
     <div className='form-drop-down'>
-      <label className='form-label' htmlFor={ props.id }>{ props.label }</label>
-      <select id={ props.id } name={ props.name } type={ props.type }>
+      <label className='form-label' htmlFor={ id }>{ label }</label>
+      <select
+        id={ id }
+        name={ name }
+        type={ type }>
         { generateDropDown() }
       </select>
     </div>

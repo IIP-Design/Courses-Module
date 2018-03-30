@@ -6,19 +6,24 @@ require('./stylesheets/Modal.scss');
 
 class Modal extends React.Component {
   render() {
+    const { show,
+            children,
+            onClose,
+            language } = this.props;
+
     // Render nothing if the "show" prop is false
-    if(!this.props.show) {
+    if(!show) {
       return null;
     }
 
     return (
       <div className="quizmodal-backdrop">
         <div className="quizmodal-modal">
-          {this.props.children}
+          { children }
 
           <div>
-            <button className="quizmodal-close" onClick={this.props.onClose}>
-              { this.props.language.continueLesson }
+            <button className="quizmodal-close" onClick={ onClose }>
+              { language.continueLesson }
             </button>
           </div>
         </div>

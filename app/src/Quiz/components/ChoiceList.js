@@ -24,23 +24,27 @@ const ChoiceList = React.createClass({
   	return { __html: this.props.text };
   },
 
-	renderChoice(choice) {
-    const id = choice.id;
+  renderChoice(choice) {
+    const { id } = choice;
+    const { questionId } = this.props;
 
-	 	return (
-      <RadioChoice key={ id } choiceId={ id } questionId={ this.props.questionId } choice={ choice } />
-	   );
+     return (
+      <RadioChoice
+        key={ id }
+        choiceId={ id }
+        questionId={ questionId }
+        choice={ choice } />
+     );
   },
 
 
-	render() {
-    const props = this.props;
-		const choices = props.choices
+  render() {
+    const { choices } = this.props;
 
-		return (
-			<ul>{ choices.map(this.renderChoice) }</ul>
-		);
-	}
+    return (
+      <ul>{ choices.map(this.renderChoice) }</ul>
+    );
+  }
 });
 
 

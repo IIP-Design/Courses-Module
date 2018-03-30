@@ -12,10 +12,18 @@ const { string } = React.PropTypes;
  */
 
 const FormInput = (props) => {
+  const { id,
+          label,
+          name,
+          type } = props;
+
   return (
     <div className='form-group'>
-      <label className='form-label' htmlFor={ props.id }>{ props.label }</label>
-      <input id={ props.id } name={ props.name } type={ props.type } />
+      <label className='form-label' htmlFor={ id }>{ label }</label>
+      <input
+        id={ id }
+        name={ name }
+        type={ type } />
     </div>
   );
 };

@@ -37,11 +37,11 @@ const Course = React.createClass({
 
 
   render() {
-    const props = this.props;
+    const { course, language } = this.props;
+    const lessons = course.lessons;
+    const link = lessons[0].slug;
 
     // Return a flat array of unique Instructors by id
-    const lessons = props.course.lessons;
-    const link = lessons[0].slug;
     const instructors = flattenArray(lessons, 'instructors')
       .sort(sortBy('id', 'desc'))
       .reduce(uniqBy, []);
@@ -49,9 +49,9 @@ const Course = React.createClass({
     let src;
     let alt;
 
-    if ('image' in props.course) {
-      src = props.course.image.src;
-      alt = props.course.image.alt
+    if ('image' in course) {
+      src = course.image.src;
+      alt = course.image.alt
     }
 
     return (
@@ -63,15 +63,15 @@ const Course = React.createClass({
               <div className='course-intro-gradient'></div>
             </div>
             <div className='course-intro-text'>
-              <h1>{ props.course.title }</h1>
+              <h1>{ course.title }</h1>
               <p dangerouslySetInnerHTML={ this.rawDescription() }></p>
-              <Link to={ `lesson/${ link }` } id={ link }><div className='course-take-course'>{ props.language.courseTake }</div></Link>
+              <Link to={ `lesson/${ link }` } id={ link }><div className='course-take-course'>{ language.courseTake }</div></Link>
             </div>
           </div>
         </section>
-        <StepsList language={ props.language } />
-        <LessonList lessons={ lessons } language={ props.language } />
-        <InstructorList instructors={ instructors } language={ props.language } />
+        <StepsList language={ language } />
+        <LessonList lessons={ lessons } language={ language } />
+        <InstructorList instructors={ instructors } language={ language } />
       </div>
     );
   }

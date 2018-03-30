@@ -15,22 +15,24 @@ const { array } = React.PropTypes;
  */
 
 const Glossary = (props) => {
-  if (props.terms.length === 0) {
+  const { terms, language } = props;
+  if (terms.length === 0) {
     return null;
   }
 
-  const glossary = props.terms.map((term) => {
+  const glossary = terms.map((term) => {
+    const { id, title, description } = term;
     return(
-      <CollapseItem className='glossary-item' key={ term.id }>
-        <CollapseTrigger className='glossary-trigger' tag={ 'p' }>{ term.title }</CollapseTrigger>
-        <CollapsePanel className='glossary-text' description={ term.description } />
+      <CollapseItem className='glossary-item' key={ id }>
+        <CollapseTrigger className='glossary-trigger' tag={ 'p' }>{ title }</CollapseTrigger>
+        <CollapsePanel className='glossary-text' description={ description } />
       </CollapseItem>
     );
   });
 
   return (
     <div className='glossary'>
-      <h3 className='glossary-title'>{ props.language.glossary }</h3>
+      <h3 className='glossary-title'>{ language.glossary }</h3>
       <Collapse className='glossary-content'>
         { glossary }
       </Collapse>

@@ -50,9 +50,10 @@ const Collapse = React.createClass({
   },
 
   render() {
+    const { className, children } = this.props;
     return (
-      <ul className={`collapse ${this.props.className}`} role="tablist">
-        {this.props.children}
+      <ul className={`collapse ${className}`} role="tablist">
+        {children}
       </ul>
     );
   }
@@ -95,10 +96,14 @@ const CollapsePanel = React.createClass({
  */
 
 const CollapseTrigger = (props) => {
-  const CustomTag = `${ props.tag }`;
+  const { tag,
+          className,
+          children } = props;
+
+  const CustomTag = `${ tag }`;
 
   return (
-    <CustomTag className={ `trigger ${ props.className }` } role='tab'>{ props.children }</CustomTag>
+    <CustomTag className={ `trigger ${ className }` } role='tab'>{ children }</CustomTag>
   );
 };
 

@@ -13,11 +13,17 @@ const { array, func, number, object, string } = React.PropTypes;
  */
 
 const RadioChoice = (props) => {
+  const { choiceId,
+          questionId,
+          checked,
+          handleChange,
+          choice } = props;
+
   return (
     <li>
-      <label htmlFor={ props.choiceId }>
-        <input id={ props.choiceId } name={ props.questionId } type={ 'radio' } checked={ props.checked } onChange={ props.handleChange }/>
-        { props.choice.text }
+      <label htmlFor={ choiceId }>
+        <input id={ choiceId } name={ questionId } type={ 'radio' } checked={ checked } onChange={ handleChange }/>
+        { choice.text }
       </label>
     </li>
   );

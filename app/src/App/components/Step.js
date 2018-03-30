@@ -13,9 +13,18 @@ const { string } = React.PropTypes;
  * @since 1.0.0
  */
 
-const Step = (props) => (
-  <li className={ props.className }><span className="course-step-title">{ props.title }</span><span className="course-step-description">{ props.children }</span></li>
-);
+const Step = (props) => {
+  const { className,
+          title,
+          children } = props;
+
+  return (
+    <li className={ className }>
+      <span className="course-step-title">{ title }</span>
+      <span className="course-step-description">{ children }</span>
+    </li>
+  );
+};
 
 
 Step.propTypes = {

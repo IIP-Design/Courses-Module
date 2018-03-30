@@ -11,7 +11,7 @@ const { string, number, bool, array } = React.PropTypes;
  */
 
 const Question = React.createClass({
-	propTypes: {
+  propTypes: {
     text: string,
     choices: array,
     questionId: string,
@@ -20,20 +20,26 @@ const Question = React.createClass({
 
 
   rawHTML()  {
-  	return { __html: this.props.text };
+    return { __html: this.props.text };
   },
 
 
   render() {
-    const props = this.props;
+    const { questionId, choices } = this.props;
 
-		return (
-    	<li className='quiz-question'>
-    		<div id={ props.questionId } className='quiz-question-text' dangerouslySetInnerHTML={ this.rawHTML() }></div>
-		  	<ChoiceList className='quiz-choices' questionId={ props.questionId } choices={ props.choices }/>
-			</li>
-		);
-	}
+    return (
+      <li className='quiz-question'>
+        <div
+          id={ questionId }
+          className='quiz-question-text'
+          dangerouslySetInnerHTML={ this.rawHTML() }></div>
+        <ChoiceList
+          className='quiz-choices'
+          questionId={ questionId }
+          choices={ choices } />
+      </li>
+    );
+  }
 });
 
 

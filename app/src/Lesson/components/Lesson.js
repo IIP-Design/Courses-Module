@@ -32,41 +32,57 @@ const Lesson = React.createClass({
 
 
   render() {
-    const props = this.props;
-    const media = (props.lesson.media) ? props.lesson.media : {};
-    const video = (props.lesson.media && props.lesson.media.video) ? props.lesson.media.video : {};
-    const audio = (props.lesson.media && props.lesson.media.audio) ? props.lesson.media.audio : {};
-    let turnCaptionOn = ( props.language.locale === 'en' ) ? 0 : 1;
+    const { lesson,
+            lessons,
+            language,
+            lessonIndex,
+            courseTitle } = this.props;
+
+    let { media,
+          title,
+          description,
+          resources,
+          glossary } = lesson;
+
+    const isLangEnglish = ( language.locale === 'en' ) ? 0 : 1;
+    
+    media = media || {};
+    const video = (media && media.video) ? media.video : {};
+    const audio = (media && media.audio) ? media.audio : {};
+    let turnCaptionOn = isLangEnglish;
     const mediaOpts = {
       playerVars: {
-        hl: props.language.locale,
-        cc_load_policy: ( props.language.locale === 'en' ) ? 0 : 1
+        hl: language.locale,
+        cc_load_policy: isLangEnglish
       }
     };
 
     return (
       <div className='lesson'>
         <div className="two-thirds first">
-          <h1 className='lesson-title'>{ props.lesson.title }</h1>
-          <Breadcrumbs courseTitle={ props.courseTitle } name={ props.lesson.title  }  />
+          <h1 className='lesson-title'>{ title }</h1>
+          <Breadcrumbs courseTitle={ courseTitle } name={ title  }  />
           <div className='lesson-video'>
             <YouTube videoId={ video.video_id  } opts={ mediaOpts } />
           </div>
           <div className='lesson-nav'>
-            <ButtonNav lessons={ props.lessons } lessonIndex={ props.lessonIndex } language={ props.language } />
-            <LessonPagination lessons={ props.lessons } lessonIndex={ props.lessonIndex } />
+            <ButtonNav
+              lessons={ lessons }
+              lessonIndex={ lessonIndex }
+              language={ language } />
+            <LessonPagination lessons={ lessons } lessonIndex={ lessonIndex } />
           </div>
           <LessonTabs
-            description={ props.lesson.description }
+            description={ description }
             transcript={ media.transcript_text }
             transcriptFile={ media.transcript_file_url }
-            resources={ props.lesson.resources }
+            resources={ resources }
             audio={ audio }
-            language={ props.language }
+            language={ language }
           />
         </div>
         <div className="one-third">
-          <Glossary terms={ props.lesson.glossary } language={ props.language } />
+          <Glossary terms={ glossary } language={ language } />
         </div>
       </div>
     );

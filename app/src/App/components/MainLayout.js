@@ -14,31 +14,35 @@ const { object } = React.PropTypes;
  * @since 1.0.0
  */
 
-const MainLayout = (props) => (
-  <div className="app">
-    <div className={ props.isFetching ? 'show' : 'hide' }>
-      <div className="preloader">
-        <div className="pl-msg">
-          <div className="pl-msg_txt">Just a moment, loading...</div>
-        </div>
-        <div className="pl-header"></div>
-        <div className="pl-course-image"></div>
-        <div className="pl-course-content">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div className="pl-course-button"></div>
+const MainLayout = (props) => {
+  const { isFetching, children } = props;
+
+  return (
+    <div className="app">
+      <div className={ isFetching ? 'show' : 'hide' }>
+        <div className="preloader">
+          <div className="pl-msg">
+            <div className="pl-msg_txt">Just a moment, loading...</div>
+          </div>
+          <div className="pl-header"></div>
+          <div className="pl-course-image"></div>
+          <div className="pl-course-content">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div className="pl-course-button"></div>
+          </div>
         </div>
       </div>
+      <div className={ isFetching ? 'hide' : 'show' }>
+        <main>
+          { children }
+        </main>
+      </div>
     </div>
-    <div className={ props.isFetching ? 'hide' : 'show' }>
-      <main>
-        { props.children }
-      </main>
-    </div>
-  </div>
-);
+  );
+};
 
 
 MainLayout.propTypes = {
