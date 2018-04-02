@@ -25,19 +25,14 @@ const CollapseItem = (props) => (<li className={ `collapse-item ${ props.classNa
  * @since 1.0.0
  */
 
-const Collapse = React.createClass({
-  propTypes: {
-    className: string,
-    children: array
-  },
-
+class Collapse extends React.Component{
   componentDidUpdate() {
     this.initializeAccordian();
-  },
+  }
 
   componentDidMount() {
     this.initializeAccordian();
-  },
+  }
 
   initializeAccordian() {
     if( this.accordion ) {
@@ -47,7 +42,7 @@ const Collapse = React.createClass({
     const options = { collapseOthers: true };
 
     this.accordion = new Accordion.Accordion(selectors, options);
-  },
+  }
 
   render() {
     const { className, children } = this.props;
@@ -57,9 +52,13 @@ const Collapse = React.createClass({
       </ul>
     );
   }
-});
+};
 
 
+Collapse.propTypes = {
+  className: string,
+  children: array
+};
 
 
 /*

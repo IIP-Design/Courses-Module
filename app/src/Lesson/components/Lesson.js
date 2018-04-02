@@ -16,20 +16,11 @@ const { object, array, string } = React.PropTypes;
  * @since 1.0.0
  */
 
-const Lesson = React.createClass({
-  propTypes: {
-    courseTitle: string,
-    lessons: array,
-    lesson: object,
-    language: object
-  },
-
-
+class Lesson extends React.Component {
   componentDidMount() {
     // Scroll to the top of the window to prevent the page from "loading" in the middle
     window.scroll(0,0);
-  },
-
+  }
 
   render() {
     const { lesson,
@@ -70,7 +61,9 @@ const Lesson = React.createClass({
               lessons={ lessons }
               lessonIndex={ lessonIndex }
               language={ language } />
-            <LessonPagination lessons={ lessons } lessonIndex={ lessonIndex } />
+            <LessonPagination
+              lessons={ lessons }
+              lessonIndex={ lessonIndex } />
           </div>
           <LessonTabs
             description={ description }
@@ -87,7 +80,15 @@ const Lesson = React.createClass({
       </div>
     );
   }
-});
+};
+
+
+Lesson.propTypes = {
+  courseTitle: string,
+  lessons: array,
+  lesson: object,
+  language: object
+};
 
 
 export default Lesson;

@@ -13,15 +13,12 @@ import MainLayout from '../components/MainLayout';
  * @since 2.0.0
  */
 
-const MainContainer = React.createClass({
-
-
+class MainContainer extends React.Component{
   /*
    * When the MainContainer component mounts, it grabs the course id, performs an ajax request, and passes the response off to redux
    *
    * @todo We might consider moving this step earlier in the application's lifecyle
    */
-
   componentDidMount() {
     var url;
     try {
@@ -41,8 +38,7 @@ const MainContainer = React.createClass({
     axios.get( endpoint )
       .then(response => store.dispatch(actions.requestData(response.data.courses)))
       .catch(error => store.dispatch(actions.requestData(undefined, error=error)));
-  },
-
+  }
 
   render() {
     const { course,
@@ -63,9 +59,7 @@ const MainContainer = React.createClass({
         language={ language } />
     );
   }
-});
-
-
+};
 
 
 /*
@@ -98,4 +92,3 @@ const mapStateToProps = ({ app, language }) => {
 
 
 export default connect(mapStateToProps)(MainContainer);
-

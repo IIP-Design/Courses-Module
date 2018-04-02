@@ -19,21 +19,22 @@ const { object } = React.PropTypes;
  * @since 1.0.0
  */
 
-const Course = React.createClass({
-  propTypes: {
-    course: object
-  },
+class Course extends React.Component {
+  constructor(props) {
+    super(props);
+    this.rawDescription = this.rawDescription.bind(this);
+  }
 
 
   componentDidMount() {
     // Scroll to the top of the window to prevent the page from "loading" in the middle
     window.scroll(0,0);
-  },
+  }
 
 
   rawDescription() {
     return { __html: this.props.course.description };
-  },
+  }
 
 
   render() {
@@ -75,7 +76,12 @@ const Course = React.createClass({
       </div>
     );
   }
-});
+};
+
+
+Course.propTypes = {
+  course: object
+};
 
 
 export default Course;

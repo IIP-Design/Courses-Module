@@ -9,25 +9,10 @@ const { string, func } = React.PropTypes;
  * @since 1.0.0
  */
 
-const FormSelect = React.createClass({
-	propTypes: {
-	  id: string,
-		name: string,
-		label: string,
-		type: string,
-		onChange: func
-  },
-
-
+class FormSelect extends React.Component{
   shouldComponentUpdate(nextProps, nextState) {
   	return false;
-  },
-
-
-  shouldComponentUpdate(nextProps, nextState) {
-  	return false;
-  },
-
+  }
 
   render() {
     const { id,
@@ -43,12 +28,22 @@ const FormSelect = React.createClass({
           value={ id }
           name={ name }
           type={ type }
-          onChange={ onChange }/>
+          onChange={ onChange } />
         { label }
       </label>
     );
 	}
-});
+};
+
+
+FormSelect.propTypes = {
+  id: string,
+  name: string,
+  label: string,
+  type: string,
+  onChange: func
+};
+
 
 export default FormSelect;
 

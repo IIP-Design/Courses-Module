@@ -15,45 +15,51 @@ const { array } = React.PropTypes;
  * @since 1.0.0
  */
 
-const QuestionList = React.createClass({
-	propTypes: {
-    questions: array,
-  },
+class QuestionList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderQuestion = this.renderQuestion.bind(this);
+  }
 
 
   shouldComponentUpdate(nextProps) {
   	return false;
-  },
+  }
 
 
   /*
    * Note: Sending questionId as Question cannot access key.  We need the questionId to construct common group name for each choice
    */
-
   renderQuestion(question) {
-    const choices = question.choices;
+    const { choices, id, text } = question;
 
     return (
     	<Question
     		key={ shortid.generate() }
-    		questionId={ question.id }
-    		text={ question.text }
+    		questionId={ id }
+    		text={ text }
     		choices={ choices }
     	/>
     )
-  },
+  }
 
 
 	render() {
-    const props = this.props;
+    const { questions } = this.props;
+    const questionsList = questions.map(this.renderQuestion);
 
 		return (
 			<ol id="questionList" className='quiz-questions'>
-        { props.questions.map(this.renderQuestion) }
+        { questionsList }
       </ol>
 		);
 	}
-});
+};
+
+
+QuestionList.propTypes = {
+  questions: array,
+};
 
 
 export default QuestionList;

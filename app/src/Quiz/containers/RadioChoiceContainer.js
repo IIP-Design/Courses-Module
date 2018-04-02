@@ -5,7 +5,7 @@ import { setUserAnswer } from '../actions';
 import RadioChoice from '../components/RadioChoice';
 
 
-const { array, func, number, object, string } = React.PropTypes;
+const { array, func, object, string } = React.PropTypes;
 
 
 /*
@@ -14,14 +14,11 @@ const { array, func, number, object, string } = React.PropTypes;
  * @since 2.0.0
  */
 
-const RadioChoiceContainer = React.createClass({
-  propTypes: {
-    handleChange: func,
-    userAnswers: array,
-    choice: object,
-    questionId: string,
-    choiceId: string
-  },
+class RadioChoiceContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.getAnswer = this.getAnswer.bind(this);
+  }
 
 
   /*
@@ -33,10 +30,9 @@ const RadioChoiceContainer = React.createClass({
    *
    * @since 2.0.0
    */
-
   getAnswer(answers) {
-    return answers.filter((answer) => answer.choiceId === this.props.choiceId)[0];
-  },
+    return answers.filter(answer => answer.choiceId === this.props.choiceId)[0];
+  }
 
 
   /*
@@ -44,18 +40,24 @@ const RadioChoiceContainer = React.createClass({
    *
    * @since 2.0.0
    */
-
   render() {
     const props = this.props;
     const answer = this.getAnswer(props.userAnswers) || {};
 
     return (
-      <RadioChoice checked={ (('choiceId' in answer)) ? answer.choiceId : '' } { ...props } />
+      <RadioChoice checked={ ('choiceId' in answer) ? answer.choiceId : '' } { ...props } />
     );
   }
-});
+};
 
 
+RadioChoiceContainer.propTypes = {
+  handleChange: func,
+  userAnswers: array,
+  choice: object,
+  questionId: string,
+  choiceId: string
+};
 
 
 /*
@@ -69,13 +71,12 @@ const RadioChoiceContainer = React.createClass({
  */
 
 const mapStateToProps = ({ quiz }) => {
-  const userAnswers = quiz.userAnswers;
+  const { userAnswers } = quiz;
 
   /*
    * @typedef {Object} RadioChoicContainerStatePropsObject
    * @property {Array} userAnswers - The user's answers
    */
-
   return {
     userAnswers
   };
@@ -92,13 +93,12 @@ const mapStateToProps = ({ quiz }) => {
  * @return {Object} RadioChoiceContainerDispatchPropsObject - Object of callback functions mapped to the RadioChoiceContainer's props
  */
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
 
   /*
    * @typedef {Object} RadioChoiceContainerDispatchPropsObject
    * @property {Function} handleChange - A callback that updates a user's answer in state
    */
-
   return {
     handleChange: e => {
       const choiceId = e.target.id;
