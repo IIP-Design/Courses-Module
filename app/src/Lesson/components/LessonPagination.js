@@ -18,7 +18,7 @@ const { array, number } = React.PropTypes;
  * @since 1.0.0
  */
 
-const getLinks = (lesson, index, lessonIndex) => {
+const renderLinks = (lesson, index, lessonIndex) => {
   const c1ass = ( index === lessonIndex ) ? 'active' : '';
   const slug = lesson.slug;
   const label = index + 1;
@@ -31,8 +31,6 @@ const getLinks = (lesson, index, lessonIndex) => {
 };
 
 
-
-
 /*
  * The Lesson pagination component
  *
@@ -43,7 +41,7 @@ const getLinks = (lesson, index, lessonIndex) => {
 
 const LessonPagination = (props) => {
   const { lessons, lessonIndex } = props;
-  const links = lessons.map((lesson, index) => getLinks(lesson, index, lessonIndex));
+  const links = lessons.map((lesson, index) => renderLinks(lesson, index, lessonIndex));
 
   return (
     <ul className='lesson-pagination'>

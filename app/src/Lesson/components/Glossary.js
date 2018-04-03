@@ -20,15 +20,18 @@ const Glossary = (props) => {
     return null;
   }
 
-  const glossary = terms.map((term) => {
+  const renderTerm = term => {
     const { id, title, description } = term;
+    
     return(
       <CollapseItem className='glossary-item' key={ id }>
         <CollapseTrigger className='glossary-trigger' tag={ 'p' }>{ title }</CollapseTrigger>
         <CollapsePanel className='glossary-text' description={ description } />
       </CollapseItem>
     );
-  });
+  };
+
+  const glossary = terms.map(renderTerm);
 
   return (
     <div className='glossary'>
@@ -38,7 +41,7 @@ const Glossary = (props) => {
       </Collapse>
     </div>
   );
-}
+};
 
 
 Glossary.propTypes = {

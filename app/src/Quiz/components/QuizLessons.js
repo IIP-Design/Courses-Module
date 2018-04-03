@@ -10,20 +10,28 @@ const { array } = React.PropTypes;
  * @since 2.0.0
  */
 
-const QuizLessons = (props) => {
-  const quizLessons = props.lessons.map(lesson => (
-    <li key={ lesson.slug }>
-      <Link to={ `lesson/${ lesson.slug }` }>
-        { lesson.title }
-      </Link>
-    </li>
-  ));
+const QuizLessons = props => {
+  const { lessons, language } = props;
+  const { quizLessons } = language;
+
+  const renderLesson = lesson => {
+    const { slug, title } = lesson;
+    return (
+      <li key={ slug }>
+        <Link to={ `lesson/${ slug }` }>
+          { title }
+        </Link>
+      </li>
+    );
+  }
+
+  const quizLessonsList = lessons.map(renderLesson);
 
   return (
     <div>
-      <h3 className='quiz-lessons'>{ props.language.quizLessons }:</h3>
+      <h3 className='quiz-lessons'>{ quizLessons }:</h3>
       <ul className='quiz-lessons-list'>
-        { quizLessons }
+        { quizLessonsList }
       </ul>
     </div>
   );

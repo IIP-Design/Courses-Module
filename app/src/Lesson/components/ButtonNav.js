@@ -18,7 +18,7 @@ const { array, number } = React.PropTypes;
  * @since 1.0.0
  */
 
-const getLink = (lessons, lessonIndex, index, label) => {
+const renderLink = (lessons, lessonIndex, index, label) => {
   const goToIndex = lessonIndex + index;
   const slug = lessons[goToIndex].slug;
 
@@ -26,8 +26,6 @@ const getLink = (lessons, lessonIndex, index, label) => {
     <Link to={ `lesson/${slug}` } id={ slug }>{ label }</Link>
   );
 };
-
-
 
 
 /*
@@ -40,12 +38,13 @@ const getLink = (lessons, lessonIndex, index, label) => {
 
 const ButtonNav = (props) => {
   const { lessons, lessonIndex, language } = props;
+  const { prevLesson, nextLesson, quizGo } = language;
   const numLessons = lessons.length - 1;
 
   if (lessons.length === 1) {
     return (
       <div className='lesson-buttonnav'>
-        <Link to={ 'quiz' }>{ language.quizGo }</Link>
+        <Link to={ 'quiz' }>{ quizGo }</Link>
       </div>
     );
   }
@@ -54,8 +53,8 @@ const ButtonNav = (props) => {
   if (lessonIndex === numLessons) {
     return (
       <div className='lesson-buttonnav'>
-        { getLink(lessons, lessonIndex, -1, language.prevLesson) }
-        <Link to={ 'quiz' }>{ language.quizGo }</Link>
+        { renderLink(lessons, lessonIndex, -1, prevLesson) }
+        <Link to={ 'quiz' }>{ quizGo }</Link>
       </div>
     );
   }
@@ -64,7 +63,7 @@ const ButtonNav = (props) => {
   if (lessonIndex === 0) {
     return (
       <div className='lesson-buttonnav'>
-         { getLink(lessons, lessonIndex, 1, language.nextLesson) }
+         { renderLink(lessons, lessonIndex, 1, nextLesson) }
       </div>
     );
   }
@@ -73,8 +72,8 @@ const ButtonNav = (props) => {
   if (lessonIndex !== 0 && lessonIndex !== numLessons) {
     return (
       <div className='lesson-buttonnav'>
-        { getLink(lessons, lessonIndex, -1, language.prevLesson) }
-        { getLink(lessons, lessonIndex, 1, language.nextLesson) }
+        { renderLink(lessons, lessonIndex, -1, prevLesson) }
+        { renderLink(lessons, lessonIndex, 1, nextLesson) }
       </div>
     );
   }
