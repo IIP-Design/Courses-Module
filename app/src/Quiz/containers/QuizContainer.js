@@ -39,8 +39,7 @@ QuizContainer.propTypes = {
  */
 
 const mapStateToProps = ({ app, language }) => {
-  const course = app.data;
-  const lessons = app.data.lessons;
+  const { title, lessons } = app.data;
   const questions = flattenArray(lessons, 'quiz');
 
 
@@ -52,7 +51,7 @@ const mapStateToProps = ({ app, language }) => {
    */
 
   return {
-    courseName: course.title,
+    courseName: title,
     lessons,
     questions,
     language
