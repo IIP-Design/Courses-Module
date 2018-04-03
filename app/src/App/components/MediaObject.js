@@ -14,48 +14,45 @@ const { string, bool, object } = React.PropTypes;
  * @since 1.0.0
  */
 
-const MediaObject = React.createClass({
-  propTypes: {
-    tag: string.isRequired,
-    reversed: bool,
-    link: string,
-    image: object,
-    title: string,
-    description: string
-  },
-
-
-  setDescription() {
-    return { __html: this.props.description };
-  },
-
-
-  render() {
-    const { tag,
-            link,
-            image,
-            title } = this.props;
-
-    const CustomTag = `${ tag }`;
-    const reversed = !(this.props.reversed === undefined);
-
-    return (
-       <div className={ reversed ? 'media-object reversed' : 'media-object' }>
-        <Link to={ link }>
-          <img src={ image.src } alt={ image.alt } />
-        </Link>
-        <header>
-           <Link to={ link }>
-            <CustomTag className='media-object-title'>{ title }</CustomTag>
-           </Link>
-         </header>
-         <div
-          className='media-object-description'
-          dangerouslySetInnerHTML={ this.setDescription() }></div>
-       </div>
-    );
+const MediaObject = props => {
+  const setDescription = props => {
+    return { __html: props.description };
   }
-});
+
+  const { tag,
+          link,
+          image,
+          title } = props;
+
+  const CustomTag = `${ tag }`;
+  const reversed = !(props.reversed === undefined);
+
+  return (
+    <div className={ reversed ? 'media-object reversed' : 'media-object' }>
+    <Link to={ link }>
+      <img src={ image.src } alt={ image.alt } />
+    </Link>
+    <header>
+        <Link to={ link }>
+        <CustomTag className='media-object-title'>{ title }</CustomTag>
+        </Link>
+      </header>
+      <div
+      className='media-object-description'
+      dangerouslySetInnerHTML={ setDescription(props) }></div>
+    </div>
+  );
+};
+
+
+MediaObject.propTypes = {
+  tag: string.isRequired,
+  reversed: bool,
+  link: string,
+  image: object,
+  title: string,
+  description: string
+};
 
 
 export default MediaObject;

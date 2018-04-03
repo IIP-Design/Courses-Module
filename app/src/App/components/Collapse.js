@@ -67,23 +67,23 @@ Collapse.propTypes = {
  * @since 1.0.0
  */
 
-const CollapsePanel = React.createClass({
-  propTypes: {
-    description: string.isRequired
-  },
-
-  rawDescription() {
-    return { __html: this.props.description }
-  },
-
-  render() {
-    return(
-      <div role='tabpanel' dangerouslySetInnerHTML={ this.rawDescription() }></div>
-    );
+const CollapsePanel = props => {
+  const rawDescription = props => {
+    return { __html: props.description }
   }
-});
+
+  return (
+    <div
+      role='tabpanel'
+      dangerouslySetInnerHTML={ rawDescription(props) }>
+    </div>
+  );
+};
 
 
+CollapsePanel.propTypes = {
+  description: string.isRequired
+}
 
 
 /*

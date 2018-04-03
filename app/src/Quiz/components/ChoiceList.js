@@ -12,40 +12,32 @@ const { number, array, string } = React.PropTypes;
  * @since 1.0.0
  */
 
-const ChoiceList = React.createClass({
-  propTypes: {
-    choices: array,
-    questionId: string,
-    className: string
-  },
-
-
-  rawHTML() {
-    return { __html: this.props.text };
-  },
-
-  renderChoice(choice) {
+const ChoiceList = props => {
+  const renderChoice = choice => {
     const { id } = choice;
-    const { questionId } = this.props;
-
-     return (
+    return (
       <RadioChoice
         key={ id }
         choiceId={ id }
         questionId={ questionId }
         choice={ choice } />
-     );
-  },
-
-
-  render() {
-    const { choices } = this.props;
-
-    return (
-      <ul>{ choices.map(this.renderChoice) }</ul>
     );
-  }
-});
+  };
+
+  const { choices, questionId } = props;
+  const choiceList = choices.map(renderChoice);
+
+  return (
+    <ul>{ choiceList }</ul>
+  );
+};
+
+
+ChoiceList.propTypes = {
+  choices: array,
+  questionId: string,
+  className: string
+};
 
 
 export default ChoiceList;

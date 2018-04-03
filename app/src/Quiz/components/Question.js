@@ -10,37 +10,34 @@ const { string, number, bool, array } = React.PropTypes;
  * @since 1.0.0
  */
 
-const Question = React.createClass({
-  propTypes: {
-    text: string,
-    choices: array,
-    questionId: string,
-    correct: bool
-  },
-
-
-  rawHTML()  {
-    return { __html: this.props.text };
-  },
-
-
-  render() {
-    const { questionId, choices } = this.props;
-
-    return (
-      <li className='quiz-question'>
-        <div
-          id={ questionId }
-          className='quiz-question-text'
-          dangerouslySetInnerHTML={ this.rawHTML() }></div>
-        <ChoiceList
-          className='quiz-choices'
-          questionId={ questionId }
-          choices={ choices } />
-      </li>
-    );
+const Question = props => {
+  const rawHTML = props => {
+    return { __html: props.text };
   }
-});
+
+  const { questionId, choices } = props;
+
+  return (
+    <li className='quiz-question'>
+      <div
+        id={ questionId }
+        className='quiz-question-text'
+        dangerouslySetInnerHTML={ rawHTML(props) }></div>
+      <ChoiceList
+        className='quiz-choices'
+        questionId={ questionId }
+        choices={ choices } />
+    </li>
+  );
+};
+
+
+Question.propTypes = {
+  text: string,
+  choices: array,
+  questionId: string,
+  correct: bool
+};
 
 
 export default Question;

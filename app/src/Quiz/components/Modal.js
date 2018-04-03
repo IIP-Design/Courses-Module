@@ -4,33 +4,34 @@ const { func, bool, node, object } = React.PropTypes;
 
 require('./stylesheets/Modal.scss');
 
-class Modal extends React.Component {
-  render() {
-    const { show,
-            children,
-            onClose,
-            language } = this.props;
+const Modal = props => {
+  const { show,
+          children,
+          onClose,
+          language } = props;
 
-    // Render nothing if the "show" prop is false
-    if(!show) {
-      return null;
-    }
+  const { continueLesson } = language;
 
-    return (
-      <div className="quizmodal-backdrop">
-        <div className="quizmodal-modal">
-          { children }
+  // Render nothing if the "show" prop is false
+  if (!show) {
+    return null;
+  }
 
-          <div>
-            <button className="quizmodal-close" onClick={ onClose }>
-              { language.continueLesson }
-            </button>
-          </div>
+  return (
+    <div className='quizmodal-backdrop'>
+      <div className='quizmodal-modal'>
+        { children }
+
+        <div>
+          <button className='quizmodal-close' onClick={ onClose }>
+            { continueLesson }
+          </button>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
 
 Modal.propTypes = {
   onClose: func,
@@ -38,5 +39,6 @@ Modal.propTypes = {
   children: node,
   language: object
 };
+
 
 export default Modal;

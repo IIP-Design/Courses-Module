@@ -15,37 +15,37 @@ const { array } = React.PropTypes;
  * @since 1.0.0
  */
 
-const LessonList = React.createClass({
-  propTypes: {
-    lessons: array
-  },
-
-
-  render() {
-    const { language } = this.props;
-    const lessons = this.props.lessons.map((lesson) => {
-      const link  = sprintf('%s', lesson.slug );
-
-      return (
-        <li className='lessons-list-item' key={ lesson.id }>
-          <MediaObject  tag={ 'h3' } link={ `lesson/${ link }` } { ...lesson } />
-          <Link to={ `lesson/${ link }` } id={ link }>{ language.takeLesson }</Link>
-        </li>
-      );
-    });
+const LessonList = props => {
+  const { language, lessons } = props;
+  const renderLessonList = lesson => {
+    const link  = sprintf('%s', lesson.slug );
 
     return (
-      <section className='lessons-list'>
-        <header>
-          <h3>{ language.lessons }</h3>
-        </header>
-        <ol className='lessons-list__ordered'>
-          { lessons }
-        </ol>
-      </section>
+      <li className='lessons-list-item' key={ lesson.id }>
+        <MediaObject  tag={ 'h3' } link={ `lesson/${ link }` } { ...lesson } />
+        <Link to={ `lesson/${ link }` } id={ link }>{ language.takeLesson }</Link>
+      </li>
     );
-  }
-});
+  };
+
+  const lessonList = lessons.map(renderLessonList);
+
+  return (
+    <section className='lessons-list'>
+      <header>
+        <h3>{ language.lessons }</h3>
+      </header>
+      <ol className='lessons-list__ordered'>
+        { lessonList }
+      </ol>
+    </section>
+  );
+};
+
+
+LessonList.propTypes = {
+  lessons: array
+};
+
 
 export default LessonList;
-
