@@ -1,5 +1,5 @@
-const React = require('react');
-const { sprintf } = require('sprintf-js');
+import React from 'react';
+import { sprintf } from 'sprintf-js';
 import { sortBy } from 'App/helpers';
 
 const { string, number, array } = React.PropTypes;
