@@ -1,5 +1,8 @@
 import React from 'react';
-import { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } from 'App/components/Collapse';
+import { Collapse,
+         CollapseItem,
+         CollapsePanel,
+         CollapseTrigger } from 'App/components/Collapse';
 
 require('Lesson/components/stylesheets/Glossary.scss')
 

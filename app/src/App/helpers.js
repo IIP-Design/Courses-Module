@@ -1,4 +1,8 @@
-const sortBy = (key, order='asc') => {
+import Loadable from 'react-loadable';
+import Loading from 'App/components/Loading';
+
+
+export const sortBy = (key, order='asc') => {
   return function(a, b) {
     // if property doesn't exist on either object
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -20,7 +24,8 @@ const sortBy = (key, order='asc') => {
   };
 }
 
-const uniqBy = (accumulator, current) => {
+
+export const uniqBy = (accumulator, current) => {
   const length = accumulator.length;
   if (length === 0 || accumulator[length - 1].id !== current.id) {
       accumulator.push(current);
@@ -28,18 +33,29 @@ const uniqBy = (accumulator, current) => {
   return accumulator;
 };
 
-const flattenArray = (array, property) => {
+
+export const flattenArray = (array, property) => {
   return [].concat.apply([], array.map(obj => obj[property]));
 }
 
-const generateArrFromObjectKeys = obj => {
-  const array = [];
-  Object.values(obj).forEach(value => {
-    if (value) {
-      choices.push(value);
-    }
-  });
-  return array;
-};
 
-export { sortBy, uniqBy, flattenArray, generateArrFromObjectKeys };
+// export const generateArrFromObjectKeys = obj => {
+//   const array = [];
+//   Object.values(obj).forEach(value => {
+//     if (value) {
+//       choices.push(value);
+//     }
+//   });
+//   return array;
+// };
+
+
+export const DynamicImport = opts => {
+  let defaultOpts = {
+    loading: Loading,
+    delay: 400,
+    timeout: 5000
+  };
+
+  return Loadable(Object.assign(defaultOpts, opts));
+};

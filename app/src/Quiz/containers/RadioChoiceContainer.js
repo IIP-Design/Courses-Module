@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { setUserAnswer } from 'Quiz/actions';
+import { RadioChoice } from 'Quiz/components/dynamic';
 
 
 const { array, func, object, string } = React.PropTypes;

@@ -1,11 +1,10 @@
 import React from 'react';
-import YouTube from 'react-youtube';
-import Breadcrumbs from 'App/components/Breadcrumbs';
-
-import Glossary from './Glossary';
-import LessonTabs from './LessonTabs';
-import ButtonNav from './ButtonNav';
-import LessonPagination from './LessonPagination';
+import { YouTube,
+         Breadcrumbs,
+         Glossary,
+         LessonTabs,
+         ButtonNav,
+         LessonPagination } from 'Lesson/components/dynamic';
 
 const { object, array, string } = React.PropTypes;
 

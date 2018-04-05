@@ -1,7 +1,6 @@
 import React from 'react';
 
-import QuizLessons from './QuizLessons';
-import QuizForm from '../containers/QuizFormContainer';
+import { QuizLessons, QuizFormContainer } from 'Quiz/components/dynamic';
 
 require('Quiz/components/stylesheets/Quiz.scss');
 
@@ -35,7 +34,7 @@ class Quiz extends React.Component {
         <QuizLessons lessons={ lessons } language={ language } />
         <h3 className='quiz-instructions'>{ quizQuestions }</h3>
         <p className='quiz-msg'>{ quizAttempts }</p> 
-        <QuizForm
+        <QuizFormContainer
           questions={ questions }
           courseName={ courseName }
           language={ language } />

@@ -1,5 +1,5 @@
 import React from 'react';
-import ChoiceList from '../components/ChoiceList';
+import { ChoiceList } from 'Quiz/components/dynamic';
 
 const { string, number, bool, array } = React.PropTypes;
 

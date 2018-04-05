@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RadioChoice from '../containers/RadioChoiceContainer';
+import { RadioChoiceContainer } from 'Quiz/components/dynamic';
 
 
 const { number, array, string } = React.PropTypes;
@@ -16,7 +16,7 @@ const ChoiceList = props => {
   const renderChoice = choice => {
     const { id } = choice;
     return (
-      <RadioChoice
+      <RadioChoiceContainer
         key={ id }
         choiceId={ id }
         questionId={ questionId }

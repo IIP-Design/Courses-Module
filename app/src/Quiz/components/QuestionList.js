@@ -1,7 +1,7 @@
 import React from 'react';
 import shortid from 'shortid';
 
-import Question from '../components/Question';
+import { Question } from 'Quiz/components/dynamic';
 
 
 const { array } = React.PropTypes;

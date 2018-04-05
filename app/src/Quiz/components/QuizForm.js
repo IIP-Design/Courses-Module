@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
-import { Notification } from 'react-notification';
 import { flattenArray } from 'App/helpers';
 
-import QuestionList from './QuestionList';
-import Modal from './Modal';
+import { QuestionList,
+         QuizBtn,
+         Modal,
+         Notification } from 'Quiz/components/dynamic';
 import { clearState } from 'root/sessionStorage.js';
 
 
@@ -344,23 +345,29 @@ class QuizForm extends React.Component{
             { quizCert }
           </label>
           <QuestionList questions={ questions }/>
-          <input type="submit" value={ quizBtn } />
+          <QuizBtn value={ quizBtn } />
           <span className={ incorrectClassname }>{ numIncorrect } { quizWrong } </span>
         </form>
         <div className={ attemptsClassname }>{ quizAttemptsRemain }: { this.maxAttempts - numAttempts } - { quizAttempts }</div>
-        <Notification
-          isActive={ isNotificationActive }
-          message={ quizAnswer }
-          action={ quizDismiss }
-          onDismiss={ this.toggleNotification }
-          dismissAfter = { 3500 }
-          onClick={ this.handleNotification }/>
-        <Modal
-          show={ isModalOpen }
-          onClose={ this.closeModal }
-          language={ language }>
-          { noMoreAttempts }
-        </Modal>
+
+        { isNotificationActive &&
+          <Notification
+            isActive={ isNotificationActive }
+            message={ quizAnswer }
+            action={ quizDismiss }
+            onDismiss={ this.toggleNotification }
+            dismissAfter = { 3500 }
+            onClick={ this.handleNotification }/>
+        }
+
+        { isModalOpen &&
+          <Modal
+            show={ isModalOpen }
+            onClose={ this.closeModal }
+            language={ language }>
+            { noMoreAttempts }
+          </Modal>
+        }
       </div>
     );
   }

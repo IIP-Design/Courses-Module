@@ -4,12 +4,30 @@ var webpack = require('webpack');
 module.exports = {
   mode: 'development',
   context: __dirname,
-  entry: ['babel-polyfill', './app/src'],
+  entry: {
+    app: ['./app/src'],
+    common: [
+      'babel-polyfill',
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router',
+      'react-router-redux',
+      'redux',
+      'redux-thunk'
+    ]
+  },
   output: {
     path: path.join(__dirname, 'app/src/build'),
-    publicPath: '/app/src/build',
-    filename: 'bundle.js'
+    publicPath: '/app/src/build/',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js'
   },
+	optimization: {
+		splitChunks: {
+      chunks: 'all'
+		}
+	},
   resolve: {
     alias: {
       root: path.resolve(__dirname, 'app/src'),

@@ -1,10 +1,9 @@
 import React from 'react';
-import StepsList from 'App/components/StepsList';
 import { Link } from 'react-router';
 import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
-import LessonList from './LessonList';
-import InstructorList from './InstructorList';
+import { StepsList } from 'App/components/dynamic';
+import { LessonList, InstructorList } from 'Course/components/dynamic';
 
 
 require('Course/components/stylesheets/Course.scss');

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
-import Instructor from '../components/Instructor';
+import { Instructor } from 'Instructor/components/dynamic';
 
 const { object } = React.PropTypes;
 
