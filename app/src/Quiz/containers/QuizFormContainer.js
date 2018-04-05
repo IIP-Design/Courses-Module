@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { flattenArray } from 'App/helpers';
 
-import { incrementNumAttempts, resetQuiz } from '../actions';
-import QuizForm from '../components/QuizForm';
+import { incrementNumAttempts, resetQuiz } from 'Quiz/actions';
+import { QuizForm } from 'Quiz/components/dynamic';
 
 
 const { array, func, number, string } = React.PropTypes;

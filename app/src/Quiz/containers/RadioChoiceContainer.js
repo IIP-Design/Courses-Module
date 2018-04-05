@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setUserAnswer } from '../actions';
-import RadioChoice from '../components/RadioChoice';
+import { setUserAnswer } from 'Quiz/actions';
 
 
 const { array, func, object, string } = React.PropTypes;

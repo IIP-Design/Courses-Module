@@ -6,7 +6,7 @@ import { flattenArray } from 'App/helpers';
 
 import QuestionList from './QuestionList';
 import Modal from './Modal';
-import { clearState } from '../../sessionStorage.js';
+import { clearState } from 'root/sessionStorage.js';
 
 
 const { array, func, number, string, object } = React.PropTypes;

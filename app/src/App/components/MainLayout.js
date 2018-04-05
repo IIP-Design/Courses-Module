@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('./stylesheets/MainLayout.scss');
+require('App/components/stylesheets/MainLayout.scss');
 
 const { object } = React.PropTypes;
 

@@ -2,10 +2,10 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import { loadState, saveState } from './sessionStorage';
-import { appReducer } from './App';
-import { quizReducer } from './Quiz';
-import { langReducer } from './Language';
+import { loadState, saveState } from 'root/sessionStorage';
+import { appReducer } from 'App';
+import { quizReducer } from 'Quiz';
+import { langReducer } from 'Language';
 
 
 /*

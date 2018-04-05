@@ -7,7 +7,7 @@ import LessonList from './LessonList';
 import InstructorList from './InstructorList';
 
 
-require('./stylesheets/Course.scss');
+require('Course/components/stylesheets/Course.scss');
 
 
 const { object } = React.PropTypes;

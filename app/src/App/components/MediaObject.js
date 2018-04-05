@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-require('./stylesheets/MediaObject.scss');
+require('App/components/stylesheets/MediaObject.scss');
 
 const { string, bool, object } = React.PropTypes;
 

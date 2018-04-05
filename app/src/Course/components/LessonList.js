@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { sprintf } from 'sprintf-js';
 import MediaObject from 'App/components/MediaObject';
 
-require('./stylesheets/LessonList.scss');
+require('Course/components/stylesheets/LessonList.scss');
 
 
 const { array } = React.PropTypes;

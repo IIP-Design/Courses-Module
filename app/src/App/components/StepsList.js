@@ -1,7 +1,7 @@
 import React from 'react';
 import Step from './Step';
 
-require('./stylesheets/StepsList.scss');
+require('App/components/stylesheets/StepsList.scss');
 
 
 /*

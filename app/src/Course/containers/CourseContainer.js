@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Course from '../components/Course';
+import Course from 'Course/components/Course';
 
 
 const { object } = React.PropTypes;

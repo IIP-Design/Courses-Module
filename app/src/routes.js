@@ -2,11 +2,11 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import CourseReactGA from 'react-ga';
 
-import { MainContainer, LessonLayout } from './App';
-import { CourseContainer } from './Course';
-import { LessonContainer } from './Lesson';
-import { InstructorContainer } from './Instructor';
-import { QuizContainer } from './Quiz';
+import { MainContainer, LessonLayout } from 'App';
+import { CourseContainer } from 'Course';
+import { LessonContainer } from 'Lesson';
+import { InstructorContainer } from 'Instructor';
+import { QuizContainer } from 'Quiz';
 
 
 /*

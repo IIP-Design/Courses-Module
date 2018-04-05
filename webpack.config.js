@@ -12,7 +12,13 @@ module.exports = {
   },
   resolve: {
     alias: {
-      App: path.resolve(__dirname, 'app/src/App')
+      root: path.resolve(__dirname, 'app/src'),
+      App: path.resolve(__dirname, 'app/src/App'),
+      Course: path.resolve(__dirname, 'app/src/Course'),
+      Instructor: path.resolve(__dirname, 'app/src/Instructor'),
+      Language: path.resolve(__dirname, 'app/src/Language'),
+      Lesson: path.resolve(__dirname, 'app/src/Lesson'),
+      Quiz: path.resolve(__dirname, 'app/src/Quiz')
     },
     extensions: ['.js', '.jsx', '.json']
   },

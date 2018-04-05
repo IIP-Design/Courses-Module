@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-require('./stylesheets/LessonPagination.scss');
+require('Lesson/components/stylesheets/LessonPagination.scss');
 
 const { array, number } = React.PropTypes;
 

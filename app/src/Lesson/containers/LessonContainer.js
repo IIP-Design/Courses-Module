@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import Lesson from '../components/Lesson';
+import { Lesson } from 'Lesson/components/dynamic';
 
 
 const { array } = React.PropTypes;
-
 
 
 /*

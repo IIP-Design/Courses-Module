@@ -3,7 +3,7 @@ import React from 'react';
 import QuizLessons from './QuizLessons';
 import QuizForm from '../containers/QuizFormContainer';
 
-require('./stylesheets/Quiz.scss');
+require('Quiz/components/stylesheets/Quiz.scss');
 
 
 const { array, string, object } = React.PropTypes;

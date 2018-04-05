@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { flattenArray } from 'App/helpers';
 
-import Quiz from '../components/Quiz';
+import { Quiz } from 'Quiz/components/dynamic';
 
 
 const { array, string } = React.PropTypes;

@@ -2,8 +2,8 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
-import routes from './routes';
+import store from 'root/store';
+import routes from 'root/routes';
 
 /*
  * The application's root element

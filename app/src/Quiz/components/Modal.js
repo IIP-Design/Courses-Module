@@ -2,7 +2,7 @@ import React from 'react';
 
 const { func, bool, node, object } = React.PropTypes;
 
-require('./stylesheets/Modal.scss');
+require('Quiz/components/stylesheets/Modal.scss');
 
 const Modal = props => {
   const { show,

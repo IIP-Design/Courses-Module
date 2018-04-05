@@ -2,10 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import store from '../../store';
-import * as actions from '../actions';
-import { setLanguage } from '../../Language/actions';
-import MainLayout from '../components/MainLayout';
+import store from 'root/store';
+import * as actions from 'App/actions';
+import { setLanguage } from 'Language/actions';
+import MainLayout from 'App/components/MainLayout';
 
 /*
  * The container component that is responsible for interacting with the Redux store

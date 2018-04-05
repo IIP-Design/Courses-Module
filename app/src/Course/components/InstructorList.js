@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import shortid from 'shortid';
 import MediaObject from 'App/components/MediaObject';
 
-require('./stylesheets/InstructorList.scss');
+require('Course/components/stylesheets/InstructorList.scss');
 
 const { array } = React.PropTypes;
 

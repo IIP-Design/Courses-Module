@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('./stylesheets/LessonLayout.scss');
+require('App/components/stylesheets/LessonLayout.scss');
 
 const { object } = React.PropTypes;
 

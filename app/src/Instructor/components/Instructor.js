@@ -1,6 +1,6 @@
 import React from 'react'
 
-require('./stylesheets/Instructor.scss');
+require('Instructor/components/stylesheets/Instructor.scss');
 
 const { object } = React.PropTypes;
 
