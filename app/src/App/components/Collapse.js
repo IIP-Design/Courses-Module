@@ -17,6 +17,10 @@ const { string, array } = React.PropTypes;
 const CollapseItem = (props) => (<li className={ `collapse-item ${ props.className }` }>{ props.children }</li>);
 
 
+CollapseItem.propTypes = {
+  className: string,
+  children: array
+};
 
 
 /*
@@ -104,12 +108,6 @@ const CollapseTrigger = (props) => {
   return (
     <CustomTag className={ `trigger ${ className }` } role='tab'>{ children }</CustomTag>
   );
-};
-
-
-CollapseItem.propTypes = {
-  className: string,
-  children: array
 };
 
 

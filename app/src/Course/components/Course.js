@@ -65,13 +65,21 @@ class Course extends React.Component {
             <div className='course-intro-text'>
               <h1>{ course.title }</h1>
               <p dangerouslySetInnerHTML={ this.rawDescription() }></p>
-              <Link to={ `lesson/${ link }` } id={ link }><div className='course-take-course'>{ language.courseTake }</div></Link>
+              <Link
+                to={ `lesson/${ link }` }
+                id={ link }>
+                <div className='course-take-course'>{ language.courseTake }</div>
+              </Link>
             </div>
           </div>
         </section>
         <StepsList language={ language } />
-        <LessonList lessons={ lessons } language={ language } />
-        <InstructorList instructors={ instructors } language={ language } />
+        <LessonList
+          lessons={ lessons }
+          language={ language } />
+        <InstructorList
+          instructors={ instructors }
+          language={ language } />
       </div>
     );
   }

@@ -258,7 +258,7 @@ class QuizForm extends React.Component{
             numAttempts,
             incrementNumAttempts } = this.props;
 
-		// All questions not answerecd, show notification
+		// All questions not answered, show notification
 		if (!this.isAllAnswered()) {
 		  this.toggleNotification();
       return;
@@ -306,7 +306,7 @@ class QuizForm extends React.Component{
   /*
    * Set whether the notification is active in state
    *
-   * @since 
+   * @since version TBD
    */  
   handleNotification() {
     this.setState({ isNotificationActive: false });

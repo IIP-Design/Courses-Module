@@ -23,9 +23,15 @@ const StepsList = (props) => {
   return (
     <section>
       <ul className="steps-list">
-        <Step className="step" title={ stepTakeTitle }>{ stepTake }</Step>
-        <Step className="step" title={ stepQuizTitle }>{ stepQuiz }</Step>
-        <Step className="step" title={ stepCertTitle }>{ stepCert }</Step>
+        <Step
+          className="step"
+          title={ stepTakeTitle }>{ stepTake }</Step>
+        <Step
+          className="step"
+          title={ stepQuizTitle }>{ stepQuiz }</Step>
+        <Step
+          className="step"
+          title={ stepCertTitle }>{ stepCert }</Step>
       </ul>
     </section>
   );
