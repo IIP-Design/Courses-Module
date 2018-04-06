@@ -69,17 +69,19 @@ checkForTrackingCode();
  * @since 1.0.0
  */
 
-module.exports = (
-  <Router history={ hashHistory } onUpdate={ logPageView }>
-    <Route component={ MainContainer }>
-      <Route path='/'>
-        <IndexRoute component={ CourseContainer }  />
-        <Route path='lesson' component={ LessonLayout }>
-          <Route path=':lessonSlug' component={ LessonContainer } />
+export default (() => {
+  return (
+    <Router history={ hashHistory } onUpdate={ logPageView }>
+      <Route component={ MainContainer }>
+        <Route path='/'>
+          <IndexRoute component={ CourseContainer }  />
+          <Route path='lesson' component={ LessonLayout }>
+            <Route path=':lessonSlug' component={ LessonContainer } />
+          </Route>
+          <Route path='/instructors/:slug' component={ InstructorContainer } />
+          <Route path='quiz' component={ QuizContainer } />
         </Route>
-        <Route path='/instructors/:slug' component={ InstructorContainer } />
-        <Route path='quiz' component={ QuizContainer } />
       </Route>
-    </Route>
-  </Router>
-);
+    </Router>
+  );
+})();

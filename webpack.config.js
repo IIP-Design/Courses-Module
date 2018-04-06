@@ -24,9 +24,10 @@ module.exports = {
     chunkFilename: '[name].bundle.js'
   },
 	optimization: {
+    runtimeChunk: true,
 		splitChunks: {
       chunks: 'all'
-		}
+    }
 	},
   resolve: {
     alias: {
@@ -60,20 +61,6 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.js$/,
-        use: [
-          {
-            loader: 'eslint-loader',
-            options: {
-              cache: true,
-              configFile: path.join(__dirname, '.eslintrc')
-            }
-          }
-        ],
-        exclude: [path.join(__dirname, 'node_modules')]
-      },
-      {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: [path.join(__dirname, 'node_modules')]
@@ -85,7 +72,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
+              importLoaders: 2
             }
           },
           'postcss-loader',

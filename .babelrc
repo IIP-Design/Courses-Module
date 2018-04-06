@@ -2,12 +2,27 @@
   "presets": [
     ["env", {
       "targets": {
-        "browsers": ["> 1%", "last 3 IE versions"]
+        "chrome": "49",
+        "android": "4.4",
+        "edge": "13",
+        "firefox": "52",
+        "ie": "9",
+        "ios": "9.3",
+        "safari": "9.1",
+        "browsers": ["> 1%", "last 3 versions"]
       },
-      "useBuiltIns": "entry",
+      "useBuiltIns": true,
+      "modules": false,
       "debug": true
     }],
     "react"
   ],
-  "plugins": ["syntax-dynamic-import"]
+  "plugins": [
+    ["syntax-dynamic-import"],
+    ["transform-imports"],
+    ["transform-react-remove-prop-types", {
+      "mode": "wrap",
+      "ignoreFilenames": ["node_modules"]
+    }]
+  ]
 }

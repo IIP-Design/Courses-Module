@@ -6,15 +6,40 @@ var cleanup = require('webpack-cleanup-plugin');
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: ['babel-polyfill', path.join(__dirname, 'app/src', 'index.js')],
+  entry: {
+    app: [path.join(__dirname, 'app/src', 'index.js')],
+    common: [
+      'babel-polyfill',
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router',
+      'react-router-redux',
+      'redux',
+      'redux-thunk'
+    ]
+  },
   output: {
     path: path.join(__dirname, 'app/dist'),
     publicPath: path.join(__dirname, 'app/dist'),
-    filename: 'bundle.[hash].js'
+    filename: '[name].bundle.[hash].js',
+    chunkFilename: '[name].bundle.[hash].js'
   },
+	optimization: {
+    runtimeChunk: true,
+		splitChunks: {
+      chunks: 'all'
+		}
+	},
   resolve: {
     alias: {
-      App: path.resolve(__dirname, 'app/src/App')
+      root: path.resolve(__dirname, 'app/src'),
+      App: path.resolve(__dirname, 'app/src/App'),
+      Course: path.resolve(__dirname, 'app/src/Course'),
+      Instructor: path.resolve(__dirname, 'app/src/Instructor'),
+      Language: path.resolve(__dirname, 'app/src/Language'),
+      Lesson: path.resolve(__dirname, 'app/src/Lesson'),
+      Quiz: path.resolve(__dirname, 'app/src/Quiz')
     },
     extensions: ['.js', '.jsx', '.json']
   },
@@ -32,7 +57,8 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
+              importLoaders: 2,
+              minimize: true
             }
           },
           'postcss-loader',
