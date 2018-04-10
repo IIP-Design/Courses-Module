@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { RadioChoiceContainer } from 'Quiz/components/dynamic';
 
 
-const { number, array, string } = React.PropTypes;
+const { number, array, string } = PropTypes;
 
 
 /*

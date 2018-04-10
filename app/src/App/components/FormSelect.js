@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const { string, func } = React.PropTypes;
+const { string, func } = PropTypes;
 
 
 /*

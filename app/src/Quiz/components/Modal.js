@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const { func, bool, node, object } = React.PropTypes;
+const { func, bool, node, object } = PropTypes;
 
 require('Quiz/components/stylesheets/Modal.scss');
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
+import PropTypes from 'prop-types';
 import { flattenArray } from 'App/helpers';
 
 import { QuestionList,
@@ -10,7 +11,7 @@ import { QuestionList,
 import { clearState } from 'root/sessionStorage.js';
 
 
-const { array, func, number, string, object } = React.PropTypes;
+const { array, func, number, string, object } = PropTypes;
 
 
 /*

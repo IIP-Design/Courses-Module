@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import shortid from 'shortid';
 
 require('Lesson/components/stylesheets/Media.scss');
 require('Lesson/components/stylesheets/LessonTabs.scss');
 
-const { string, array, object } = React.PropTypes;
+const { string, array, object } = PropTypes;
 
 
 /*

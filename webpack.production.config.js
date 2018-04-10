@@ -10,6 +10,7 @@ module.exports = {
     app: [path.join(__dirname, 'app/src', 'index.js')],
     common: [
       'babel-polyfill',
+      'prop-types',
       'react',
       'react-dom',
       'react-redux',

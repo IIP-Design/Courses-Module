@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 require('Course/components/stylesheets/InstructorList.scss');
 
-const { array } = React.PropTypes;
+const { array } = PropTypes;
 
 /*
  * The InstructorList component

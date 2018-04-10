@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
 import { Instructor } from 'Instructor/components/dynamic';
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 
 
 /*

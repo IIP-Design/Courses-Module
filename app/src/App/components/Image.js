@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { sprintf } from 'sprintf-js';
 import { sortBy } from 'App/helpers';
 
-const { string, number, array } = React.PropTypes;
+const { string, number, array } = PropTypes;
 
 class Image extends React.Component {
   constructor(props) {

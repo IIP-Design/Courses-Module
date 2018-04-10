@@ -1,7 +1,8 @@
 import React from 'react';
 import Accordion from 'aria-accordion';
+import PropTypes from 'prop-types';
 
-const { string, array } = React.PropTypes;
+const { string, array } = PropTypes;
 
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Collapse,
          CollapseItem,
          CollapsePanel,
@@ -6,7 +7,7 @@ import { Collapse,
 
 require('Lesson/components/stylesheets/Glossary.scss')
 
-const { array } = React.PropTypes;
+const { array } = PropTypes;
 
 
 /*

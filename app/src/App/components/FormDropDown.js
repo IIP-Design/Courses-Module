@@ -1,8 +1,9 @@
 import React from 'react';
 import shortid from 'shortid';
+import PropTypes from 'prop-types';
 
 
-const { string, array } = React.PropTypes;
+const { string, array } = PropTypes;
 
 
 /*

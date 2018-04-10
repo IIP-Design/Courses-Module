@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
-const { string } = React.PropTypes;
+const { string } = PropTypes;
 
 
 const QuizBtn = props => <input type="submit" value={ props.value } />;

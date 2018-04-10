@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 require('Instructor/components/stylesheets/Instructor.scss');
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 
 
 /*

@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ChoiceList } from 'Quiz/components/dynamic';
 
-const { string, number, bool, array } = React.PropTypes;
+const { string, number, bool, array } = PropTypes;
 
 
 /*

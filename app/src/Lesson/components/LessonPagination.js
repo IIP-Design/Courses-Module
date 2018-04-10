@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 
 require('Lesson/components/stylesheets/LessonPagination.scss');
 
-const { array, number } = React.PropTypes;
+const { array, number } = PropTypes;
 
 
 /*

@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { flattenArray } from 'App/helpers';
 
 import { Quiz } from 'Quiz/components/dynamic';
 
 
-const { array, string } = React.PropTypes;
+const { array, string } = PropTypes;
 
 
 /*

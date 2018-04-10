@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 require('App/components/stylesheets/LessonLayout.scss');
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 
 
 /*

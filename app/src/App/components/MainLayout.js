@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 require('App/components/stylesheets/MainLayout.scss');
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 
 /*
  * The component that provides much of the global styles.

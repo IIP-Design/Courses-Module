@@ -8,6 +8,7 @@ module.exports = {
     app: ['./app/src'],
     common: [
       'babel-polyfill',
+      'prop-types',
       'react',
       'react-dom',
       'react-redux',

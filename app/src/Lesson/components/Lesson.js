@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { YouTube,
          Breadcrumbs,
          Glossary,
@@ -6,7 +7,7 @@ import { YouTube,
          ButtonNav,
          LessonPagination } from 'Lesson/components/dynamic';
 
-const { object, array, string } = React.PropTypes;
+const { object, array, string } = PropTypes;
 
 
 /*

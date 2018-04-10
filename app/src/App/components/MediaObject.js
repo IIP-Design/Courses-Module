@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 
 require('App/components/stylesheets/MediaObject.scss');
 
-const { string, bool, object } = React.PropTypes;
+const { string, bool, object } = PropTypes;
 
 
 /*

@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { setUserAnswer } from 'Quiz/actions';
 import { RadioChoice } from 'Quiz/components/dynamic';
 
 
-const { array, func, object, string } = React.PropTypes;
+const { array, func, object, string } = PropTypes;
 
 
 /*

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
 import { StepsList } from 'App/components/dynamic';
@@ -9,7 +10,7 @@ import { LessonList, InstructorList } from 'Course/components/dynamic';
 require('Course/components/stylesheets/Course.scss');
 
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 
 
 /*

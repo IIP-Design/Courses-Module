@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { flattenArray } from 'App/helpers';
 
 import { incrementNumAttempts, resetQuiz } from 'Quiz/actions';
 import { QuizForm } from 'Quiz/components/dynamic';
 
 
-const { array, func, number, string } = React.PropTypes;
+const { array, func, number, string } = PropTypes;
 
 
 /*
