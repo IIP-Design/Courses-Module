@@ -5,7 +5,7 @@ import { Collapse,
          CollapsePanel,
          CollapseTrigger } from 'App/components/Collapse';
 
-require('Lesson/components/stylesheets/Glossary.scss')
+import 'Lesson/components/stylesheets/Glossary.scss';
 
 const { array } = PropTypes;
 

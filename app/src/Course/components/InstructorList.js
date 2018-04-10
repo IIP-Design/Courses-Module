@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
-require('Course/components/stylesheets/InstructorList.scss');
+import 'Course/components/stylesheets/InstructorList.scss';
 
 const { array } = PropTypes;
 

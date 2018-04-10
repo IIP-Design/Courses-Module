@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-require('Lesson/components/stylesheets/LessonPagination.scss');
+import 'Lesson/components/stylesheets/LessonPagination.scss';
 
 const { array, number } = PropTypes;
 

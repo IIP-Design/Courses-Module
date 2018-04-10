@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-require('Instructor/components/stylesheets/Instructor.scss');
+import 'Instructor/components/stylesheets/Instructor.scss';
 
 const { object } = PropTypes;
 

@@ -7,7 +7,7 @@ import { StepsList } from 'App/components/dynamic';
 import { LessonList, InstructorList } from 'Course/components/dynamic';
 
 
-require('Course/components/stylesheets/Course.scss');
+import 'Course/components/stylesheets/Course.scss';
 
 
 const { object } = PropTypes;

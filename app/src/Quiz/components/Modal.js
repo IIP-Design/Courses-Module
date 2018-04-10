@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const { func, bool, node, object } = PropTypes;
 
-require('Quiz/components/stylesheets/Modal.scss');
+import 'Quiz/components/stylesheets/Modal.scss';
 
 const Modal = props => {
   const { show,

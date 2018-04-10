@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { QuizLessons, QuizFormContainer } from 'Quiz/components/dynamic';
 
-require('Quiz/components/stylesheets/Quiz.scss');
+import 'Quiz/components/stylesheets/Quiz.scss';
 
 
 const { array, string, object } = PropTypes;

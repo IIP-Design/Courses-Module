@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import shortid from 'shortid';
 
-require('Lesson/components/stylesheets/Media.scss');
-require('Lesson/components/stylesheets/LessonTabs.scss');
+import 'Lesson/components/stylesheets/Media.scss';
+import 'Lesson/components/stylesheets/LessonTabs.scss';
 
 const { string, array, object } = PropTypes;
 

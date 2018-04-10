@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { sprintf } from 'sprintf-js';
 import { MediaObject } from 'Course/components/dynamic';
 
-require('Course/components/stylesheets/LessonList.scss');
+import 'Course/components/stylesheets/LessonList.scss';
 
 
 const { array } = PropTypes;
