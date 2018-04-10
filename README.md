@@ -1,3 +1,3 @@
-# Courses Module Hola
+# Courses Module 
 
 Holds the course module base code
