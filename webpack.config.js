@@ -10,10 +10,8 @@ module.exports = {
       'babel-polyfill',
       'prop-types',
       'react',
-      'react-dom',
       'react-redux',
       'react-router',
-      'react-router-redux',
       'redux',
       'redux-thunk'
     ]

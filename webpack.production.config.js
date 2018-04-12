@@ -12,17 +12,15 @@ module.exports = {
       'babel-polyfill',
       'prop-types',
       'react',
-      'react-dom',
       'react-redux',
       'react-router',
-      'react-router-redux',
       'redux',
       'redux-thunk'
     ]
   },
   output: {
-    path: path.join(__dirname, 'app/dist'),
-    publicPath: path.join(__dirname, 'app/dist'),
+    path: path.join(__dirname, 'app/dist/'),
+    publicPath: path.join(__dirname, 'app/dist/'),
     filename: '[name].bundle.[hash].js',
     chunkFilename: '[name].bundle.[hash].js'
   },
