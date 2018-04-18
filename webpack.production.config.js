@@ -1,7 +1,7 @@
 var path = require('path');
-var webpack = require('webpack');
 var cleanup = require('webpack-cleanup-plugin');
 
+const MODULE_PATH = 'https://iip-design-dev-modules.s3.amazonaws.com/';
 
 module.exports = {
   mode: 'production',
@@ -20,7 +20,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'app/dist/'),
-    publicPath: path.join(__dirname, 'app/dist/'),
+    publicPath: path.join(MODULE_PATH, 'modules/cdp-module-course/'),
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js'
   },
