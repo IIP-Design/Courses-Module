@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { QuizLessons, QuizFormContainer } from 'Quiz/components/dynamic';
+import QuizLessons from 'Quiz/components/QuizLessons';
+import QuizFormContainer from 'Quiz/containers/QuizFormContainer';
 
 import 'Quiz/components/stylesheets/Quiz.scss';
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Lesson } from 'Lesson/components/dynamic';
+
+import Lesson from 'Lesson/components/Lesson';
 
 
 const { array } = PropTypes;

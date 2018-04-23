@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { setUserAnswer } from 'Quiz/actions';
-import { RadioChoice } from 'Quiz/components/dynamic';
+import RadioChoice from 'Quiz/components/RadioChoice';
 
 
 const { array, func, object, string } = PropTypes;

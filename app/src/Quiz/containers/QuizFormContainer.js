@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { flattenArray } from 'App/helpers';
 
 import { incrementNumAttempts, resetQuiz } from 'Quiz/actions';
-import { QuizForm } from 'Quiz/components/dynamic';
+import QuizForm from 'Quiz/components/QuizForm';
 
 
 const { array, func, number, string } = PropTypes;

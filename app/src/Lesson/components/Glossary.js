@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Collapse,
          CollapseItem,
          CollapsePanel,
-         CollapseTrigger } from 'App/components/Collapse';
+         CollapseTrigger } from 'Lesson/components/Collapse';
 
 import 'Lesson/components/stylesheets/Glossary.scss';
 

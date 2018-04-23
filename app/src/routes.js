@@ -1,12 +1,44 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import CourseReactGA from 'react-ga';
+import Loadable from 'react-loadable';
 
-import { MainContainer, LessonLayout } from 'App';
+import Loading from 'App/components/Loading';
+import { MainContainer } from 'App';
 import { CourseContainer } from 'Course';
-import { LessonContainer } from 'Lesson';
-import { InstructorContainer } from 'Instructor';
-import { QuizContainer } from 'Quiz';
+
+
+const LessonLayout = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'LessonLayout' */
+    'Lesson/components/LessonLayout'
+  ),
+  loading: Loading
+});
+
+const LessonContainer = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'LessonContainer' */
+    'Lesson/containers/LessonContainer'
+  ),
+  loading: Loading
+});
+
+const InstructorContainer = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'InstructorContainer' */
+    'Instructor/containers/InstructorContainer'
+  ),
+  loading: Loading
+});
+
+const QuizContainer = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'QuizContainer' */
+    'Quiz/containers/QuizContainer'
+  ),
+  loading: Loading
+});
 
 
 /*

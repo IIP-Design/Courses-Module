@@ -1,5 +1,5 @@
 import React from 'react';
-import { Step } from 'App/components/dynamic';
+import Step from 'App/components/Step';
 
 import 'App/components/stylesheets/StepsList.scss';
 

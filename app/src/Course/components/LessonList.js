@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 import { sprintf } from 'sprintf-js';
-import { MediaObject } from 'Course/components/dynamic';
+import { MediaObject } from 'App';
 
 import 'Course/components/stylesheets/LessonList.scss';
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { YouTube,
-         Breadcrumbs,
-         Glossary,
-         LessonTabs,
-         ButtonNav,
-         LessonPagination } from 'Lesson/components/dynamic';
+import YouTube from 'react-youtube';
+
+import { Breadcrumbs } from 'App';
+import Glossary from 'Lesson/components/Glossary';
+import LessonTabs from 'Lesson/components/LessonTabs';
+import ButtonNav from 'Lesson/components/ButtonNav';
+import LessonPagination from 'Lesson/components/LessonPagination';
 
 const { object, array, string } = PropTypes;
 

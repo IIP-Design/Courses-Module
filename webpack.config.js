@@ -6,15 +6,8 @@ module.exports = {
   context: __dirname,
   entry: {
     app: ['./app/src'],
-    common: [
-      'babel-polyfill',
-      'prop-types',
-      'react',
-      'react-redux',
-      'react-router',
-      'redux',
-      'redux-thunk'
-    ]
+    lesson: ['./app/src/Lesson'],
+    quiz: ['./app/src/Quiz']
   },
   output: {
     path: path.join(__dirname, 'app/src/build'),
@@ -23,11 +16,10 @@ module.exports = {
     chunkFilename: '[name].bundle.js'
   },
 	optimization: {
-    runtimeChunk: true,
 		splitChunks: {
       chunks: 'all'
     }
-	},
+  },
   resolve: {
     alias: {
       root: path.resolve(__dirname, 'app/src'),

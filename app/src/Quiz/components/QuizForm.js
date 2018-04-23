@@ -1,17 +1,33 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
-import { flattenArray } from 'App/helpers';
+import Loadable from 'react-loadable';
 
-import { QuestionList,
-         QuizBtn,
-         Modal,
-         Notification } from 'Quiz/components/dynamic';
+import { flattenArray } from 'App/helpers';
+import Loading from 'App/components/Loading';
+import QuestionList from 'Quiz/components/QuestionList';
+import QuizBtn from 'Quiz/components/QuizBtn';
 import { clearState } from 'root/sessionStorage.js';
 
 
 const { array, func, number, string, object } = PropTypes;
+
+
+const Modal = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'Modal' */
+    'Quiz/components/Modal'
+  ),
+  loading: Loading
+});
+
+const Notification = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'Notification' */
+    'react-notification/dist/notification'
+  ),
+  loading: Loading
+});
 
 
 /*

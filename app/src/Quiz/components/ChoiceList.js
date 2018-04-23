@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { RadioChoiceContainer } from 'Quiz/components/dynamic';
+import RadioChoiceContainer from 'Quiz/containers/RadioChoiceContainer';
 
 
 const { number, array, string } = PropTypes;

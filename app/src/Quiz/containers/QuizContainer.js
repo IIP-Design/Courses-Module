@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { flattenArray } from 'App/helpers';
 
-import { Quiz } from 'Quiz/components/dynamic';
+import Quiz from 'Quiz/components/Quiz';
 
 
 const { array, string } = PropTypes;

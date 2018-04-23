@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
-import { Question } from 'Quiz/components/dynamic';
+import Question from 'Quiz/components/Question';
 
 
 const { array } = PropTypes;

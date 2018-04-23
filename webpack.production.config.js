@@ -1,31 +1,23 @@
 var path = require('path');
 var cleanup = require('webpack-cleanup-plugin');
 
-const MODULE_PATH = 'https://iip-design-dev-modules.s3.amazonaws.com/';
+const COURSE_MODULE_PATH = 'https://iip-design-dev-modules.s3.amazonaws.com/modules/cdp-module-course/';
 
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
   entry: {
     app: [path.join(__dirname, 'app/src', 'index.js')],
-    common: [
-      'babel-polyfill',
-      'prop-types',
-      'react',
-      'react-redux',
-      'react-router',
-      'redux',
-      'redux-thunk'
-    ]
+    lesson: [path.join(__dirname, 'app/src/Lesson')],
+    quiz: [path.join(__dirname, 'app/src/Quiz')]
   },
   output: {
     path: path.join(__dirname, 'app/dist/'),
-    publicPath: path.join(MODULE_PATH, 'modules/cdp-module-course/'),
+    publicPath: COURSE_MODULE_PATH,
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js'
   },
 	optimization: {
-    runtimeChunk: true,
 		splitChunks: {
       chunks: 'all'
 		}

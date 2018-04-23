@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
-import { Instructor } from 'Instructor/components/dynamic';
+import Instructor from 'Instructor/components/Instructor';
 
 const { object } = PropTypes;
 

@@ -3,8 +3,9 @@ import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
-import { StepsList } from 'App/components/dynamic';
-import { LessonList, InstructorList } from 'Course/components/dynamic';
+import StepsList from 'App/components/StepsList';
+import LessonList from 'Course/components/LessonList';
+import InstructorList from 'Course/components/InstructorList';
 
 
 import 'Course/components/stylesheets/Course.scss';

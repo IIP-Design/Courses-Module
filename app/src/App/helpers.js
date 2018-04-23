@@ -1,7 +1,3 @@
-import Loadable from 'react-loadable';
-import Loading from 'App/components/Loading';
-
-
 export const sortBy = (key, order='asc') => {
   return function(a, b) {
     // if property doesn't exist on either object
@@ -48,14 +44,3 @@ export const flattenArray = (array, property) => {
 //   });
 //   return array;
 // };
-
-
-export const DynamicImport = opts => {
-  let defaultOpts = {
-    loading: Loading,
-    delay: 400,
-    timeout: 5000
-  };
-
-  return Loadable(Object.assign(defaultOpts, opts));
-};
