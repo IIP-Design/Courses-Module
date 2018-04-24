@@ -38,7 +38,7 @@ const Notification = Loadable({
  * @since 2.0.0
  */
 
-class QuizForm extends React.Component{
+class QuizForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -333,7 +333,7 @@ class QuizForm extends React.Component{
     const { language,
             questions,
             numAttempts } = this.props;
-            
+
     const { quizAgree,
             quizCert,
             quizBtn,
@@ -351,7 +351,7 @@ class QuizForm extends React.Component{
             isModalOpen } = this.state;
 
     return (
-      <div>
+      <div style={ { position: 'relative' } }>
         <form id='formQuiz' onSubmit={ this.handleSubmit }>
           <div className='quiz-agrmt'>{ quizAgree } <span className='quiz-required'>*</span></div>
           <label htmlFor='certify'>
@@ -369,6 +369,7 @@ class QuizForm extends React.Component{
 
         { isNotificationActive &&
           <Notification
+            barStyle={ { position: 'absolute' } }
             isActive={ isNotificationActive }
             message={ quizAnswer }
             action={ quizDismiss }
