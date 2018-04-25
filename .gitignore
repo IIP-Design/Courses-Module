@@ -5,7 +5,8 @@ node_modules
 .nyc_output/
 coverage/
 app/_ref
-app/src/build
+app/src/build/
+app/dist/
 what-to-do-with-grassroots-once-you-have-them/index.html
 index.html
 app/src/data/
