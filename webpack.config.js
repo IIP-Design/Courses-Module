@@ -17,7 +17,8 @@ module.exports = {
   },
 	optimization: {
 		splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      automaticNameDelimiter: '-'
     }
   },
   resolve: {
@@ -37,7 +38,7 @@ module.exports = {
     port: 4080,
     historyApiFallback: true,
     compress: true,
-    hotOnly: true
+    hot: true
   },
   stats: {
     colors: true,

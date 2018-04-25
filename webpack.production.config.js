@@ -19,7 +19,8 @@ module.exports = {
   },
 	optimization: {
 		splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      automaticNameDelimiter: '-'
 		}
 	},
   resolve: {
