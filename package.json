@@ -9,8 +9,11 @@
   "scripts": {
     "dev": "webpack -d",
     "watch": "webpack --watch",
-    "build": "webpack -p --config webpack.production.config.js",
     "serve": "webpack-dev-server",
+    "build": "webpack -p --config webpack.production.config.js --progress --bail",
+    "build:dev": "npm run build -- --env.BUCKET=dev",
+    "build:stage": "npm run build -- --env.BUCKET=stage",
+    "build:prod": "npm run build -- --env.BUCKET=prod",
     "lint": "eslint app/src/ || true",
     "test": "mocha -w --require test/helpers/browser.js"
   },
