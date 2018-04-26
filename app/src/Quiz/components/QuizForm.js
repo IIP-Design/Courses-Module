@@ -9,9 +9,7 @@ import QuestionList from 'Quiz/components/QuestionList';
 import QuizBtn from 'Quiz/components/QuizBtn';
 import { clearState } from 'root/sessionStorage.js';
 
-
 const { array, func, number, string, object } = PropTypes;
-
 
 const Modal = Loadable({
   loader: () => import(
@@ -51,6 +49,7 @@ class QuizForm extends React.Component {
     this.maxAttempts = 5;
 
     this.state = {
+      isCertified: false,
       isNotificationActive: false,
       numIncorrect: 0,
       attemptsClassname: 'quiz-hide quiz-attempts',
@@ -72,6 +71,7 @@ class QuizForm extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleNotification = this.handleNotification.bind(this);
+    this.handleCertAgreement = this.handleCertAgreement.bind(this);
   }
 
 
@@ -276,10 +276,9 @@ class QuizForm extends React.Component {
             incrementNumAttempts } = this.props;
 
 		// All questions not answered, show notification
-		if (!this.isAllAnswered()) {
+		if (!this.isAllAnswered() || !this.state.isCertified) {
 		  this.toggleNotification();
-      return;
-		}
+    }
 
 		// All questions answered correctly, send to cert screen
 		else if (this.scoreQuiz().length === questions.length)  {
@@ -290,7 +289,7 @@ class QuizForm extends React.Component {
 		else {
 
       // If max attempts reached, show the modal
-      if( numAttempts === (this.maxAttempts -1) ) {
+      if ( numAttempts === (this.maxAttempts -1) ) {
         this.toggleModal();
       // Else notify user of mistakes
 			} else {
@@ -329,6 +328,15 @@ class QuizForm extends React.Component {
     this.setState({ isNotificationActive: false });
   }
 
+  /*
+   * Handle certificate agreement checkbox
+   *
+   * @since version TBD
+   */  
+  handleCertAgreement() {
+    this.setState({ isCertified: !this.state.isCertified });
+  }
+
   render() {
     const { language,
             questions,
@@ -341,6 +349,7 @@ class QuizForm extends React.Component {
             quizAttemptsRemain,
             quizAttempts,
             quizAnswer,
+            quizCertAlert,
             quizDismiss,
             noMoreAttempts } = language;
 
@@ -348,6 +357,7 @@ class QuizForm extends React.Component {
             numIncorrect,
             attemptsClassname,
             isNotificationActive,
+            isCertified,
             isModalOpen } = this.state;
 
     return (
@@ -358,7 +368,9 @@ class QuizForm extends React.Component {
             <input
               id='certify'
               type={'checkbox'}
-              name='certify' />
+              name='certify'
+              value={ isCertified }
+              onChange={ this.handleCertAgreement } />
             { quizCert }
           </label>
           <QuestionList questions={ questions }/>
@@ -369,12 +381,17 @@ class QuizForm extends React.Component {
 
         { isNotificationActive &&
           <Notification
-            barStyle={ { position: 'absolute' } }
+            barStyle={ {
+              position: 'absolute',
+              left: '0',
+              bottom: '1rem',
+              zIndex: '10'
+            } }
             isActive={ isNotificationActive }
-            message={ quizAnswer }
+            message={ isCertified ? quizAnswer : quizCertAlert }
             action={ quizDismiss }
             onDismiss={ this.toggleNotification }
-            dismissAfter = { 3500 }
+            dismissAfter={ 5500 }
             onClick={ this.handleNotification }/>
         }
 

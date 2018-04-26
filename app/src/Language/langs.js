@@ -30,6 +30,7 @@ const data = {
     "quizAttempts": "Five failed attempts to correctly answer all of the questions will return you to the first lesson.",
     "quizAgree": "Certificate Agreement",
     "quizCert": "I certify that I have taken all the lessons related to this quiz before obtaining the certificate.",
+    "quizCertAlert": "Please certify that you have taken all the lessons related to this quiz before obtaining the certificate.",
     "quizBtn": "Submit and get certificate",
     "quizAnswer": "Please answer all the questions",
     "quizDismiss": "DISMISS",
