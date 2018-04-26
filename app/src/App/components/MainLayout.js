@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import 'App/components/stylesheets/MainLayout.scss';
+import Preloader from 'App/components/Preloader';
 
 const { object } = PropTypes;
 
@@ -20,27 +20,7 @@ const MainLayout = (props) => {
 
   return (
     <div className="app">
-      <div className={ isFetching ? 'show' : 'hide' }>
-        <div className="preloader">
-          <div className="pl-msg">
-            <div className="pl-msg_txt">Just a moment, loading...</div>
-          </div>
-          <div className="pl-header"></div>
-          <div className="pl-course-image"></div>
-          <div className="pl-course-content">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div className="pl-course-button"></div>
-          </div>
-        </div>
-      </div>
-      <div className={ isFetching ? 'hide' : 'show' }>
-        <main>
-          { children }
-        </main>
-      </div>
+      { isFetching ? <Preloader /> : <main>{ children }</main> }
     </div>
   );
 };
