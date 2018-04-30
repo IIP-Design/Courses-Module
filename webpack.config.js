@@ -12,8 +12,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'app/src/build'),
     publicPath: '/app/src/build/',
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js'
+    filename: 'cdp-course-[name].js',
+    chunkFilename: 'cdp-course-[name].js'
   },
 	optimization: {
 		splitChunks: {

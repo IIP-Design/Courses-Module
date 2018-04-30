@@ -1,24 +1,27 @@
 const path = require('path');
 const cleanup = require('webpack-cleanup-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = (env) => {
   const subDir = 'modules/cdp-module-course/';
-  let CDP_MODULE_PATH;
+  let CDP_MODULE_PATH = path.join(__dirname, 'app/dist/');
 
-  switch (env.BUCKET) {
-    case 'dev':
-    case 'stage':
-      CDP_MODULE_PATH = `https://iip-design-${env.BUCKET}-modules.s3.amazonaws.com/${subDir}`;
-      break;
+  if (env) {
+    switch (env.BUCKET) {
+      case 'dev':
+      case 'stage':
+        CDP_MODULE_PATH = `https://iip-design-${env.BUCKET}-modules.s3.amazonaws.com/${subDir}`;
+        break;
 
-    case 'prod':
-      CDP_MODULE_PATH = `https://iipdesignmodules.america.gov/${subDir}`;
-      break;
+      case 'prod':
+        CDP_MODULE_PATH = `https://iipdesignmodules.america.gov/${subDir}`;
+        break;
 
-    default:
-      CDP_MODULE_PATH = `https://iip-design-dev-modules.s3.amazonaws.com/${subDir}`;
-      break;
+      default:
+        CDP_MODULE_PATH = `https://iip-design-dev-modules.s3.amazonaws.com/${subDir}`;
+        break;
+    }
   }
 
   return {
@@ -32,8 +35,8 @@ module.exports = (env) => {
     output: {
       path: path.join(__dirname, 'app/dist/'),
       publicPath: CDP_MODULE_PATH,
-      filename: '[name].bundle.js',
-      chunkFilename: '[name].bundle.js'
+      filename: 'cdp-course-[name].js',
+      chunkFilename: 'cdp-course-[name].js'
     },
     optimization: {
       splitChunks: {
@@ -63,7 +66,7 @@ module.exports = (env) => {
         {
           test: /\.scss$/,
           use: [
-            'style-loader',
+            MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
               options: {
@@ -84,6 +87,10 @@ module.exports = (env) => {
       ]
     },
     plugins: [
+      new MiniCssExtractPlugin({
+        filename: 'cdp-course-[name].css',
+        chunkFilename: 'cdp-course-[name].css'
+      }),
       new cleanup()
     ]
   };
