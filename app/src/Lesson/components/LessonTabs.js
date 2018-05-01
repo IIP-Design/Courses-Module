@@ -15,24 +15,20 @@ const { string, array, object } = PropTypes;
  * @since 1.0.0
  */
 
-const LessonTabs = props => {
-  const rawDescription = props => {
-    return {  __html: props.description };
-  }
+const LessonTabs = (props) => {
+  const rawDescription = () => {
+    return { __html: props.description };
+  };
 
-  const rawTranscript = props => {
+  const rawTranscript = () => {
     return { __html: props.transcript };
-  }
-
-  const isEmpty = array => {
-    return array.length === 0;
-  }
+  };
 
   const hasProp = (obj, prop) => {
     return Object.prototype.hasOwnProperty.call(obj, prop) && obj[prop].length > 0;
-  }
+  };
 
-  const renderResource = resource => {
+  const renderResource = (resource) => {
     const { url,
             src,
             src_type,
@@ -44,7 +40,7 @@ const LessonTabs = props => {
       fileinfo = '';
     } else {
       href = src; 
-      fileinfo = `[${src_type}, ${src_size}]`;
+      fileinfo = `[${ src_type }, ${ src_size }]`;
     }
 
     return (
@@ -55,8 +51,8 @@ const LessonTabs = props => {
           target='_blank'>{ resource.title }</a>
         <span className='resource-fileinfo'> { fileinfo }</span>
       </li>
-    )
-  }
+    );
+  };
 
   const { language,
           resources,
@@ -68,7 +64,7 @@ const LessonTabs = props => {
           print } = language;
 
   let resourcesList;
-  if (resources !== false) {
+  if (resources) {
     resourcesList = resources.map(renderResource);
   }
 
@@ -77,19 +73,12 @@ const LessonTabs = props => {
       <TabList>
         <Tab>{ overview }</Tab>
         <Tab>{ transcript }</Tab>
-
-        { resources === false
-          ? null
-          : <Tab>{ language.resources }</Tab> }
-
-        { hasProp( audio, 'src')
-          ? <Tab>{ language.audio }</Tab>
-          : null }
-
+        { resources && <Tab>{ language.resources }</Tab> }
+        { hasProp(audio, 'src') && <Tab>{ language.audio }</Tab> }
       </TabList>
 
       <TabPanel>
-        <div dangerouslySetInnerHTML={ rawDescription( props ) }></div>
+        <div dangerouslySetInnerHTML={ rawDescription(props) } />
       </TabPanel>
 
       <TabPanel>
@@ -97,27 +86,25 @@ const LessonTabs = props => {
           <p>
             <a
               href={ transcriptFile }
-              target="_blank"
-              className="print">{ print }</a>
+              target='_blank'
+              className='print'>{ print }</a>
           </p>
-          <div dangerouslySetInnerHTML={ rawTranscript( props ) }></div>
+          <div dangerouslySetInnerHTML={ rawTranscript( props ) } />
         </div>
       </TabPanel>
 
-      { resources === false
-        ? null
-        : <TabPanel>
-            <ul>{ resourcesList }</ul>
-          </TabPanel> }
+      { resources &&
+        <TabPanel>
+          <ul>{ resourcesList }</ul>
+        </TabPanel> }
 
-      { hasProp( audio, 'src')
-        ? <TabPanel>
-            <audio
-              controls
-              src={ audio.src } 
-              className="course-audio-player"></audio>
-          </TabPanel>
-        : null }
+      { hasProp(audio, 'src') &&
+        <TabPanel>
+          <audio
+            controls
+            src={ audio.src } 
+            className='course-audio-player' />
+        </TabPanel> }
     </Tabs>
   );
 };

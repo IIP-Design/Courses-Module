@@ -13,9 +13,9 @@ const initialState = {
 
 
 const dispatchOnReadyEvent = () => {
-  var event = new CustomEvent('onReadyModule', {bubbles: true,  cancelable: true});
+  const event = new CustomEvent('onReadyModule', { bubbles: true,  cancelable: true });
   console.log('LOG: dispatch event - onReadyModule');
-  dispatchEvent(event);  
+  dispatchEvent(event);
 };
 
 /*
@@ -39,4 +39,3 @@ export const appReducer = (state = initialState, action) => {
 
   return state;
 };
-

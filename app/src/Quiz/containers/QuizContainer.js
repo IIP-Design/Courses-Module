@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { flattenArray } from 'App/helpers';
 
 import Quiz from 'Quiz/components/Quiz';
-
 
 const { array, string } = PropTypes;
 
@@ -17,7 +17,7 @@ const { array, string } = PropTypes;
  * @since 2.0.0
  */
 
-const QuizContainer = (props) => <Quiz { ...props } />;
+const QuizContainer = props => <Quiz { ...props } />;
 
 
 QuizContainer.propTypes = {
@@ -25,8 +25,6 @@ QuizContainer.propTypes = {
   lessons: array,
   questions: array
 };
-
-
 
 
 /*
@@ -61,4 +59,3 @@ const mapStateToProps = ({ app, language }) => {
 
 
 export default connect(mapStateToProps)(QuizContainer);
-

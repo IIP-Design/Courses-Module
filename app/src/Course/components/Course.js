@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
+
 import { sortBy, uniqBy, flattenArray } from 'App/helpers';
 
 import StepsList from 'App/components/StepsList';
 import LessonList from 'Course/components/LessonList';
 import InstructorList from 'Course/components/InstructorList';
 
-
 import 'Course/components/stylesheets/Course.scss';
-
 
 const { object } = PropTypes;
 
@@ -29,7 +28,7 @@ class Course extends React.Component {
 
   componentDidMount() {
     // Scroll to the top of the window to prevent the page from "loading" in the middle
-    window.scroll(0,0);
+    window.scroll(0, 0);
   }
 
 
@@ -40,7 +39,7 @@ class Course extends React.Component {
 
   render() {
     const { course, language } = this.props;
-    const lessons = course.lessons;
+    const { lessons } = course;
     const link = lessons[0].slug;
 
     // Return a flat array of unique Instructors by id
@@ -53,7 +52,7 @@ class Course extends React.Component {
 
     if ('image' in course) {
       src = course.image.src;
-      alt = course.image.alt
+      alt = course.image.alt;
     }
 
     return (
@@ -62,14 +61,12 @@ class Course extends React.Component {
           <div className='course-intro-feature'>
             <div className='course-intro-image'>
               <img src={ src } alt={ alt } />
-              <div className='course-intro-gradient'></div>
+              <div className='course-intro-gradient' />
             </div>
             <div className='course-intro-text'>
               <h1>{ course.title }</h1>
-              <p dangerouslySetInnerHTML={ this.rawDescription() }></p>
-              <Link
-                to={ `lesson/${ link }` }
-                id={ link }>
+              <p dangerouslySetInnerHTML={ this.rawDescription() } />
+              <Link to={ `lesson/${ link }` } id={ link }>
                 <div className='course-take-course'>{ language.courseTake }</div>
               </Link>
             </div>
@@ -85,7 +82,7 @@ class Course extends React.Component {
       </div>
     );
   }
-};
+}
 
 
 Course.propTypes = {
@@ -94,4 +91,3 @@ Course.propTypes = {
 
 
 export default Course;
-

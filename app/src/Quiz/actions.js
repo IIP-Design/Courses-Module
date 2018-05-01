@@ -13,8 +13,6 @@ import * as types from './actionTypes';
  */
 
 
-
-
 /*
  * Set the user answer in the redux store
  *
@@ -50,8 +48,6 @@ export function setUserAnswer(questionId, choiceId, error) {
 }
 
 
-
-
 /*
  * An action to increment the number of attempts the user has taken the quiz
  *
@@ -63,10 +59,8 @@ export function setUserAnswer(questionId, choiceId, error) {
 export function incrementNumAttempts() {
   return {
     type: types.INCREMENT_NUM_ATTEMPTS
-  }
+  };
 }
-
-
 
 
 /*
@@ -84,6 +78,5 @@ export function resetQuiz() {
       userAnswers: [],
       numAttempts: 0
     }
-  }
+  };
 }
-

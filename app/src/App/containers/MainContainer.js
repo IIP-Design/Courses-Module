@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import store from 'root/store';
 import * as actions from 'App/actions';
 import { setLanguage } from 'Language/actions';
+
 import MainLayout from 'App/components/MainLayout';
+
 
 /*
  * The container component that is responsible for interacting with the Redux store
@@ -13,26 +15,28 @@ import MainLayout from 'App/components/MainLayout';
  * @since 2.0.0
  */
 
-class MainContainer extends React.Component{
+class MainContainer extends React.Component {
   /*
-   * When the MainContainer component mounts, it grabs the course id, performs an ajax request, and passes the response off to redux
+   * When the MainContainer component mounts, it grabs the
+   * course id, performs an ajax request, and passes the
+   * response off to redux
    *
    * @todo We might consider moving this step earlier in the application's lifecyle
    */
   componentDidMount() {
-    var url;
+    let url;
     try {
       url = args.url;
     }
     catch (e) {
       console.log('IN DEV MODE assign hardcoded value');
       url = 'https://courses.america.gov/wp-json/america/v1';
-    } 
+    }
 
     const root = document.getElementById('course-container');
     const endpoint = `${ url }/courses/${ root.dataset.courseId }`;
 
-    store.dispatch(setLanguage(root.dataset.language)); 
+    store.dispatch(setLanguage(root.dataset.language));
     store.dispatch(actions.requestData());
 
     axios.get( endpoint )
@@ -59,7 +63,7 @@ class MainContainer extends React.Component{
         language={ language } />
     );
   }
-};
+}
 
 
 /*
@@ -74,7 +78,7 @@ class MainContainer extends React.Component{
 
 const mapStateToProps = ({ app, language }) => {
   const course = app.data;
-  const isFetching = app.isFetching;
+  const { isFetching } = app;
 
 
   /*

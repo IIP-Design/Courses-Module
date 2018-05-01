@@ -5,7 +5,8 @@ const { func, bool, node, object } = PropTypes;
 
 import 'Quiz/components/stylesheets/Modal.scss';
 
-const Modal = props => {
+
+const Modal = (props) => {
   const { show,
           children,
           onClose,

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { flattenArray } from 'App/helpers';
-
 import { incrementNumAttempts, resetQuiz } from 'Quiz/actions';
-import QuizForm from 'Quiz/components/QuizForm';
 
+import QuizForm from 'Quiz/components/QuizForm';
 
 const { array, func, number, string } = PropTypes;
 
@@ -18,7 +18,7 @@ const { array, func, number, string } = PropTypes;
  * @since 2.0.0
  */
 
-const QuizFormContainer = (props) => <QuizForm { ...props }/>;
+const QuizFormContainer = props => <QuizForm { ...props } />;
 
 
 QuizFormContainer.propTypes = {
@@ -30,8 +30,6 @@ QuizFormContainer.propTypes = {
   incrementNumAttempts: func,
   resetQuiz: func
 };
-
-
 
 
 /*
@@ -68,14 +66,13 @@ const mapStateToProps = ({ quiz, app }) => {
 };
 
 
-
-
 /*
  * Standard Redux mapDispatchToProps function.
  *
  * @param {Function} dispatch - Redux dispatch function
  *
- * @return {Object} QuizContainerDispatchPropsObject - Object of callback functions mapped to the QuizFormContainer's props
+ * @return {Object} QuizContainerDispatchPropsObject - Object
+ * of callback functions mapped to the QuizFormContainer's props
  */
 
 const mapDispatchToProps = (dispatch) => {
@@ -99,4 +96,3 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizFormContainer);
-

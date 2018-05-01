@@ -20,8 +20,8 @@ const { array, number } = PropTypes;
  */
 
 const renderLinks = (lesson, index, lessonIndex) => {
-  const c1ass = ( index === lessonIndex ) ? 'active' : '';
-  const slug = lesson.slug;
+  const c1ass = (index === lessonIndex) ? 'active' : '';
+  const { slug } = lesson;
   const label = index + 1;
 
   return (
@@ -44,11 +44,7 @@ const LessonPagination = (props) => {
   const { lessons, lessonIndex } = props;
   const links = lessons.map((lesson, index) => renderLinks(lesson, index, lessonIndex));
 
-  return (
-    <ul className='lesson-pagination'>
-      { links }
-    </ul>
-  );
+  return <ul className='lesson-pagination'>{ links }</ul>;
 };
 
 
@@ -59,4 +55,3 @@ LessonPagination.propTypes = {
 
 
 export default LessonPagination;
-

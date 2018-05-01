@@ -19,7 +19,7 @@ class Image extends React.Component {
     let error = false;
     let newSrcSet = '';
 
-    srcset.forEach(function(image) {
+    srcset.forEach((image) => {
       if (image.src === undefined) {
         error = new Error('Required field "src" is undefined');
         return;
@@ -46,7 +46,7 @@ class Image extends React.Component {
     let error = false;
     let sizes = '';
 
-    srcset.forEach(function(image, index) {
+    srcset.forEach((image, index) => {
       if (image.src === undefined) {
         error = new Error('Required field "width" is undefined');
       }
@@ -65,6 +65,7 @@ class Image extends React.Component {
 
     return sizes;
   }
+
 
   render() {
     const props = this.props;

@@ -7,7 +7,6 @@ import Loading from 'App/components/Loading';
 import { MainContainer } from 'App';
 import { CourseContainer } from 'Course';
 
-
 const LessonLayout = Loadable({
   loader: () => import(
     /* webpackChunkName: 'LessonLayout' */
@@ -52,7 +51,7 @@ const QuizContainer = Loadable({
 
 function checkForTrackingCode() {
   if (!typeof ga === 'function') {
-    CourseReactGA.initialize( '[GOOGLE UA CODE]' );
+    CourseReactGA.initialize('[GOOGLE UA CODE]');
   }
 }
 
@@ -66,17 +65,17 @@ function checkForTrackingCode() {
  */
 
 function logPageView() {
-  if( this.state ) {
+  if (this.state) {
     let pathname = getPathName(this.state.location);
-    if( !~pathname.indexOf('//') ) {
+    if (!~pathname.indexOf('//')) {
       CourseReactGA.set({ page: pathname });
-      CourseReactGA.pageview( pathname );
+      CourseReactGA.pageview(pathname);
     } 
   }
 }
 
 /*
- * Extract pathname from state location information. 
+ * Extract pathname from state location information.
  *
  * @param {Object} location - state location object
  *
@@ -84,14 +83,13 @@ function logPageView() {
  */
 
 function getPathName(location) {
-  if( location.pathname == '/') {
+  if ( location.pathname === '/') {
    return window.location.pathname;
-  } else {
-   return `${window.location.pathname}${location.pathname}/`;
   }
+  return `${window.location.pathname}${location.pathname}/`;
 }
 
-checkForTrackingCode(); 
+checkForTrackingCode();
 
 /*
  * Export the router

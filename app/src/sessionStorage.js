@@ -10,20 +10,18 @@
  */
 
 export const loadState = () => {
-	try {
-		const serializedState = sessionStorage.getItem('courses_state_1483731319800');  // change name of state to something less common
+  try {
+    const serializedState = sessionStorage.getItem('courses_state_1483731319800'); // change name of state to something less common
 
     if (serializedState === null) {
       return undefined;
     }
 
-	  return JSON.parse(serializedState);
-	} catch (err) {
-	  return undefined;
-	}
-}
-
-
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined;
+  }
+};
 
 
 /*
@@ -34,13 +32,12 @@ export const loadState = () => {
  * @since 1.0.0
  */
 
-export const saveState = state => {
-	try {
-		const serializedState = JSON.stringify(state);
-		sessionStorage.setItem('courses_state_1483731319800', serializedState)
-	} catch (err) {}
-}
-
+export const saveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    sessionStorage.setItem('courses_state_1483731319800', serializedState);
+  } catch (err) {}
+};
 
 
 /*
@@ -51,8 +48,8 @@ export const saveState = state => {
  * @since 2.0.1
  */
 
-export const clearState = state => {
-	try {
-		sessionStorage.clear()
-	} catch (err) {}
-}
+export const clearState = (state) => {
+  try {
+    sessionStorage.clear();
+  } catch (err) {}
+};

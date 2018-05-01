@@ -22,10 +22,10 @@ const FormDropDown = (props) => {
           type } = props;
 
   const renderDropDown = () => {
-    return options.map(option => {
-      return <option key={ shortid.generate() }>{ option }</option>
+    return options.map((option) => {
+      return <option key={ shortid.generate() }>{ option }</option>;
     });
-  }
+  };
 
   return (
     <div className='form-drop-down'>
@@ -46,8 +46,7 @@ FormDropDown.propTypes = {
 	name: string,
 	label: string,
 	options: array
-}
+};
 
 
 export default FormDropDown;
-

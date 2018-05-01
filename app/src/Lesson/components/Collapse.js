@@ -5,17 +5,20 @@ import PropTypes from 'prop-types';
 const { string, array } = PropTypes;
 
 
-
-
 /*
- * The wrapping component for an individual collapsable component. Wraps CollapseTrigger and CollapsePanel.
+ * The wrapping component for an individual collapsable
+ * component. Wraps CollapseTrigger and CollapsePanel.
  *
  * @param {Object} props - The React props object
  *
  * @since 1.0.0
  */
 
-const CollapseItem = (props) => (<li className={ `collapse-item ${ props.className }` }>{ props.children }</li>);
+const CollapseItem = (props) => {
+  return (
+    <li className={ `collapse-item ${ props.className }` }>{ props.children }</li>
+  );
+};
 
 
 CollapseItem.propTypes = {
@@ -30,17 +33,19 @@ CollapseItem.propTypes = {
  * @since 1.0.0
  */
 
-class Collapse extends React.Component{
-  componentDidUpdate() {
-    this.initializeAccordian();
-  }
-
+class Collapse extends React.Component {
   componentDidMount() {
     this.initializeAccordian();
   }
 
+
+  componentDidUpdate() {
+    this.initializeAccordian();
+  }
+
+
   initializeAccordian() {
-    if( this.accordion ) {
+    if (this.accordion) {
       this.accordion.destroy();
     }
     const selectors = { body: '.collapse', trigger: '.trigger' };
@@ -49,10 +54,11 @@ class Collapse extends React.Component{
     this.accordion = new Accordion.Accordion(selectors, options);
   }
 
+
   render() {
     const { className, children } = this.props;
     return (
-      <ul className={`collapse ${className}`} role="tablist">
+      <ul className={ `collapse ${ className }` } role='tablist'>
         {children}
       </ul>
     );
@@ -72,23 +78,20 @@ Collapse.propTypes = {
  * @since 1.0.0
  */
 
-const CollapsePanel = props => {
-  const rawDescription = props => {
-    return { __html: props.description }
-  }
+const CollapsePanel = (props) => {
+  const rawDescription = () => ({ __html: props.description });
 
   return (
     <div
       role='tabpanel'
-      dangerouslySetInnerHTML={ rawDescription(props) }>
-    </div>
+      dangerouslySetInnerHTML={ rawDescription(props) } />
   );
 };
 
 
 CollapsePanel.propTypes = {
   description: string.isRequired
-}
+};
 
 
 /*
@@ -120,4 +123,3 @@ CollapseTrigger.propTypes = {
 
 
 export { CollapseItem, Collapse, CollapsePanel, CollapseTrigger };
-

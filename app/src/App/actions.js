@@ -42,4 +42,3 @@ export function requestData(data, error) {
     };
   }
 }
-

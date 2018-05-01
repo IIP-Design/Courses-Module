@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import RadioChoiceContainer from 'Quiz/containers/RadioChoiceContainer';
 
-
-const { number, array, string } = PropTypes;
+const { array, string } = PropTypes;
 
 
 /*
@@ -13,24 +12,22 @@ const { number, array, string } = PropTypes;
  * @since 1.0.0
  */
 
-const ChoiceList = props => {
-  const renderChoice = choice => {
-    const { id } = choice;
-    return (
-      <RadioChoiceContainer
-        key={ id }
-        choiceId={ id }
-        questionId={ questionId }
-        choice={ choice } />
-    );
-  };
-
-  const { choices, questionId } = props;
-  const choiceList = choices.map(renderChoice);
-
+const renderChoice = (choice, questionId) => {
+  const { id } = choice;
   return (
-    <ul>{ choiceList }</ul>
+    <RadioChoiceContainer
+      key={ id }
+      choiceId={ id }
+      questionId={ questionId }
+      choice={ choice } />
   );
+};
+
+const ChoiceList = (props) => {
+  const { choices, questionId } = props;
+  const choiceList = choices.map(choice => renderChoice(choice, questionId));
+
+  return <ul>{ choiceList }</ul>;
 };
 
 
@@ -42,4 +39,3 @@ ChoiceList.propTypes = {
 
 
 export default ChoiceList;
-

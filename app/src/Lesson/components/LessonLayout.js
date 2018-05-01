@@ -16,11 +16,7 @@ const { object } = PropTypes;
  * @since 1.0.0
  */
 
-const LessonLayout = (props) => (
-  <div>
-    { props.children }
-  </div>
-);
+const LessonLayout = props => <div>{ props.children }</div>;
 
 LessonLayout.propTypes = {
   children: object
@@ -28,4 +24,3 @@ LessonLayout.propTypes = {
 
 
 export default LessonLayout;
-

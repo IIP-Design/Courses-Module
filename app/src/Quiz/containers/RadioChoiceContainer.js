@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { setUserAnswer } from 'Quiz/actions';
-import RadioChoice from 'Quiz/components/RadioChoice';
 
+import RadioChoice from 'Quiz/components/RadioChoice';
 
 const { array, func, object, string } = PropTypes;
 
@@ -49,7 +49,7 @@ class RadioChoiceContainer extends React.Component {
       <RadioChoice checked={ ('choiceId' in answer) ? answer.choiceId : '' } { ...props } />
     );
   }
-};
+}
 
 
 RadioChoiceContainer.propTypes = {
@@ -66,7 +66,8 @@ RadioChoiceContainer.propTypes = {
  *
  * @param {Object} state.quiz - The quiz object in the Redux store
  *
- * @return {Object} RadioChoicContainerStatePropsObject - Data from state mapped to the RadioChoiceContainer's props
+ * @return {Object} RadioChoicContainerStatePropsObject -
+ * Data from state mapped to the RadioChoiceContainer's props
  *
  * @since 2.0.0
  */
@@ -84,24 +85,23 @@ const mapStateToProps = ({ quiz }) => {
 };
 
 
-
-
 /*
  * Standard Redux mapDispatchToProps function.
  *
  * @param {Function} dispatch - Redux dispatch function
  *
- * @return {Object} RadioChoiceContainerDispatchPropsObject - Object of callback functions mapped to the RadioChoiceContainer's props
+ * @return {Object} RadioChoiceContainerDispatchPropsObject -
+ * Object of callback functions mapped to the
+ * RadioChoiceContainer's props
  */
 
-const mapDispatchToProps = dispatch => {
-
+const mapDispatchToProps = (dispatch) => {
   /*
    * @typedef {Object} RadioChoiceContainerDispatchPropsObject
    * @property {Function} handleChange - A callback that updates a user's answer in state
    */
   return {
-    handleChange: e => {
+    handleChange: (e) => {
       const choiceId = e.target.id;
       const questionId = document.getElementById(choiceId).name;
 
@@ -112,4 +112,3 @@ const mapDispatchToProps = dispatch => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(RadioChoiceContainer);
-

@@ -11,22 +11,23 @@ const { array } = PropTypes;
  * @since 2.0.0
  */
 
-const QuizLessons = props => {
+const renderLesson = (lesson) => {
+  const { slug, title } = lesson;
+  return (
+    <li key={ slug }>
+      <Link to={ `lesson/${ slug }` }>
+        { title }
+      </Link>
+    </li>
+  );
+};
+
+
+const QuizLessons = (props) => {
   const { lessons, language } = props;
   const { quizLessons } = language;
 
-  const renderLesson = lesson => {
-    const { slug, title } = lesson;
-    return (
-      <li key={ slug }>
-        <Link to={ `lesson/${ slug }` }>
-          { title }
-        </Link>
-      </li>
-    );
-  }
-
-  const quizLessonsList = lessons.map(renderLesson);
+  const quizLessonsList = lessons.map(lesson => renderLesson(lesson));
 
   return (
     <div>
@@ -45,4 +46,3 @@ QuizLessons.propTypes = {
 
 
 export default QuizLessons;
-

@@ -23,4 +23,3 @@ const root = document.getElementById('course-container');
 ReactDOM.render(
   <Provider store={ store }>{ routes }</Provider>, root
 );
-

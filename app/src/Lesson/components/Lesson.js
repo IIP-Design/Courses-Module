@@ -20,8 +20,9 @@ const { object, array, string } = PropTypes;
 class Lesson extends React.Component {
   componentDidMount() {
     // Scroll to the top of the window to prevent the page from "loading" in the middle
-    window.scroll(0,0);
+    window.scroll(0, 0);
   }
+
 
   render() {
     const { lesson,
@@ -36,8 +37,8 @@ class Lesson extends React.Component {
           resources,
           glossary } = lesson;
 
-    const isLangEnglish = ( language.locale === 'en' ) ? 0 : 1;
-    
+    const isLangEnglish = (language.locale === 'en') ? 0 : 1;
+
     media = media || {};
     const video = (media && media.video) ? media.video : {};
     const audio = (media && media.audio) ? media.audio : {};
@@ -51,11 +52,11 @@ class Lesson extends React.Component {
 
     return (
       <div className='lesson'>
-        <div className="two-thirds first">
+        <div className='two-thirds first'>
           <h1 className='lesson-title'>{ title }</h1>
-          <Breadcrumbs courseTitle={ courseTitle } name={ title  }  />
+          <Breadcrumbs courseTitle={ courseTitle } name={ title } />
           <div className='lesson-video'>
-            <YouTube videoId={ video.video_id  } opts={ mediaOpts } />
+            <YouTube videoId={ video.video_id } opts={ mediaOpts } />
           </div>
           <div className='lesson-nav'>
             <ButtonNav
@@ -75,13 +76,13 @@ class Lesson extends React.Component {
             language={ language }
           />
         </div>
-        <div className="one-third">
+        <div className='one-third'>
           <Glossary terms={ glossary } language={ language } />
         </div>
       </div>
     );
   }
-};
+}
 
 
 Lesson.propTypes = {

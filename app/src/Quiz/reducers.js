@@ -6,8 +6,6 @@ const initialState = {
 };
 
 
-
-
 /*
  * Get the indexOf an object in an array of objects
  *
@@ -21,8 +19,6 @@ const initialState = {
 const indexOfObjectInArray = (arr, key, id) => {
   return arr.map(item => item[key] === id).indexOf(true);
 };
-
-
 
 
 /*
@@ -39,8 +35,6 @@ const pureSplice = (arr, index) => {
 };
 
 
-
-
 /*
  * Remove an item from an array safely and purely
  *
@@ -51,7 +45,7 @@ const pureSplice = (arr, index) => {
  */
 
 const removeItem = (arr, index) => {
-  if (!index) { return arr };
+  if (!index) { return arr; }
 
   // Enable index to a possible callback
   if (typeof index === 'function') {
@@ -64,8 +58,6 @@ const removeItem = (arr, index) => {
 
   return arr;
 };
-
-
 
 
 /*
@@ -96,8 +88,6 @@ const updateUserAnswers = (state, payload) => {
 };
 
 
-
-
 /*
  * The main reducer for Quiz
  *
@@ -108,10 +98,10 @@ const updateUserAnswers = (state, payload) => {
  */
 
 export const quizReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case types.SET_USER_ANSWER:
       return Object.assign({}, state, {
-        userAnswers: updateUserAnswers(state, action.payload),
+        userAnswers: updateUserAnswers(state, action.payload)
       });
 
     case types.INCREMENT_NUM_ATTEMPTS:
@@ -125,4 +115,3 @@ export const quizReducer = (state = initialState, action) => {
 
   return state;
 };
-

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const { array, func, number, object, string } = PropTypes;
+const { array, func, object, string } = PropTypes;
 
 
 /*
@@ -23,7 +22,12 @@ const RadioChoice = (props) => {
   return (
     <li>
       <label htmlFor={ choiceId }>
-        <input id={ choiceId } name={ questionId } type={ 'radio' } checked={ checked } onChange={ handleChange }/>
+        <input
+          id={ choiceId }
+          name={ questionId }
+          type='radio'
+          checked={ checked }
+          onChange={ handleChange } />
         { choice.text }
       </label>
     </li>
@@ -42,4 +46,3 @@ RadioChoice.propTypes = {
 
 
 export default RadioChoice;
-

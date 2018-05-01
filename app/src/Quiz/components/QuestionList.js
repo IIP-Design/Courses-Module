@@ -4,7 +4,6 @@ import shortid from 'shortid';
 
 import Question from 'Quiz/components/Question';
 
-
 const { array } = PropTypes;
 
 
@@ -23,25 +22,26 @@ class QuestionList extends React.Component {
   }
 
 
-  shouldComponentUpdate(nextProps) {
-  	return false;
+  shouldComponentUpdate() {
+    return false;
   }
 
 
-  /*
-   * Note: Sending questionId as Question cannot access key.  We need the questionId to construct common group name for each choice
+  /**
+   * Note: Sending questionId as Question cannot
+   * access key. We need the questionId to construct
+   * common group name for each choice
    */
   renderQuestion(question) {
     const { choices, id, text } = question;
 
     return (
-    	<Question
-    		key={ shortid.generate() }
-    		questionId={ id }
-    		text={ text }
-    		choices={ choices }
-    	/>
-    )
+      <Question
+        key={ shortid.generate() }
+        questionId={ id }
+        text={ text }
+        choices={ choices } />
+    );
   }
 
 
@@ -49,19 +49,18 @@ class QuestionList extends React.Component {
     const { questions } = this.props;
     const questionsList = questions.map(this.renderQuestion);
 
-		return (
-			<ol id="questionList" className='quiz-questions'>
+    return (
+      <ol id='questionList' className='quiz-questions'>
         { questionsList }
       </ol>
-		);
-	}
-};
+    );
+  }
+}
 
 
 QuestionList.propTypes = {
-  questions: array,
+  questions: array
 };
 
 
 export default QuestionList;
-

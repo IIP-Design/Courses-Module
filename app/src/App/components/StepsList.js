@@ -1,7 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Step from 'App/components/Step';
 
 import 'App/components/stylesheets/StepsList.scss';
+
+const { object } = PropTypes;
 
 
 /*
@@ -21,20 +25,24 @@ const StepsList = (props) => {
           stepCertTitle } = props.language;
 
   return (
-    <section>
-      <ul className="steps-list">
-        <Step
-          className="step"
-          title={ stepTakeTitle }>{ stepTake }</Step>
-        <Step
-          className="step"
-          title={ stepQuizTitle }>{ stepQuiz }</Step>
-        <Step
-          className="step"
-          title={ stepCertTitle }>{ stepCert }</Step>
-      </ul>
-    </section>
+    <ul className='steps-list'>
+      <Step className='step' title={ stepTakeTitle }>
+        { stepTake }
+      </Step>
+      <Step className='step' title={ stepQuizTitle }>
+        { stepQuiz }
+      </Step>
+      <Step className='step' title={ stepCertTitle }>
+        { stepCert }
+      </Step>
+    </ul>
   );
 };
+
+
+StepsList.propTypes = {
+  language: object
+};
+
 
 export default StepsList;

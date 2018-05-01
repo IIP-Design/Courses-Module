@@ -6,7 +6,6 @@ import QuizFormContainer from 'Quiz/containers/QuizFormContainer';
 
 import 'Quiz/components/stylesheets/Quiz.scss';
 
-
 const { array, string, object } = PropTypes;
 
 
@@ -19,7 +18,7 @@ const { array, string, object } = PropTypes;
 class Quiz extends React.Component {
   componentDidMount() {
     // Scroll to the top of the window to prevent the page from "loading" in the middle
-    window.scroll(0,0);
+    window.scroll(0, 0);
   }
 
 
@@ -35,7 +34,7 @@ class Quiz extends React.Component {
 			<div>
         <QuizLessons lessons={ lessons } language={ language } />
         <h3 className='quiz-instructions'>{ quizQuestions }</h3>
-        <p className='quiz-msg'>{ quizAttempts }</p> 
+        <p className='quiz-msg'>{ quizAttempts }</p>
         <QuizFormContainer
           questions={ questions }
           courseName={ courseName }
@@ -43,7 +42,7 @@ class Quiz extends React.Component {
       </div>
 		);
 	}
-};
+}
 
 
 Quiz.propTypes = {
@@ -55,4 +54,3 @@ Quiz.propTypes = {
 
 
 export default Quiz;
-

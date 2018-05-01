@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import ChoiceList from 'Quiz/components/ChoiceList';
 
-const { string, number, bool, array } = PropTypes;
+const { string, bool, array } = PropTypes;
 
 
 /*
@@ -12,11 +12,11 @@ const { string, number, bool, array } = PropTypes;
  * @since 1.0.0
  */
 
-const Question = props => {
-  const rawHTML = props => {
-    return { __html: props.text };
-  }
+const rawHTML = (props) => {
+  return { __html: props.text };
+};
 
+const Question = (props) => {
   const { questionId, choices } = props;
 
   return (
@@ -24,7 +24,7 @@ const Question = props => {
       <div
         id={ questionId }
         className='quiz-question-text'
-        dangerouslySetInnerHTML={ rawHTML(props) }></div>
+        dangerouslySetInnerHTML={ rawHTML(props) } />
       <ChoiceList
         className='quiz-choices'
         questionId={ questionId }
@@ -43,4 +43,3 @@ Question.propTypes = {
 
 
 export default Question;
-

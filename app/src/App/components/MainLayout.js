@@ -19,7 +19,7 @@ const MainLayout = (props) => {
   const { isFetching, children } = props;
 
   return (
-    <div className="app">
+    <div className='app'>
       { isFetching ? <Preloader /> : <main>{ children }</main> }
     </div>
   );

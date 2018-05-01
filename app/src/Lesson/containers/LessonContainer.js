@@ -4,26 +4,25 @@ import PropTypes from 'prop-types';
 
 import Lesson from 'Lesson/components/Lesson';
 
-
 const { array } = PropTypes;
 
 
 /*
- * The Lesson container component responsible for interacting with the Redux store and passing state to the Lesson conmponent as props.
+ * The Lesson container component responsible for
+ * interacting with the Redux store and passing state
+ * to the Lesson component as props.
  *
  * @param {Object} props - The React props object
  *
  * @since 2.0.0
  */
 
-const LessonContainer = (props) => <Lesson { ...props }/>;
+const LessonContainer = props => <Lesson { ...props } />;
 
 
 LessonContainer.propTypes = {
   lessons: array
 };
-
-
 
 
 /*
@@ -32,7 +31,8 @@ LessonContainer.propTypes = {
  * @param {Object} state.app - The app object in the Redux store
  * @param {String} props.params.lessonSlug - The url slug from the router
  *
- * @return {Object} LessonContainerPropsObject - Data from state mapped to the Lesson component's props
+ * @return {Object} LessonContainerPropsObject - Data
+ * from state mapped to the Lesson component's props
  *
  * @since 2.0.0
  */
@@ -41,7 +41,7 @@ const mapStateToProps = ({ app, language }, { params: { lessonSlug } }) => {
   const course = app.data;
   const { lessons, title } = course;
   const lesson = lessons.filter(lesson => lesson.slug === lessonSlug)[0];
-  const index = lessons.findIndex( o => o.id == lesson.id );
+  const index = lessons.findIndex(o => o.id === lesson.id);
 
   /*
    * @typedef {Object} LessonContainerPropsObject
@@ -64,4 +64,3 @@ const mapStateToProps = ({ app, language }, { params: { lessonSlug } }) => {
 
 
 export default connect(mapStateToProps)(LessonContainer);
-

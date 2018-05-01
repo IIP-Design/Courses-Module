@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-
 const { array, number } = PropTypes;
 
 
@@ -11,7 +10,8 @@ const { array, number } = PropTypes;
  *
  * @param {Array} lessons - The array of lessons in the current course
  * @param {Number} lessonIndex - The index of the current lesson in the array of lessons
- * @param {Number} index - If "previous lesson" selected, value will be -1. If "next lesson" selected, value will be 1
+ * @param {Number} index - If "previous lesson" selected,
+ * value will be -1. If "next lesson" selected, value will be 1
  * @param {String} label - The linked text
  *
  * @return {Object} Link - React Router Link component with appropriate slug
@@ -21,10 +21,10 @@ const { array, number } = PropTypes;
 
 const renderLink = (lessons, lessonIndex, index, label) => {
   const goToIndex = lessonIndex + index;
-  const slug = lessons[goToIndex].slug;
+  const { slug } = lessons[goToIndex];
 
   return (
-    <Link to={ `lesson/${slug}` } id={ slug }>{ label }</Link>
+    <Link to={ `lesson/${ slug }` } id={ slug }>{ label }</Link>
   );
 };
 
@@ -45,7 +45,7 @@ const ButtonNav = (props) => {
   if (lessons.length === 1) {
     return (
       <div className='lesson-buttonnav'>
-        <Link to={ 'quiz' }>{ quizGo }</Link>
+        <Link to='quiz'>{ quizGo }</Link>
       </div>
     );
   }
@@ -55,7 +55,7 @@ const ButtonNav = (props) => {
     return (
       <div className='lesson-buttonnav'>
         { renderLink(lessons, lessonIndex, -1, prevLesson) }
-        <Link to={ 'quiz' }>{ quizGo }</Link>
+        <Link to='quiz'>{ quizGo }</Link>
       </div>
     );
   }
@@ -88,4 +88,3 @@ ButtonNav.propTypes = {
 
 
 export default ButtonNav;
-

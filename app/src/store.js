@@ -3,6 +3,7 @@ import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import { loadState, saveState } from 'root/sessionStorage';
+
 import { appReducer } from 'App';
 import { quizReducer } from 'Quiz';
 import { langReducer } from 'Language';
@@ -17,10 +18,8 @@ import { langReducer } from 'Language';
 const middleware = [thunk];
 
 if (process.env.NODE_ENV !== 'production') {
-  middleware.push(createLogger())
+  middleware.push(createLogger());
 }
-
-
 
 
 /*
@@ -30,8 +29,6 @@ if (process.env.NODE_ENV !== 'production') {
  */
 
 const persistedState = loadState();
-
-
 
 
 /*
@@ -58,7 +55,7 @@ const composeEnhancers = process.env.NODE_ENV !== 'production' && window.__REDUX
 /*
  * Create the Redux store
  *
- * Integrate redux dev tools. 
+ * Integrate redux dev tools.
  *
  * @since 1.0.0
  */
@@ -67,17 +64,15 @@ const store = createStore(
   reducers,
   persistedState,
   composeEnhancers(
-  	applyMiddleware(...middleware)
+    applyMiddleware(...middleware)
   )
 );
 
 
 // Listen for state changes and update state in sessionStorage
 store.subscribe(() => {
-	saveState(store.getState());
+  saveState(store.getState());
 });
 
 
-
 export default store;
-

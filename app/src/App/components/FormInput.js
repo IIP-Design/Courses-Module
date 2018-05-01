@@ -35,8 +35,7 @@ FormInput.propTypes = {
 	name: string,
 	label: string,
 	type: string
-}
+};
 
 
 export default FormInput;
-

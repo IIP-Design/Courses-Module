@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { Collapse,
          CollapseItem,
          CollapsePanel,
@@ -18,24 +19,25 @@ const { array } = PropTypes;
  * @since 1.0.0
  */
 
+const renderTerm = (term) => {
+  const { id, title, description } = term;
+
+  return (
+    <CollapseItem className='glossary-item' key={ id }>
+      <CollapseTrigger className='glossary-trigger' tag='p'>{ title }</CollapseTrigger>
+      <CollapsePanel className='glossary-text' description={ description } />
+    </CollapseItem>
+  );
+};
+
+
 const Glossary = (props) => {
   const { terms, language } = props;
   if (terms.length === 0) {
     return null;
   }
 
-  const renderTerm = term => {
-    const { id, title, description } = term;
-    
-    return(
-      <CollapseItem className='glossary-item' key={ id }>
-        <CollapseTrigger className='glossary-trigger' tag={ 'p' }>{ title }</CollapseTrigger>
-        <CollapsePanel className='glossary-text' description={ description } />
-      </CollapseItem>
-    );
-  };
-
-  const glossary = terms.map(renderTerm);
+  const glossary = terms.map(term => renderTerm(term));
 
   return (
     <div className='glossary'>
@@ -50,7 +52,7 @@ const Glossary = (props) => {
 
 Glossary.propTypes = {
   terms: array
-}
+};
 
 
 export default Glossary;

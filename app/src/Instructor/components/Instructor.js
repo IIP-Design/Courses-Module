@@ -17,15 +17,18 @@ class Instructor extends React.Component {
     super(props);
     this.rawDescription = this.rawDescription.bind(this);
   }
-  
+
+
   componentDidMount() {
     // Scroll to the top of the window to prevent the page from "loading" in the middle
-    window.scroll(0,0);
+    window.scroll(0, 0);
   }
+
 
   rawDescription() {
     return { __html: this.props.instructor.description };
   }
+
 
   render() {
     const { title, salutation, image } = this.props.instructor;
@@ -41,12 +44,11 @@ class Instructor extends React.Component {
           alt={ alt } />
         <div
           className='instructor-description'
-          dangerouslySetInnerHTML={ this.rawDescription() }>
-        </div>
+          dangerouslySetInnerHTML={ this.rawDescription() } />
       </div>
     );
   }
-};
+}
 
 
 Instructor.propTypes = {

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import Course from 'Course/components/Course';
 
-
 const { object } = PropTypes;
 
 
@@ -16,14 +15,12 @@ const { object } = PropTypes;
  * @since 2.0.0
  */
 
-const CourseContainer = (props) => <Course course={ props.course } language={ props.language }/>;
+const CourseContainer = (props) => <Course course={ props.course } language={ props.language } />;
 
 
 CourseContainer.propTypes = {
   course: object
 };
-
-
 
 
 /*
@@ -38,7 +35,7 @@ CourseContainer.propTypes = {
 
 const mapStateToProps = ({ app, language }) => {
   const course = app.data;
-  
+
   /*
    * @typedef {Object} CourseContainerPropsObject
    * @property {Object} course - The course data from state
@@ -52,5 +49,5 @@ const mapStateToProps = ({ app, language }) => {
   };
 };
 
-export default connect(mapStateToProps)(CourseContainer);
 
+export default connect(mapStateToProps)(CourseContainer);

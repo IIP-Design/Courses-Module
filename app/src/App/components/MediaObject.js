@@ -15,11 +15,11 @@ const { string, bool, object } = PropTypes;
  * @since 1.0.0
  */
 
-const MediaObject = props => {
-  const setDescription = props => {
-    return { __html: props.description };
-  }
+const setDescription = (props) => {
+  return { __html: props.description };
+}
 
+const MediaObject = (props) => {
   const { tag,
           link,
           image,
@@ -29,18 +29,20 @@ const MediaObject = props => {
   const reversed = !(props.reversed === undefined);
 
   return (
-    <div className={ reversed ? 'media-object reversed' : 'media-object' }>
-    <Link to={ link }>
-      <img src={ image.src } alt={ image.alt } />
-    </Link>
-    <header>
+    <div className={ `media-object ${reversed ? 'reversed' : ''}` }>
+      <Link to={ link }>
+        <img src={ image.src } alt={ image.alt } />
+      </Link>
+      <header>
         <Link to={ link }>
-        <CustomTag className='media-object-title'>{ title }</CustomTag>
+          <CustomTag className='media-object-title'>
+            { title }
+          </CustomTag>
         </Link>
       </header>
       <div
-      className='media-object-description'
-      dangerouslySetInnerHTML={ setDescription(props) }></div>
+        className='media-object-description'
+        dangerouslySetInnerHTML={ setDescription(props) } />
     </div>
   );
 };
@@ -57,4 +59,3 @@ MediaObject.propTypes = {
 
 
 export default MediaObject;
-

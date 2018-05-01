@@ -21,8 +21,8 @@ const Step = (props) => {
 
   return (
     <li className={ className }>
-      <span className="course-step-title">{ title }</span>
-      <span className="course-step-description">{ children }</span>
+      <span className='course-step-title'>{ title }</span>
+      <span className='course-step-description'>{ children }</span>
     </li>
   );
 };
@@ -32,8 +32,7 @@ Step.propTypes = {
   className: string,
   title: string,
   children: string
-}
+};
 
 
 export default Step;
-

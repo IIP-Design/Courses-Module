@@ -10,10 +10,11 @@ const { string, func } = PropTypes;
  * @since 1.0.0
  */
 
-class FormSelect extends React.Component{
+class FormSelect extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
-  	return false;
+    return false;
   }
+
 
   render() {
     const { id,
@@ -34,7 +35,7 @@ class FormSelect extends React.Component{
       </label>
     );
 	}
-};
+}
 
 
 FormSelect.propTypes = {
@@ -47,4 +48,3 @@ FormSelect.propTypes = {
 
 
 export default FormSelect;
-

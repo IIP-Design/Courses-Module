@@ -16,7 +16,7 @@ export const sortBy = (key, order='asc') => {
     } else if (varA < varB) {
       comparison = -1;
     }
-    return (order == 'desc') ? (comparison * -1) : comparison;
+    return (order === 'desc') ? (comparison * -1) : comparison;
   };
 }
 
@@ -24,7 +24,7 @@ export const sortBy = (key, order='asc') => {
 export const uniqBy = (accumulator, current) => {
   const length = accumulator.length;
   if (length === 0 || accumulator[length - 1].id !== current.id) {
-      accumulator.push(current);
+    accumulator.push(current);
   }
   return accumulator;
 };
