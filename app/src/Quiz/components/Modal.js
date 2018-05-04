@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const { func, bool, node, object } = PropTypes;
 
-import 'Quiz/components/stylesheets/Modal.scss';
+import styles from 'Quiz/components/stylesheets/Modal.scss';
 
 
 const Modal = (props) => {
@@ -20,12 +20,12 @@ const Modal = (props) => {
   }
 
   return (
-    <div className='quizmodal-backdrop'>
-      <div className='quizmodal-modal'>
+    <div className={ `${ styles.backdrop } quizmodal-backdrop` }>
+      <div className={ `${ styles.modal } quizmodal-modal` }>
         { children }
 
         <div>
-          <button className='quizmodal-close' onClick={ onClose }>
+          <button className={ `${ styles.close } quizmodal-close` } onClick={ onClose }>
             { continueLesson }
           </button>
         </div>

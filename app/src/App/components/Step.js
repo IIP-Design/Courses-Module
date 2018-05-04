@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from 'App/components/stylesheets/StepsList.scss';
+
 const { string } = PropTypes;
 
 
@@ -21,8 +23,8 @@ const Step = (props) => {
 
   return (
     <li className={ className }>
-      <span className='course-step-title'>{ title }</span>
-      <span className='course-step-description'>{ children }</span>
+      <span className={ `${ styles.title } course-step-title` }>{ title }</span>
+      <span className={ `${ styles.desc } course-step-description` }>{ children }</span>
     </li>
   );
 };

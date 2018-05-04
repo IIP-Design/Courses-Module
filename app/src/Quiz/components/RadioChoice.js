@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from 'Quiz/components/stylesheets/Quiz.scss';
+
 const { array, func, object, string } = PropTypes;
 
 
@@ -27,7 +29,8 @@ const RadioChoice = (props) => {
           name={ questionId }
           type='radio'
           checked={ checked }
-          onChange={ handleChange } />
+          onChange={ handleChange }
+          className={ styles.radio } />
         { choice.text }
       </label>
     </li>

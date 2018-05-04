@@ -1,40 +1,82 @@
 @import '../../stylesheets/all';
 
-.media-object {
-  clear: both;
+.object {
+  display: inline-block;
   margin: 0 0 1em;
-  overflow: hidden;
   padding: 1em;
-}
-
-.media-object img {
-  float: left;
-  margin: 0 1em 0 0;
+  clear: both;
   overflow: hidden;
+
+  @include bp($laptop) {
+    width: 80%;
+  }
 }
 
-.media-object.reversed img {
+// We removed the counter on the li and put it here instead
+// so we have greater control of placement
+.object:before {
+  position: absolute;
+  top: calc(33% + (#{$halfRadius + 0px}));
+  left: - em($halfRadius);
+  margin: -.4375em 0 0 -.1875em;
+  content: counter(li);
+  counter-increment: li;
+}
+
+.thumbnail {
+  display: none;
+
+  @include bp($tablet) {
+    display: block;
+    float: left;
+    margin: 0 1em 0 0;
+    overflow: hidden;
+  }
+}
+
+.object.reversed img {
   float: right;
   margin: 0 0 1em;
 }
 
-.media-object header {
+.header {
   display: inline-block;
 }
 
-.media-object-title,
-.media-object-description {
+.title,
+.desc {
   overflow: hidden;
 }
 
-.media-object-title {
-  margin: 0 0 16px 0;
+.title {
+  margin: 0 0 1em 0;
 }
 
-.media-object-description {
+.desc {
+  margin: 0;
+
+  @include bp($tablet) {
+    max-width: 45%;
+  }
+
+  @include bp($laptop) {
+    max-width: 55%;
+  }
+
+  @include bp($desktop) {
+    max-width: 65%;
+  }
+}
+
+.desc > p {
   margin: 0;
 }
 
-.media-object-description p {
-  margin: 0;
+.desc > p:not(:first-child) {
+  display: none;
+}
+
+.link {
+  color: $black;
+  text-decoration: none;
 }

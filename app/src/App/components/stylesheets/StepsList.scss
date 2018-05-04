@@ -1,53 +1,57 @@
 @import '../../stylesheets/all';
 
-.steps-list {
-  background-color: #e5e8e9;
-  list-style-type: none;
-  margin: 0;
+.steps {
+  margin-top: 0;
+  margin-bottom: 2em;
   padding: 1em;
+  background-color: $porcelain;
+  list-style: none;
 
   @include bp($tablet) {
-    background: linear-gradient(0deg,#fff 0%, rgba(0, 121, 175, .4) 70%, rgba(70, 143, 176, .4) 100%);
-    background: -moz-linear-gradient(0deg,#fff 0%, rgba(0, 121, 175, .4) 70%, rgba(70, 143, 176, .4) 100%);
-    background: -webkit-linear-gradient(0deg,#fff 0%, rgba(0, 121, 175, .4) 70%, rgba(70, 143, 176, .4) 100%);
-    background: -ms-linear-gradient(0deg,#fff 0%, rgba(0, 121, 175, .4) 70%, rgba(70, 143, 176, .4) 100%);
-    box-shadow: 0 -5px 15px -5px rgba(100, 100, 100, 0.2);
+    background: linear-gradient(0deg, $white 0%, $cerulean-apha 70%, $boston-blue-alpha 100%);
+    box-shadow: 0 -5px 15px -5px $dim-gray-alpha;
     opacity: .9;
-    overflow: hidden;
+
+    &:before,
+    &:after {
+      content: ' ';
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
   }
 }
 
-.course-step-title {
+.title {
+  margin-right: .5em;
   font-weight: bold;
 }
 
-.course-step-description {
-  margin-left: 0.5em;
-
+.desc {
   @include bp($tablet) {
     display: block;
-    margin: 0;
   }
 }
 
-.steps-list .step {
-  background: url('../images/check.png') no-repeat 0 50%;
-  background-size: 1.25em 1.25em;
-  line-height: 1.25em;
-  padding-left: 2em;
-  margin-bottom: 1.75em;
-
+.step {
   @include bp($tablet) {
     float: left;
     margin: 0;
     width: 30%;
   }
+
+  padding-left: 2em;
+  background: url('../images/check.png') no-repeat 0 50%;
+  background-size: 1.25em 1.25em;
+  line-height: 1.25em;
+
+  &:not(:last-child) {
+    margin-bottom: 1.75em;
+  }
 }
 
-.steps-list .step::before {
+.step:before {
   content: '';
-}
-
-.steps-list .step:last-child {
-  margin-bottom: 0;
 }

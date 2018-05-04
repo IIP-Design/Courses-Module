@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-import 'App/components/stylesheets/MediaObject.scss';
+import styles from 'App/components/stylesheets/MediaObject.scss';
 
 const { string, bool, object } = PropTypes;
 
@@ -29,19 +29,22 @@ const MediaObject = (props) => {
   const reversed = !(props.reversed === undefined);
 
   return (
-    <div className={ `media-object ${reversed ? 'reversed' : ''}` }>
+    <div className={ `${ styles.object } media-object ${reversed ? styles.reversed : ''}` }>
       <Link to={ link }>
-        <img src={ image.src } alt={ image.alt } />
+        <img
+          src={ image.src }
+          alt={ image.alt }
+          className={ styles.thumbnail } />
       </Link>
-      <header>
-        <Link to={ link }>
-          <CustomTag className='media-object-title'>
+      <header className={ styles.header }>
+        <Link to={ link } className={ styles.link }>
+          <CustomTag className={ `${ styles.title } media-object-title` }>
             { title }
           </CustomTag>
         </Link>
       </header>
       <div
-        className='media-object-description'
+        className={ `${ styles.desc } media-object-description` }
         dangerouslySetInnerHTML={ setDescription(props) } />
     </div>
   );

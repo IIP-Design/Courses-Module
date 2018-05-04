@@ -6,7 +6,7 @@ import { Collapse,
          CollapsePanel,
          CollapseTrigger } from 'Lesson/components/Collapse';
 
-import 'Lesson/components/stylesheets/Glossary.scss';
+import styles from 'Lesson/components/stylesheets/Glossary.scss';
 
 const { array } = PropTypes;
 
@@ -23,8 +23,12 @@ const renderTerm = (term) => {
   const { id, title, description } = term;
 
   return (
-    <CollapseItem className='glossary-item' key={ id }>
-      <CollapseTrigger className='glossary-trigger' tag='p'>{ title }</CollapseTrigger>
+    <CollapseItem className={ `${ styles.term } glossary-item` } key={ id }>
+      <CollapseTrigger
+        className={ `${ styles.trigger } glossary-trigger` } 
+        tag='p'>
+        { title }
+      </CollapseTrigger>
       <CollapsePanel className='glossary-text' description={ description } />
     </CollapseItem>
   );
@@ -40,9 +44,9 @@ const Glossary = (props) => {
   const glossary = terms.map(term => renderTerm(term));
 
   return (
-    <div className='glossary'>
-      <h3 className='glossary-title'>{ language.glossary }</h3>
-      <Collapse className='glossary-content'>
+    <div className={ `${ styles.glossary } glossary` }>
+      <h3 className={ `${ styles.title } glossary-title` }>{ language.glossary }</h3>
+      <Collapse className={ `${ styles.terms } glossary-content` }>
         { glossary }
       </Collapse>
     </div>

@@ -4,6 +4,8 @@ import shortid from 'shortid';
 
 import Question from 'Quiz/components/Question';
 
+import styles from 'Quiz/components/stylesheets/Quiz.scss';
+
 const { array } = PropTypes;
 
 
@@ -50,7 +52,7 @@ class QuestionList extends React.Component {
     const questionsList = questions.map(this.renderQuestion);
 
     return (
-      <ol id='questionList' className='quiz-questions'>
+      <ol id='questionList' className={ `${ styles.questions } quiz-questions` }>
         { questionsList }
       </ol>
     );

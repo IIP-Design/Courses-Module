@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Step from 'App/components/Step';
 
-import 'App/components/stylesheets/StepsList.scss';
+import styles from 'App/components/stylesheets/StepsList.scss';
 
 const { object } = PropTypes;
 
@@ -25,14 +25,14 @@ const StepsList = (props) => {
           stepCertTitle } = props.language;
 
   return (
-    <ul className='steps-list'>
-      <Step className='step' title={ stepTakeTitle }>
+    <ul className={ `${ styles.steps } steps-list` }>
+      <Step className={ `${ styles.step } step` } title={ stepTakeTitle }>
         { stepTake }
       </Step>
-      <Step className='step' title={ stepQuizTitle }>
+      <Step className={ `${ styles.step } step` } title={ stepQuizTitle }>
         { stepQuiz }
       </Step>
-      <Step className='step' title={ stepCertTitle }>
+      <Step className={ `${ styles.step } step` } title={ stepCertTitle }>
         { stepCert }
       </Step>
     </ul>

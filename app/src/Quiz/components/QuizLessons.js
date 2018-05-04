@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
+import styles from 'Quiz/components/stylesheets/Quiz.scss';
+
 const { array } = PropTypes;
 
 
@@ -31,8 +33,8 @@ const QuizLessons = (props) => {
 
   return (
     <div>
-      <h3 className='quiz-lessons'>{ quizLessons }:</h3>
-      <ul className='quiz-lessons-list'>
+      <h3 className={ `${ styles.heading } quiz-lessons` }>{ quizLessons }:</h3>
+      <ul className={ `${ styles.lessons } quiz-lessons-list` }>
         { quizLessonsList }
       </ul>
     </div>

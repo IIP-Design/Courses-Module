@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
+import styles from 'Lesson/components/stylesheets/ButtonNav.scss';
+
 const { array, number } = PropTypes;
 
 
@@ -24,7 +26,10 @@ const renderLink = (lessons, lessonIndex, index, label) => {
   const { slug } = lessons[goToIndex];
 
   return (
-    <Link to={ `lesson/${ slug }` } id={ slug }>{ label }</Link>
+    <Link
+      to={ `lesson/${ slug }` }
+      id={ slug }
+      className={ styles.link }>{ label }</Link>
   );
 };
 
@@ -44,8 +49,8 @@ const ButtonNav = (props) => {
 
   if (lessons.length === 1) {
     return (
-      <div className='lesson-buttonnav'>
-        <Link to='quiz'>{ quizGo }</Link>
+      <div className={ `${ styles.nav } lesson-buttonnav` }>
+        <Link to='quiz' className={ styles.link }>{ quizGo }</Link>
       </div>
     );
   }
@@ -53,9 +58,9 @@ const ButtonNav = (props) => {
   // If the last lesson, display previous and quiz buttons
   if (lessonIndex === numLessons) {
     return (
-      <div className='lesson-buttonnav'>
+      <div className={ `${ styles.nav } lesson-buttonnav` }>
         { renderLink(lessons, lessonIndex, -1, prevLesson) }
-        <Link to='quiz'>{ quizGo }</Link>
+        <Link to='quiz' className={ styles.link }>{ quizGo }</Link>
       </div>
     );
   }
@@ -63,7 +68,7 @@ const ButtonNav = (props) => {
   // If the first lesson, only display next button
   if (lessonIndex === 0) {
     return (
-      <div className='lesson-buttonnav'>
+      <div className={ `${ styles.nav } lesson-buttonnav` }>
          { renderLink(lessons, lessonIndex, 1, nextLesson) }
       </div>
     );
@@ -72,7 +77,7 @@ const ButtonNav = (props) => {
   // Otherwise display both next and previous buttons
   if (lessonIndex !== 0 && lessonIndex !== numLessons) {
     return (
-      <div className='lesson-buttonnav'>
+      <div className={ `${ styles.nav } lesson-buttonnav` }>
         { renderLink(lessons, lessonIndex, -1, prevLesson) }
         { renderLink(lessons, lessonIndex, 1, nextLesson) }
       </div>

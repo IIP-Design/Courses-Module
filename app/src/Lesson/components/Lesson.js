@@ -8,6 +8,8 @@ import LessonTabs from 'Lesson/components/LessonTabs';
 import ButtonNav from 'Lesson/components/ButtonNav';
 import LessonPagination from 'Lesson/components/LessonPagination';
 
+import styles from 'Lesson/components/stylesheets/LessonLayout.scss';
+
 const { object, array, string } = PropTypes;
 
 
@@ -42,7 +44,7 @@ class Lesson extends React.Component {
     media = media || {};
     const video = (media && media.video) ? media.video : {};
     const audio = (media && media.audio) ? media.audio : {};
-    let turnCaptionOn = isLangEnglish;
+    // let turnCaptionOn = isLangEnglish;
     const mediaOpts = {
       playerVars: {
         hl: language.locale,
@@ -51,14 +53,14 @@ class Lesson extends React.Component {
     };
 
     return (
-      <div className='lesson'>
+      <div className={ `${ styles.lesson } lesson` }>
         <div className='two-thirds first'>
-          <h1 className='lesson-title'>{ title }</h1>
+          <h1 className={ `${ styles.title } lesson-title` }>{ title }</h1>
           <Breadcrumbs courseTitle={ courseTitle } name={ title } />
-          <div className='lesson-video'>
+          <div className={ `${ styles.video } lesson-video` }>
             <YouTube videoId={ video.video_id } opts={ mediaOpts } />
           </div>
-          <div className='lesson-nav'>
+          <nav className={ `${ styles.nav } lesson-nav` }>
             <ButtonNav
               lessons={ lessons }
               lessonIndex={ lessonIndex }
@@ -66,7 +68,7 @@ class Lesson extends React.Component {
             <LessonPagination
               lessons={ lessons }
               lessonIndex={ lessonIndex } />
-          </div>
+          </nav>
           <LessonTabs
             description={ description }
             transcript={ media.transcript_text }

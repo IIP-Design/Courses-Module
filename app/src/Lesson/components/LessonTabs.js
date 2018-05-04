@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import shortid from 'shortid';
 
-import 'Lesson/components/stylesheets/Media.scss';
-import 'Lesson/components/stylesheets/LessonTabs.scss';
+import mediaStyles from 'Lesson/components/stylesheets/Media.scss';
+import tabStyles from 'Lesson/components/stylesheets/LessonTabs.scss';
 
 const { string, array, object } = PropTypes;
 
@@ -40,7 +40,7 @@ const LessonTabs = (props) => {
       fileinfo = '';
     } else {
       href = src; 
-      fileinfo = `[${ src_type }, ${ src_size }]`;
+      fileinfo = `[${ src_type }, ${ src_size.toUpperCase() }]`;
     }
 
     return (
@@ -49,7 +49,7 @@ const LessonTabs = (props) => {
           className='resource-link'
           href={ href }
           target='_blank'>{ resource.title }</a>
-        <span className='resource-fileinfo'> { fileinfo }</span>
+        <span className={ `${ tabStyles.fileInfo } resource-fileinfo` }> { fileinfo }</span>
       </li>
     );
   };
@@ -87,7 +87,7 @@ const LessonTabs = (props) => {
             <a
               href={ transcriptFile }
               target='_blank'
-              className='print'>{ print }</a>
+              className={ `${ tabStyles.print } print` }>{ print }</a>
           </p>
           <div dangerouslySetInnerHTML={ rawTranscript( props ) } />
         </div>
@@ -103,7 +103,7 @@ const LessonTabs = (props) => {
           <audio
             controls
             src={ audio.src } 
-            className='course-audio-player' />
+            className={ `${ mediaStyles.audioPlayer } course-audio-player` } />
         </TabPanel> }
     </Tabs>
   );

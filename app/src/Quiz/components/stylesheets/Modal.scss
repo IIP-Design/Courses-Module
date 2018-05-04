@@ -1,33 +1,33 @@
 @import '../../../App/stylesheets/all';
 
-.quizmodal-backdrop {
+.backdrop {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.3);
-  padding: 50px;
+  padding: 3.125em;
+  background-color: $dim-gray-alpha;
 }
 
-.quizmodal-modal {
-  background-color: #fff;
-  border-radius: 5px;
-  max-width: 500px;
+.modal {
   margin: 0 auto;
-  padding: 80px 20px;
-  text-align: center;
+  padding: 3em 1.25em;
+  max-width: 15em;
+  border-radius: .3125em;
   font-size: 2em;
+  text-align: center;
+  background-color: $white;
 }
 
-.quizmodal-close {
-  background-color: skyblue;
-  border-radius: 6px;
-  padding: 12px;
-  margin-top: 20px;
-  font-size: 0.5em;
-  border: none;
-  color: white;
-  cursor: pointer;
+.close {
+  margin-top: 1.25em;
+  padding: .75em;
   width: auto;
+  border: none;
+  border-radius: .3125em;
+  color: $white;
+  font-size: .5em;
+  cursor: pointer;
+  background-color: $steel-blue;
 }

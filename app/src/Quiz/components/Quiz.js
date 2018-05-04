@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import QuizLessons from 'Quiz/components/QuizLessons';
 import QuizFormContainer from 'Quiz/containers/QuizFormContainer';
 
-import 'Quiz/components/stylesheets/Quiz.scss';
+import styles from 'Quiz/components/stylesheets/Quiz.scss';
 
 const { array, string, object } = PropTypes;
 
@@ -33,8 +33,8 @@ class Quiz extends React.Component {
 		return (
 			<div>
         <QuizLessons lessons={ lessons } language={ language } />
-        <h3 className='quiz-instructions'>{ quizQuestions }</h3>
-        <p className='quiz-msg'>{ quizAttempts }</p>
+        <h3 className={ `${ styles.instructions } quiz-instructions` }>{ quizQuestions }</h3>
+        <p className={ `${ styles.msg } quiz-msg` }>{ quizAttempts }</p>
         <QuizFormContainer
           questions={ questions }
           courseName={ courseName }

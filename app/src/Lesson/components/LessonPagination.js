@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-import 'Lesson/components/stylesheets/LessonPagination.scss';
+import styles from 'Lesson/components/stylesheets/LessonPagination.scss';
 
 const { array, number } = PropTypes;
 
@@ -20,13 +20,18 @@ const { array, number } = PropTypes;
  */
 
 const renderLinks = (lesson, index, lessonIndex) => {
-  const c1ass = (index === lessonIndex) ? 'active' : '';
+  const c1ass = (index === lessonIndex) ? `${ styles.active }` : '';
   const { slug } = lesson;
   const label = index + 1;
 
   return (
-    <li className={ c1ass } key={ index }>
-      <Link to={ `lesson/${ slug }` } id={ slug }>{ label }</Link>
+    <li className={ `${ styles.item } ${ c1ass }` } key={ index }>
+      <Link
+        to={ `lesson/${ slug }` }
+        id={ slug }
+        className={ styles.link }>
+        { label }
+      </Link>
     </li>
   );
 };
@@ -44,7 +49,7 @@ const LessonPagination = (props) => {
   const { lessons, lessonIndex } = props;
   const links = lessons.map((lesson, index) => renderLinks(lesson, index, lessonIndex));
 
-  return <ul className='lesson-pagination'>{ links }</ul>;
+  return <ul className={ `${ styles.page } lesson-pagination` }>{ links }</ul>;
 };
 
 

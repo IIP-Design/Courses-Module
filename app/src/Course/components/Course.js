@@ -8,7 +8,7 @@ import StepsList from 'App/components/StepsList';
 import LessonList from 'Course/components/LessonList';
 import InstructorList from 'Course/components/InstructorList';
 
-import 'Course/components/stylesheets/Course.scss';
+import styles from 'Course/components/stylesheets/Course.scss';
 
 const { object } = PropTypes;
 
@@ -57,17 +57,20 @@ class Course extends React.Component {
 
     return (
       <div>
-        <section className='course-intro'>
-          <div className='course-intro-feature'>
-            <div className='course-intro-image'>
+        <section className={ `${ styles.intro } course-intro` }>
+          <div className={ `${ styles.feature } course-intro-feature` }>
+            <div className={ `${ styles.img } course-intro-image` }>
               <img src={ src } alt={ alt } />
-              <div className='course-intro-gradient' />
+              <div className={ `${ styles.gradient } course-intro-gradient` } />
             </div>
-            <div className='course-intro-text'>
+            <div className={ `${ styles.text } course-intro-text` }>
               <h1>{ course.title }</h1>
               <p dangerouslySetInnerHTML={ this.rawDescription() } />
-              <Link to={ `lesson/${ link }` } id={ link }>
-                <div className='course-take-course'>{ language.courseTake }</div>
+              <Link
+                to={ `lesson/${ link }` }
+                id={ link }
+                className={ `${ styles.cta} course-take-course` }>
+                { language.courseTake }
               </Link>
             </div>
           </div>

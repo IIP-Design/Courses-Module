@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-import 'Course/components/stylesheets/InstructorList.scss';
+import styles from 'Course/components/stylesheets/InstructorList.scss';
 
 const { array } = PropTypes;
 
@@ -23,17 +23,19 @@ const renderInstructor = (instructor, numInstructors) => {
    * take up one-half the container's width.
    * Otherwise, one-third.
    */
+  const instrWidth = (numInstructors < 3) ? styles.half : styles.oneThird;
+
   return (
     <div
       key={ id }
-      className={ `media-object ${(numInstructors < 3) ? 'half' : 'one-third'}` }>
+      className={ `${ styles.instructor } media-object ${ instrWidth }` }>
       <Link to={ link }>
-        <img src={ src } alt={ alt } />
+        <img src={ src } alt={ alt } className={ styles.img } />
       </Link>
-      <header>
+      <header className={ styles.header }>
         <Link to={ link }>
-          <h4 className='media-object-title'>{ title }</h4>
-          <h5 className='media-object-subtitle'>{ salutation }</h5>
+          <h4 className={ `${ styles.title } media-object-title` }>{ title }</h4>
+          <h5 className={ `${ styles.subtitle } media-object-subtitle` }>{ salutation }</h5>
         </Link>
       </header>
     </div>
@@ -51,7 +53,7 @@ const InstructorList = (props) => {
   const instructorsList = instructors.map(instructor => renderInstructor(instructor, numInstructors));
 
   return (
-    <section className='instructors-list'>
+    <section className={ `${ styles.instructors } instructors-list` }>
       <header>
         <h3>{ instrTitle }</h3>
       </header>

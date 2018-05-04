@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const LoadingCirclesSVG = () => {
+const LoadingCirclesSVG = (props) => {
   /**
    * By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL
    */
@@ -11,7 +11,7 @@ const LoadingCirclesSVG = () => {
       height='44'
       viewBox='0 0 44 44'
       xmlns='http://www.w3.org/2000/svg'
-      stroke='#999'>
+      stroke={ props.stroke }>
       <g
         fill='none'
         fillRule='evenodd'

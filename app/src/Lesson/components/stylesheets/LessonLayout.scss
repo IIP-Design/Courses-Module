@@ -1,0 +1,46 @@
+@import '../../../App/stylesheets/all';
+
+.title {
+  margin-bottom: 0;
+}
+
+.breadcrumbs {
+  margin-top: .25em;
+  margin-bottom: 1.25em;
+  font-size: .85em;
+}
+
+.video {
+  position: relative;
+  height: 0;
+  margin: 1em 0;
+  
+  @include bp($tablet) {
+    margin: 2em 0;
+  }
+
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 1.5625em;
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.nav {
+  margin: 1em 0 2em;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}

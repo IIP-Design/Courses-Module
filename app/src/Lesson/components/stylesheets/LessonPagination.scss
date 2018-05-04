@@ -1,57 +1,54 @@
 @import '../../../App/stylesheets/all';
 
-.lesson .lesson-pagination {
+.page {
   display: none;
 
   @include bp($tablet) {
-    display: block;
-    float: right;
-    margin: 0;
     position: relative;
     z-index: 0;
+    float: right;
+    display: block;
+    margin: 0;
   }
 }
 
-.lesson .lesson-pagination li {
-  display: inline-block;
-  line-height: 2em;
-  margin: 0 0 0 1.5em;
+.item {
   position: relative;
+  display: inline-block;
+  margin: 0 0 0 1.5em;
+  line-height: 2em;
 }
 
-.lesson .lesson-pagination a {
-  background-color: rgb(16, 85, 126);
-  border-radius: 1em;
-  color: #fff;
-  padding: em(8) em(12);
-  font-family: monospace;
-  text-decoration: none;
-}
-
-.lesson .lesson-pagination li a {
-  border: none;
-  outline: none;
-}
-
-.lesson .lesson-pagination li::before {
+.item:not(:first-child):before {
   content: '';
   position: absolute;
   top: .9em;
   left: -3em;
-  width: 3em;
-  height: .2em;
-  background: rgb(16, 85, 126);
   z-index: -1;
+  height: .2em;
+  width: 3em;
+  background: $chathams-blue;
 }
 
-.lesson .lesson-pagination li:first-child::before {
-  display: none;
+.link {
+  border: none;
+  border-radius: 50%;
+  padding: .5em .75em;
+  background-color: $chathams-blue;
+  color: $white;
+  font-family: monospace;
+  text-decoration: none;
+  outline: none;
+
+  &:active,
+  &:hover,
+  &:focus {
+    border-bottom: 0;
+    color: $white;
+  }
 }
 
-.lesson .lesson-pagination .active ~ li a {
-  background: rgb(141, 189, 217);
-}
-
-.lesson .lesson-pagination .active ~ li::before {
-  background: rgb(141, 189, 217);
+.active ~ .item .link,
+.active ~ .item:before {
+  background-color: $half-baked;
 }

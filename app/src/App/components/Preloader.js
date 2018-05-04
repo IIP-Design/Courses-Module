@@ -2,24 +2,24 @@ import React from 'react';
 
 import LoadingCirclesSVG from 'App/components/LoadingCirclesSVG';
 
-import 'App/components/stylesheets/Preloader.scss';
+import styles from 'App/components/stylesheets/Preloader.scss';
 
 
 const Preloader = () => {
   return (
-    <div className='preloader'>
-      <div className='pl-msg'>
-        <LoadingCirclesSVG />
+    <div className={ `${ styles.preloader } preloader` }>
+      <div className={ `${ styles.msg } pl-msg` }>
+        <LoadingCirclesSVG stroke='#4f4f4f' />
         <div className='pl-msg_txt'>Just a moment, loading...</div>
       </div>
-      <div className='pl-header' />
-      <div className='pl-course-image' />
-      <div className='pl-course-content'>
-        <div />
-        <div />
-        <div />
-        <div />
-        <div className='pl-course-button' />
+      <div className={ `${ styles.header } pl-header` } />
+      <div className={ `${ styles.img } pl-course-image` } />
+      <div className={ `${ styles.content } pl-course-content` }>
+        <div className={ styles.placeholder } />
+        <div className={ styles.placeholder } />
+        <div className={ styles.placeholder } />
+        <div className={ styles.placeholder } />
+        <div className={ `${ styles.btn } pl-course-button` } />
       </div>
     </div>
   );

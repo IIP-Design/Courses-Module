@@ -1,49 +1,55 @@
 @import '../../../App/stylesheets/all';
 
-.instructors-list .media-object {
-  border: $border;
+.instructors:before,
+.instructors:after {
+  content: ' ';
+  display: table;
 }
 
-.instructors-list .media-object {
-  @include bp($laptop) {
-    clear: none;
-    float: left;
-    margin: 0 1% 0 0;
+.instructors:after {
+  clear: both;
+}
+
+.instructor {
+  margin-bottom: 1.25em;
+  padding: 1.125em;
+  border: 1px solid $alto;
+
+  @include bp($tablet) {
     box-sizing: border-box;
+    float: left;
+    &:not(:last-child) {
+      margin-right: 1%;
+    }
+  }
+
+  > a:hover {
+    border-bottom-width: 0;
   }
 }
 
-.instructors-list .media-object.half {
-  @include bp($laptop) {
+@include bp($tablet) {
+  .half {
     width: 49%;
   }
-}
-
-.instructors-list .media-object.one-third {
-  @include bp($laptop) {
+  .oneThird {
     width: 32%;
   }
 }
 
-.instructors-list .media-object:last-child {
-  @include bp($laptop) {
-    margin: 0;
-  }
+.img {
+  width: 100%;
 }
 
-.instructors-list .media-object img {
-  width: 100%
+.header {
+  margin-top: 1.25em;
 }
 
-.instructors-list .media-object header {
-  margin-top: 20px;
+.title {
+  margin: 0 0 .5em 0;
 }
 
-.instructors-list .media-object-title {
-  margin: 0 0 8px 0;
-}
-
-.instructors-list .media-object-subtitle {
-  margin: 0 0 16px 0;
-  color: #4f4f4f;
+.subtitle {
+  margin: 0 0 1em 0;
+  color: $emperor;
 }

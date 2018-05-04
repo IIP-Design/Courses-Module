@@ -1,19 +1,40 @@
 /*------------------------------------*\
-  #VARIABLES (DEFAULTS)
+  #COLORS
 \*------------------------------------*/
 
-$border-color: rgb(222, 222, 222);
-$border: 1px solid $border-color;
-$box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+// Hex Colors
+$white: #ffffff;
+$gallery: #eeeeee;
+$alto: #dddddd;
+$emperor: #4f4f4f;
+$black: #000000;
+$thunderbird: #bd1827;
+$cream: #fdfd8d;
+$green: #0d970d;
+$porcelain: #e5e8e9;
+$link-water: #cde5f0;
+$half-baked: #8dbdd9;
+$steel-blue: #468fb0;
+$deep-cerulean: #0079af;
+$chathams-blue: #10557e;
 
-
-
+// Alpha Channel Colors
+$dim-gray-alpha: rgba(100, 100, 100, .3);
+$cerulean-apha: rgba(0, 121, 175, .4);
+$boston-blue-alpha: rgba(70, 143, 176, .4);
 
 /*------------------------------------*\
-  #MEDIA-QUERIES
+  #SCREENS/VIEWPORT SIZES
 \*------------------------------------*/
 
-$big-mobile:           25em; // 400px
-$tablet:               48em; // 768px
-$laptop:               64em; // 1024px
-$desktop:              75em; // 1200px
+$big-mobile: 25em; // 400px
+$tablet:     48em; // 768px
+$laptop:     64em; // 1024px
+$desktop:    75em; // 1200px
+
+/*------------------------------------*\
+  #MISC
+\*------------------------------------*/
+
+$radius: 40;
+$halfRadius: ($radius/2);

@@ -1,26 +1,23 @@
 @import '../../../App/stylesheets/all';
 
-.quiz-question {
+.question {
 	margin-bottom: 2em;
 
-	ul {
+	> ul {
 		padding-left: .8em;
 		margin-bottom: 1.2em;
-	}
-
-	li {
 		list-style: none;
 	}
 }
 
-.quiz-questions {
+.questions {
+	border-top: 1px solid $alto;
 	margin-top: 1.2em;
 	padding-top: 1.2em;
 	padding-left: 1em;
-	border-top: 1px solid #ddd;
 }
 
-.quiz-question-text {
+.questionText {
 	margin-bottom: .5em;
 
 	> p {
@@ -28,95 +25,90 @@
 	}
 }
 
-.quiz-instructions {
-	padding-top: .8em;
+.instructions {
+	border-top: 1px solid $alto;
 	margin-bottom: 0;
-	border-top: 1px solid #ddd;
+	padding-top: .8em;
 }
 
-.quiz-msg {
-	margin-top: 5px;
+.msg {
+	margin-top: .3125em;
 }
 
-.quiz-hide {
+.hide {
 	visibility: hidden;
 }
 
-.quiz-show {
+.show {
 	visibility: visible;
 }
 
-.quiz-incorrect {
+.incorrect {
 	display: inline-block;
 	margin-left: 1em;
-	color: #ba1e2c;
+	color: $thunderbird;
 }
 
-.quiz-attempts {
+.attempts {
 	margin-top: 1em;
-	color: #000000;
-	font-weight: bold;
-	background: #ffffcc;
 	padding: 1em;
-}
-
-.quiz-agrmt {
+	background: $cream;
+	color: $black;
 	font-weight: bold;
-	margin-bottom: .3em;
 }
 
-.quiz-lessons {
+.agrmt {
+	margin-bottom: .3em;
+	font-weight: bold;
+}
+
+.heading {
 	margin-top: 1em;
 	margin-bottom: .5em;
 }
 
-.quiz-lessons-list {
+.lessons {
 	padding-left:  1em;
 
-	li {
+	> li {
 		list-style: none;
 	}
 }
 
-.quiz-button {
+.btn {
 	width: 10em;
 }
 
-.quiz-required {
-	color: red;
+.required {
+	color: $thunderbird;
 }
 
-.quiz-notifier {
-	background-color: #2f78ab;
-	color: #ffffff;
-}
-
-#formQuiz input[type="checkbox"],
-#formQuiz input[type="radio"] {
+.checkbox,
+.radio {
 	margin-right: .7em;
 }
 
-#formQuiz input[type="submit"] {
+.submit {
 	width: 15em;
-	background-color: #c40837;
-	color: #fff;
+	color: $white;
+	background-color: $thunderbird;
 }
 
-#formQuiz input[type="submit"]:disabled {
-  background: #dddddd;
-  color: #aaaaaa;
+.submit:disabled {
+  color: $emperor;
+  background-color: $alto;
 }
 
 .correct:after {
 	content: '\2713';
-	color: #00e500;
 	margin-left: .3em;
+	color: $green;
 	font-size: 1.3em;
 }
 
 .incorrect:after {
 	content: '\2718';
-	color: red;
 	margin-left: .3em;
-	font-size: 1.3em
+	color: $thunderbird;
+	font-size: 1.3em;
 }

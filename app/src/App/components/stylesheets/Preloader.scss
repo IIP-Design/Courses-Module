@@ -2,77 +2,76 @@
 
 .preloader {
   position: relative;
+  margin-bottom: 2em;
   width: 100%;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
 }
 
 .preloader > div {
-  min-height: 20px;
-  margin: 10px;
+  margin: 2%;
 }
 
-.pl-msg {
+.msg {
   position: absolute;
+  top: em(125);
   left: 50%;
-  -webkit-transform: translateX(-50%);
+  width: 100%;
   transform: translateX(-50%);
+  color: $emperor;
   text-align: center;
-  top: 125px;
-  color: #888;
 }
 
-.pl-header {
-  height: 373px;
-  background-color: #eee;
+.header {
+  height: em(373);
+  background-color: $gallery;
 }
 
-.pl-course-image {
-  height: 165px;
+.img {
+  float: left;
+  height: 20vw;
   width: 20%;
-  float: left;
-  background-color: #eee;
+  background-color: $gallery;
 }
 
-
-.pl-course-content {
-  width: 75%;
+.content {
   float: left;
-  background-color: #fff;
+  width: 70%;
+  background-color: $white;
 }
 
-.pl-course-content > div {
+.placeholder {
   position: relative;
   width: 60%;
-  height: 10px;
-  margin-bottom: 10px;
-  background-color: #eee;
+  height: .625em;
+  margin-bottom: .625em;
+  background-color: $gallery;
 }
 
-.pl-course-content div:nth-child(2) {
+.placeholder:nth-child(2) {
   width: 80%;
-  height: 10px;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  background-color: #eee;
+  margin-top: 1.5em;
 }
 
-
-.pl-course-content div:nth-child(3) {
+.placeholder:nth-child(3) {
   width: 90%;
-  height: 10px;
-  margin-bottom: 10px;
-  background-color: #eee;
 }
 
-.pl-course-content div:nth-child(4) {
+.placeholder:nth-child(4) {
   width: 85%;
-  height: 10px;
-  margin-bottom: 10px;
-  background-color: #eee;
 }
 
-.pl-course-content .pl-course-button {
-  width: 200px;
-  height: 35px;
-  margin-top: 25px;
-  background-color: #eee;
+.btn {
+  height: 5vw;
+  width: 25vw;
+  margin-top: 1.5em;
+  background-color: $gallery;
 }

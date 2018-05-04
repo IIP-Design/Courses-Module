@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import 'App/components/stylesheets/LessonLayout.scss';
-
 const { object } = PropTypes;
 
 

@@ -1,47 +1,20 @@
 @import '../../../App/stylesheets/all';
 
-$bottom: 3.5em;
-
-section {
-  margin: 0 0 1.5em 0;
-  width: 100%;
-}
-
-h1, h3 {
-  margin-top: 0;
-}
-
-li  {
-	 margin: 0 0 4px 0;
-}
-
-@media (min-width: 48em) {
-  .two-thirds  {
-		  width: 100%;
-  }
-  .one-third  {
-      width: 100%;
-  }
-  .one-third,
-  .two-thirds {
+@include bp($laptop) {
+  :global .one-third,
+  :global .two-thirds {
     float: left;
   }
-}
-
-@media (min-width: 64em) {
-  .two-thirds  {
-		 width: 66%;
+  :global .two-thirds  {
+		width: 66%;
   }
-  .one-third  {
-     width: 33%;
-  }
-  .lesson .glossary {
-    margin: 1em 0 0 2em;
+  :global .one-third  {
+    width: 33%;
   }
 }
 
-.course-intro {
-  margin-bottom: -($bottom - 1.5em);
+.intro {
+  margin-bottom: -2em;
   overflow: hidden;
 
   @include bp($tablet) {
@@ -49,82 +22,68 @@ li  {
   }
 }
 
-.course-intro-feature {
+.feature {
   @include bp($tablet) {
     position: relative;
   }
-
-  @include bp($laptop) {
-    min-height: em(325);
-  }
 }
 
-.course-intro-image {
+.img {
   position: relative;
   overflow: hidden;
   min-height: 4em;
 
   @include bp($tablet) {
-    height: 100%;
     position: absolute;
+    height: 100%;
     width: 100%;
   }
 }
 
-.course-intro-image img {
+.img img {
   @include bp($tablet) {
     float: right;
     max-width: none !important;
   }
 }
 
-.course-intro-image::before {
+.img:before {
   @include bp($tablet) {
-    background: linear-gradient(0deg, transparent 0, #fff 70%, transparent 100%);
-    background: -moz-linear-gradient(0deg, transparent 0, #fff 70%, transparent 100%);
-    background: -webkit-linear-gradient(0deg, transparent 0, #fff 70%, transparent 100%);
-    background: -ms-linear-gradient(0deg, transparent 0, #fff 70%, transparent 100%);
+    position: absolute;
     top: 0;
     content: '';
     height: 100%;
-    position: absolute;
     width: 50%;
+    background: linear-gradient(0deg, transparent 0, $white 70%, transparent 100%);
   }
 }
 
-.course-intro-gradient {
-  background: linear-gradient(0deg, #fff, transparent 100%, transparent);
+.gradient {
+  position: absolute;
+  left: 0;
   bottom: 0;
   height: 50%;
-  left: 0;
-  position: absolute;
   width: 100%;
+  background: linear-gradient(0deg, $white, transparent 100%, transparent);
 
   @include bp($tablet) {
-    background: linear-gradient(0deg,#fff 0%, rgb(0,121,175) 70%, rgb(70,143,176) 100%);
-    background: -moz-linear-gradient(0deg,#fff 0%, rgb(0,121,175) 70%, rgb(70,143,176) 100%);
-    background: -webkit-linear-gradient(0deg,#fff 0%, rgb(0,121,175) 70%, rgb(70,143,176) 100%);
-    background: -ms-linear-gradient(0deg,#fff 0%, rgb(0,121,175) 70%, rgb(70,143,176) 100%);
     height: 100%;
     opacity: .4;
+    background: linear-gradient(0deg, $white 0%, $deep-cerulean 70%, $steel-blue 100%);
   }
 }
 
-.course-intro-text {
-  bottom: $bottom;
-  height: 100%;
+.text {
   position: relative;
-  min-height: em(325);
+  bottom: 3.5em;
+  height: 100%;
 
   @include bp($tablet) {
-    background: linear-gradient(90deg,#fff 0%, #cde5f0 70%, transparent 100%);
-    background: -moz-linear-gradient(90deg,#fff 0%, #cde5f0 70%, transparent 100%);
-    background: -webkit-linear-gradient(90deg,#fff,#cde5f0 70%,transparent);
-    background: -ms-linear-gradient(90deg,#fff 0%, #cde5f0 70%, transparent 100%);
     bottom: 0;
-    padding: 1em;
-    position: relative;
+    min-height: 20.3125em;
     width: 50%;
+    padding: 1em;
+    background: linear-gradient(90deg, $white 0%, $link-water 70%, transparent 100%);
   }
 
   @include bp($laptop) {
@@ -132,36 +91,22 @@ li  {
   }
 }
 
-.course-intro-text a {
+.cta {
+  display: block;
+  padding: 1em;
+  background-color: $thunderbird;
+  color: $white;
   text-align: center;
   text-decoration: none;
-}
-
-.course-take-course {
-  background: #bd1827;
-  padding: 1em;
-  text-decoration: none;
-  color: white;
 
   @include bp($tablet) {
-    width: 200px;
+    width: 12.5em;
   }
 
+  &:active,
+  &:hover,
+  &:focus {
+    color: $white;
+    border: 0;
+  }
 }
-
-#content .entry-content #course-container h3 {
-  margin-top: 0;
-}
-
-#course-container ul {
-  text-indent: 0;
-}
-
-.entry-title {
-	display: none;
-}
-
-.entry-content {
-	 margin: 0;
-}
-

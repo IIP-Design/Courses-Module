@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import ChoiceList from 'Quiz/components/ChoiceList';
 
+import styles from 'Quiz/components/stylesheets/Quiz.scss';
+
 const { string, bool, array } = PropTypes;
 
 
@@ -20,10 +22,10 @@ const Question = (props) => {
   const { questionId, choices } = props;
 
   return (
-    <li className='quiz-question'>
+    <li className={ `${ styles.question } quiz-question` }>
       <div
         id={ questionId }
-        className='quiz-question-text'
+        className={ `${ styles.questionText } quiz-question-text` }
         dangerouslySetInnerHTML={ rawHTML(props) } />
       <ChoiceList
         className='quiz-choices'

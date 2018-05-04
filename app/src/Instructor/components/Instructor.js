@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import 'Instructor/components/stylesheets/Instructor.scss';
+import styles from 'Instructor/components/stylesheets/Instructor.scss';
 
 const { object } = PropTypes;
 
@@ -35,11 +35,11 @@ class Instructor extends React.Component {
     const { src, alt } = image;
 
     return (
-      <div className='instructor two-thirds first'>
-        <h1 className='instructor-title'>{ title }</h1>
-        <h3 className='instructor-subtitle'>{ salutation }</h3>
+      <div className={ `${ styles.instructor } instructor two-thirds first` }>
+        <h1 className={ `${ styles.title } instructor-title` }>{ title }</h1>
+        <h2 className={ `${ styles.subtitle } instructor-subtitle` }>{ salutation }</h2>
         <img
-          className='instructor-image'
+          className={ `${ styles.img } instructor-image` }
           src={ src }
           alt={ alt } />
         <div

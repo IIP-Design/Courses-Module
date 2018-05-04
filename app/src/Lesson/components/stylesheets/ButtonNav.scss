@@ -1,0 +1,23 @@
+@import '../../../App/stylesheets/all';
+
+.nav {
+  @include bp($tablet) {
+    float: left;
+  }
+}
+
+.link {
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: .625em .9375em;
+  background-color: $chathams-blue;
+  color: $white;
+  text-decoration: none;
+
+  &:active,
+  &:hover,
+  &:focus {
+    color: $white;
+    text-decoration: underline;
+  }
+}

@@ -10,6 +10,8 @@ import Loading from 'App/components/Loading';
 import QuestionList from 'Quiz/components/QuestionList';
 import QuizBtn from 'Quiz/components/QuizBtn';
 
+import styles from 'Quiz/components/stylesheets/Quiz.scss';
+
 const { array, func, number, string, object } = PropTypes;
 
 const Modal = Loadable({
@@ -53,8 +55,8 @@ class QuizForm extends React.Component {
       isCertified: false,
       isNotificationActive: false,
       numIncorrect: 0,
-      attemptsClassname: 'quiz-hide quiz-attempts',
-      incorrectClassname: 'quiz-hide quiz-incorrect',
+      attemptsClassname: `${ styles.hide } ${ styles.attempts }`,
+      incorrectClassname: `${ styles.hide } ${ styles.incorrect }`,
       isModalOpen: false
     };
 
@@ -95,8 +97,8 @@ class QuizForm extends React.Component {
    */
   updateStatusNotification() {
     this.setState({
-      attemptsClassname: 'quiz-show quiz-attempts',
-      incorrectClassname: 'quiz-show quiz-incorrect'
+      attemptsClassname: `${ styles.show } ${ styles.attempts }`,
+      incorrectClassname: `${ styles.show } ${ styles.incorrect }`
     });
   }
 
@@ -123,8 +125,8 @@ class QuizForm extends React.Component {
   showCorrectIndicator(id, cls) {
     const el = document.getElementById(id);
 
-    el.classList.remove('incorrect');
-    el.classList.remove('correct');
+		el.classList.remove(`${ styles.incorrect }`);
+		el.classList.remove(`${ styles.correct }`);
     el.classList.add(cls);
   }
 
@@ -246,13 +248,13 @@ class QuizForm extends React.Component {
     userAnswers.forEach((answer) => {
 
       // Set it to incorrect initally
-      this.showCorrectIndicator(answer.questionId, 'incorrect');
+      this.showCorrectIndicator(answer.questionId, `${ styles.incorrect }`);
 
       correctAnswers.forEach((correct) => {
 
         // If the answer and correct answer match, mark it correct and push it to the results array
         if (correct.id === answer.choiceId) {
-          this.showCorrectIndicator(answer.questionId, 'correct');
+          this.showCorrectIndicator(answer.questionId, `${ styles.correct }`);
           results.push(answer);
         }
       });
@@ -365,18 +367,19 @@ class QuizForm extends React.Component {
     return (
       <div style={ { position: 'relative' } }>
         <form id='formQuiz' onSubmit={ this.handleSubmit }>
-          <div className='quiz-agrmt'>{ quizAgree } <span className='quiz-required'>*</span></div>
+          <div className={ `${ styles.agrmt } quiz-agrmt` }>{ quizAgree } <span className={ `${ styles.required } quiz-required` }>*</span></div>
           <label htmlFor='certify'>
             <input
               id='certify'
               type='checkbox'
               name='certify'
               value={ isCertified }
-              onChange={ this.handleCertAgreement } />
+              onChange={ this.handleCertAgreement }
+              className={ styles.checkbox } />
             { quizCert }
           </label>
           <QuestionList questions={ questions }/>
-          <QuizBtn value={ quizBtn } />
+          <QuizBtn value={ quizBtn } className={ styles.btn } />
           <span className={ incorrectClassname }>{ numIncorrect } { quizWrong } </span>
         </form>
         <div className={ attemptsClassname }>{ quizAttemptsRemain }: { this.maxAttempts - numAttempts } - { quizAttempts }</div>

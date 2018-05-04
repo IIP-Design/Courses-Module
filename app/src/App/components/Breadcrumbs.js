@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
+import styles from 'Lesson/components/stylesheets/LessonLayout.scss';
+
 const {string, object } = PropTypes;
 
 
@@ -20,7 +22,7 @@ const {string, object } = PropTypes;
 
 const Breadcrumbs = (props) => {
   return (
-    <div className='lesson-breadcrumbs'>
+    <div className={ `${ styles.breadcrumbs } lesson-breadcrumbs` }>
       <Link to='/'>{ props.courseTitle }</Link>
       <span>&nbsp;>&nbsp;</span>
       <span>&nbsp;{ props.name }</span>
