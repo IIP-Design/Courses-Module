@@ -7,14 +7,6 @@ import Loading from 'App/components/Loading';
 import { MainContainer } from 'App';
 import { CourseContainer } from 'Course';
 
-const LessonLayout = Loadable({
-  loader: () => import(
-    /* webpackChunkName: 'LessonLayout' */
-    'Lesson/components/LessonLayout'
-  ),
-  loading: Loading
-});
-
 const LessonContainer = Loadable({
   loader: () => import(
     /* webpackChunkName: 'LessonContainer' */
@@ -94,8 +86,6 @@ checkForTrackingCode();
 /*
  * Export the router
  *
- * @todo Consider removing the LessonLayout component
- *
  * @since 1.0.0
  */
 
@@ -105,9 +95,7 @@ export default (() => {
       <Route component={ MainContainer }>
         <Route path='/'>
           <IndexRoute component={ CourseContainer }  />
-          <Route path='lesson' component={ LessonLayout }>
-            <Route path=':lessonSlug' component={ LessonContainer } />
-          </Route>
+          <Route path='/lesson/:lessonSlug' component={ LessonContainer } />
           <Route path='/instructors/:slug' component={ InstructorContainer } />
           <Route path='quiz' component={ QuizContainer } />
         </Route>
