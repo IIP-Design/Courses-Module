@@ -53,7 +53,7 @@ class Lesson extends React.Component {
     };
 
     return (
-      <div className={ `${ styles.lesson } lesson` }>
+      <div className='lesson'>
         <div className='two-thirds first'>
           <h1 className={ `${ styles.title } lesson-title` }>{ title }</h1>
           <Breadcrumbs courseTitle={ courseTitle } name={ title } />
