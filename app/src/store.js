@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import { loadState, saveState } from 'root/sessionStorage';
