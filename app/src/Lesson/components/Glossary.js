@@ -26,7 +26,7 @@ const renderTerm = (term) => {
     <CollapseItem className={ `${ styles.term } glossary-item` } key={ id }>
       <CollapseTrigger
         className={ `${ styles.trigger } glossary-trigger` } 
-        tag='p'>
+        tag='button'>
         { title }
       </CollapseTrigger>
       <CollapsePanel className='glossary-text' description={ description } />

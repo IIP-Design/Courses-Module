@@ -48,17 +48,18 @@ class Collapse extends React.Component {
     if (this.accordion) {
       this.accordion.destroy();
     }
+    const elm = document.querySelector('.accordion');
     const selectors = { body: '.collapse', trigger: '.trigger' };
     const options = { collapseOthers: true };
 
-    this.accordion = new Accordion.Accordion(selectors, options);
+    this.accordion = new Accordion.Accordion(elm, selectors, options);
   }
 
 
   render() {
     const { className, children } = this.props;
     return (
-      <ul className={ `collapse ${ className }` } role='tablist'>
+      <ul className={ `accordion collapse ${ className }` } role='tablist'>
         {children}
       </ul>
     );
