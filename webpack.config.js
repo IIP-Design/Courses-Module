@@ -38,17 +38,12 @@ module.exports = {
     port: 4080,
     historyApiFallback: true,
     compress: true,
-    hot: true
-  },
-  stats: {
-    colors: true,
-    reasons: true,
-    chunks: false
-  },
-  externals: {
-    'cheerio': 'window',
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true
+    hot: true,
+    stats: {
+      colors: true,
+      reasons: true,
+      chunks: false
+    }
   },
   module: {
     rules: [
