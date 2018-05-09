@@ -9,7 +9,7 @@ import styles from 'Quiz/components/stylesheets/Quiz.scss';
 const { array } = PropTypes;
 
 
-/*
+/**
  * The QuestionList component.
  *
  * @todo Do we want to pass the choices, questionId all the way down from this component?

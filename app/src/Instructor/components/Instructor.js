@@ -6,7 +6,7 @@ import styles from 'Instructor/components/stylesheets/Instructor.scss';
 const { object } = PropTypes;
 
 
-/*
+/**
  * The Instructor component.
  *
  * @since 1.0.0

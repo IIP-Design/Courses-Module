@@ -1,4 +1,4 @@
-/*
+/**
  * Check if the key 'state' exists in sessionStorage
  *
  * @todo Something more unique that 'state'
@@ -24,7 +24,7 @@ export const loadState = () => {
 };
 
 
-/*
+/**
  * Save state to sessionStorage
  *
  * @todo Something more unique that 'state'
@@ -40,7 +40,7 @@ export const saveState = (state) => {
 };
 
 
-/*
+/**
  * Clear sessionStorage state
  *
  * @todo Clear the state so that users can take multiple quizzes

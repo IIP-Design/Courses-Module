@@ -32,7 +32,7 @@ const QuizContainer = Loadable({
 });
 
 
-/*
+/**
  * Initialize Google analytics.  Check for the global object on page
  * If it does not exist, initialize it
  *
@@ -47,7 +47,7 @@ function checkForTrackingCode() {
   }
 }
 
-/*
+/**
  * Log the page view to analytics.  Only send information to analytics if on a non-index route.
  * getPathName function will return twice: once for index route and once for component route
  * The component route will return a string with '//' in the path.  We do not want to
@@ -66,7 +66,7 @@ function logPageView() {
   }
 }
 
-/*
+/**
  * Extract pathname from state location information.
  *
  * @param {Object} location - state location object
@@ -83,7 +83,7 @@ function getPathName(location) {
 
 checkForTrackingCode();
 
-/*
+/**
  * Export the router
  *
  * @since 1.0.0

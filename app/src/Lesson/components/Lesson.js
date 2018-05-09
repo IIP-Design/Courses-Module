@@ -13,7 +13,7 @@ import styles from 'Lesson/components/stylesheets/LessonLayout.scss';
 const { object, array, string } = PropTypes;
 
 
-/*
+/**
  * The Lesson component.
  *
  * @since 1.0.0

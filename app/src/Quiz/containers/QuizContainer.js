@@ -9,7 +9,7 @@ import Quiz from 'Quiz/components/Quiz';
 const { array, string } = PropTypes;
 
 
-/*
+/**
  * The container component responsible for interacting with the Redux store.
  *
  * @param {Object} props - The React props object
@@ -27,7 +27,7 @@ QuizContainer.propTypes = {
 };
 
 
-/*
+/**
  * Standard Redux mapStateToProps function.
  *
  * @param {Object} state.app - The app object in the Redux store
@@ -42,7 +42,7 @@ const mapStateToProps = ({ app, language }) => {
   const questions = flattenArray(lessons, 'quiz');
 
 
-  /*
+  /**
    * @typedef {Object} QuizContainerPropsObject
    * @property {String} courseName - The name of the course
    * @property {Array} lessons - The course lessons

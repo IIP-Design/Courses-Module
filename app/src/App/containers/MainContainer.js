@@ -9,14 +9,14 @@ import { setLanguage } from 'Language/actions';
 import MainLayout from 'App/components/MainLayout';
 
 
-/*
+/**
  * The container component that is responsible for interacting with the Redux store
  *
  * @since 2.0.0
  */
 
 class MainContainer extends React.Component {
-  /*
+  /**
    * When the MainContainer component mounts, it grabs the
    * course id, performs an ajax request, and passes the
    * response off to redux
@@ -66,7 +66,7 @@ class MainContainer extends React.Component {
 }
 
 
-/*
+/**
  * Standard Redux mapStateToProps function.
  *
  * @param {Object} state.app - The app object in the Redux store
@@ -81,7 +81,7 @@ const mapStateToProps = ({ app, language }) => {
   const { isFetching } = app;
 
 
-  /*
+  /**
    * @typedef {Object} MainContainerPropsObject
    * @property {Boolean} isFetching - Is the application in the state of fetching data
    * @property {Object} course - The course data from state

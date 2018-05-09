@@ -7,10 +7,12 @@ import styles from 'Quiz/components/stylesheets/Quiz.scss';
 const { array } = PropTypes;
 
 
-/*
- * The QuizLesson component.
+/**
+ * Render individual lesson
  *
- * @since 2.0.0
+ * @param {Object} lesson - individual lesson
+ *
+ * @since tba
  */
 
 const renderLesson = (lesson) => {
@@ -24,6 +26,12 @@ const renderLesson = (lesson) => {
   );
 };
 
+
+/**
+ * The QuizLesson component.
+ *
+ * @since 2.0.0
+ */
 
 const QuizLessons = (props) => {
   const { lessons, language } = props;

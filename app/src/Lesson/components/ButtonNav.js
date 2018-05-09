@@ -7,7 +7,7 @@ import styles from 'Lesson/components/stylesheets/ButtonNav.scss';
 const { array, number } = PropTypes;
 
 
-/*
+/**
  * Build the link to the next/previous lesson
  *
  * @param {Array} lessons - The array of lessons in the current course
@@ -34,7 +34,7 @@ const renderLink = (lessons, lessonIndex, index, label) => {
 };
 
 
-/*
+/**
  * The next/previous/quiz button navigation on a lesson
  *
  * @param {Object} props - The React props object

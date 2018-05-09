@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const { string } = PropTypes;
 
 
-/*
+/**
  * A generic form input component.
  *
  * @param {Object} props - A React props object

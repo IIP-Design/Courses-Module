@@ -6,6 +6,14 @@ const { func, bool, node, object } = PropTypes;
 import styles from 'Quiz/components/stylesheets/Modal.scss';
 
 
+/**
+ * Modal component
+ *
+ * @param {Object} props - React props object
+ *
+ * @since tba
+ */
+
 const Modal = (props) => {
   const { show,
           children,

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const { string, array } = PropTypes;
 
 
-/*
+/**
  * The wrapping component for an individual collapsable
  * component. Wraps CollapseTrigger and CollapsePanel.
  *
@@ -27,7 +27,7 @@ CollapseItem.propTypes = {
 };
 
 
-/*
+/**
  * The 508-compliant Collapse component. Wraps each CollapseItem.
  *
  * @since 1.0.0
@@ -73,7 +73,7 @@ Collapse.propTypes = {
 };
 
 
-/*
+/**
  * The collapsable content area that is show/hidden
  *
  * @since 1.0.0
@@ -95,10 +95,10 @@ CollapsePanel.propTypes = {
 };
 
 
-/*
+/**
  * The trigger that collapses each CollapsePanel
  *
- * @params {Object} props - The React props object
+ * @param {Object} props - The React props object
  *
  * @since 1.0.0
  */

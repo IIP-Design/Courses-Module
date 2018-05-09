@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const { string, func } = PropTypes;
 
 
-/*
+/**
  * A generic form input component
  *
  * @since 1.0.0

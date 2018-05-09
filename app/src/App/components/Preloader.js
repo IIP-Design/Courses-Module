@@ -5,6 +5,12 @@ import LoadingCirclesSVG from 'App/components/LoadingCirclesSVG';
 import styles from 'App/components/stylesheets/Preloader.scss';
 
 
+/**
+ * The Preloader component
+ *
+ * @since tba
+ */
+
 const Preloader = () => {
   return (
     <div className={ `${ styles.preloader } preloader` }>

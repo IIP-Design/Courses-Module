@@ -8,7 +8,7 @@ import styles from 'App/components/stylesheets/StepsList.scss';
 const { object } = PropTypes;
 
 
-/*
+/**
  * The list of Steps combined into one component
  *
  * @param {Object} props - The React props object

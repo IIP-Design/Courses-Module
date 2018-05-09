@@ -7,7 +7,7 @@ import styles from 'Lesson/components/stylesheets/LessonPagination.scss';
 const { array, number } = PropTypes;
 
 
-/*
+/**
  * Build the links for pagination
  *
  * @param {Object} lesson - The current lesson
@@ -37,7 +37,7 @@ const renderLinks = (lesson, index, lessonIndex) => {
 };
 
 
-/*
+/**
  * The Lesson pagination component
  *
  * @param {Object} props - The React props object

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const { string, array } = PropTypes;
 
 
-/*
+/**
  * Generates a select menu from an array options passed via props.
  *
  * @param {Object} props - The React props object

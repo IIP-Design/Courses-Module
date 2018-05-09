@@ -7,7 +7,7 @@ import Lesson from 'Lesson/components/Lesson';
 const { array } = PropTypes;
 
 
-/*
+/**
  * The Lesson container component responsible for
  * interacting with the Redux store and passing state
  * to the Lesson component as props.
@@ -25,7 +25,7 @@ LessonContainer.propTypes = {
 };
 
 
-/*
+/**
  * Standard Redux mapStateToProps function.
  *
  * @param {Object} state.app - The app object in the Redux store

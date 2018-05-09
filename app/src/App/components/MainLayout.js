@@ -5,10 +5,8 @@ import Preloader from 'App/components/Preloader';
 
 const { object } = PropTypes;
 
-/*
+/**
  * The component that provides much of the global styles.
- *
- * @todo: This spinner does not work
  *
  * @param {Object} props - The React props object
  *

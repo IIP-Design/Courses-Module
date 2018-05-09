@@ -1,5 +1,12 @@
 import React from 'react';
 
+/**
+ * Loading component for react-loadable
+ *
+ * @param {Object} props - React props object
+ *
+ * @since tba
+ */
 
 const Loading = (props) => {
   if (props.error) {

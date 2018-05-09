@@ -6,7 +6,7 @@ import styles from 'Quiz/components/stylesheets/Quiz.scss';
 const { array, func, object, string } = PropTypes;
 
 
-/*
+/**
  * The RadioChoice component
  *
  * @param {Object} props - The React props object

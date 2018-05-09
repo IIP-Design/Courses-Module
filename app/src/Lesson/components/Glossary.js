@@ -11,12 +11,12 @@ import styles from 'Lesson/components/stylesheets/Glossary.scss';
 const { array } = PropTypes;
 
 
-/*
- * The Glossary of Terms component.
+/**
+ * Render a glossary term
  *
- * @param {Object} props - The React props object.
+ * @param {Object} term - individual term
  *
- * @since 1.0.0
+ * @since tba
  */
 
 const renderTerm = (term) => {
@@ -34,6 +34,14 @@ const renderTerm = (term) => {
   );
 };
 
+
+/**
+ * The Glossary of Terms component.
+ *
+ * @param {Object} props - The React props object.
+ *
+ * @since 1.0.0
+ */
 
 const Glossary = (props) => {
   const { terms, language } = props;

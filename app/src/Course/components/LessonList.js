@@ -7,14 +7,16 @@ import { MediaObject } from 'App';
 
 import styles from 'Course/components/stylesheets/LessonList.scss';
 
-
 const { array } = PropTypes;
 
 
-/*
- * The LessonList component
+/**
+ * Render list of lessons
  *
- * @since 1.0.0
+ * @param {Object} lesson - individual lesson
+ * @param {Object} language - object of language text
+ *
+ * @since tba
  */
 
 const renderLessonList = (lesson, language) => {
@@ -31,6 +33,12 @@ const renderLessonList = (lesson, language) => {
   );
 };
 
+
+/**
+ * The LessonList component
+ *
+ * @since 1.0.0
+ */
 
 const LessonList = (props) => {
   const { language, lessons } = props;

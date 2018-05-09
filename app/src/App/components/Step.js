@@ -6,7 +6,7 @@ import styles from 'App/components/stylesheets/StepsList.scss';
 const { string } = PropTypes;
 
 
-/*
+/**
  * A step that leads to getting a certificate.
  *
  * @example "Take All Lessons" from a course main page

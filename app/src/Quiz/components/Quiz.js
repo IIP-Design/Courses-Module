@@ -9,7 +9,7 @@ import styles from 'Quiz/components/stylesheets/Quiz.scss';
 const { array, string, object } = PropTypes;
 
 
-/*
+/**
  * The Quiz component.
  *
  * @since 1.0.0

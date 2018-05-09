@@ -9,7 +9,7 @@ import { quizReducer } from 'Quiz';
 import { langReducer } from 'Language';
 
 
-/*
+/**
  * Including thunk middleware in the event we want to return functions for async purposes
  *
  * @since 1.0.0
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 
-/*
+/**
  * Get Redux store from sessionStorage
  *
  * @since 1.0.0
@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
 const persistedState = loadState();
 
 
-/*
+/**
  * Combine Redux reducers
  *
  * @since 1.0.0
@@ -43,7 +43,7 @@ const reducers = combineReducers({
   language: langReducer
 });
 
-/*
+/**
  * Add redux development tools for development environment (via browser extension)
  * If the browser extension is not installed, use compose
  *
@@ -52,7 +52,7 @@ const reducers = combineReducers({
 
 const composeEnhancers = process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-/*
+/**
  * Create the Redux store
  *
  * Integrate redux dev tools.

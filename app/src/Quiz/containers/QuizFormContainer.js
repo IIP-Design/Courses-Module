@@ -10,7 +10,7 @@ import QuizForm from 'Quiz/components/QuizForm';
 const { array, func, number, string } = PropTypes;
 
 
-/*
+/**
  * The container component responsible for interacting with the Redux store.
  *
  * @param {Object} props - The React props object
@@ -32,7 +32,7 @@ QuizFormContainer.propTypes = {
 };
 
 
-/*
+/**
  * Standard Redux mapStateToProps function.
  *
  * @param {Object} state.app - State of the app as it appears in redux
@@ -47,7 +47,7 @@ const mapStateToProps = ({ quiz, app }) => {
   const courseName = title;
   const questions = flattenArray(lessons, 'quiz');
 
-  /*
+  /**
    * @typedef {Object} QuizFormContainerStatePropsObject
    * @property {Array} userAnswers - The users answers
    * @property {Number} numAttempts - The number of times the user has tried to submit the quiz
@@ -66,7 +66,7 @@ const mapStateToProps = ({ quiz, app }) => {
 };
 
 
-/*
+/**
  * Standard Redux mapDispatchToProps function.
  *
  * @param {Function} dispatch - Redux dispatch function
@@ -77,7 +77,7 @@ const mapStateToProps = ({ quiz, app }) => {
 
 const mapDispatchToProps = (dispatch) => {
 
-  /*
+  /**
    * @typedef {Object} QuizContainerDispatchPropsObject
    * @property {Function} incrementNumAttempts - Increments numAttempts in state
    * @property {Function} resetQuiz - Reset the quiz information in state

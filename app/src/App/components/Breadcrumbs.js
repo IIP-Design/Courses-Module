@@ -7,7 +7,7 @@ import styles from 'Lesson/components/stylesheets/LessonLayout.scss';
 const {string, object } = PropTypes;
 
 
-/*
+/**
  * A breadcrumb navigation component
  *
  * @todo Make more generic. Currently too tightly coupled

@@ -1,7 +1,7 @@
 import * as types from 'App/actionTypes';
 
 
-/*
+/**
  * App's initialState set isFetching
  *
  * @since 2.0.0
@@ -18,7 +18,7 @@ const dispatchOnReadyEvent = () => {
   dispatchEvent(event);
 };
 
-/*
+/**
  * The App's redux reducer
  *
  * @param {Object} state - The App component's current state

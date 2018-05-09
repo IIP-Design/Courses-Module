@@ -7,7 +7,7 @@ import Course from 'Course/components/Course';
 const { object } = PropTypes;
 
 
-/*
+/**
  * The Course container component responsible for interacting with the Redux store and passing state to the Course component as props.
  *
  * @param {Object} props - The React props object
@@ -23,7 +23,7 @@ CourseContainer.propTypes = {
 };
 
 
-/*
+/**
  * Standard Redux mapStateToProps function.
  *
  * @param {Object} state.app - The app object in the Redux store
@@ -36,7 +36,7 @@ CourseContainer.propTypes = {
 const mapStateToProps = ({ app, language }) => {
   const course = app.data;
 
-  /*
+  /**
    * @typedef {Object} CourseContainerPropsObject
    * @property {Object} course - The course data from state
    *

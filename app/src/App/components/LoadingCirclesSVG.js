@@ -1,6 +1,14 @@
 import React from 'react';
 
 
+/**
+ * Render an animated SVG loader
+ *
+ * @param {Object} props - React props object
+ *
+ * @since tba
+ */
+
 const LoadingCirclesSVG = (props) => {
   /**
    * By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL

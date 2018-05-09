@@ -6,10 +6,13 @@ import RadioChoiceContainer from 'Quiz/containers/RadioChoiceContainer';
 const { array, string } = PropTypes;
 
 
-/*
- * The ChoiceList component.
+/**
+ * Render an individual answer choice
  *
- * @since 1.0.0
+ * @param {Object} choice - individual answer choice
+ * @param {String} questionId - the question's id
+ *
+ * @since tba
  */
 
 const renderChoice = (choice, questionId) => {
@@ -22,6 +25,12 @@ const renderChoice = (choice, questionId) => {
       choice={ choice } />
   );
 };
+
+/**
+ * The ChoiceList component.
+ *
+ * @since 1.0.0
+ */
 
 const ChoiceList = (props) => {
   const { choices, questionId } = props;

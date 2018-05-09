@@ -9,7 +9,7 @@ import Instructor from 'Instructor/components/Instructor';
 const { object } = PropTypes;
 
 
-/*
+/**
  * The Instructor container component responsible for interactin with the Redux store and passing
  * state to the Instrutor component
  *
@@ -24,7 +24,7 @@ InstructorContainer.propTypes = {
 };
 
 
-/*
+/**
  * Standard Redux mapStateToProps function.
  *
  * @param {Object} state.app - The app object in the Redux store
@@ -45,7 +45,7 @@ const mapStateToProps = ({ app }, { params: { slug } }) => {
   const instructor = instructors.find(instructor => slug === instructor.slug);
 
 
-  /*
+  /**
    * @typedef {Object} InstructorContainerPropsObject
    * @property {Object} instructor - The correct instructor object from state
    *

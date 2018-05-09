@@ -1,7 +1,7 @@
 import * as types from 'App/actionTypes';
 
 
-/*
+/**
  * A function for managing what information is sent to the Redux reducer
  *
  * @param {Object} [data] - Data from the ajax request to the api

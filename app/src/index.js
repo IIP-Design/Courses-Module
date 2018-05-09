@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from 'root/store';
 import routes from 'root/routes';
 
-/*
+/**
  * The application's root element
  *
  * @since 1.0.0
@@ -14,7 +14,7 @@ import routes from 'root/routes';
 const root = document.getElementById('course-container');
 
 
-/*
+/**
  * Render the application
  *
  * @since 1.0.0

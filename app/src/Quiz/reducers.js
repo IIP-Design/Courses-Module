@@ -6,7 +6,7 @@ const initialState = {
 };
 
 
-/*
+/**
  * Get the indexOf an object in an array of objects
  *
  * @param {Array} arr - The array of objects
@@ -21,7 +21,7 @@ const indexOfObjectInArray = (arr, key, id) => {
 };
 
 
-/*
+/**
  * Slice before an index, slice after index, concat the slices. All return new arrays.
  *
  * @param {Array} arr - The original array you want to remove an item from
@@ -35,7 +35,7 @@ const pureSplice = (arr, index) => {
 };
 
 
-/*
+/**
  * Remove an item from an array safely and purely
  *
  * @param {Array} arr - The array
@@ -60,7 +60,7 @@ const removeItem = (arr, index) => {
 };
 
 
-/*
+/**
  * Safely update (or set) the userAnswers array in state
  *
  * @param state {Object} - Current state of the application

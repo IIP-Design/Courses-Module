@@ -9,7 +9,7 @@ import RadioChoice from 'Quiz/components/RadioChoice';
 const { array, func, object, string } = PropTypes;
 
 
-/*
+/**
  * The container component responsible for interacting with the Redux store.
  *
  * @since 2.0.0
@@ -22,7 +22,7 @@ class RadioChoiceContainer extends React.Component {
   }
 
 
-  /*
+  /**
    * Filter the answer from state that matches props.choiceId
    *
    * @param {Array} answers - The answers from state
@@ -36,7 +36,7 @@ class RadioChoiceContainer extends React.Component {
   }
 
 
-  /*
+  /**
    * Programmatically set 'checked' attribute on the radio button
    *
    * @since 2.0.0
@@ -61,7 +61,7 @@ RadioChoiceContainer.propTypes = {
 };
 
 
-/*
+/**
  * Standard Redux mapStateToProps function.
  *
  * @param {Object} state.quiz - The quiz object in the Redux store
@@ -75,7 +75,7 @@ RadioChoiceContainer.propTypes = {
 const mapStateToProps = ({ quiz }) => {
   const { userAnswers } = quiz;
 
-  /*
+  /**
    * @typedef {Object} RadioChoicContainerStatePropsObject
    * @property {Array} userAnswers - The user's answers
    */
@@ -85,7 +85,7 @@ const mapStateToProps = ({ quiz }) => {
 };
 
 
-/*
+/**
  * Standard Redux mapDispatchToProps function.
  *
  * @param {Function} dispatch - Redux dispatch function
@@ -96,7 +96,7 @@ const mapStateToProps = ({ quiz }) => {
  */
 
 const mapDispatchToProps = (dispatch) => {
-  /*
+  /**
    * @typedef {Object} RadioChoiceContainerDispatchPropsObject
    * @property {Function} handleChange - A callback that updates a user's answer in state
    */

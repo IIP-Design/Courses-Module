@@ -8,8 +8,10 @@ import styles from 'Quiz/components/stylesheets/Quiz.scss';
 const { string, bool, array } = PropTypes;
 
 
-/*
- * The Question component.
+/**
+ * Render question text
+ * 
+ * @param {Object} props - React props object
  *
  * @since 1.0.0
  */
@@ -17,6 +19,13 @@ const { string, bool, array } = PropTypes;
 const rawHTML = (props) => {
   return { __html: props.text };
 };
+
+
+/**
+ * The Question component.
+ *
+ * @since 1.0.0
+ */
 
 const Question = (props) => {
   const { questionId, choices } = props;

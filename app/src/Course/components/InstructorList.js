@@ -7,10 +7,13 @@ import styles from 'Course/components/stylesheets/InstructorList.scss';
 const { array } = PropTypes;
 
 
-/*
- * The InstructorList component
+/**
+ * Render list of instructors
  *
- * @since 1.0.0
+ * @param {Object} instructor - individual instructor
+ * @param {Number} numInstructors - instructor count
+ *
+ * @since tba
  */
 
 const renderInstructor = (instructor, numInstructors) => {
@@ -42,6 +45,12 @@ const renderInstructor = (instructor, numInstructors) => {
   );
 };
 
+
+/**
+ * The InstructorList component
+ *
+ * @since 1.0.0
+ */
 
 const InstructorList = (props) => {
   const { instructors, language } = props;

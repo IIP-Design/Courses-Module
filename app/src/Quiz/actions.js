@@ -1,7 +1,7 @@
 import * as types from './actionTypes';
 
 
-/*
+/**
  * Action format
  *
  * {
@@ -13,7 +13,7 @@ import * as types from './actionTypes';
  */
 
 
-/*
+/**
  * Set the user answer in the redux store
  *
  * @param {string} questionId - The question id
@@ -48,7 +48,7 @@ export function setUserAnswer(questionId, choiceId, error) {
 }
 
 
-/*
+/**
  * An action to increment the number of attempts the user has taken the quiz
  *
  * @return {Object} - The action object sent to the quiz reducer
@@ -63,7 +63,7 @@ export function incrementNumAttempts() {
 }
 
 
-/*
+/**
  * An action to reset the user's answers and number number of attempts at submitting the quiz
  *
  * @return {Object} - The action object sent to the quiz reducer

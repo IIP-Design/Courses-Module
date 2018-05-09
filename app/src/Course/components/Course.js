@@ -13,7 +13,7 @@ import styles from 'Course/components/stylesheets/Course.scss';
 const { object } = PropTypes;
 
 
-/*
+/**
  * The course component
  *
  * @since 1.0.0

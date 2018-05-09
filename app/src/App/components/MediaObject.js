@@ -7,10 +7,10 @@ import styles from 'App/components/stylesheets/MediaObject.scss';
 const { string, bool, object } = PropTypes;
 
 
-/*
- * A simple media object component
+/**
+ * Render raw description
  *
- * @see http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ * @param {Object} props - React props object
  *
  * @since 1.0.0
  */
@@ -18,6 +18,15 @@ const { string, bool, object } = PropTypes;
 const setDescription = (props) => {
   return { __html: props.description };
 }
+
+
+/**
+ * A simple media object component
+ *
+ * @see http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ *
+ * @since 1.0.0
+ */
 
 const MediaObject = (props) => {
   const { tag,
