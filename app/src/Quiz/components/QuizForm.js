@@ -365,7 +365,7 @@ class QuizForm extends React.Component {
             isModalOpen } = this.state;
 
     return (
-      <div style={ { position: 'relative' } }>
+      <div className={ styles.formContainer }>
         <form id='formQuiz' onSubmit={ this.handleSubmit }>
           <div className={ `${ styles.agrmt } quiz-agrmt` }>{ quizAgree } <span className={ `${ styles.required } quiz-required` }>*</span></div>
           <label htmlFor='certify'>
