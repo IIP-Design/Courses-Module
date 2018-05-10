@@ -31,15 +31,17 @@ class Quiz extends React.Component {
     const { quizQuestions, quizAttempts } = language;
 
 		return (
-			<div>
-        <QuizLessons lessons={ lessons } language={ language } />
-        <h3 className={ `${ styles.instructions } quiz-instructions` }>{ quizQuestions }</h3>
-        <p className={ `${ styles.msg } quiz-msg` }>{ quizAttempts }</p>
+			<section>
+        <header>
+          <QuizLessons lessons={ lessons } language={ language } />
+          <h3 className={ `${ styles.instructions } quiz-instructions` }>{ quizQuestions }</h3>
+          <p className={ `${ styles.msg } quiz-msg` }>{ quizAttempts }</p>
+        </header>
         <QuizFormContainer
           questions={ questions }
           courseName={ courseName }
           language={ language } />
-      </div>
+      </section>
 		);
 	}
 }
