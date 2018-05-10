@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
@@ -56,7 +56,7 @@ class Course extends React.Component {
     }
 
     return (
-      <div>
+      <Fragment>
         <section className={ `${ styles.intro } course-intro` }>
           <div className={ `${ styles.feature } course-intro-feature` }>
             <div className={ `${ styles.img } course-intro-image` }>
@@ -82,7 +82,7 @@ class Course extends React.Component {
         <InstructorList
           instructors={ instructors }
           language={ language } />
-      </div>
+      </Fragment>
     );
   }
 }

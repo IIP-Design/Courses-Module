@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import shortid from 'shortid';
@@ -120,7 +120,7 @@ const LessonTabs = (props) => {
       </TabPanel>
 
       <TabPanel>
-        <div>
+        <Fragment>
           <p>
             <a
               href={ transcriptFile }
@@ -128,7 +128,7 @@ const LessonTabs = (props) => {
               className={ `${ tabStyles.print } print` }>{ print }</a>
           </p>
           <div dangerouslySetInnerHTML={ rawTranscript( props ) } />
-        </div>
+        </Fragment>
       </TabPanel>
 
       { resources &&

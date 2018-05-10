@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
@@ -40,12 +40,12 @@ const QuizLessons = (props) => {
   const quizLessonsList = lessons.map(lesson => renderLesson(lesson));
 
   return (
-    <div>
+    <Fragment>
       <h3 className={ `${ styles.heading } quiz-lessons` }>{ quizLessons }:</h3>
       <ul className={ `${ styles.lessons } quiz-lessons-list` }>
         { quizLessonsList }
       </ul>
-    </div>
+    </Fragment>
   );
 };
 
