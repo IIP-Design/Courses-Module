@@ -24,7 +24,7 @@ class QuestionList extends React.Component {
   }
 
 
-  shouldComponentUpdate() {
+  shouldComponentUpdate(nextProps) {
     return false;
   }
 
