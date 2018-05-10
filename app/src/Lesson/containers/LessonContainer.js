@@ -43,7 +43,7 @@ const mapStateToProps = ({ app, language }, { params: { lessonSlug } }) => {
   const lesson = lessons.filter(lesson => lesson.slug === lessonSlug)[0];
   const index = lessons.findIndex(o => o.id === lesson.id);
 
-  /*
+  /**
    * @typedef {Object} LessonContainerPropsObject
    * @property {String} courseTitle - The course title from state
    * @property {Number} lessonIndex - The lesson's index from the course.lesons array
