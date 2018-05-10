@@ -32,11 +32,9 @@ const Modal = (props) => {
       <div className={ `${ styles.modal } quizmodal-modal` }>
         { children }
 
-        <div>
-          <button className={ `${ styles.close } quizmodal-close` } onClick={ onClose }>
-            { continueLesson }
-          </button>
-        </div>
+        <button className={ `${ styles.close } quizmodal-close` } onClick={ onClose }>
+          { continueLesson }
+        </button>
       </div>
     </div>
   );
