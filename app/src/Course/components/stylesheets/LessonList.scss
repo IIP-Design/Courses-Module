@@ -49,10 +49,12 @@
   text-decoration: none;
   background: $chathams-blue;
   transform: translateY(-50%);
-}
 
-.cta:active,
-.cta:hover,
-.cta:focus {
-  color: $white;
+  &:active,
+  &:hover,
+  &:focus,
+  // :visited - override Corona styling
+  &:visited {
+    color: $white;
+  }
 }

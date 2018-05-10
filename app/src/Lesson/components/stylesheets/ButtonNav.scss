@@ -16,7 +16,9 @@
 
   &:active,
   &:hover,
-  &:focus {
+  &:focus,
+  // :visited - override Corona styling
+  &:visited {
     color: $white;
     text-decoration: underline;
   }

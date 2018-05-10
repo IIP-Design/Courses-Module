@@ -45,7 +45,8 @@
 }
 
 .img {
-  width: 100%;
+  // !important overrides Corona styling
+  width: 100% !important;
 }
 
 .header {

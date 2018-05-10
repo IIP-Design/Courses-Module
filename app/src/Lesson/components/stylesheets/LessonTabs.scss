@@ -15,6 +15,7 @@
   margin: 0 0 .0625em;
   padding: 0;
   font-size: inherit;
+  text-indent: initial;
 }
 
 :global .react-tabs__tab {
@@ -43,7 +44,7 @@
   padding: 1em;
 }
 
-:global .react-tabs__tab-panel div > p {
+:global .react-tabs__tab-panel p {
   font-size: inherit;
 }
 
@@ -51,4 +52,11 @@
   margin: 1em;
   font-size: inherit;
   list-style-type: disc;
+}
+
+// override Corona styling
+:global .react-tabs__tab:before,
+:global .react-tabs__tab-panel ul > li:before {
+  content: '';
+  display: none;
 }

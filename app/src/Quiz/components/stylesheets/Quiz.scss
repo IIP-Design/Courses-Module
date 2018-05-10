@@ -11,6 +11,18 @@
 		padding-left: .8em;
 		margin-bottom: 1.2em;
 		list-style: none;
+		// override Corona styling
+		text-indent: initial;
+
+		> li {
+			margin-bottom: .25em;
+
+			// override Corona styling
+			&:before {
+				content: '';
+				display: none;
+			}
+		}
 	}
 }
 
@@ -35,8 +47,13 @@
 	padding-top: .8em;
 }
 
-.msg {
+p.msg {
 	margin-top: .3125em;
+	/**
+	 * prepend with p selector to override
+	 * Semantic UI p:last-child margin-bottom style
+	 */
+	margin-bottom: 1em;
 }
 
 .hide {
@@ -67,15 +84,24 @@
 }
 
 .heading {
-	margin-top: 1em;
+	margin-top: 0;
 	margin-bottom: .5em;
 }
 
 .lessons {
 	padding-left:  1em;
+	// override Corona styling
+	text-indent: initial;
 
 	> li {
+		margin-bottom: .25em;
 		list-style: none;
+
+		// override Corona styling
+		&:before {
+			content: '';
+			display: none;
+		}
 	}
 }
 
@@ -87,18 +113,23 @@
 	color: $thunderbird;
 }
 
-.checkbox,
-.radio {
+/**
+ * prepend with input selector to
+ * override Corona input[type=""]
+ * selector
+ */
+input.checkbox,
+input.radio {
 	margin-right: .7em;
 }
 
-.submit {
+input.submit {
 	width: 15em;
 	color: $white;
 	background-color: $thunderbird;
 }
 
-.submit:disabled {
+input.submit:disabled {
   color: $emperor;
   background-color: $alto;
 }

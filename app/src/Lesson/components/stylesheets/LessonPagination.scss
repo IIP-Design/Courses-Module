@@ -19,6 +19,11 @@
   line-height: 2em;
 }
 
+// override Corona styling
+.item:first-child:before {
+  display: none;
+}
+
 .item:not(:first-child):before {
   content: '';
   position: absolute;
@@ -42,7 +47,9 @@
 
   &:active,
   &:hover,
-  &:focus {
+  &:focus,
+  // :visited - override Corona styling
+  &:visited {
     border-bottom: 0;
     color: $white;
   }
