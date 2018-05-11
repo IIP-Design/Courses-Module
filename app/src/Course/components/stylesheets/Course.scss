@@ -1,40 +1,31 @@
 @import '../../../App/stylesheets/all';
 
-@include bp($laptop) {
-  :global .one-third,
-  :global .two-thirds {
-    float: left;
-  }
-  :global .two-thirds  {
-		width: 66%;
-  }
-  :global .one-third  {
-    width: 33%;
-  }
-}
-
 .intro {
-  margin-bottom: -2em;
   overflow: hidden;
+  margin-bottom: -2em;
 
   @include bp($tablet) {
     margin: 0;
   }
 }
 
-.feature {
-  @include bp($tablet) {
+@include bp($tablet) {
+  .feature {
     position: relative;
   }
 }
 
 .img {
   position: relative;
+
+  @include bp($tablet) {
+    position: absolute;
+  }
+
   overflow: hidden;
   min-height: 4em;
 
   @include bp($tablet) {
-    position: absolute;
     height: 100%;
     width: 100%;
   }
@@ -63,13 +54,17 @@
   left: 0;
   bottom: 0;
   height: 50%;
+
+  @include bp($tablet) {
+    height: 100%;
+  }
+
   width: 100%;
   background: linear-gradient(0deg, $white, transparent 100%, transparent);
 
   @include bp($tablet) {
-    height: 100%;
-    opacity: .4;
     background: linear-gradient(0deg, $white 0%, $deep-cerulean 70%, $steel-blue 100%);
+    opacity: .4;
   }
 }
 
@@ -93,15 +88,16 @@
 
 .cta {
   display: block;
+
+  @include bp($tablet) {
+    width: 12.5em;
+  }
+
   padding: 1em;
   background-color: $thunderbird;
   color: $white;
   text-align: center;
   text-decoration: none;
-
-  @include bp($tablet) {
-    width: 12.5em;
-  }
 
   &:active,
   &:hover,

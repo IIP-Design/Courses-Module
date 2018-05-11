@@ -35,7 +35,7 @@ class Instructor extends React.Component {
     const { src, alt } = image;
 
     return (
-      <div className={ `${ styles.instructor } instructor two-thirds first` }>
+      <div className={ `${ styles.instructor } instructor` }>
         <h1 className={ `${ styles.title } instructor-title` }>{ title }</h1>
         <h2 className={ `${ styles.subtitle } instructor-subtitle` }>{ salutation }</h2>
         <img

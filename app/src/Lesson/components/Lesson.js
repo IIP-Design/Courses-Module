@@ -53,8 +53,8 @@ class Lesson extends React.Component {
     };
 
     return (
-      <div className='lesson'>
-        <div className='two-thirds first'>
+      <div className={ `${ styles.lesson } lesson` }>
+        <div className={ styles.twoThirds }>
           <h1 className={ `${ styles.title } lesson-title` }>{ title }</h1>
           <Breadcrumbs courseTitle={ courseTitle } name={ title } />
           <div className={ `${ styles.video } lesson-video` }>
@@ -78,7 +78,7 @@ class Lesson extends React.Component {
             language={ language }
           />
         </div>
-        <div className='one-third'>
+        <div className={ styles.oneThird }>
           <Glossary terms={ glossary } language={ language } />
         </div>
       </div>
