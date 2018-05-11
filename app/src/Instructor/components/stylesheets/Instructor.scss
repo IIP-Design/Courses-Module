@@ -1,26 +1,28 @@
 @import '../../../App/stylesheets/all';
 
-// .instructor {
-//   @include bp($tablet) {
-//     float: left;
-//     width: 66%;
-//   }
-// }
+.instructor {
+  @include bp($tablet) {
+    width: 66%;
+  }
+}
 
 .title {
   margin: 0 0 8px 0;
 }
 .img {
-  width: 100%;
   float: left;
-  margin: 0 1em 1em 0;
+  width: 100%;
+  
   @include bp($tablet) {
-    width: 50%;
+    // !important overrides Corona styling
+    width: 33% !important;
   }
+
+  margin: 0 1em 1em 0;
 }
 
 .subtitle {
+  margin-bottom: 1em;
   color: #4f4f4f;
   font-size: 100%;
-  margin-bottom: 1em;
 }
