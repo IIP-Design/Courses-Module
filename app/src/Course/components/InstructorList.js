@@ -66,7 +66,9 @@ const InstructorList = (props) => {
       <header>
         <h3>{ instrTitle }</h3>
       </header>
-      { instructorsList }
+      <div className={ styles.container }>
+        { instructorsList }
+      </div>
     </section>
   );
 };

@@ -44,3 +44,43 @@
     clear: both;
   }
 }
+
+// if CSS grid is not supported, do this:
+@include bp($laptop) {
+  .oneThird,
+  .twoThirds {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .twoThirds  {
+    width: 64.5%;
+    margin-right: 2%;
+  }
+
+  .oneThird  {
+    width: 33%;
+  }
+}
+
+// if CSS grid is supported, do this:
+@supports (display: grid) {
+  .lesson {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+
+    @include bp($laptop) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .oneThird,
+  .twoThirds {
+    width: auto;
+  }
+
+  .twoThirds {
+    margin-right: initial;
+  }
+}

@@ -1,15 +1,24 @@
 @import '../../../App/stylesheets/all';
 
-.instructors:before,
-.instructors:after {
-  content: ' ';
-  display: table;
+.img {
+  // !important overrides Corona styling
+  width: 100% !important;
 }
 
-.instructors:after {
-  clear: both;
+.header {
+  margin-top: 1.25em;
 }
 
+.title {
+  margin: 0 0 .5em 0;
+}
+
+.subtitle {
+  margin: 0 0 1em 0;
+  color: $emperor;
+}
+
+// if CSS grid is not supported, do this:
 .instructor {
   margin-bottom: 1.25em;
   padding: 1.125em;
@@ -17,14 +26,11 @@
 
   @include bp($tablet) {
     box-sizing: border-box;
-    float: left;
+    display: inline-block;
+    vertical-align: top;
 
     &:not(:last-child) {
       margin-right: 1%;
-    }
-
-    &:nth-of-type(3n + 4) {
-      clear: left;
     }
   }
 
@@ -44,20 +50,24 @@
   }
 }
 
-.img {
-  // !important overrides Corona styling
-  width: 100% !important;
-}
+// if CSS grid is supported, do this:
+@supports (display: grid) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    grid-gap: 1em;
+  }
+  
+  @include bp($tablet) {
+    .instructor {
+      &:not(:last-child) {
+        margin-right: initial;
+      }
+    }
 
-.header {
-  margin-top: 1.25em;
-}
-
-.title {
-  margin: 0 0 .5em 0;
-}
-
-.subtitle {
-  margin: 0 0 1em 0;
-  color: $emperor;
+    .half,
+    .oneThird {
+      width: auto;
+    }
+  }
 }
