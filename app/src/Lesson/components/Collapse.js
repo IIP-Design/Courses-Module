@@ -16,7 +16,7 @@ const { string, array } = PropTypes;
 
 const CollapseItem = (props) => {
   return (
-    <li className={ `collapse-item ${ props.className }` }>{ props.children }</li>
+    <div className={ `collapse-item ${ props.className }` }>{ props.children }</div>
   );
 };
 
@@ -59,12 +59,12 @@ class Collapse extends React.Component {
   render() {
     const { className, children } = this.props;
     return (
-      <ul className={ `accordion collapse ${ className }` } role='tablist'>
+      <dl className={ `accordion collapse ${ className }` } role='tablist'>
         {children}
-      </ul>
+      </dl>
     );
   }
-};
+}
 
 
 Collapse.propTypes = {
@@ -83,7 +83,7 @@ const CollapsePanel = (props) => {
   const rawDescription = () => ({ __html: props.description });
 
   return (
-    <div
+    <dd
       role='tabpanel'
       dangerouslySetInnerHTML={ rawDescription(props) } />
   );
