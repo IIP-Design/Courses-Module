@@ -7,6 +7,13 @@ import Loading from 'App/components/Loading';
 import { MainContainer } from 'App';
 import { CourseContainer } from 'Course';
 
+
+/**
+ * Dynamic imports
+ *
+ * @since tba
+ */
+
 const LessonContainer = Loadable({
   loader: () => import(
     /* webpackChunkName: 'LessonContainer' */

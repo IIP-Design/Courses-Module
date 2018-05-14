@@ -14,6 +14,13 @@ import styles from 'Quiz/components/stylesheets/Quiz.scss';
 
 const { array, func, number, string, object } = PropTypes;
 
+
+/**
+ * Dynamic imports
+ *
+ * @since tba
+ */
+
 const Modal = Loadable({
   loader: () => import(
     /* webpackChunkName: 'Modal' */
@@ -31,7 +38,7 @@ const Notification = Loadable({
 });
 
 
-/*
+/**
  * The QuizForm component
  *
  * @todo: Need to display question type based on question type
@@ -43,7 +50,7 @@ class QuizForm extends React.Component {
   constructor(props) {
     super(props);
 
-    /*
+    /**
      * Maximum number of attempts
      * Should always be one less than the number of actual max attempts because it starts at zero
      *
@@ -78,7 +85,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Set whether the notification is active in state
    *
    * @since 1.0.0
@@ -90,7 +97,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Update the status display based on user answers
    *
    * @since 2.1.0
@@ -103,7 +110,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Check if each question has answer
    *
    * @since 1.0.0
@@ -114,7 +121,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Add an 'incorrect' and 'correct' class to an element
    *
    * @param {String} id - The html element's id
@@ -131,7 +138,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Generate a link
    *
    * @param {String} url - A relative url from the root element's exit-page data attribute
@@ -161,7 +168,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Generate the link to the page a user should be
    * redirected to after successfully completing the quiz
    *
@@ -190,7 +197,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Redirect the user to the exit page
    *
    * @since 1.0.0
@@ -201,7 +208,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Filter correct question choices
    *
    * @param {Object} choice - A choice from a question.choices array
@@ -215,7 +222,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Get an array of correct answers
    *
    * @param {Array} questions - An array of questions
@@ -233,7 +240,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Compare the correct answers with the user's answers
    *
    * @return {Array} results - An array of correct answers
@@ -268,7 +275,7 @@ class QuizForm extends React.Component {
   }
 
 
-  /*
+  /**
    * Respond to the form's onSubmit event
    *
    * @param {Object} event - The event object
@@ -303,7 +310,7 @@ class QuizForm extends React.Component {
     }
   }
 
-  /*
+  /**
    * Set whether the modal is open in state
    *
    * @since 2.0.3
@@ -312,7 +319,7 @@ class QuizForm extends React.Component {
     this.setState({ isModalOpen: !this.state.isModalOpen });
   }
 
-  /*
+  /**
    * Reset quiz and redirect to first lesson
    *
    * @since 2.0.3
@@ -323,7 +330,7 @@ class QuizForm extends React.Component {
     hashHistory.push(`/lesson/${lessons[0].slug}`);
   }
 
-  /*
+  /**
    * Set whether the notification is active in state
    *
    * @since version TBD
@@ -332,7 +339,7 @@ class QuizForm extends React.Component {
     this.setState({ isNotificationActive: false });
   }
 
-  /*
+  /**
    * Handle certificate agreement checkbox
    *
    * @since version TBD
