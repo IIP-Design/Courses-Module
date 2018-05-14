@@ -37,9 +37,11 @@ LessonContainer.propTypes = {
  * @since 2.0.0
  */
 
-const mapStateToProps = ({ app, language }, { params: { lessonSlug } }) => {
+const mapStateToProps = ({ app, language }, { match }) => {
   const course = app.data;
   const { lessons, title } = course;
+  const { lessonSlug } = match.params;
+
   const lesson = lessons.filter(lesson => lesson.slug === lessonSlug)[0];
   const index = lessons.findIndex(o => o.id === lesson.id);
 

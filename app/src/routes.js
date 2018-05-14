@@ -1,5 +1,5 @@
-import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import React, { Fragment } from 'react';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import CourseReactGA from 'react-ga';
 import Loadable from 'react-loadable';
 
@@ -98,15 +98,15 @@ checkForTrackingCode();
 
 export default (() => {
   return (
-    <Router history={ hashHistory } onUpdate={ logPageView }>
-      <Route component={ MainContainer }>
-        <Route path='/'>
-          <IndexRoute component={ CourseContainer }  />
+    <MainContainer>
+      <Router onUpdate={ logPageView }>
+        <Fragment>
+          <Route exact path='/' component={ CourseContainer } />
           <Route path='/lesson/:lessonSlug' component={ LessonContainer } />
           <Route path='/instructors/:slug' component={ InstructorContainer } />
-          <Route path='quiz' component={ QuizContainer } />
-        </Route>
-      </Route>
-    </Router>
+          <Route exact path='/quiz' component={ QuizContainer } />
+        </Fragment>
+      </Router>
+    </MainContainer>
   );
 })();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import styles from 'Lesson/components/stylesheets/ButtonNav.scss';
@@ -27,7 +27,7 @@ const renderLink = (lessons, lessonIndex, index, label) => {
 
   return (
     <Link
-      to={ `lesson/${ slug }` }
+      to={ slug }
       id={ slug }
       className={ styles.link }>{ label }</Link>
   );
@@ -50,7 +50,7 @@ const ButtonNav = (props) => {
   if (lessons.length === 1) {
     return (
       <div className={ `${ styles.nav } lesson-buttonnav` }>
-        <Link to='quiz' className={ styles.link }>{ quizGo }</Link>
+        <Link to='/quiz' className={ styles.link }>{ quizGo }</Link>
       </div>
     );
   }
@@ -60,7 +60,7 @@ const ButtonNav = (props) => {
     return (
       <div className={ `${ styles.nav } lesson-buttonnav` }>
         { renderLink(lessons, lessonIndex, -1, prevLesson) }
-        <Link to='quiz' className={ styles.link }>{ quizGo }</Link>
+        <Link to='/quiz' className={ styles.link }>{ quizGo }</Link>
       </div>
     );
   }

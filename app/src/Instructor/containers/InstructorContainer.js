@@ -36,12 +36,13 @@ InstructorContainer.propTypes = {
  * @since 2.0.0
  */
 
-const mapStateToProps = ({ app }, { params: { slug } }) => {
+const mapStateToProps = ({ app }, { match }) => {
   // Don't like that this code is basically repeated from Course/components/Course.js line 35
   const instructors = flattenArray(app.data.lessons, 'instructors')
       .sort(sortBy('id', 'desc'))
       .reduce(uniqBy, []);
 
+  const { slug } = match.params;
   const instructor = instructors.find(instructor => slug === instructor.slug);
 
 

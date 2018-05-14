@@ -41,7 +41,6 @@ const mapStateToProps = ({ app, language }) => {
   const { title, lessons } = app.data;
   const questions = flattenArray(lessons, 'quiz');
 
-
   /**
    * @typedef {Object} QuizContainerPropsObject
    * @property {String} courseName - The name of the course

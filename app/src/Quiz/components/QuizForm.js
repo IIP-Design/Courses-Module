@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { createHashHistory } from 'history';
 import PropTypes from 'prop-types';
 import Loadable from 'react-loadable';
 
@@ -326,8 +326,9 @@ class QuizForm extends React.Component {
    */
   closeModal() {
     const { resetQuiz, lessons } = this.props;
+    const history = createHashHistory();
     resetQuiz();
-    hashHistory.push(`/lesson/${lessons[0].slug}`);
+    history.push(`/lesson/${lessons[0].slug}`);
   }
 
   /**

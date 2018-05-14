@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import styles from 'Lesson/components/stylesheets/LessonPagination.scss';
@@ -27,7 +27,7 @@ const renderLinks = (lesson, index, lessonIndex) => {
   return (
     <li className={ `${ styles.item } ${ c1ass }` } key={ index }>
       <Link
-        to={ `lesson/${ slug }` }
+        to={ slug }
         id={ slug }
         className={ styles.link }>
         { label }
