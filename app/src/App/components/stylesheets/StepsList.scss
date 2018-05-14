@@ -1,29 +1,5 @@
 @import '../../stylesheets/all';
 
-.steps {
-  margin-top: 0;
-  margin-bottom: 2em;
-  padding: 1em;
-  background-color: $porcelain;
-  list-style: none;
-
-  @include bp($tablet) {
-    background: linear-gradient(0deg, $white 0%, $cerulean-apha 70%, $boston-blue-alpha 100%);
-    box-shadow: 0 -5px 15px -5px $dim-gray-alpha;
-    opacity: .9;
-
-    &:before,
-    &:after {
-      content: ' ';
-      display: table;
-    }
-
-    &:after {
-      clear: both;
-    }
-  }
-}
-
 .title {
   margin-right: .5em;
   font-weight: bold;
@@ -35,10 +11,25 @@
   }
 }
 
-.step {
+.steps {
+  margin-top: 0;
+  margin-bottom: 2em;
+  padding: 1em;
+  background-color: $porcelain;
+  text-indent: initial;
+  list-style: none;
+
   @include bp($tablet) {
-    float: left;
-    margin: 0;
+    background: linear-gradient(0deg, $white 0%, $cerulean-apha 70%, $boston-blue-alpha 100%);
+    box-shadow: 0 -5px 15px -5px $dim-gray-alpha;
+    opacity: .9;
+  }
+}
+
+.step {
+  // if CSS grid not is supported, do this:
+  @include bp($tablet) {
+    display: inline-block;
     width: 30%;
   }
 
@@ -50,8 +41,32 @@
   &:not(:last-child) {
     margin-bottom: 1.75em;
   }
+
+  @include bp($tablet) {
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  &:before {
+    content: '';
+    padding: initial;
+  }
 }
 
-.step:before {
-  content: '';
+// if CSS grid is supported, do this:
+@supports (display: grid) {
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
+    grid-gap: 1em;
+  }
+
+  .step {
+    width: auto;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
 }
