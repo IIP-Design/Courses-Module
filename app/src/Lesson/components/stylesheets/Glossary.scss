@@ -1,8 +1,9 @@
 @import '../../../App/stylesheets/all';
 
 .title {
+  position: relative;
   margin: 0;
-  padding: 8px 12px;
+  padding: .5em .75em;
   background-color: $steel-blue;
   color: $white;
   line-height: 2em;
@@ -20,15 +21,9 @@
   margin: 0;
   padding: .5em .75em;
   background: none;
-  font-size: inherit;
-  font-weight: 300;
   text-decoration: none;
   cursor: pointer;
   list-style: none;
-}
-
-.term > dd {
-  margin-left: 0;
 }
 
 .glossary {

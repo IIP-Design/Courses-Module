@@ -27,7 +27,7 @@ const renderTerm = (term) => {
       <CollapseTrigger
         className={ `${ styles.trigger } glossary-trigger` } 
         tag='button'>
-        <dt>{ title }</dt>
+        { title }
       </CollapseTrigger>
       <CollapsePanel className='glossary-text' description={ description } />
     </CollapseItem>
