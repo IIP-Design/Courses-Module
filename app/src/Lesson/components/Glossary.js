@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Collapse,
-         CollapseItem,
-         CollapsePanel,
-         CollapseTrigger } from 'Lesson/components/Collapse';
+import {
+  Collapse,
+  CollapseItem,
+  CollapsePanel,
+  CollapseTrigger
+} from 'Lesson/components/Collapse';
 
 import styles from 'Lesson/components/stylesheets/Glossary.scss';
 

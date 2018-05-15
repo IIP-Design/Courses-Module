@@ -17,9 +17,7 @@ const { string, array, object } = PropTypes;
  * @since tba
  */
 
-const rawDescription = (props) => {
-  return { __html: props.description };
-};
+const rawDescription = props => ({ __html: props.description });
 
 
 /**
@@ -30,9 +28,7 @@ const rawDescription = (props) => {
  * @since tba
  */
 
-const rawTranscript = (props) => {
-  return { __html: props.transcript };
-};
+const rawTranscript = props => ({ __html: props.transcript });
 
 
 /**
@@ -59,10 +55,12 @@ const hasProp = (obj, prop) => {
  */
 
 const renderResource = (resource) => {
-  const { url,
-          src,
-          src_type,
-          src_size } = resource;
+  const {
+    url,
+    src,
+    src_type,
+    src_size
+  } = resource;
 
   let href, fileinfo;
   if (hasProp( resource, 'url' )) {
@@ -92,14 +90,18 @@ const renderResource = (resource) => {
  */
 
 const LessonTabs = (props) => {
-  const { language,
-          resources,
-          audio,
-          transcriptFile } = props;
+  const {
+    language,
+    resources,
+    audio,
+    transcriptFile
+  } = props;
 
-  const { overview,
-          transcript,
-          print } = language;
+  const {
+    overview,
+    transcript,
+    print
+  } = language;
 
   let resourcesList;
   if (resources) {

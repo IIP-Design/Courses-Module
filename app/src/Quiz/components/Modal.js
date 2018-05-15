@@ -15,10 +15,12 @@ import styles from 'Quiz/components/stylesheets/Modal.scss';
  */
 
 const Modal = (props) => {
-  const { show,
-          children,
-          onClose,
-          language } = props;
+  const {
+    show,
+    children,
+    onClose,
+    language
+  } = props;
 
   const { continueLesson } = language;
 

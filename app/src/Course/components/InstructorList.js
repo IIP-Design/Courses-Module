@@ -17,7 +17,14 @@ const { array } = PropTypes;
  */
 
 const renderInstructor = (instructor, numInstructors) => {
-  const { id, slug, image, title, salutation } = instructor;
+  const {
+    id,
+    slug,
+    image,
+    title,
+    salutation
+  } = instructor;
+
   const { src, alt } = image;
   let link = `/instructors/${ slug }`;
 

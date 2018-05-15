@@ -17,12 +17,14 @@ const { object } = PropTypes;
  */
 
 const StepsList = (props) => {
-  const { stepTake,
-          stepTakeTitle,
-          stepQuiz,
-          stepQuizTitle,
-          stepCert,
-          stepCertTitle } = props.language;
+  const {
+    stepTake,
+    stepTakeTitle,
+    stepQuiz,
+    stepQuizTitle,
+    stepCert,
+    stepCertTitle
+  } = props.language;
 
   return (
     <ul className={ `${ styles.steps } steps-list` }>

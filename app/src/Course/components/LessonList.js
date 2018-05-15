@@ -20,7 +20,7 @@ const { array } = PropTypes;
  */
 
 const renderLessonList = (lesson, language) => {
-  const link = sprintf('%s', lesson.slug );
+  const link = sprintf('%s', lesson.slug);
 
   return (
     <li className={ `${ styles.item } lessons-list-item` } key={ lesson.id }>

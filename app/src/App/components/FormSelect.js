@@ -17,11 +17,13 @@ class FormSelect extends React.Component {
 
 
   render() {
-    const { id,
-            name,
-            type,
-            onChange,
-            label } = this.props;
+    const {
+      id,
+      name,
+      type,
+      onChange,
+      label
+    } = this.props;
 
     return (
       <label htmlFor={ id }>

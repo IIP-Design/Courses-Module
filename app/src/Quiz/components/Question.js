@@ -10,15 +10,13 @@ const { string, bool, array } = PropTypes;
 
 /**
  * Render question text
- * 
+ *
  * @param {Object} props - React props object
  *
  * @since 1.0.0
  */
 
-const rawHTML = (props) => {
-  return { __html: props.text };
-};
+const rawHTML = props => ({ __html: props.text });
 
 
 /**

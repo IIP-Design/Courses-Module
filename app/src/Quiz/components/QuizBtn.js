@@ -14,14 +14,12 @@ const { string } = PropTypes;
  * @since tba
  */
 
-const QuizBtn = (props) => {
-  return (
-    <input
-      type='submit'
-      value={ props.value }
-      className={ styles.submit } />
-  );
-};
+const QuizBtn = props => (
+  <input
+    type='submit'
+    value={ props.value }
+    className={ styles.submit } />
+);
 
 
 QuizBtn.propTypes = {

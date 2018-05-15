@@ -23,10 +23,12 @@ class Quiz extends React.Component {
 
 
 	render() {
-    const { lessons,
-            language,
-            questions,
-            courseName } = this.props;
+    const {
+      lessons,
+      language,
+      questions,
+      courseName
+    } = this.props;
 
     const { quizQuestions, quizAttempts } = language;
 

@@ -45,10 +45,12 @@ class MainContainer extends React.Component {
   }
 
   render() {
-    const { course,
-            children,
-            isFetching,
-            language } = this.props;
+    const {
+      course,
+      children,
+      isFetching,
+      language
+    } = this.props;
 
     // On first render, if courses isn't on props, return null to avoid
     // undefined prop messages throughout the call stack

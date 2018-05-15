@@ -105,9 +105,11 @@ CollapsePanel.propTypes = {
  */
 
 const CollapseTrigger = (props) => {
-  const { tag,
-          className,
-          children } = props;
+  const {
+    tag,
+    className,
+    children
+  } = props;
 
   const CustomTag = `${ tag }`;
 

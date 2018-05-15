@@ -27,17 +27,21 @@ class Lesson extends React.Component {
 
 
   render() {
-    const { lesson,
-            lessons,
-            language,
-            lessonIndex,
-            courseTitle } = this.props;
+    const {
+      lesson,
+      lessons,
+      language,
+      lessonIndex,
+      courseTitle
+    } = this.props;
 
-    let { media,
-          title,
-          description,
-          resources,
-          glossary } = lesson;
+    let {
+      media,
+      title,
+      description,
+      resources,
+      glossary
+    } = lesson;
 
     const isLangEnglish = (language.locale === 'en') ? 0 : 1;
 

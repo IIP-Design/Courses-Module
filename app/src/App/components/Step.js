@@ -17,9 +17,11 @@ const { string } = PropTypes;
  */
 
 const Step = (props) => {
-  const { className,
-          title,
-          children } = props;
+  const {
+    className,
+    title,
+    children
+  } = props;
 
   return (
     <li className={ className }>

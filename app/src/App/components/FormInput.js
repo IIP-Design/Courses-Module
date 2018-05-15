@@ -13,10 +13,12 @@ const { string } = PropTypes;
  */
 
 const FormInput = (props) => {
-  const { id,
-          label,
-          name,
-          type } = props;
+  const {
+    id,
+    label,
+    name,
+    type
+  } = props;
 
   return (
     <div className='form-group'>

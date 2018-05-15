@@ -15,11 +15,13 @@ const { array, func, object, string } = PropTypes;
  */
 
 const RadioChoice = (props) => {
-  const { choiceId,
-          questionId,
-          checked,
-          handleChange,
-          choice } = props;
+  const {
+    choiceId,
+    questionId,
+    checked,
+    handleChange,
+    choice
+  } = props;
 
   return (
     <li>

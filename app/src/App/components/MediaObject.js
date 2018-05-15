@@ -29,10 +29,12 @@ const setDescription = (props) => {
  */
 
 const MediaObject = (props) => {
-  const { tag,
-          link,
-          image,
-          title } = props;
+  const {
+    tag,
+    link,
+    image,
+    title
+  } = props;
 
   const CustomTag = `${ tag }`;
   const reversed = !(props.reversed === undefined);

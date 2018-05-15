@@ -282,9 +282,11 @@ class QuizForm extends React.Component {
    */
   handleSubmit(e) {
     e.preventDefault();
-    const { questions,
-            numAttempts,
-            incrementNumAttempts } = this.props;
+    const {
+      questions,
+      numAttempts,
+      incrementNumAttempts
+    } = this.props;
 
     // All questions not answered, show notification
     if (!this.isAllAnswered() || !this.state.isCertified) {
@@ -350,27 +352,33 @@ class QuizForm extends React.Component {
   }
 
   render() {
-    const { language,
-            questions,
-            numAttempts } = this.props;
+    const {
+      language,
+      questions,
+      numAttempts
+    } = this.props;
 
-    const { quizAgree,
-            quizCert,
-            quizBtn,
-            quizWrong,
-            quizAttemptsRemain,
-            quizAttempts,
-            quizAnswer,
-            quizCertAlert,
-            quizDismiss,
-            noMoreAttempts } = language;
+    const {
+    quizAgree,
+      quizCert,
+      quizBtn,
+      quizWrong,
+      quizAttemptsRemain,
+      quizAttempts,
+      quizAnswer,
+      quizCertAlert,
+      quizDismiss,
+      noMoreAttempts
+    } = language;
 
-    const { incorrectClassname,
-            numIncorrect,
-            attemptsClassname,
-            isNotificationActive,
-            isCertified,
-            isModalOpen } = this.state;
+    const {
+      incorrectClassname,
+      numIncorrect,
+      attemptsClassname,
+      isNotificationActive,
+      isCertified,
+      isModalOpen
+    } = this.state;
 
     return (
       <div className={ styles.formContainer }>

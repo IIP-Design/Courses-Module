@@ -15,11 +15,13 @@ const { string, array } = PropTypes;
  */
 
 const FormDropDown = (props) => {
-  const { options,
-          id,
-          label,
-          name,
-          type } = props;
+  const {
+    options,
+    id,
+    label,
+    name,
+    type
+  } = props;
 
   const renderDropDown = () => {
     return options.map((option) => {

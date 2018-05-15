@@ -8,14 +8,16 @@ const { object } = PropTypes;
 
 
 /**
- * The Course container component responsible for interacting with the Redux store and passing state to the Course component as props.
+ * The Course container component responsible for interacting
+ * with the Redux store and passing state to the Course
+ * component as props.
  *
  * @param {Object} props - The React props object
  *
  * @since 2.0.0
  */
 
-const CourseContainer = (props) => <Course course={ props.course } language={ props.language } />;
+const CourseContainer = props => <Course course={ props.course } language={ props.language } />;
 
 
 CourseContainer.propTypes = {

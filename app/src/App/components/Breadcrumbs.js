@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import styles from 'Lesson/components/stylesheets/LessonLayout.scss';
 
-const {string, object } = PropTypes;
+const { string, object } = PropTypes;
 
 
 /**
