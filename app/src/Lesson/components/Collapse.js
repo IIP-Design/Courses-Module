@@ -84,6 +84,7 @@ const CollapsePanel = (props) => {
 
   return (
     <div
+      id={ `term-${props.id}` }
       role='tabpanel'
       dangerouslySetInnerHTML={ rawDescription(props) } />
   );

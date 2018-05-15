@@ -29,7 +29,10 @@ const renderTerm = (term) => {
         tag='button'>
         { title }
       </CollapseTrigger>
-      <CollapsePanel className='glossary-text' description={ description } />
+      <CollapsePanel
+        id={ id }
+        className='glossary-text'
+        description={ description } />
     </CollapseItem>
   );
 };
