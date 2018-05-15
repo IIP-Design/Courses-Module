@@ -67,7 +67,7 @@ class Course extends React.Component {
               <h1>{ course.title }</h1>
               <p dangerouslySetInnerHTML={ this.rawDescription() } />
               <Link
-                to={ `lesson/${ link }` }
+                to={ `/lesson/${ link }` }
                 id={ link }
                 className={ `${ styles.cta} course-take-course` }>
                 { language.courseTake }

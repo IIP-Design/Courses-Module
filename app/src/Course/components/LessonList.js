@@ -24,9 +24,9 @@ const renderLessonList = (lesson, language) => {
 
   return (
     <li className={ `${ styles.item } lessons-list-item` } key={ lesson.id }>
-      <MediaObject tag='h3' link={ `lesson/${ link }` } { ...lesson } className={ styles.object } />
+      <MediaObject tag='h3' link={ `/lesson/${ link }` } { ...lesson } className={ styles.object } />
       <Link
-        to={ `lesson/${ link }` }
+        to={ `/lesson/${ link }` }
         id={ link }
         className={ styles.cta }>{ language.takeLesson }</Link>
     </li>

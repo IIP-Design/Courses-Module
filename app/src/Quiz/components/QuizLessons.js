@@ -19,7 +19,7 @@ const renderLesson = (lesson) => {
   const { slug, title } = lesson;
   return (
     <li key={ slug }>
-      <Link to={ `lesson/${ slug }` }>
+      <Link to={ `/lesson/${ slug }` }>
         { title }
       </Link>
     </li>
