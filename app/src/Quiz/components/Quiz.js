@@ -22,7 +22,7 @@ class Quiz extends React.Component {
   }
 
 
-	render() {
+  render() {
     const {
       lessons,
       language,
@@ -32,8 +32,8 @@ class Quiz extends React.Component {
 
     const { quizQuestions, quizAttempts } = language;
 
-		return (
-			<section>
+    return (
+      <section>
         <header>
           <QuizLessons lessons={ lessons } language={ language } />
           <h3 className={ `${ styles.instructions } quiz-instructions` }>{ quizQuestions }</h3>
@@ -44,8 +44,8 @@ class Quiz extends React.Component {
           courseName={ courseName }
           language={ language } />
       </section>
-		);
-	}
+    );
+  }
 }
 
 

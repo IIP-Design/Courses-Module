@@ -20,15 +20,13 @@ const { string, object } = PropTypes;
  * @since 1.0.0
  */
 
-const Breadcrumbs = (props) => {
-  return (
-    <div className={ `${ styles.breadcrumbs } lesson-breadcrumbs` }>
-      <Link to='/'>{ props.courseTitle }</Link>
-      <span>&nbsp;>&nbsp;</span>
-      <span>&nbsp;{ props.name }</span>
-    </div>
-  );
-};
+const Breadcrumbs = props => (
+  <div className={ `${ styles.breadcrumbs } lesson-breadcrumbs` }>
+    <Link to='/'>{ props.courseTitle }</Link>
+    <span>&nbsp;>&nbsp;</span>
+    <span>&nbsp;{ props.name }</span>
+  </div>
+);
 
 Breadcrumbs.propTypes = {
   courseTitle: string,

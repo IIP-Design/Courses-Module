@@ -15,9 +15,7 @@ const { string, bool, object } = PropTypes;
  * @since 1.0.0
  */
 
-const setDescription = (props) => {
-  return { __html: props.description };
-}
+const setDescription = props => ({ __html: props.description });
 
 
 /**

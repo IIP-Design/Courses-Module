@@ -14,11 +14,9 @@ const { string, array } = PropTypes;
  * @since 1.0.0
  */
 
-const CollapseItem = (props) => {
-  return (
-    <li className={ `collapse-item ${ props.className }` }>{ props.children }</li>
-  );
-};
+const CollapseItem = props => (
+  <li className={ `collapse-item ${ props.className }` }>{ props.children }</li>
+);
 
 
 CollapseItem.propTypes = {
@@ -74,21 +72,28 @@ Collapse.propTypes = {
 
 
 /**
+ * Render raw description
+ *
+ * @param {Object} props - React props object
+ *
+ * @since 1.0.0
+ */
+
+const rawDescription = props => ({ __html: props.description });
+
+
+/**
  * The collapsable content area that is show/hidden
  *
  * @since 1.0.0
  */
 
-const CollapsePanel = (props) => {
-  const rawDescription = () => ({ __html: props.description });
-
-  return (
-    <div
-      id={ `term-${props.id}` }
-      role='tabpanel'
-      dangerouslySetInnerHTML={ rawDescription(props) } />
-  );
-};
+const CollapsePanel = props => (
+  <div
+    id={ `term-${props.id}` }
+    role='tabpanel'
+    dangerouslySetInnerHTML={ rawDescription(props) } />
+);
 
 
 CollapsePanel.propTypes = {
