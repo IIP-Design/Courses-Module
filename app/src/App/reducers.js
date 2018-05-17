@@ -1,4 +1,5 @@
 import * as types from 'App/actionTypes';
+import { customEventPolyfill } from 'App/helpers';
 
 
 /**
@@ -12,11 +13,31 @@ const initialState = {
 };
 
 
+/**
+ * CustomEvent polyfill for IE
+ */
+
+customEventPolyfill();
+
+
+/**
+ * Dispatch 'onReadyModule' CustomEvent to let
+ * host site know the React course module is ready
+ */
+
 const dispatchOnReadyEvent = () => {
-  const event = new CustomEvent('onReadyModule', { bubbles: true,  cancelable: true });
+  const params = {
+    event: 'onReadyModule',
+    options: {
+      bubbles: true,
+      cancelable: true
+    }
+  };
+  const event = new CustomEvent(params.event, params.options);
   console.log('LOG: dispatch event - onReadyModule');
   dispatchEvent(event);
 };
+
 
 /**
  * The App's redux reducer

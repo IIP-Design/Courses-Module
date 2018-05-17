@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/IIP-Design/Courses-Module#readme",
   "browserslist": [
-    "> 0.2%", "IE 9"
+    "> 0.2%",
+    "IE 9"
   ],
   "dependencies": {
     "aria-accordion": "^1.1.0",
@@ -36,7 +37,6 @@
     "babel-core": "^6.26.3",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-polyfill": "^6.26.0",
-    "custom-event-polyfill": "^0.3.0",
     "element-dataset": "^2.2.6",
     "normalizr": "^3.2.4",
     "prop-types": "^15.6.1",
