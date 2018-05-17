@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import React from 'react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import CourseReactGA from 'react-ga';
 import Loadable from 'react-loadable';
 
@@ -100,12 +100,12 @@ export default (() => {
   return (
     <MainContainer>
       <Router onUpdate={ logPageView }>
-        <Fragment>
+        <Switch>
           <Route exact path='/' component={ CourseContainer } />
           <Route path='/lesson/:lessonSlug' component={ LessonContainer } />
           <Route path='/instructors/:slug' component={ InstructorContainer } />
           <Route exact path='/quiz' component={ QuizContainer } />
-        </Fragment>
+        </Switch>
       </Router>
     </MainContainer>
   );
