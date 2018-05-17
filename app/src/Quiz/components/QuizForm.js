@@ -359,7 +359,7 @@ class QuizForm extends React.Component {
     } = this.props;
 
     const {
-    quizAgree,
+      quizAgree,
       quizCert,
       quizBtn,
       quizWrong,
@@ -379,6 +379,13 @@ class QuizForm extends React.Component {
       isCertified,
       isModalOpen
     } = this.state;
+
+    let barStyle = {
+      position: 'absolute',
+      left: '0',
+      bottom: '1rem',
+      zIndex: '10'
+    };
 
     return (
       <div className={ styles.formContainer }>
@@ -402,12 +409,7 @@ class QuizForm extends React.Component {
 
         { isNotificationActive &&
           <Notification
-            barStyle={ {
-              position: 'absolute',
-              left: '0',
-              bottom: '1rem',
-              zIndex: '10'
-            } }
+            barStyle={ barStyle }
             isActive={ isNotificationActive }
             message={ isCertified ? quizAnswer : quizCertAlert }
             action={ quizDismiss }
