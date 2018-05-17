@@ -28,8 +28,7 @@
   },
   "homepage": "https://github.com/IIP-Design/Courses-Module#readme",
   "browserslist": [
-    "> 1%",
-    "last 3 versions"
+    "> 0.2%", "IE 9"
   ],
   "dependencies": {
     "aria-accordion": "^1.1.0",
