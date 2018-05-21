@@ -5,7 +5,6 @@ import Loadable from 'react-loadable';
 
 import Loading from 'App/components/Loading';
 import { MainContainer } from 'App';
-import { CourseContainer } from 'Course';
 
 
 /**
@@ -13,6 +12,14 @@ import { CourseContainer } from 'Course';
  *
  * @since tba
  */
+
+const CourseContainer = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'CourseContainer' */
+    'Course/containers/CourseContainer'
+  ),
+  loading: Loading
+});
 
 const LessonContainer = Loadable({
   loader: () => import(
