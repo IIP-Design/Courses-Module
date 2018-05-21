@@ -19,7 +19,7 @@ const Loading = (props) => {
   if (props.error) {
     return (
       <p style={ style }>
-        Sorry, this course didn&rsquo;t load for some reason. If you&rsquo;re accessing this course from a mobile device, try a desktop or laptop computer. Please contact us if you continue to have difficulty accessing this course.
+        Sorry, this course didn&rsquo;t load for some reason. If you&rsquo;re accessing this course from a mobile device, try a desktop or laptop computer. Please <a href='/troubleshoot/'>contact us</a> if you continue to have difficulty accessing this course.
       </p>
     );
   } else if (props.timedOut) {
