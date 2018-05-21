@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const cleanup = require('webpack-cleanup-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -92,6 +93,11 @@ module.exports = (env) => {
       new MiniCssExtractPlugin({
         filename: 'cdp-course-[name].css',
         chunkFilename: 'cdp-course-[name].css'
+      }),
+      new webpack.SourceMapDevToolPlugin({
+        filename: 'bundle.js.map',
+        module: false,
+        columns: false
       }),
       new cleanup()
     ]
