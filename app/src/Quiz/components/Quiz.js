@@ -1,12 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loadable from 'react-loadable';
 
+import Loading from 'App/components/Loading';
 import QuizLessons from 'Quiz/components/QuizLessons';
-import QuizFormContainer from 'Quiz/containers/QuizFormContainer';
 
 import styles from 'Quiz/components/stylesheets/Quiz.scss';
 
 const { array, string, object } = PropTypes;
+
+
+/**
+ * Dynamic imports
+ *
+ * @since tba
+ */
+
+const QuizFormContainer = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'QuizFormContainer' */
+    'Quiz/containers/QuizFormContainer'
+  ),
+  loading: Loading
+});
 
 
 /**
