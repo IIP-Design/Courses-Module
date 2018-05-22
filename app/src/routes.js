@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createHashHistory } from 'history';
 import CourseReactGA from 'react-ga';
 import Loadable from 'react-loadable';
 
@@ -61,59 +62,47 @@ function checkForTrackingCode() {
   }
 }
 
-/**
- * Log the page view to analytics.  Only send information to analytics if on a non-index route.
- * getPathName function will return twice: once for index route and once for component route
- * The component route will return a string with '//' in the path.  We do not want to
- * send analytic data twice so only send data for first string
- *
- * @since 2.1.0
- */
-
-function logPageView() {
-  if (this.state) {
-    let pathname = getPathName(this.state.location);
-    if (!~pathname.indexOf('//')) {
-      CourseReactGA.set({ page: pathname });
-      CourseReactGA.pageview(pathname);
-    } 
-  }
-}
-
-/**
- * Extract pathname from state location information.
- *
- * @param {Object} location - state location object
- *
- * @since 2.1.0
- */
-
-function getPathName(location) {
-  if ( location.pathname === '/') {
-   return window.location.pathname;
-  }
-  return `${window.location.pathname}${location.pathname}/`;
-}
-
 checkForTrackingCode();
 
+
 /**
- * Export the router
+ * Log the page view to analytics. Only send information
+ * to analytics if on a non-index route.
+ *
+ * @since 2.1.0
+ */
+
+function logPageView(location) {
+  if (location) {
+    const { pathname } = location;
+    if (pathname !== '/') {
+      CourseReactGA.set({ page: pathname });
+      CourseReactGA.pageview(pathname);
+    }
+  }
+}
+
+const history = createHashHistory();
+history.listen(logPageView);
+
+
+/**
+ * The App
  *
  * @since 1.0.0
  */
 
-export default (() => {
-  return (
-    <MainContainer>
-      <Router onUpdate={ logPageView }>
-        <Switch>
-          <Route exact path='/' component={ CourseContainer } />
-          <Route path='/lesson/:lessonSlug' component={ LessonContainer } />
-          <Route path='/instructors/:slug' component={ InstructorContainer } />
-          <Route exact path='/quiz' component={ QuizContainer } />
-        </Switch>
-      </Router>
-    </MainContainer>
-  );
-})();
+const Routes = () => (
+  <MainContainer>
+    <Router history={ history }>
+      <Switch>
+        <Route exact path='/' component={ CourseContainer } />
+        <Route path='/lesson/:lessonSlug' component={ LessonContainer } />
+        <Route path='/instructors/:slug' component={ InstructorContainer } />
+        <Route exact path='/quiz' component={ QuizContainer } />
+      </Switch>
+    </Router>
+  </MainContainer>
+);
+
+export default Routes;

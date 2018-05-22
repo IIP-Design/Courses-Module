@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from 'root/store';
-import routes from 'root/routes';
+import Routes from 'root/routes';
 
 /**
  * The application's root element
@@ -21,5 +21,5 @@ const root = document.getElementById('course-container');
  */
 
 ReactDOM.render(
-  <Provider store={ store }>{ routes }</Provider>, root
+  <Provider store={ store }><Routes /></Provider>, root
 );
