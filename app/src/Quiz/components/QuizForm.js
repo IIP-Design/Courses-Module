@@ -61,6 +61,7 @@ class QuizForm extends React.Component {
     this.state = {
       isCertified: false,
       isNotificationActive: false,
+      isCertNotificationActive: false,
       numIncorrect: 0,
       attemptsClassname: `${ styles.hide } ${ styles.attempts }`,
       incorrectClassname: `${ styles.hide } ${ styles.incorrect }`,
@@ -68,6 +69,7 @@ class QuizForm extends React.Component {
     };
 
     this.toggleNotification = this.toggleNotification.bind(this);
+    this.toggleCertNotification = this.toggleCertNotification.bind(this);
     this.updateStatusNotification = this.updateStatusNotification.bind(this);
     this.isAllAnswered = this.isAllAnswered.bind(this);
     this.showCorrectIndicator = this.showCorrectIndicator.bind(this);
@@ -81,7 +83,9 @@ class QuizForm extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleNotification = this.handleNotification.bind(this);
+    this.handleCertNotification = this.handleCertNotification.bind(this);
     this.handleCertAgreement = this.handleCertAgreement.bind(this);
+    this.renderNotification = this.renderNotification.bind(this);
   }
 
 
@@ -93,6 +97,11 @@ class QuizForm extends React.Component {
   toggleNotification() {
     this.setState({
       isNotificationActive: !this.state.isNotificationActive
+    });
+  }
+  toggleCertNotification() {
+    this.setState({
+      isCertNotificationActive: !this.state.isCertNotificationActive
     });
   }
 
@@ -288,8 +297,14 @@ class QuizForm extends React.Component {
       incrementNumAttempts
     } = this.props;
 
+    // Certificate Agrmt not checked, show notification
+    if (!this.state.isCertified) {
+      this.toggleCertNotification();
+      return;
+    }
+
     // All questions not answered, show notification
-    if (!this.isAllAnswered() || !this.state.isCertified) {
+    if (!this.isAllAnswered()) {
       this.toggleNotification();
     }
 
@@ -341,14 +356,89 @@ class QuizForm extends React.Component {
   handleNotification() {
     this.setState({ isNotificationActive: false });
   }
+  handleCertNotification() {
+    this.setState({ isCertNotificationActive: false });
+  }
 
   /**
    * Handle certificate agreement checkbox
    *
    * @since version TBD
-   */  
+   */
   handleCertAgreement() {
+    const certifyLabel = document.querySelector('[for="certify"]');
+    certifyLabel.style = 'color: initial';
+
     this.setState({ isCertified: !this.state.isCertified });
+    if (this.state.isCertNotificationActive) {
+      this.handleCertNotification();
+    }
+  }
+
+  /**
+   * Render notifications
+   *
+   * @param {Boolean} certify - Is certification notification
+   *
+   * @since version TBD
+   */
+  renderNotification(certify = false) {
+    const {
+      quizAgree,
+      quizAnswer,
+      quizCertAlert,
+      quizDismiss
+    } = this.props.language;
+
+    const {
+      isNotificationActive,
+      isCertNotificationActive,
+      isCertified
+    } = this.state;
+
+    const barStyle = {
+      position: 'absolute',
+      left: '0',
+      bottom: '1rem',
+      zIndex: '10'
+    };
+
+    if (certify) {
+      const certifyLabel = document.querySelector('[for="certify"]');
+      const certifyCheckbox = document.getElementById('certify');
+      const courseRoot = document.getElementById('course-container');
+      const rootYPos = courseRoot.getBoundingClientRect().top + window.scrollY;
+
+      certifyLabel.style = 'color: #bd1827';
+      certifyCheckbox.focus();
+
+      barStyle.top = '5rem';
+      barStyle.bottom = 'initial';
+
+      window.scroll({
+        top: rootYPos,
+        behavior: 'smooth'
+      });
+    }
+
+    return (
+      <Notification
+        barStyle={ barStyle }
+        isActive={ certify
+                    ? isCertNotificationActive
+                    : isNotificationActive }
+        message={ certify
+                    ? quizCertAlert
+                    : quizAnswer }
+        action={ quizDismiss }
+        onDismiss={ certify
+                      ? this.toggleCertNotification
+                      : this.toggleNotification }
+        dismissAfter={ 5500 }
+        onClick={ certify
+                    ? this.handleCertNotification
+                    : this.handleNotification } />
+    );
   }
 
   render() {
@@ -365,9 +455,6 @@ class QuizForm extends React.Component {
       quizWrong,
       quizAttemptsRemain,
       quizAttempts,
-      quizAnswer,
-      quizCertAlert,
-      quizDismiss,
       noMoreAttempts
     } = language;
 
@@ -376,16 +463,10 @@ class QuizForm extends React.Component {
       numIncorrect,
       attemptsClassname,
       isNotificationActive,
+      isCertNotificationActive,
       isCertified,
       isModalOpen
     } = this.state;
-
-    let barStyle = {
-      position: 'absolute',
-      left: '0',
-      bottom: '1rem',
-      zIndex: '10'
-    };
 
     return (
       <div className={ styles.formContainer }>
@@ -401,22 +482,17 @@ class QuizForm extends React.Component {
               className={ styles.checkbox } />
             { quizCert }
           </label>
-          <QuestionList questions={ questions }/>
+          <QuestionList questions={ questions } />
           <QuizBtn value={ quizBtn } className={ styles.btn } />
-          <span className={ incorrectClassname }>{ numIncorrect } { quizWrong } </span>
+          <span className={ incorrectClassname }>{ numIncorrect } { quizWrong }</span>
         </form>
         <div className={ attemptsClassname }>{ quizAttemptsRemain }: { this.maxAttempts - numAttempts } - { quizAttempts }</div>
 
         { isNotificationActive &&
-          <Notification
-            barStyle={ barStyle }
-            isActive={ isNotificationActive }
-            message={ isCertified ? quizAnswer : quizCertAlert }
-            action={ quizDismiss }
-            onDismiss={ this.toggleNotification }
-            dismissAfter={ 5500 }
-            onClick={ this.handleNotification }/>
-        }
+          this.renderNotification() }
+
+        { (isCertNotificationActive && !isCertified) &&
+          this.renderNotification(true) }
 
         { isModalOpen &&
           <Modal
@@ -424,8 +500,7 @@ class QuizForm extends React.Component {
             onClose={ this.closeModal }
             language={ language }>
             { noMoreAttempts }
-          </Modal>
-        }
+          </Modal> }
       </div>
     );
   }
