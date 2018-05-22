@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Preloader from 'App/components/Preloader';
@@ -18,7 +18,7 @@ const MainLayout = (props) => {
 
   return (
     <div className='app'>
-      { isFetching ? <Preloader /> : <main>{ children }</main> }
+      { isFetching ? <Preloader /> : <Fragment>{ children }</Fragment> }
     </div>
   );
 };
