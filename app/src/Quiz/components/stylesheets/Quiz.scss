@@ -2,6 +2,7 @@
 
 .formContainer {
 	position: relative;
+	padding-bottom: 5em;
 }
 
 .question {
@@ -56,26 +57,23 @@ p.msg {
 	margin-bottom: 1em;
 }
 
-.hide {
-	visibility: hidden;
-}
-
-.show {
-	visibility: visible;
+.results {
+	margin: 0;
+	background-color: $white;
 }
 
 .incorrect {
-	display: inline-block;
-	margin-left: 1em;
+	margin: 0;
+	padding: 1em;
 	color: $thunderbird;
 }
 
 .attempts {
-	margin-top: 1em;
+	margin: 0;
 	padding: 1em;
-	background: $cream;
 	color: $black;
 	font-weight: bold;
+	background: $cream;
 }
 
 .agrmt {

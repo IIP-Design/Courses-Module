@@ -9,6 +9,7 @@ import { clearState } from 'root/sessionStorage.js';
 import Loading from 'App/components/Loading';
 import QuestionList from 'Quiz/components/QuestionList';
 import QuizBtn from 'Quiz/components/QuizBtn';
+// import QuizResults from 'Quiz/components/QuizResults';
 
 import styles from 'Quiz/components/stylesheets/Quiz.scss';
 
@@ -33,6 +34,14 @@ const Notification = Loadable({
   loader: () => import(
     /* webpackChunkName: 'Notification' */
     'react-notification/dist/notification'
+  ),
+  loading: Loading
+});
+
+const QuizResults = Loadable({
+  loader: () => import(
+    /* webpackChunkName: 'QuizResults' */
+    'Quiz/components/QuizResults'
   ),
   loading: Loading
 });
@@ -62,10 +71,9 @@ class QuizForm extends React.Component {
       isCertified: false,
       isNotificationActive: false,
       isCertNotificationActive: false,
-      numIncorrect: 0,
-      attemptsClassname: `${ styles.hide } ${ styles.attempts }`,
-      incorrectClassname: `${ styles.hide } ${ styles.incorrect }`,
-      isModalOpen: false
+      isModalOpen: false,
+      showResults: false,
+      numIncorrect: 0
     };
 
     this.toggleNotification = this.toggleNotification.bind(this);
@@ -112,10 +120,7 @@ class QuizForm extends React.Component {
    * @since 2.1.0
    */
   updateStatusNotification() {
-    this.setState({
-      attemptsClassname: `${ styles.show } ${ styles.attempts }`,
-      incorrectClassname: `${ styles.show } ${ styles.incorrect }`
-    });
+    this.setState({ showResults: true });
   }
 
 
@@ -391,9 +396,9 @@ class QuizForm extends React.Component {
     } = this.props.language;
 
     const {
+      isCertified,
       isNotificationActive,
-      isCertNotificationActive,
-      isCertified
+      isCertNotificationActive
     } = this.state;
 
     const barStyle = {
@@ -459,13 +464,12 @@ class QuizForm extends React.Component {
     } = language;
 
     const {
-      incorrectClassname,
-      numIncorrect,
-      attemptsClassname,
+      isCertified,
       isNotificationActive,
       isCertNotificationActive,
-      isCertified,
-      isModalOpen
+      isModalOpen,
+      showResults,
+      numIncorrect
     } = this.state;
 
     return (
@@ -484,9 +488,16 @@ class QuizForm extends React.Component {
           </label>
           <QuestionList questions={ questions } />
           <QuizBtn value={ quizBtn } className={ styles.btn } />
-          <span className={ incorrectClassname }>{ numIncorrect } { quizWrong }</span>
         </form>
-        <div className={ attemptsClassname }>{ quizAttemptsRemain }: { this.maxAttempts - numAttempts } - { quizAttempts }</div>
+
+        { showResults &&
+          <QuizResults
+            numIncorrect={ numIncorrect }
+            quizWrong={ quizWrong }
+            quizAttemptsRemain={ quizAttemptsRemain }
+            maxAttempts={ this.maxAttempts }
+            numAttempts={ numAttempts }
+            quizAttempts={ quizAttempts } /> }
 
         { isNotificationActive &&
           this.renderNotification() }
