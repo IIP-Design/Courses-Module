@@ -8,8 +8,6 @@ import { clearState } from 'root/sessionStorage.js';
 
 import Loading from 'App/components/Loading';
 import QuestionList from 'Quiz/components/QuestionList';
-import QuizBtn from 'Quiz/components/QuizBtn';
-// import QuizResults from 'Quiz/components/QuizResults';
 
 import styles from 'Quiz/components/stylesheets/Quiz.scss';
 
@@ -487,7 +485,10 @@ class QuizForm extends React.Component {
             { quizCert }
           </label>
           <QuestionList questions={ questions } />
-          <QuizBtn value={ quizBtn } className={ styles.btn } />
+          <input
+            type='submit'
+            value={ quizBtn }
+            className={ styles.submit } />
         </form>
 
         { showResults &&
