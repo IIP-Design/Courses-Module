@@ -19,5 +19,17 @@
       "mode": "wrap",
       "ignoreFilenames": ["node_modules"]
     }]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": ["env", "react"],
+      "plugins": [
+        ["babel-plugin-webpack-aliases",
+          {
+            "config": "./webpack.production.config.js"
+          }
+        ]
+      ]
+    }
+  }
 }

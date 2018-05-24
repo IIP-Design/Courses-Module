@@ -1,0 +1,4 @@
+--require jsdom-global/register
+--require babel-core/register
+--recursive
+--watch
