@@ -27,7 +27,6 @@ module.exports = (env) => {
 
   return {
     mode: 'production',
-    devtool: 'source-map',
     entry: {
       app: [path.join(__dirname, 'app/src', 'index.js')],
       lesson: [path.join(__dirname, 'app/src/Lesson')],
