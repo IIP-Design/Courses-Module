@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from 'Quiz/components/stylesheets/Quiz.scss';
 
-const { number } = PropTypes;
+const { number, string } = PropTypes;
 
 
 /**
@@ -39,11 +39,11 @@ const QuizResults = (props) => {
 
 QuizResults.propTypes = {
   numIncorrect: number,
-  quizWrong: number,
-  quizAttemptsRemain: number,
+  quizWrong: string,
+  quizAttemptsRemain: string,
   maxAttempts: number,
   numAttempts: number,
-  quizAttempts: number
+  quizAttempts: string
 };
 
 
