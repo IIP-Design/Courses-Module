@@ -6,8 +6,7 @@
         "browsers": ["> 0.2%"]
       },
       "useBuiltIns": true,
-      "modules": false,
-      "debug": true
+      "modules": false
     }],
     "react"
   ],
