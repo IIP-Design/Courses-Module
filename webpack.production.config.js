@@ -11,12 +11,12 @@ module.exports = (env) => {
   if (env) {
     switch (env.BUCKET) {
       case 'dev':
-      case 'stage':
         CDP_MODULE_PATH = `https://iip-design-${env.BUCKET}-modules.s3.amazonaws.com/${subDir}`;
         break;
 
+      case 'stage':
       case 'prod':
-        CDP_MODULE_PATH = `https://iipdesignmodules.america.gov/${subDir}`;
+        CDP_MODULE_PATH = `https://iipdesignmodules.america.gov/${subDir}v2.2.0`;
         break;
 
       default:
