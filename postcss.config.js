@@ -1,10 +1,10 @@
-const package = require('./package.json');
+const { browserslist } = require('./package.json');
 
 module.exports = {
   parser: 'postcss-scss',
   plugins: {
-    'autoprefixer': {
-      browsers: package.browserslist
+    autoprefixer: {
+      browsers: browserslist
     }
   }
-}
+};
