@@ -1,11 +1,13 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHashHistory } from 'history';
 import CourseReactGA from 'react-ga';
 import Loadable from 'react-loadable';
 
 import Loading from 'App/components/Loading';
 import { MainContainer } from 'App';
+
+const history = createHashHistory();
 
 
 /**
@@ -73,8 +75,8 @@ checkForTrackingCode();
  */
 
 function logPageView(location) {
-  if (location) {
-    const { pathname } = location;
+  if (history.location) {
+    const { pathname } = history.location;
     if (pathname !== '/') {
       CourseReactGA.set({ page: pathname });
       CourseReactGA.pageview(pathname);
@@ -82,7 +84,6 @@ function logPageView(location) {
   }
 }
 
-const history = createHashHistory();
 history.listen(logPageView);
 
 
@@ -94,7 +95,7 @@ history.listen(logPageView);
 
 const Routes = () => (
   <MainContainer>
-    <Router history={ history }>
+    <Router>
       <Switch>
         <Route exact path='/' component={ CourseContainer } />
         <Route path='/lesson/:lessonSlug' component={ LessonContainer } />
