@@ -16,7 +16,7 @@ module.exports = (env) => {
 
       case 'stage':
       case 'prod':
-        CDP_MODULE_PATH = `https://iipdesignmodules.america.gov/${subDir}v2.2.0`;
+        CDP_MODULE_PATH = `https://iipdesignmodules.america.gov/${subDir}v2.2.0/`;
         break;
 
       default:
