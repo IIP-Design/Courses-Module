@@ -14,7 +14,7 @@ const { string, array, object } = PropTypes;
  *
  * @param {Object} props - React props object
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const rawDescription = props => ({ __html: props.description });
@@ -25,7 +25,7 @@ const rawDescription = props => ({ __html: props.description });
  *
  * @param {Object} props - React props object
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const rawTranscript = props => ({ __html: props.transcript });
@@ -38,7 +38,7 @@ const rawTranscript = props => ({ __html: props.transcript });
  * @param {Object} obj - the resource object
  * @return {Boolean} boolean - true if obj has prop, otherwise false
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const hasProp = (obj, prop) => {
@@ -51,7 +51,7 @@ const hasProp = (obj, prop) => {
  *
  * @param {Object} resource - individual resource
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const renderResource = (resource) => {

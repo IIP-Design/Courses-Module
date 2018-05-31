@@ -12,7 +12,7 @@ const { array, string } = PropTypes;
  * @param {Object} choice - individual answer choice
  * @param {String} questionId - the question's id
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const renderChoice = (choice, questionId) => {

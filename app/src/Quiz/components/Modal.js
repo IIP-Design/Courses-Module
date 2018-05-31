@@ -11,7 +11,7 @@ import styles from 'Quiz/components/stylesheets/Modal.scss';
  *
  * @param {Object} props - React props object
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const Modal = (props) => {

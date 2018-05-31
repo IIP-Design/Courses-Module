@@ -18,7 +18,7 @@ const { array } = PropTypes;
  *
  * @param {Object} term - individual term
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const renderTerm = (term) => {

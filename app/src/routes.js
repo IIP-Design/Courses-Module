@@ -13,7 +13,7 @@ const history = createHashHistory();
 /**
  * Dynamic imports
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const CourseContainer = Loadable({

@@ -13,7 +13,7 @@ const { array } = PropTypes;
  * @param {Object} instructor - individual instructor
  * @param {Number} numInstructors - instructor count
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const renderInstructor = (instructor, numInstructors) => {

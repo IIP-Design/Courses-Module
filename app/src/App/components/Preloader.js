@@ -8,7 +8,7 @@ import styles from 'App/components/stylesheets/Preloader.scss';
 /**
  * The Preloader component
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const Preloader = () => (

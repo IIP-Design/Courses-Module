@@ -17,7 +17,7 @@ const { array, func, number, string, object } = PropTypes;
 /**
  * Dynamic imports
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const Modal = Loadable({

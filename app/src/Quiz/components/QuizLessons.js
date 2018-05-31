@@ -12,7 +12,7 @@ const { array } = PropTypes;
  *
  * @param {Object} lesson - individual lesson
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const renderLesson = (lesson) => {

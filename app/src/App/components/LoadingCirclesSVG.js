@@ -6,7 +6,7 @@ import React from 'react';
  *
  * @param {Object} props - React props object
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const LoadingCirclesSVG = (props) => {

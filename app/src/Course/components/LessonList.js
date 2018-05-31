@@ -16,7 +16,7 @@ const { array } = PropTypes;
  * @param {Object} lesson - individual lesson
  * @param {Object} language - object of language text
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const renderLessonList = (lesson, language) => {

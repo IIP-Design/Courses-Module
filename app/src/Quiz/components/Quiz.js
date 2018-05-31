@@ -13,7 +13,7 @@ const { array, string, object } = PropTypes;
 /**
  * Dynamic imports
  *
- * @since tba
+ * @since 2.2.0
  */
 
 const QuizFormContainer = Loadable({
