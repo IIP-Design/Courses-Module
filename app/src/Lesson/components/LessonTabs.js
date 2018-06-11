@@ -123,12 +123,13 @@ const LessonTabs = (props) => {
 
       <TabPanel>
         <Fragment>
-          <p>
-            <a
-              href={ transcriptFile }
-              target='_blank'
-              className={ `${ tabStyles.print } print` }>{ print }</a>
-          </p>
+          { transcriptFile && 
+            <p>
+              <a
+                href={ transcriptFile }
+                target='_blank'
+                className={ `${ tabStyles.print } print` }>{ print }</a>
+            </p> }
           <div dangerouslySetInnerHTML={ rawTranscript( props ) } />
         </Fragment>
       </TabPanel>
