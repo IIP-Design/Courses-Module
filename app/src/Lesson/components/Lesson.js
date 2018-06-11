@@ -43,16 +43,17 @@ class Lesson extends React.Component {
       glossary
     } = lesson;
 
-    const isLangEnglish = (language.locale === 'en') ? 0 : 1;
+    const turnCaptionOn = (language.locale === 'en') ? 0 : 1;
 
     media = media || {};
     const video = (media && media.video) ? media.video : {};
     const audio = (media && media.audio) ? media.audio : {};
-    // let turnCaptionOn = isLangEnglish;
+
     const mediaOpts = {
       playerVars: {
         hl: language.locale,
-        cc_load_policy: isLangEnglish
+        cc_lang_pref: language.locale,
+        cc_load_policy: turnCaptionOn
       }
     };
 
