@@ -24,7 +24,7 @@ const QuizFormContainer = props => <QuizForm { ...props } />;
 QuizFormContainer.propTypes = {
   userAnswers: array,
   numAttempts: number,
-  slug: string,
+  courseName: string,
   lessons: array,
   questions: array,
   incrementNumAttempts: func,
@@ -43,22 +43,23 @@ QuizFormContainer.propTypes = {
 
 const mapStateToProps = ({ quiz, app }) => {
   const { userAnswers, numAttempts } = quiz;
-  const { slug, lessons } = app.data;
+  const { title, lessons } = app.data;
+  const courseName = title;
   const questions = flattenArray(lessons, 'quiz');
 
   /**
    * @typedef {Object} QuizFormContainerStatePropsObject
    * @property {Array} userAnswers - The users answers
    * @property {Number} numAttempts - The number of times the user has tried to submit the quiz
-   * @property {String} slug - The slug of the current course
+   * @property {String} courseName - The name of the current course
    * @property {Array} lessons - The course lessons
    * @property {Array} questions - The course quiz questions
    */
 
   return {
-    slug,
     userAnswers,
     numAttempts,
+    courseName,
     lessons,
     questions
   };
