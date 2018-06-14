@@ -387,14 +387,12 @@ class QuizForm extends React.Component {
    */
   renderNotification(certify = false) {
     const {
-      quizAgree,
       quizAnswer,
       quizCertAlert,
       quizDismiss
     } = this.props.language;
 
     const {
-      isCertified,
       isNotificationActive,
       isCertNotificationActive
     } = this.state;
