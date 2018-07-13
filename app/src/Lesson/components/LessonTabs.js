@@ -62,6 +62,8 @@ const renderResource = (resource) => {
     src_size
   } = resource;
 
+  if (!url && !src) return;
+
   let href, fileinfo;
   if (hasProp( resource, 'url' )) {
     href = url; 
@@ -103,9 +105,11 @@ const LessonTabs = (props) => {
     print
   } = language;
 
-  let resourcesList;
+  let resourcesList = [];
+  let resourcesCount = 0;
   if (resources) {
     resourcesList = resources.map(resource => renderResource(resource));
+    resourcesCount = resourcesList.length;
   }
 
   return (
@@ -113,7 +117,7 @@ const LessonTabs = (props) => {
       <TabList>
         <Tab>{ overview }</Tab>
         <Tab>{ transcript }</Tab>
-        { resources && <Tab>{ language.resources }</Tab> }
+        { resourcesCount > 0 && <Tab>{ language.resources }</Tab> }
         { hasProp(audio, 'src') && <Tab>{ language.audio }</Tab> }
       </TabList>
 
@@ -134,7 +138,7 @@ const LessonTabs = (props) => {
         </Fragment>
       </TabPanel>
 
-      { resources &&
+      { resourcesCount > 0 &&
         <TabPanel>
           <ul>{ resourcesList }</ul>
         </TabPanel> }
