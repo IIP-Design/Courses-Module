@@ -108,3 +108,11 @@
     border: 0;
   }
 }
+
+.categories {
+  display: none;
+}
+
+.category:not(:last-child):after {
+  content: ', ';
+}

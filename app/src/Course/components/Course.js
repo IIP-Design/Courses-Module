@@ -23,6 +23,7 @@ class Course extends React.Component {
   constructor(props) {
     super(props);
     this.rawDescription = this.rawDescription.bind(this);
+    this.renderCategory = this.renderCategory.bind(this);
   }
 
 
@@ -36,16 +37,37 @@ class Course extends React.Component {
     return { __html: this.props.course.description };
   }
 
+  renderCategory(category) {
+    const { id, title } = category;
+
+    if (!id || !title) return;
+
+    return (
+      <span
+        key={ id }
+        id={ `category-${ id}` }
+        className={ styles.category }>
+        { title }
+      </span>
+    );
+  }
 
   render() {
     const { course, language } = this.props;
-    const { lessons } = course;
+    const { lessons, categories } = course;
     const link = lessons[0].slug;
 
     // Return a flat array of unique Instructors by id
     const instructors = flattenArray(lessons, 'instructors')
       .sort(sortBy('id', 'desc'))
       .reduce(uniqBy, []);
+
+    let categoriesList = [];
+    let categoriesCount = 0;
+    if (categories) {
+      categoriesList = categories.filter(category => category.slug !== 'uncategorized').map(category => this.renderCategory(category));
+      categoriesCount = categoriesList.length;
+    }
 
     let src;
     let alt;
@@ -57,6 +79,13 @@ class Course extends React.Component {
 
     return (
       <Fragment>
+        { categoriesCount > 0 &&
+          <div className={ `topics ${ styles.categories }` }>
+            <span className='topics-label'>
+              Topic{ categoriesCount > 1 && 's' }{ ': ' }
+            </span>
+            { categoriesList }
+          </div> }
         <section className={ `${ styles.intro } course-intro` }>
           <div className={ `${ styles.feature } course-intro-feature` }>
             <div className={ `${ styles.img } course-intro-image` }>
