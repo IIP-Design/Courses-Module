@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.2.7] - 2018-07-20
+### Changed
+- IIPNET-93: Adjust gradient on featured image to fade more gradually
+
 ## [2.2.6] - 2018-07-16
 ### Added
 - IIPNET-100: Display the category(ies) under the course title
