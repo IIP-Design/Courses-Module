@@ -58,10 +58,16 @@
 @supports (display: grid) {
   .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    grid-template-columns: 1fr;
     grid-gap: 1em;
   }
   
+  @include bp($big-mobile) {
+    .container {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, .5fr));
+    }
+  }
+
   @include bp($tablet) {
     .instructor {
       &:not(:last-child) {
